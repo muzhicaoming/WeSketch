@@ -41,6 +41,7 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +64,8 @@
     <Compile Include="WeSketchApp.xaml.cs">
       <DependentUpon>WeSketchApp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WeSketchRestRequests.cs" />
+    <Compile Include="WeSketchSignalrClient.cs" />
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +116,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WeSketchSharedDataModels\WeSketchSharedDataModels.csproj">
+      <Project>{f5e3df24-3970-4ae4-8c65-67571472e788}</Project>
+      <Name>WeSketchSharedDataModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
