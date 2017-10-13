@@ -24,5 +24,15 @@ namespace WeSketch
         {
             InitializeComponent();
         }
+
+        private void buttonRegister_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Registration.xaml", UriKind.Relative));
+        }
+
+        private void buttonLogin_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("WeSketchApp.xaml", UriKind.Relative));
+        }
     }
 }

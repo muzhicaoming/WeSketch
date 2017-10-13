@@ -29,7 +29,20 @@ namespace WeSketchAPI.Controllers
             var result = new Result();
             try
             {
-                // TODO: Add code to log user in.
+                WeSketchSecurity security = new WeSketchSecurity();
+                User existingUser = security.Login(user, password);
+                WeSketchSharedDataModels.User newUserModel = new WeSketchSharedDataModels.User()
+                {
+                    UserID = existingUser.UserID,
+                    UserName = existingUser.UserName,
+                    Board = new Board()
+                    {
+                        BoardID = existingUser.UserBoard.BoardID,
+                        Owner = existingUser.UserBoard.BoardOwner
+                    }
+                };
+
+                result.ResultJSON = JsonConvert.SerializeObject(existingUser);
             }
             catch(Exception e)
             {
@@ -46,12 +59,25 @@ namespace WeSketchAPI.Controllers
         /// <param name="password">The password.</param>
         /// <returns></returns>
         [HttpPost]
-        public string CreateUser(string user, string password)
+        public string CreateUser(string user, string password, string email)
         {
             var result = new Result();
             try
             {
-                // TODO: Log user in.
+                WeSketchSecurity security = new WeSketchSecurity();
+                User newUser = security.CreateUser(user, password, email);
+                WeSketchSharedDataModels.User newUserModel = new WeSketchSharedDataModels.User()
+                {
+                    UserID = newUser.UserID,
+                    UserName = newUser.UserName,
+                    Board = new Board()
+                    {
+                        BoardID = newUser.UserBoard.BoardID,
+                        Owner = newUser.UserBoard.BoardOwner
+                    }
+                };
+
+                result.ResultJSON = JsonConvert.SerializeObject(newUserModel);
             }
             catch (Exception e)
             {

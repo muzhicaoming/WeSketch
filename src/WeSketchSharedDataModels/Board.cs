@@ -9,5 +9,7 @@ namespace WeSketchSharedDataModels
     public class Board
     {
         public Guid BoardID { set; get; }
+        public bool Owner { set; get; }
+        public Dictionary<Guid, string> ConnectedUsers { set; get; } = new Dictionary<Guid, string>();
     }
 }

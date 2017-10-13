@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="WeSketch">
+  <DataContextMoniker Name="/WeSketchDataContext" />
+  <nestedChildShapes>
+    <classShape Id="fb54b15d-5eec-4d1f-8f9b-8a8354d48cd5" absoluteBounds="0.75, 1.125, 2, 1.9631982421875">
+      <DataClassMoniker Name="/WeSketchDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eeeb6a83-578c-4ec6-bd21-83569bd450da" absoluteBounds="0.765, 1.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e8116ea5-4dcd-4c83-8547-b0c0f4483e6f" absoluteBounds="4.375, 1.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/WeSketchDataContext/UserBoard" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c2cdfd03-ffa1-4d9d-9377-fe18c99896ea" absoluteBounds="4.39, 1.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.28929768880208); (4.375 : 2.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/WeSketchDataContext/User/User_UserBoard" />
+      <nodes>
+        <classShapeMoniker Id="fb54b15d-5eec-4d1f-8f9b-8a8354d48cd5" />
+        <classShapeMoniker Id="e8116ea5-4dcd-4c83-8547-b0c0f4483e6f" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

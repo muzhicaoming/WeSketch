@@ -38,6 +38,32 @@ namespace WeSketch
         public async void CreateUser(string user, string password)
         {
             // TODO: Add code to send post request to create user.
+            var data = new Dictionary<string, string>
+            {
+                { "user", user },
+                { "password", password }
+            };
+            var dataFormContent = new FormUrlEncodedContent(data);
+            HttpResponseMessage postResult = await _httpClient.PostAsync($"{_url}CreateUser", dataFormContent);
+            if (postResult.IsSuccessStatusCode)
+            {
+                Result result = JsonConvert.DeserializeObject<Result>(await postResult.Content.ReadAsStringAsync());
+
+                if (!result.Error)
+                {
+                    User resultUser = JsonConvert.DeserializeObject<User>(result.ResultJSON);
+                    resultUser.
+                    // TODO: Need to add code to update the users board id.
+                }
+                else
+                {
+                    throw new Exception(result.ErrorMessage);
+                }
+            }
+            else
+            {
+                throw new Exception($"Error:{postResult.StatusCode}-{postResult.ReasonPhrase}");
+            }
         }
 
         /// <summary>
