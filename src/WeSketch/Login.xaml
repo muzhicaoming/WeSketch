@@ -7,9 +7,18 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="Login">
-
     <Grid>
-        <Label Content="Test TEST" HorizontalAlignment="Left" Margin="67,57,0,0" VerticalAlignment="Top" Height="105" Width="161"/>
-
+        <DockPanel LastChildFill="False" Background="White">
+            <StackPanel DockPanel.Dock="Top" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <TextBlock FontWeight="ExtraBold">WeSketch</TextBlock>
+                <TextBlock>User Name:</TextBlock>
+                <TextBox Name="userNsme"></TextBox>
+                <TextBlock>Password:</TextBlock>
+                <PasswordBox Name="password"></PasswordBox> 
+                <Button Name="buttonLogin" Content="Login" Click="buttonLogin_Click"/>
+                <Button Name="buttonRegister" Content="Register New User" Click="buttonRegister_Click"/>
+            </StackPanel>
+        </DockPanel>
     </Grid>
+
 </Page>

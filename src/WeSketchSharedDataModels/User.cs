@@ -9,7 +9,7 @@ namespace WeSketchSharedDataModels
     public class User
     {
         public string UserName { set; get; }
-        public Guid Token { set; get; }
+        public Guid UserID { set; get; }
         public Board Board { set; get; }
     }
 }
