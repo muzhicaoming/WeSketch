@@ -28,6 +28,7 @@ namespace WeSketch
         public async void Login(string user, string password)
         {
             // TODO: Add code to send post request to log user in.
+           
         }
 
         /// <summary>

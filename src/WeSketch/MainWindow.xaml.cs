@@ -27,6 +27,18 @@ namespace WeSketch
             baseFrame.Navigate(new Uri("Login.xaml", UriKind.Relative));
         }
 
+        private void clearButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.mainInkCanvas.Strokes.Clear();
+            MessageBox.Show("Clear button pressed.");
+        }
+
+        private void closeButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("WeSketch close button pressed.");
+            this.Close();
+        }
+
         //private void MainWindow_Initialized(object sender, EventArgs e)
         //{
         //    NavigationService.GetNavigationService(this.baseFrame).Navigate(new Uri("Login.xaml", UriKind.Relative));
