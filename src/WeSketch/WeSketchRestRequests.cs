@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Net.Http;
 using WeSketchSharedDataModels;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace WeSketch
 {
@@ -25,10 +26,32 @@ namespace WeSketch
         /// </summary>
         /// <param name="user">The user.</param>
         /// <param name="password">The password.</param>
-        public async void Login(string user, string password)
+        public async Task<User> Login(string user, string password)
         {
-            // TODO: Add code to send post request to log user in.
-           
+            var data = new Dictionary<string, string>
+            {
+                { "user", user },
+                { "password", password }
+            };
+            var dataFormContent = new FormUrlEncodedContent(data);
+            HttpResponseMessage postResult = await _httpClient.PostAsync($"{_url}Login", dataFormContent);
+            if (postResult.IsSuccessStatusCode)
+            {
+                Result result = JsonConvert.DeserializeObject<Result>(await postResult.Content.ReadAsStringAsync());
+
+                if (!result.Error)
+                {
+                    return JsonConvert.DeserializeObject<User>(result.ResultJSON);
+                }
+                else
+                {
+                    throw new Exception(result.ErrorMessage);
+                }
+            }
+            else
+            {
+                throw new Exception($"Error:{postResult.StatusCode}-{postResult.ReasonPhrase}");
+            }
         }
 
         /// <summary>
@@ -36,7 +59,7 @@ namespace WeSketch
         /// </summary>
         /// <param name="user">The user.</param>
         /// <param name="password">The password.</param>
-        public async void CreateUser(string user, string password)
+        public async Task<User> CreateUser(string user, string password)
         {
             // TODO: Add code to send post request to create user.
             var data = new Dictionary<string, string>
@@ -52,9 +75,7 @@ namespace WeSketch
 
                 if (!result.Error)
                 {
-                    User resultUser = JsonConvert.DeserializeObject<User>(result.ResultJSON);
-                    resultUser.
-                    // TODO: Need to add code to update the users board id.
+                    return JsonConvert.DeserializeObject<User>(result.ResultJSON);
                 }
                 else
                 {
@@ -73,7 +94,7 @@ namespace WeSketch
         /// <param name="user">The user.</param>
         /// <param name="hostUser">The host user.</param>
         /// <exception cref="Exception"></exception>
-        public async void JoinBoard(string user, string hostUser)
+        public async Task<Board> JoinBoard(string user, string hostUser)
         {
             var data = new Dictionary<string, string>
             {
@@ -88,8 +109,7 @@ namespace WeSketch
 
                 if (!result.Error)
                 {
-                    User resultUser = JsonConvert.DeserializeObject<User>(result.ResultJSON);
-                    // TODO: Need to add code to update the users board id.
+                    return JsonConvert.DeserializeObject<Board>(result.ResultJSON);
                 }
                 else
                 {

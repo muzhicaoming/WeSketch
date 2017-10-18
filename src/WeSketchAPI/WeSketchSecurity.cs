@@ -5,6 +5,8 @@ using System.Web;
 using System.Configuration;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.AspNet.SignalR.Hubs;
+using System.Threading.Tasks;
 
 namespace WeSketchAPI
 {

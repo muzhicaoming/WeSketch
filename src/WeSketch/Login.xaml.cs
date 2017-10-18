@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WeSketchSharedDataModels;
 
 namespace WeSketch
 {
@@ -20,6 +21,7 @@ namespace WeSketch
     /// </summary>
     public partial class Login : Page
     {
+        WeSketchRestRequests _rest = new WeSketchRestRequests();
         public Login()
         {
             InitializeComponent();
@@ -32,6 +34,28 @@ namespace WeSketch
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(userName.Text) &&
+                !string.IsNullOrWhiteSpace(password.Password))
+            {
+                try
+                {
+                    Task.Run(() => AuthenticateUser());
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error");
+                }
+            }
+        }
+
+        private async void AuthenticateUser()
+        {
+            await _rest.Login(userName.Text, password.Password).ContinueWith(usr => UserLoggedIn(usr.Result));
+        }
+
+        private void UserLoggedIn(User user)
+        {
+            WeSketchClientData.Instance.User = user;
             NavigationService.Navigate(new Uri("WeSketchApp.xaml", UriKind.Relative));
         }
     }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WeSketchSharedDataModels;
 
 namespace WeSketch
 {
@@ -20,9 +21,20 @@ namespace WeSketch
     /// </summary>
     public partial class WeSketchApp : Page
     {
+        private WeSketchRestRequests _rest = new WeSketchRestRequests();
+        private WeSketchSignalrClient _client = new WeSketchSignalrClient();
+        
         public WeSketchApp()
         {
             InitializeComponent();
+            _client.UserAuthenticated(WeSketchClientData.Instance.User.UserID);
+            _client.JoinBoardGroup(WeSketchClientData.Instance.User.Board.BoardID);
+            _client.BoardInvitationReceivedEvent += BoardInvitationReceivedEvent;
+        }
+
+        private void BoardInvitationReceivedEvent(string user)
+        {
+            throw new NotImplementedException();
         }
     }
 }

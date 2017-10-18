@@ -12,7 +12,7 @@
             <StackPanel DockPanel.Dock="Top" VerticalAlignment="Center" HorizontalAlignment="Center" >
                 <TextBlock FontWeight="ExtraBold">WeSketch</TextBlock>
                 <TextBlock>User Name:</TextBlock>
-                <TextBox Name="userNsme"></TextBox>
+                <TextBox x:Name="userName"></TextBox>
                 <TextBlock>Password:</TextBlock>
                 <PasswordBox Name="password"></PasswordBox> 
                 <Button Name="buttonLogin" Content="Login" Click="buttonLogin_Click"/>
