@@ -23,13 +23,6 @@ namespace WeSketch
         public MainWindow()
         {
             InitializeComponent();
-
-            baseFrame.Navigate(new Uri("Login.xaml", UriKind.Relative));
         }
-
-        //private void MainWindow_Initialized(object sender, EventArgs e)
-        //{
-        //    NavigationService.GetNavigationService(this.baseFrame).Navigate(new Uri("Login.xaml", UriKind.Relative));
-        //}
     }
 }

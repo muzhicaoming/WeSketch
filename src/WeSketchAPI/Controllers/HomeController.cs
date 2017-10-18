@@ -94,12 +94,33 @@ namespace WeSketchAPI.Controllers
         /// <param name="boardId">The board identifier.</param>
         /// <returns></returns>
         [HttpPost]
-        public string JoinBoard(string user, string hostUser)
+        public string JoinBoard(Guid userId, string userName, string hostUser)
         {
             var result = new Result();
+            var board = new Board();
             try
             {
-                // TODO: Update user board info on board record.
+                using (var db = new WeSketchDataContext())
+                {
+                    var user = db.Users.Single(usr => usr.UserName == userName);
+                    if (user.UserID == userId)
+                    {
+                        var host = db.Users.Single(usrHost => usrHost.UserName == hostUser);
+
+                        user.UserBoard.BoardID = host.UserBoard.BoardID;
+                        user.UserBoard.BoardOwner = false;
+                        user.UserBoard.CanSketch = false;
+                        db.SubmitChanges();
+
+                        board.BoardID = host.UserBoard.BoardID;
+                        board.Owner = false;
+                        result.ResultJSON = JsonConvert.SerializeObject(board);
+                    }
+                    else
+                    {
+                        throw new Exception("Invalid user.");
+                    }
+                }
             }
             catch (Exception e)
             {

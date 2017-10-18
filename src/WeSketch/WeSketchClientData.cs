@@ -7,10 +7,18 @@ using WeSketchSharedDataModels;
 
 namespace WeSketch
 {
-    class WeSketchClientData
+    public class WeSketchClientData
     {
         public delegate void BoardChangedEventHandler();
-        public event BoardChangedEventHandler BoardChangedEvent;
+        public static event BoardChangedEventHandler BoardChangedEvent;
+
+
+        private static Lazy<WeSketchClientData> _instance = new Lazy<WeSketchClientData>(() => new WeSketchClientData());
+        public static WeSketchClientData Instance => _instance.Value;
+        private WeSketchClientData()
+        {
+
+        }
 
         public User User { set; get; }
 
@@ -28,5 +36,10 @@ namespace WeSketch
             User.Board.Owner = owner;
             BoardChangedEvent?.Invoke();
         }
+    }
+
+    public class WeSketchEventArgs
+    {
+
     }
 }

@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WeSketchSharedDataModels;
 
 namespace WeSketch
 {
@@ -21,6 +22,7 @@ namespace WeSketch
     /// </summary>
     public partial class Registration : Page
     {
+        WeSketchRestRequests _rest = new WeSketchRestRequests();
         public Registration()
         {
             InitializeComponent();
@@ -28,7 +30,20 @@ namespace WeSketch
 
         private void regiserNew_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("Login.xaml", UriKind.Relative));
+            if(ValidateInput())
+            {
+                Task.Run(() => CreateUser());
+            }
+        }
+
+        private bool ValidateInput()
+        {
+            return !string.IsNullOrWhiteSpace(userName.Text) &&
+                !string.IsNullOrWhiteSpace(email.Text) &&
+                !string.IsNullOrWhiteSpace(password.Password) &&
+                !string.IsNullOrWhiteSpace(passwordConfirm.Password) &&
+                password.Password.Equals(passwordConfirm.Password);
+
         }
 
         private void popup_Closed(object sender, EventArgs e)
@@ -49,6 +64,17 @@ namespace WeSketch
         private void passwordConfirm_PasswordChanged(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private async void CreateUser()
+        {
+            await _rest.CreateUser(userName.Text, password.Password).ContinueWith(usr => UserLoggedIn(usr.Result));
+        }
+
+        private void UserLoggedIn(User user)
+        {
+            WeSketchClientData.Instance.User = user;
+            NavigationService.Navigate(new Uri("WeSketchApp.xaml", UriKind.Relative));
         }
     }
 }

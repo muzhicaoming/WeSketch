@@ -37,5 +37,10 @@ namespace WeSketchAPI
         {
 
         }
+
+        public void SendUserInvite()
+        {
+
+        }
     }
 }

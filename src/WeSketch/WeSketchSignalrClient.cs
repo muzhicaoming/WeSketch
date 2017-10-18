@@ -15,6 +15,9 @@ namespace WeSketch
     /// </summary>
     class WeSketchSignalrClient
     {
+
+        public delegate void BoardInvitationReceivedEventHandler(string user);
+        public event BoardInvitationReceivedEventHandler BoardInvitationReceivedEvent;
 #if DEBUG
         private string _url = ConfigurationManager.AppSettings["debugUrl"];
 #else
@@ -24,6 +27,10 @@ namespace WeSketch
         private IHubProxy _hubProxy;
 
         private Queue<Action> _queuedActions = new Queue<Action>();
+
+
+        public delegate void BoardChangedEventHandler();
+        public event BoardChangedEventHandler BoardChangedEvent;
 
         public WeSketchSignalrClient()
         {
@@ -36,6 +43,9 @@ namespace WeSketch
             _hub.Error += Hub_Error;
             _hub.StateChanged += Hub_StateChanged;
             _hubProxy = _hub.CreateHubProxy("WeSketchAPIHub");
+
+            _hubProxy.On("ReceiveInvitation", user => ReceiveInvitation(user));
+
             _hub.Start().Wait();
         }
 
@@ -78,7 +88,7 @@ namespace WeSketch
         {
         }
 
-        public void ReceiveStrokes()
+        public void ReceiveStrokes(string serializedStrokes)
         {
             if (_hub.State == ConnectionState.Connected)
             {
@@ -92,7 +102,7 @@ namespace WeSketch
             }
         }
 
-        public void SendStrokes()
+        public void SendStrokes(Guid boardId)
         {
             if (_hub.State == ConnectionState.Connected)
             {
@@ -107,7 +117,7 @@ namespace WeSketch
             }
         }
 
-        public void SendStrokesToUser()
+        public void SendStrokesToUser(string userId)
         {
             if (_hub.State == ConnectionState.Connected)
             {
@@ -120,6 +130,26 @@ namespace WeSketch
                     _queuedActions.Enqueue(new Action(() => ));
                 }
             }
+        }
+
+        public void JoinBoardGroup(Guid boardId)
+        {
+            _hubProxy.Invoke<Task>("JoinBoardGroup", boardId);
+        }
+
+        public void LeaveBoardGroup(Guid boardId)
+        {
+            _hubProxy.Invoke<Task>("LeaveBoardGroup", boardId);
+        }
+
+        public void ReceiveInvitation(string user)
+        {
+            BoardInvitationReceivedEvent?.Invoke(user);
+        }
+
+        public void UserAuthenticated(Guid userId)
+        {
+            _hubProxy.Invoke("UserAuthenticated", userId);
         }
 
         public void Dispose()
