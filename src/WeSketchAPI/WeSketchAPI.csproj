@@ -182,7 +182,6 @@
       <DependentUpon>WeSketch.dbml</DependentUpon>
     </Compile>
     <Compile Include="WeSketchSecurity.cs" />
-    <Compile Include="WeSketchSignalRClientMessenger.cs" />
     <Compile Include="WeSketchSignalRHub.cs" />
   </ItemGroup>
   <ItemGroup>
