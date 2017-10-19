@@ -36,6 +36,13 @@ namespace WeSketch
             _client.BoardInvitationReceivedEvent += BoardInvitationReceivedEvent;
             _client.BoardChangedEvent += _client_BoardChangedEvent;
             _client.StrokesReceivedEvent += _client_StrokesReceivedEvent;
+            _client.StrokeRequestReceivedEvent += _client_StrokeRequestReceivedEvent;
+        }
+
+        private void _client_StrokeRequestReceivedEvent(string requestingUser)
+        {
+            // TODO: Send the board strokes to the requesting user.
+            throw new NotImplementedException();
         }
 
         private void Ik_StrokeErased(object sender, RoutedEventArgs e)

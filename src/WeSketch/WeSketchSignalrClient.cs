@@ -15,14 +15,17 @@ namespace WeSketch
     /// </summary>
     class WeSketchSignalrClient
     {
-        public delegate void StrokesReceivedEventHandler(System.Windows.Ink.StrokeCollection strokes);
-        public event StrokesReceivedEventHandler StrokesReceivedEvent;
-
         public delegate void BoardChangedEventHandler(Guid boardId);
         public event BoardChangedEventHandler BoardChangedEvent;
 
         public delegate void BoardInvitationReceivedEventHandler(string user, Guid boardId);
         public event BoardInvitationReceivedEventHandler BoardInvitationReceivedEvent;
+
+        public delegate void StrokesReceivedEventHandler(System.Windows.Ink.StrokeCollection strokes);
+        public event StrokesReceivedEventHandler StrokesReceivedEvent;
+
+        public delegate void StrokeRequestReceivedEventHandler(string requestingUser);
+        public event StrokeRequestReceivedEventHandler StrokeRequestReceivedEvent;
 #if DEBUG
         private string _url = ConfigurationManager.AppSettings["debugUrl"];
 #else
@@ -38,7 +41,6 @@ namespace WeSketch
         public WeSketchSignalrClient()
         {
             _hub = new HubConnection(_url);
-            _hub.Received += Hub_Received;
             _hub.Reconnected += Hub_Reconnected;
             _hub.Reconnecting += Hub_Reconnecting;
             _hub.Closed += Hub_Closed;
@@ -47,7 +49,9 @@ namespace WeSketch
             _hub.StateChanged += Hub_StateChanged;
             _hubProxy = _hub.CreateHubProxy("WeSketchAPIHub");
 
-            _hubProxy.On("ReceiveInvitation", user => ReceiveInvitation(user));
+            _hubProxy.On<string, Guid>("ReceiveInvitation", (user, boardId) => ReceiveInvitation(user, boardId));
+            _hubProxy.On("ReceiveStrokes", strokes => ReceiveStrokes(strokes));
+            _hubProxy.On("ReceiveStrokeRequest", user => ReceiveStrokeRequest(user));
 
             _hub.Start().Wait();
         }
@@ -72,6 +76,10 @@ namespace WeSketch
         {
         }
 
+        /// <summary>
+        /// After a hub reconnects after a disconnect it will dequeue all enqueued actions that took place while
+        /// the hub state was disconnected.
+        /// </summary>
         private void Hub_Reconnected()
         {
             lock (_queuedActions)
@@ -87,78 +95,117 @@ namespace WeSketch
             }
         }
 
-        private void Hub_Received(string obj)
+        /// <summary>
+        /// Receives the invitation.
+        /// </summary>
+        /// <param name="user">The user.</param>
+        /// <param name="boardId">The board identifier.</param>
+        public void ReceiveInvitation(string user, Guid boardId)
         {
+            BoardInvitationReceivedEvent?.Invoke(user, boardId);
+        }
+        /// <summary>
+        /// Receives the strokes and invokes the StrokesReceivedEvent.
+        /// </summary>
+        /// <param name="strokes">The strokes.</param>
+        public void ReceiveStrokes(string serIalizedtrokes)
+        {
+            StrokesReceivedEvent?.Invoke(JsonConvert.DeserializeObject<System.Windows.Ink.StrokeCollection>(serIalizedtrokes));
+        }
+        
+        /// <summary>
+        /// Receives the stroke request.
+        /// </summary>
+        /// <param name="requestingUser">The requesting user.</param>
+        public void ReceiveStrokeRequest(string requestingUser)
+        {
+            StrokeRequestReceivedEvent?.Invoke(requestingUser);
         }
 
-        public void ReceiveStrokes(System.Windows.Ink.StrokeCollection strokes)
+        /// <summary>
+        /// Sends the stroke.
+        /// </summary>
+        /// <param name="boardId">The board identifier.</param>
+        /// <param name="stroke">The stroke.</param>
+        private void SendStroke(Guid boardId, System.Windows.Ink.Stroke stroke)
         {
-            if (_hub.State == ConnectionState.Connected)
+            InvokeHubDependantAction(() =>
+            SendStrokes(boardId, new System.Windows.Ink.StrokeCollection()
             {
-                StrokesReceivedEvent?.Invoke(strokes);
-            }
-            else
-            {
-                lock (_queuedActions)
-                {
-                    _queuedActions.Enqueue(new Action(() => ));
-                }
-            }
+                stroke
+            }));
         }
 
-        public void SendStrokes(Guid boardId, System.Windows.Ink.Stroke stroke)
+        /// <summary>
+        /// Sends the stroke to the board.
+        /// </summary>
+        /// <param name="boardId">The board identifier.</param>
+        /// <param name="stroke">The stroke.</param>
+        public void SendStrokes(Guid boardId, System.Windows.Ink.StrokeCollection strokes)
         {
-            if (_hub.State == ConnectionState.Connected)
-            {
-                
-            }
-            else
-            {
-                lock (_queuedActions)
-                {
-                    _queuedActions.Enqueue(new Action(() => ));
-                }
-            }
+            InvokeHubDependantAction(() =>_hubProxy.Invoke("SendStrokesToGroup", boardId, JsonConvert.SerializeObject(strokes)));
         }
 
-        public void SendStrokesToUser(string userId)
+        /// <summary>
+        /// Sends the strokes to user.
+        /// </summary>
+        /// <param name="user">The user identifier.</param>
+        /// <param name="strokes">The strokes.</param>
+        public void SendStrokesToUser(string user, System.Windows.Ink.StrokeCollection strokes)
         {
-            if (_hub.State == ConnectionState.Connected)
-            {
-                
-            }
-            else
-            {
-                lock (_queuedActions)
-                {
-                    _queuedActions.Enqueue(new Action(() => ));
-                }
-            }
+            InvokeHubDependantAction(() => _hubProxy.Invoke("SendStrokesToUser", user, JsonConvert.SerializeObject(strokes)));
         }
 
-        public void RequestStrokes(string userId, Guid boardId)
+        /// <summary>
+        /// Requests the strokes from the board.
+        /// </summary>
+        /// <param name="userId">The user identifier requesting the strokes.</param>
+        /// <param name="boardId">The board identifier.</param>
+        public void RequestStrokes(string user, Guid boardId)
         {
-            _hubProxy.Invoke<Task>("RequestStrokes", userId, boardId);
+            InvokeHubDependantAction(() => _hubProxy.Invoke("RequestStrokes", user, boardId));
         }
+
+        /// <summary>
+        /// Joins the board group.
+        /// </summary>
+        /// <param name="boardId">The board identifier.</param>
         public void JoinBoardGroup(Guid boardId)
         {
             _hubProxy.Invoke<Task>("JoinBoardGroup", boardId);
             BoardChangedEvent?.Invoke(boardId);
         }
 
+        /// <summary>
+        /// Leaves the board group.
+        /// </summary>
+        /// <param name="boardId">The board identifier.</param>
         public void LeaveBoardGroup(Guid boardId)
         {
             _hubProxy.Invoke<Task>("LeaveBoardGroup", boardId);
         }
 
-        public void ReceiveInvitation(string user, Guid boardId)
-        {
-            BoardInvitationReceivedEvent?.Invoke(user, boardId);
-        }
 
+        /// <summary>
+        /// User is authenticated. It lets the hub know and the user is then
+        /// placed in their own unique group.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
         public void UserAuthenticated(Guid userId)
         {
-            _hubProxy.Invoke("UserAuthenticated", userId);
+            InvokeHubDependantAction(() => _hubProxy.Invoke("UserAuthenticated", userId));
+        }
+
+        private void InvokeHubDependantAction(Action action)
+        {
+            if (_hub.State == ConnectionState.Connected)
+            {
+                action.Invoke();
+            }
+            else
+            {
+                _queuedActions.Enqueue(action);
+            }
         }
 
         public void Dispose()
