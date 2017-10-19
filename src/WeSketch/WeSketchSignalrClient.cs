@@ -24,6 +24,9 @@ namespace WeSketch
         public delegate void StrokesReceivedEventHandler(System.Windows.Ink.StrokeCollection strokes);
         public event StrokesReceivedEventHandler StrokesReceivedEvent;
 
+        public delegate void StrokeEraseReceivedEventHandler(System.Windows.Ink.Stroke stroke);
+        public event StrokeEraseReceivedEventHandler StrokeErasedEvent;
+
         public delegate void StrokeRequestReceivedEventHandler(string requestingUser);
         public event StrokeRequestReceivedEventHandler StrokeRequestReceivedEvent;
 #if DEBUG
@@ -52,6 +55,7 @@ namespace WeSketch
             _hubProxy.On<string, Guid>("ReceiveInvitation", (user, boardId) => ReceiveInvitation(user, boardId));
             _hubProxy.On("ReceiveStrokes", strokes => ReceiveStrokes(strokes));
             _hubProxy.On("ReceiveStrokeRequest", user => ReceiveStrokeRequest(user));
+            _hubProxy.On("ReceiverStrokeToErase", stroke => ReceiverStrokeToErase(stroke));
 
             _hub.Start().Wait();
         }
@@ -112,7 +116,25 @@ namespace WeSketch
         {
             StrokesReceivedEvent?.Invoke(JsonConvert.DeserializeObject<System.Windows.Ink.StrokeCollection>(serIalizedtrokes));
         }
-        
+
+        /// <summary>
+        /// Receivers the stroke to erase.
+        /// </summary>
+        /// <param name="serializedStroke">The serialized stroke.</param>
+        public void ReceiveStrokeToErase(string serializedStroke)
+        {
+            StrokeErasedEvent?.Invoke(JsonConvert.DeserializeObject<System.Windows.Ink.Stroke>(serializedStroke));
+        }
+
+        /// <summary>
+        /// Sends the stroke to erase.
+        /// </summary>
+        /// <param name="stroke">The stroke.</param>
+        public void SendStrokeToErase(System.Windows.Ink.Stroke stroke)
+        {
+            InvokeHubDependantAction(() => _hubProxy.Invoke("SendStrokeToErase", JsonConvert.SerializeObject(stroke)));
+        }
+
         /// <summary>
         /// Receives the stroke request.
         /// </summary>

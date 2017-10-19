@@ -29,7 +29,7 @@ namespace WeSketch
             InitializeComponent();
 
             ik.StrokeCollected += Ik_StrokeCollected;
-            ik.StrokeErased += Ik_StrokeErased;
+            ik.StrokeErasing += Ik_StrokeErasing;
 
             _client.UserAuthenticated(WeSketchClientData.Instance.User.UserID);
             _client.JoinBoardGroup(WeSketchClientData.Instance.User.Board.BoardID);
@@ -39,14 +39,14 @@ namespace WeSketch
             _client.StrokeRequestReceivedEvent += _client_StrokeRequestReceivedEvent;
         }
 
-        private void _client_StrokeRequestReceivedEvent(string requestingUser)
+        private void Ik_StrokeErasing(object sender, InkCanvasStrokeErasingEventArgs e)
         {
-            // TODO: Send the board strokes to the requesting user.
             throw new NotImplementedException();
         }
 
-        private void Ik_StrokeErased(object sender, RoutedEventArgs e)
+        private void _client_StrokeRequestReceivedEvent(string requestingUser)
         {
+            // TODO: Send the board strokes to the requesting user.
             throw new NotImplementedException();
         }
 

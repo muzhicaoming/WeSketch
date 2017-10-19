@@ -45,6 +45,16 @@ namespace WeSketchAPI
         }
 
         /// <summary>
+        /// Sends the stroke to erase.
+        /// </summary>
+        /// <param name="seriailizedStroke">The seriailized stroke.</param>
+        /// <param name="boardId">The board identifier.</param>
+        public void SendStrokeToErase(string seriailizedStroke, Guid boardId)
+        {
+            Clients.Group(boardId.ToString(), Context.ConnectionId).ReceiveStrokeToErase(seriailizedStroke);
+        }
+
+        /// <summary>
         /// Sends the strokes to all in the group except to the calling user.
         /// </summary>
         /// <param name="boardId">The board identifier.</param>
