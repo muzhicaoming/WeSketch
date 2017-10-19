@@ -55,7 +55,7 @@ namespace WeSketch
             _hubProxy.On<string, Guid>("ReceiveInvitation", (user, boardId) => ReceiveInvitation(user, boardId));
             _hubProxy.On("ReceiveStrokes", strokes => ReceiveStrokes(strokes));
             _hubProxy.On("ReceiveStrokeRequest", user => ReceiveStrokeRequest(user));
-            _hubProxy.On("ReceiverStrokeToErase", stroke => ReceiverStrokeToErase(stroke));
+            _hubProxy.On("ReceiverStrokeToErase", stroke => ReceiveStrokeToErase(stroke));
 
             _hub.Start().Wait();
         }
