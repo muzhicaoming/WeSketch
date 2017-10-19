@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WeSketchSharedDataModels;
 using Newtonsoft.Json;
+using Microsoft.AspNet.SignalR;
 
 namespace WeSketchAPI.Controllers
 {
@@ -137,12 +138,17 @@ namespace WeSketchAPI.Controllers
         /// <param name="boardId">The board identifier.</param>
         /// <returns></returns>
         [HttpPost]
-        public string InviteUserToBoard(string user, Guid boardId)
+        public string InviteUserToBoard(string fromUser, string toUser, Guid boardId)
         {
             var result = new Result();
             try
             {
-                // TODO: Add code to invite user to board.
+                using (var db = new WeSketchDataContext())
+                {
+                    var context = GlobalHost.ConnectionManager.GetHubContext<WeSketchSignalRHub>();
+                    var invitee = db.Users.Single(usr => usr.UserName == toUser);
+                    context.Clients.Group(invitee.UserID.ToString()).ReceiveInvitation(fromUser, boardId);
+                }
             }
             catch (Exception e)
             {

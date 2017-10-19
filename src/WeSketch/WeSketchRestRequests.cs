@@ -127,7 +127,7 @@ namespace WeSketch
         /// </summary>
         /// <param name="user">The user.</param>
         /// <param name="boardId">The board identifier.</param>
-        public void InviteUserToBoard(string user, Guid boardId)
+        public void InviteUserToBoard(string fromUser, string toUser, Guid boardId)
         {
             // TODO: Add code to send post request to server to send an invitation to the specified user.
         }

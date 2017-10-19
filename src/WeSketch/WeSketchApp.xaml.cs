@@ -27,14 +27,47 @@ namespace WeSketch
         public WeSketchApp()
         {
             InitializeComponent();
+
+            ik.StrokeCollected += Ik_StrokeCollected;
+            ik.StrokeErased += Ik_StrokeErased;
+
             _client.UserAuthenticated(WeSketchClientData.Instance.User.UserID);
             _client.JoinBoardGroup(WeSketchClientData.Instance.User.Board.BoardID);
             _client.BoardInvitationReceivedEvent += BoardInvitationReceivedEvent;
+            _client.BoardChangedEvent += _client_BoardChangedEvent;
+            _client.StrokesReceivedEvent += _client_StrokesReceivedEvent;
         }
 
-        private void BoardInvitationReceivedEvent(string user)
+        private void Ik_StrokeErased(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void Ik_StrokeCollected(object sender, InkCanvasStrokeCollectedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void _client_StrokesReceivedEvent(System.Windows.Ink.StrokeCollection strokes)
+        {
+            ik.Strokes.Add(strokes);
+        }
+
+        private void _client_BoardChangedEvent(Guid boardId)
+        {
+            WeSketchClientData.Instance.User.Board.BoardID = boardId;
+            ik.Strokes.Clear();
+            _client.RequestStrokes(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
+        }
+
+        private void BoardInvitationReceivedEvent(string user, Guid boardId)
+        {
+            MessageBoxResult result = MessageBox.Show($"User {user} invited you to their board.  Would you like to join?", "Join board?", MessageBoxButton.YesNo);
+            if(result == MessageBoxResult.Yes)
+            {
+                _client.LeaveBoardGroup(WeSketchClientData.Instance.User.Board.BoardID);
+                _client.JoinBoardGroup(boardId);
+            }
         }
     }
 }

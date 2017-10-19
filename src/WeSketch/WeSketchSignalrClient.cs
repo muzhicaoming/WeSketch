@@ -15,8 +15,13 @@ namespace WeSketch
     /// </summary>
     class WeSketchSignalrClient
     {
+        public delegate void StrokesReceivedEventHandler(System.Windows.Ink.StrokeCollection strokes);
+        public event StrokesReceivedEventHandler StrokesReceivedEvent;
 
-        public delegate void BoardInvitationReceivedEventHandler(string user);
+        public delegate void BoardChangedEventHandler(Guid boardId);
+        public event BoardChangedEventHandler BoardChangedEvent;
+
+        public delegate void BoardInvitationReceivedEventHandler(string user, Guid boardId);
         public event BoardInvitationReceivedEventHandler BoardInvitationReceivedEvent;
 #if DEBUG
         private string _url = ConfigurationManager.AppSettings["debugUrl"];
@@ -29,8 +34,6 @@ namespace WeSketch
         private Queue<Action> _queuedActions = new Queue<Action>();
 
 
-        public delegate void BoardChangedEventHandler();
-        public event BoardChangedEventHandler BoardChangedEvent;
 
         public WeSketchSignalrClient()
         {
@@ -88,10 +91,11 @@ namespace WeSketch
         {
         }
 
-        public void ReceiveStrokes(string serializedStrokes)
+        public void ReceiveStrokes(System.Windows.Ink.StrokeCollection strokes)
         {
             if (_hub.State == ConnectionState.Connected)
             {
+                StrokesReceivedEvent?.Invoke(strokes);
             }
             else
             {
@@ -102,7 +106,7 @@ namespace WeSketch
             }
         }
 
-        public void SendStrokes(Guid boardId)
+        public void SendStrokes(Guid boardId, System.Windows.Ink.Stroke stroke)
         {
             if (_hub.State == ConnectionState.Connected)
             {
@@ -132,9 +136,14 @@ namespace WeSketch
             }
         }
 
+        public void RequestStrokes(string userId, Guid boardId)
+        {
+            _hubProxy.Invoke<Task>("RequestStrokes", userId, boardId);
+        }
         public void JoinBoardGroup(Guid boardId)
         {
             _hubProxy.Invoke<Task>("JoinBoardGroup", boardId);
+            BoardChangedEvent?.Invoke(boardId);
         }
 
         public void LeaveBoardGroup(Guid boardId)
@@ -142,9 +151,9 @@ namespace WeSketch
             _hubProxy.Invoke<Task>("LeaveBoardGroup", boardId);
         }
 
-        public void ReceiveInvitation(string user)
+        public void ReceiveInvitation(string user, Guid boardId)
         {
-            BoardInvitationReceivedEvent?.Invoke(user);
+            BoardInvitationReceivedEvent?.Invoke(user, boardId);
         }
 
         public void UserAuthenticated(Guid userId)
