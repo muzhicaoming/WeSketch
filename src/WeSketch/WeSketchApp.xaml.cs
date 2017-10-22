@@ -37,6 +37,8 @@ namespace WeSketch
             _client.BoardChangedEvent += _client_BoardChangedEvent;
             _client.StrokesReceivedEvent += _client_StrokesReceivedEvent;
             _client.StrokeRequestReceivedEvent += _client_StrokeRequestReceivedEvent;
+            _client.clearButton_Click += clearButton_Click;
+            _client.closeButton_Click += closeButton_Click;
         }
 
         private void Ik_StrokeErasing(object sender, InkCanvasStrokeErasingEventArgs e)
@@ -75,6 +77,18 @@ namespace WeSketch
                 _client.LeaveBoardGroup(WeSketchClientData.Instance.User.Board.BoardID);
                 _client.JoinBoardGroup(boardId);
             }
+        }
+
+        private void clearButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.mainInkCanvas.Strokes.Clear();
+            MessageBox.Show("Clear button pressed.");
+        }
+
+        private void closeButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("WeSketch close button pressed.");
+            this.Close();
         }
     }
 }

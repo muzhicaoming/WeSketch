@@ -24,17 +24,5 @@ namespace WeSketch
         {
             InitializeComponent();
         }
-
-        private void clearButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.mainInkCanvas.Strokes.Clear();
-            MessageBox.Show("Clear button pressed.");
-        }
-
-        private void closeButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("WeSketch close button pressed.");
-            this.Close();
-        }
     }
 }

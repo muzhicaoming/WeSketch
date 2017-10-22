@@ -5,10 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeSketch"
         mc:Ignorable="d"
-        Title="MainWindow" Height="382.812" Width="826.514" Background="#FF9E9696">
-    <Grid>
-        <InkCanvas Height="333" Margin="95,10,92,0" VerticalAlignment="Top" Name= "mainInkCanvas"/>
-        <Button Content="Clear" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="75" Name= "clearButton"/>
-        <Button Content="Close" HorizontalAlignment="Left" Margin="10,303,0,0" VerticalAlignment="Top" Width="75" Name= "closeButton"/>
-    </Grid>
+        Title="MainWindow" Height="382.812" Width="826.514" Background="White">
+   
 </Window>
