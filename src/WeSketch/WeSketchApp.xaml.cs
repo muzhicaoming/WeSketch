@@ -27,9 +27,12 @@ namespace WeSketch
         public WeSketchApp()
         {
             InitializeComponent();
+            
+            mainInkCanvas.StrokeCollected += Ik_StrokeCollected;
+            mainInkCanvas.StrokeErasing += Ik_StrokeErasing;
 
-            ik.StrokeCollected += Ik_StrokeCollected;
-            ik.StrokeErasing += Ik_StrokeErasing;
+            this.clearButton.Click += clearButton_Click;
+            this.closeButton.Click += closeButton_Click;
 
             _client.UserAuthenticated(WeSketchClientData.Instance.User.UserID);
             _client.JoinBoardGroup(WeSketchClientData.Instance.User.Board.BoardID);
@@ -37,8 +40,12 @@ namespace WeSketch
             _client.BoardChangedEvent += _client_BoardChangedEvent;
             _client.StrokesReceivedEvent += _client_StrokesReceivedEvent;
             _client.StrokeRequestReceivedEvent += _client_StrokeRequestReceivedEvent;
-            _client.clearButton_Click += clearButton_Click;
-            _client.closeButton_Click += closeButton_Click;
+            _client.StrokeClearEvent += _client_StrokeClearEvent;
+        }
+
+        private void _client_StrokeClearEvent()
+        {
+            this.mainInkCanvas.Strokes.Clear();
         }
 
         private void Ik_StrokeErasing(object sender, InkCanvasStrokeErasingEventArgs e)
@@ -49,7 +56,7 @@ namespace WeSketch
         private void _client_StrokeRequestReceivedEvent(string requestingUser)
         {
             // TODO: Send the board strokes to the requesting user.
-            throw new NotImplementedException();
+            _client.SendStrokesToUser(requestingUser, mainInkCanvas.Strokes);
         }
 
         private void Ik_StrokeCollected(object sender, InkCanvasStrokeCollectedEventArgs e)
@@ -59,13 +66,13 @@ namespace WeSketch
 
         private void _client_StrokesReceivedEvent(System.Windows.Ink.StrokeCollection strokes)
         {
-            ik.Strokes.Add(strokes);
+            mainInkCanvas.Strokes.Add(strokes); //maininkcanvas
         }
 
         private void _client_BoardChangedEvent(Guid boardId)
         {
             WeSketchClientData.Instance.User.Board.BoardID = boardId;
-            ik.Strokes.Clear();
+            mainInkCanvas.Strokes.Clear();
             _client.RequestStrokes(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
         }
 
@@ -79,16 +86,21 @@ namespace WeSketch
             }
         }
 
+
         private void clearButton_Click(object sender, RoutedEventArgs e)
         {
             this.mainInkCanvas.Strokes.Clear();
+            _client.StrokesClearedSend(WeSketchClientData.Instance.User.Board.BoardID);
             MessageBox.Show("Clear button pressed.");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
+            _client.LeaveBoardGroup(WeSketchClientData.Instance.User.Board.BoardID);
             MessageBox.Show("WeSketch close button pressed.");
-            this.Close();
         }
     }
 }

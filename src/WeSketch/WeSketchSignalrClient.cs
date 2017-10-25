@@ -29,6 +29,9 @@ namespace WeSketch
 
         public delegate void StrokeRequestReceivedEventHandler(string requestingUser);
         public event StrokeRequestReceivedEventHandler StrokeRequestReceivedEvent;
+
+        public delegate void StrokeClearEventHandler();
+        public event StrokeClearEventHandler StrokeClearEvent; //strokeclearevent instance of strokeclearevent handler object
 #if DEBUG
         private string _url = ConfigurationManager.AppSettings["debugUrl"];
 #else
@@ -216,6 +219,19 @@ namespace WeSketch
         public void UserAuthenticated(Guid userId)
         {
             InvokeHubDependantAction(() => _hubProxy.Invoke("UserAuthenticated", userId));
+        }
+
+
+        public void StrokesClearedReceived()
+        {
+            StrokeClearEvent?.Invoke();
+
+            //StrokeRequestReceivedEvent?.Invoke(requestingUser);
+        }
+
+        public void StrokesClearedSend(Guid boardId)
+        {
+            InvokeHubDependantAction(() => _hubProxy.Invoke("RequestClearBoardStrokes", boardId));
         }
 
         private void InvokeHubDependantAction(Action action)

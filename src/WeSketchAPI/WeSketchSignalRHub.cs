@@ -32,6 +32,10 @@ namespace WeSketchAPI
         public void LeaveBoardGroup(Guid boardId)
         {
             Groups.Remove(Context.ConnectionId, boardId.ToString());
+            using (var db = new WeSketchDataContext())
+            {
+
+            }
         }
 
         /// <summary>
@@ -91,6 +95,15 @@ namespace WeSketchAPI
                 var receiver = db.Users.Single(usr => usr.UserName == user);
                 Clients.Group(receiver.UserID.ToString()).ReceiveStrokes(serializedStrokes);
             }
+        }
+
+        /// <summary>
+        /// Send message to all users connected to the board except the requester to clear the boards strokes.
+        /// </summary>
+        /// <param name="boardId">The board ID.</param>
+        public void RequestClearBoardStrokes(Guid boardId)
+        {
+            Clients.Group(boardId.ToString(), Context.ConnectionId).StrokesClearedReceived();
         }
 
         /// <summary>
