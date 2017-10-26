@@ -22,6 +22,9 @@ namespace WeSketch
     /// </summary>
     public partial class Registration : Page
     {
+        public delegate void UserLoggedInEventHandler();
+        public event UserLoggedInEventHandler UserLoggedInEvent;
+
         WeSketchRestRequests _rest = new WeSketchRestRequests();
         public Registration()
         {
@@ -68,13 +71,25 @@ namespace WeSketch
 
         private async void CreateUser()
         {
-            await _rest.CreateUser(userName.Text, password.Password).ContinueWith(usr => UserLoggedIn(usr.Result));
+            WeSketchRestRequests rest = new WeSketchRestRequests();
+            string username = "";
+            string pass = "";
+            string userEmail = "";
+            Dispatcher.Invoke(() =>
+            {
+                username = userName.Text;
+                pass = password.Password;
+                userEmail = email.Text;
+            });
+            
+            User user = await rest.CreateUser(username, pass, userEmail);//.ContinueWith(usr => UserLoggedIn(usr.Result));
+            UserLoggedIn(user);
         }
 
         private void UserLoggedIn(User user)
         {
             WeSketchClientData.Instance.User = user;
-            NavigationService.Navigate(new Uri("WeSketchApp.xaml", UriKind.Relative));
+            UserLoggedInEvent.Invoke();
         }
     }
 }

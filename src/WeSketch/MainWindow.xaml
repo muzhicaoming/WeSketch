@@ -5,6 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeSketch"
         mc:Ignorable="d"
-        Title="MainWindow" Height="382.812" Width="826.514" Background="White">
-   
+        WindowStyle="SingleBorderWindow"
+        Title="WeSketch" Height="382.812" Width="826.514" Background="White">
+    <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden">
+        
+    </Frame>
 </Window>

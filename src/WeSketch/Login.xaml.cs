@@ -21,15 +21,13 @@ namespace WeSketch
     /// </summary>
     public partial class Login : Page
     {
+        public delegate void UserLoggedInEventHandler();
+        public event UserLoggedInEventHandler UserLoggedInEvent;
+
         WeSketchRestRequests _rest = new WeSketchRestRequests();
         public Login()
         {
             InitializeComponent();
-        }
-
-        private void buttonRegister_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("Registration.xaml", UriKind.Relative));
         }
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
@@ -50,13 +48,29 @@ namespace WeSketch
 
         private async void AuthenticateUser()
         {
-            await _rest.Login(userName.Text, password.Password).ContinueWith(usr => UserLoggedIn(usr.Result));
+            string username = "";
+            string pass = "";
+            Dispatcher.Invoke(() =>
+            {
+                username = userName.Text;
+                pass = password.Password;
+            });
+
+            try
+            {
+                User user = await _rest.Login(username, pass);
+                UserLoggedIn(user);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK);
+            }
         }
 
         private void UserLoggedIn(User user)
         {
             WeSketchClientData.Instance.User = user;
-            NavigationService.Navigate(new Uri("WeSketchApp.xaml", UriKind.Relative));
+            UserLoggedInEvent.Invoke();
         }
     }
 }

@@ -20,9 +20,35 @@ namespace WeSketch
     /// </summary>
     public partial class MainWindow : Window
     {
+        Login _loginPage;
+        Registration _registrationPage;
+        WeSketchApp _weSketchAppPage;
         public MainWindow()
         {
             InitializeComponent();
+
+            _loginPage = new Login();
+            _loginPage.UserLoggedInEvent += UserLoggedInEvent;
+            _loginPage.buttonRegister.Click += ButtonRegister_Click;
+
+            _registrationPage = new Registration();
+            _registrationPage.UserLoggedInEvent += UserLoggedInEvent;
+            
+            mainFrame.NavigationService.Navigate(_loginPage);
+        }
+
+        private void ButtonRegister_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.NavigationService.Navigate(_registrationPage);
+        }
+
+        private void UserLoggedInEvent()
+        {
+            Dispatcher.Invoke(() =>
+            {
+                _weSketchAppPage = new WeSketchApp();
+                mainFrame.NavigationService.Navigate(_weSketchAppPage);
+            });
         }
     }
 }

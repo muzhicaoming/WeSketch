@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Controls;
 using Newtonsoft.Json;
 using Microsoft.AspNet.SignalR.Client;
 using System.Configuration;
+using WeSketchSharedDataModels;
 
 namespace WeSketch
 {
@@ -33,7 +35,7 @@ namespace WeSketch
         public delegate void StrokeClearEventHandler();
         public event StrokeClearEventHandler StrokeClearEvent; //strokeclearevent instance of strokeclearevent handler object
 #if DEBUG
-        private string _url = ConfigurationManager.AppSettings["debugUrl"];
+        private string _url = "http://localhost/WeSketchAPI/signalr";
 #else
         private string _url = ConfigurationManager.AppSettings["url"];
 #endif
@@ -53,7 +55,7 @@ namespace WeSketch
             _hub.ConnectionSlow += Hub_ConnectionSlow;
             _hub.Error += Hub_Error;
             _hub.StateChanged += Hub_StateChanged;
-            _hubProxy = _hub.CreateHubProxy("WeSketchAPIHub");
+            _hubProxy = _hub.CreateHubProxy("WeSketchSignalRHub");
 
             _hubProxy.On<string, Guid>("ReceiveInvitation", (user, boardId) => ReceiveInvitation(user, boardId));
             _hubProxy.On("ReceiveStrokes", strokes => ReceiveStrokes(strokes));
@@ -117,7 +119,21 @@ namespace WeSketch
         /// <param name="strokes">The strokes.</param>
         public void ReceiveStrokes(string serIalizedtrokes)
         {
-            StrokesReceivedEvent?.Invoke(JsonConvert.DeserializeObject<System.Windows.Ink.StrokeCollection>(serIalizedtrokes));
+            var strokes = new System.Windows.Ink.StrokeCollection();
+            List<BoardPointCollection> bpc = JsonConvert.DeserializeObject<List<BoardPointCollection>>(serIalizedtrokes);
+
+            bpc.ForEach(collection =>
+            {
+                System.Windows.Input.StylusPointCollection spc = new System.Windows.Input.StylusPointCollection();
+                collection.Points.ForEach(point =>
+                {
+                    spc.Add(new System.Windows.Input.StylusPoint(point.X, point.Y, point.PressureFactor));
+                });
+
+                strokes.Add(new System.Windows.Ink.Stroke(spc));
+            });
+                
+            StrokesReceivedEvent?.Invoke(strokes);
         }
 
         /// <summary>
@@ -152,7 +168,7 @@ namespace WeSketch
         /// </summary>
         /// <param name="boardId">The board identifier.</param>
         /// <param name="stroke">The stroke.</param>
-        private void SendStroke(Guid boardId, System.Windows.Ink.Stroke stroke)
+        public void SendStroke(Guid boardId, System.Windows.Ink.Stroke stroke)
         {
             InvokeHubDependantAction(() =>
             SendStrokes(boardId, new System.Windows.Ink.StrokeCollection()
@@ -168,7 +184,24 @@ namespace WeSketch
         /// <param name="stroke">The stroke.</param>
         public void SendStrokes(Guid boardId, System.Windows.Ink.StrokeCollection strokes)
         {
-            InvokeHubDependantAction(() =>_hubProxy.Invoke("SendStrokesToGroup", boardId, JsonConvert.SerializeObject(strokes)));
+            if (strokes.Any())
+            {
+                List<BoardPointCollection> points = new List<BoardPointCollection>();
+                strokes.ToList().ForEach(stroke =>
+                {
+                    points.Add(new BoardPointCollection());
+                    stroke.StylusPoints.ToList().ForEach(point =>
+                    {
+                        points.Last().Points.Add(new BoardPoint()
+                        {
+                            X = point.X,
+                            Y = point.Y,
+                            PressureFactor = point.PressureFactor
+                        });
+                    });
+                });
+                InvokeHubDependantAction(() => _hubProxy.Invoke("SendStrokesToGroup", boardId, JsonConvert.SerializeObject(points)));
+            }
         }
 
         /// <summary>

@@ -59,13 +59,14 @@ namespace WeSketch
         /// </summary>
         /// <param name="user">The user.</param>
         /// <param name="password">The password.</param>
-        public async Task<User> CreateUser(string user, string password)
+        public async Task<User> CreateUser(string user, string password, string email)
         {
             // TODO: Add code to send post request to create user.
             var data = new Dictionary<string, string>
             {
                 { "user", user },
-                { "password", password }
+                { "password", password },
+                { "email", email }
             };
             var dataFormContent = new FormUrlEncodedContent(data);
             HttpResponseMessage postResult = await _httpClient.PostAsync($"{_url}CreateUser", dataFormContent);
@@ -127,9 +128,29 @@ namespace WeSketch
         /// </summary>
         /// <param name="user">The user.</param>
         /// <param name="boardId">The board identifier.</param>
-        public void InviteUserToBoard(string fromUser, string toUser, Guid boardId)
+        public async void InviteUserToBoard(string fromUser, string toUser, Guid boardId)
         {
-            // TODO: Add code to send post request to server to send an invitation to the specified user.
+            var data = new Dictionary<string, string>
+            {
+                { "fromUser", fromUser },
+                { "toUser", toUser },
+                { "boardId", boardId.ToString()}
+            };
+            var dataFormContent = new FormUrlEncodedContent(data);
+            HttpResponseMessage postResult = await _httpClient.PostAsync($"{_url}InviteUserToBoard", dataFormContent);
+            if (postResult.IsSuccessStatusCode)
+            {
+                Result result = JsonConvert.DeserializeObject<Result>(await postResult.Content.ReadAsStringAsync());
+
+                if (result.Error)
+                { 
+                    throw new Exception(result.ErrorMessage);
+                }
+            }
+            else
+            {
+                throw new Exception($"Error:{postResult.StatusCode}-{postResult.ReasonPhrase}");
+            }
         }
 
         /// <summary>

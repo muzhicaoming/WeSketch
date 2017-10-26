@@ -23,16 +23,18 @@ namespace WeSketch
     {
         private WeSketchRestRequests _rest = new WeSketchRestRequests();
         private WeSketchSignalrClient _client = new WeSketchSignalrClient();
-        
+        InviteWindow _inviteWindow = new InviteWindow();
+
         public WeSketchApp()
         {
             InitializeComponent();
             
-            mainInkCanvas.StrokeCollected += Ik_StrokeCollected;
+            mainInkCanvas.StrokeCollected += StrokeCollected;
             mainInkCanvas.StrokeErasing += Ik_StrokeErasing;
 
-            this.clearButton.Click += clearButton_Click;
-            this.closeButton.Click += closeButton_Click;
+            clearButton.Click += clearButton_Click;
+            closeButton.Click += closeButton_Click;
+            inviteButton.Click += InviteButton_Click;
 
             _client.UserAuthenticated(WeSketchClientData.Instance.User.UserID);
             _client.JoinBoardGroup(WeSketchClientData.Instance.User.Board.BoardID);
@@ -41,6 +43,22 @@ namespace WeSketch
             _client.StrokesReceivedEvent += _client_StrokesReceivedEvent;
             _client.StrokeRequestReceivedEvent += _client_StrokeRequestReceivedEvent;
             _client.StrokeClearEvent += _client_StrokeClearEvent;
+
+            _inviteWindow.UserInvitedEvent += _inviteWindow_UserInvitedEvent;
+        }
+
+        private void _inviteWindow_UserInvitedEvent(string user)
+        {
+            _rest.InviteUserToBoard(WeSketchClientData.Instance.User.UserName, user, WeSketchClientData.Instance.User.Board.BoardID);
+        }
+
+        private void InviteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(_inviteWindow == null)
+            {
+                _inviteWindow = new InviteWindow();
+            }
+            _inviteWindow.Show();
         }
 
         private void _client_StrokeClearEvent()
@@ -56,23 +74,35 @@ namespace WeSketch
         private void _client_StrokeRequestReceivedEvent(string requestingUser)
         {
             // TODO: Send the board strokes to the requesting user.
-            _client.SendStrokesToUser(requestingUser, mainInkCanvas.Strokes);
+            Dispatcher.Invoke(() =>
+            {
+                _client.SendStrokesToUser(requestingUser, mainInkCanvas.Strokes);
+            });
         }
 
-        private void Ik_StrokeCollected(object sender, InkCanvasStrokeCollectedEventArgs e)
+        private void StrokeCollected(object sender, InkCanvasStrokeCollectedEventArgs e)
         {
-            throw new NotImplementedException();
+            _client.SendStroke(WeSketchClientData.Instance.User.Board.BoardID, e.Stroke);
         }
 
         private void _client_StrokesReceivedEvent(System.Windows.Ink.StrokeCollection strokes)
         {
-            mainInkCanvas.Strokes.Add(strokes); //maininkcanvas
+            if(strokes.Any())
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    mainInkCanvas.Strokes.Add(strokes);
+                });
+            } //maininkcanvas
         }
 
         private void _client_BoardChangedEvent(Guid boardId)
         {
             WeSketchClientData.Instance.User.Board.BoardID = boardId;
-            mainInkCanvas.Strokes.Clear();
+            Dispatcher.Invoke(() =>
+            {
+                mainInkCanvas.Strokes.Clear();
+            });
             _client.RequestStrokes(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
         }
 

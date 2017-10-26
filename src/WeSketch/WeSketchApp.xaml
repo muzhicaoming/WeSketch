@@ -1,4 +1,4 @@
-﻿<Window x:Class="WeSketch.WeSketchApp"
+﻿<Page x:Class="WeSketch.WeSketchApp"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,7 +8,8 @@
         Title="WeSketch" Height="382.812" Width="826.514" Background="#FF9E9696">
     <Grid>
         <InkCanvas Height="333" Margin="95,10,92,0" VerticalAlignment="Top" Name= "mainInkCanvas"/>
+        <Button Content="Invite" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" Width="75" Name= "inviteButton"/>
         <Button Content="Clear" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="75" Name= "clearButton"/>
         <Button Content="Close" HorizontalAlignment="Left" Margin="10,303,0,0" VerticalAlignment="Top" Width="75" Name= "closeButton"/>
     </Grid>
-</Window>
+</Page>
