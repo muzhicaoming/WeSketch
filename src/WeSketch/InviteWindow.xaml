@@ -1,0 +1,20 @@
+﻿<Window x:Class="WeSketch.InviteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WeSketch"
+        mc:Ignorable="d"
+        Title="Invite User" Height="165.476" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <DockPanel LastChildFill="True" Background="White">
+            <StackPanel DockPanel.Dock="Top" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <TextBlock FontWeight="ExtraBold">Invite User</TextBlock>
+                <TextBlock>User to invite:</TextBlock>
+                <TextBox x:Name="userName"></TextBox>
+                <Button Name="buttonInvite" Content="Invite"/>
+                <Button Name="buttonCancel" Content="Cancel"/>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>

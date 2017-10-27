@@ -30,12 +30,12 @@ namespace WeSketchAPI
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
     partial void InsertUserBoard(UserBoard instance);
     partial void UpdateUserBoard(UserBoard instance);
     partial void DeleteUserBoard(UserBoard instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     #endregion
 		
 		public WeSketchDataContext() : 
@@ -68,14 +68,6 @@ namespace WeSketchAPI
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<User> Users
-		{
-			get
-			{
-				return this.GetTable<User>();
-			}
-		}
-		
 		public System.Data.Linq.Table<UserBoard> UserBoards
 		{
 			get
@@ -83,218 +75,12 @@ namespace WeSketchAPI
 				return this.GetTable<UserBoard>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _UserID;
-		
-		private string _UserName;
-		
-		private string _Password;
-		
-		private string _SeaSalt;
-		
-		private string _Email;
-		
-		private bool _Disabled;
-		
-		private EntityRef<UserBoard> _UserBoard;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUserIDChanging(System.Guid value);
-    partial void OnUserIDChanged();
-    partial void OnUserNameChanging(string value);
-    partial void OnUserNameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnSeaSaltChanging(string value);
-    partial void OnSeaSaltChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnDisabledChanging(bool value);
-    partial void OnDisabledChanged();
-    #endregion
-		
-		public User()
-		{
-			this._UserBoard = default(EntityRef<UserBoard>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid UserID
+		public System.Data.Linq.Table<User> Users
 		{
 			get
 			{
-				return this._UserID;
-			}
-			set
-			{
-				if ((this._UserID != value))
-				{
-					this.OnUserIDChanging(value);
-					this.SendPropertyChanging();
-					this._UserID = value;
-					this.SendPropertyChanged("UserID");
-					this.OnUserIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string UserName
-		{
-			get
-			{
-				return this._UserName;
-			}
-			set
-			{
-				if ((this._UserName != value))
-				{
-					this.OnUserNameChanging(value);
-					this.SendPropertyChanging();
-					this._UserName = value;
-					this.SendPropertyChanged("UserName");
-					this.OnUserNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(100)")]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeaSalt", DbType="NVarChar(100)")]
-		public string SeaSalt
-		{
-			get
-			{
-				return this._SeaSalt;
-			}
-			set
-			{
-				if ((this._SeaSalt != value))
-				{
-					this.OnSeaSaltChanging(value);
-					this.SendPropertyChanging();
-					this._SeaSalt = value;
-					this.SendPropertyChanged("SeaSalt");
-					this.OnSeaSaltChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(300) NOT NULL", CanBeNull=false)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Disabled", DbType="Bit NOT NULL")]
-		public bool Disabled
-		{
-			get
-			{
-				return this._Disabled;
-			}
-			set
-			{
-				if ((this._Disabled != value))
-				{
-					this.OnDisabledChanging(value);
-					this.SendPropertyChanging();
-					this._Disabled = value;
-					this.SendPropertyChanged("Disabled");
-					this.OnDisabledChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserBoard", Storage="_UserBoard", ThisKey="UserID", OtherKey="UserID", IsUnique=true, IsForeignKey=false)]
-		public UserBoard UserBoard
-		{
-			get
-			{
-				return this._UserBoard.Entity;
-			}
-			set
-			{
-				UserBoard previousValue = this._UserBoard.Entity;
-				if (((previousValue != value) 
-							|| (this._UserBoard.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._UserBoard.Entity = null;
-						previousValue.User = null;
-					}
-					this._UserBoard.Entity = value;
-					if ((value != null))
-					{
-						value.User = this;
-					}
-					this.SendPropertyChanged("UserBoard");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<User>();
 			}
 		}
 	}
@@ -449,6 +235,268 @@ namespace WeSketchAPI
 						this._UserID = default(System.Guid);
 					}
 					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _UserID;
+		
+		private string _UserName;
+		
+		private string _Password;
+		
+		private string _SeaSalt;
+		
+		private string _Email;
+		
+		private bool _Disabled;
+		
+		private System.Nullable<System.DateTime> _LastLoginAttempt;
+		
+		private System.Nullable<System.DateTime> _LastLogin;
+		
+		private EntityRef<UserBoard> _UserBoard;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUserIDChanging(System.Guid value);
+    partial void OnUserIDChanged();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnSeaSaltChanging(string value);
+    partial void OnSeaSaltChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnDisabledChanging(bool value);
+    partial void OnDisabledChanged();
+    partial void OnLastLoginAttemptChanging(System.Nullable<System.DateTime> value);
+    partial void OnLastLoginAttemptChanged();
+    partial void OnLastLoginChanging(System.Nullable<System.DateTime> value);
+    partial void OnLastLoginChanged();
+    #endregion
+		
+		public User()
+		{
+			this._UserBoard = default(EntityRef<UserBoard>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					this.OnUserIDChanging(value);
+					this.SendPropertyChanging();
+					this._UserID = value;
+					this.SendPropertyChanged("UserID");
+					this.OnUserIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this.OnUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(100)")]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeaSalt", DbType="NVarChar(100)")]
+		public string SeaSalt
+		{
+			get
+			{
+				return this._SeaSalt;
+			}
+			set
+			{
+				if ((this._SeaSalt != value))
+				{
+					this.OnSeaSaltChanging(value);
+					this.SendPropertyChanging();
+					this._SeaSalt = value;
+					this.SendPropertyChanged("SeaSalt");
+					this.OnSeaSaltChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(300) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Disabled", DbType="Bit NOT NULL")]
+		public bool Disabled
+		{
+			get
+			{
+				return this._Disabled;
+			}
+			set
+			{
+				if ((this._Disabled != value))
+				{
+					this.OnDisabledChanging(value);
+					this.SendPropertyChanging();
+					this._Disabled = value;
+					this.SendPropertyChanged("Disabled");
+					this.OnDisabledChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastLoginAttempt", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LastLoginAttempt
+		{
+			get
+			{
+				return this._LastLoginAttempt;
+			}
+			set
+			{
+				if ((this._LastLoginAttempt != value))
+				{
+					this.OnLastLoginAttemptChanging(value);
+					this.SendPropertyChanging();
+					this._LastLoginAttempt = value;
+					this.SendPropertyChanged("LastLoginAttempt");
+					this.OnLastLoginAttemptChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastLogin", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LastLogin
+		{
+			get
+			{
+				return this._LastLogin;
+			}
+			set
+			{
+				if ((this._LastLogin != value))
+				{
+					this.OnLastLoginChanging(value);
+					this.SendPropertyChanging();
+					this._LastLogin = value;
+					this.SendPropertyChanged("LastLogin");
+					this.OnLastLoginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserBoard", Storage="_UserBoard", ThisKey="UserID", OtherKey="UserID", IsUnique=true, IsForeignKey=false)]
+		public UserBoard UserBoard
+		{
+			get
+			{
+				return this._UserBoard.Entity;
+			}
+			set
+			{
+				UserBoard previousValue = this._UserBoard.Entity;
+				if (((previousValue != value) 
+							|| (this._UserBoard.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UserBoard.Entity = null;
+						previousValue.User = null;
+					}
+					this._UserBoard.Entity = value;
+					if ((value != null))
+					{
+						value.User = this;
+					}
+					this.SendPropertyChanged("UserBoard");
 				}
 			}
 		}

@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using Microsoft.AspNet.SignalR;
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(WeSketchAPI.Startup))]
@@ -8,7 +9,10 @@ namespace WeSketchAPI
     {
         public void Configuration(IAppBuilder app)
         {
-            app.MapSignalR();
+            HubConfiguration config = new HubConfiguration();
+            config.EnableDetailedErrors = true;
+            config.EnableJavaScriptProxies = false;
+            app.MapSignalR("/signalr", config);
         }
     }
 }

@@ -43,7 +43,7 @@ namespace WeSketchAPI.Controllers
                     }
                 };
 
-                result.ResultJSON = JsonConvert.SerializeObject(existingUser);
+                result.ResultJSON = JsonConvert.SerializeObject(newUserModel);
             }
             catch(Exception e)
             {

@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNet.SignalR.Hubs;
 using System.Threading.Tasks;
+using WeSketchSharedDataModels;
 
 namespace WeSketchAPI
 {
@@ -30,8 +31,8 @@ namespace WeSketchAPI
                 }
                 
                 byte[] salt = GetSalt();
-                var userId = new Guid();
-                var boardId = new Guid();
+                var userId = Guid.NewGuid();
+                var boardId = Guid.NewGuid();
 
                 var newUser = new User()
                 {
@@ -66,25 +67,32 @@ namespace WeSketchAPI
             string errorMessage = "Invalid credentials";
             using (var db = new WeSketchDataContext())
             {
+                db.DeferredLoadingEnabled = false;
                 var existingUser = db.Users.SingleOrDefault(eUser => eUser.UserName == user);
+                existingUser.LastLoginAttempt = DateTime.Now;
                 if (existingUser == null)
                 {
+                    db.SubmitChanges();
                     throw new Exception(errorMessage);
                 }
                 
                 HashAlgorithm algorithm = new SHA256Managed();
 
                 byte[] attemptBytes = GetSeasonedPasswordBytes(password, 
-                    Encoding.UTF8.GetBytes(existingUser.SeaSalt), 
+                    Convert.FromBase64String(existingUser.SeaSalt), 
                     Encoding.UTF8.GetBytes(ConfigurationManager.AppSettings["pepper"]));
                 byte[] attemptHash = algorithm.ComputeHash(attemptBytes);
                 byte[] existingHash = Convert.FromBase64String(existingUser.Password);
                 
                 if(!attemptHash.SequenceEqual(existingHash))
                 {
+                    db.SubmitChanges();
                     throw new Exception(errorMessage);
                 }
 
+                existingUser.LastLogin = DateTime.Now;
+                db.SubmitChanges();
+                existingUser.UserBoard = db.UserBoards.Single(brd => brd.UserID == existingUser.UserID);
                 return existingUser;
             }
         }

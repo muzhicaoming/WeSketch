@@ -16,7 +16,7 @@
                 <TextBlock>Password:</TextBlock>
                 <PasswordBox Name="password"></PasswordBox> 
                 <Button Name="buttonLogin" Content="Login" Click="buttonLogin_Click"/>
-                <Button Name="buttonRegister" Content="Register New User" Click="buttonRegister_Click"/>
+                <Button Name="buttonRegister" Content="Register New User"/>
             </StackPanel>
         </DockPanel>
     </Grid>
