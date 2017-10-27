@@ -8,6 +8,17 @@ namespace WeSketchAPI.Tests
     public class WeSketchSecurityTests
     {
         [Test]
+        [TestCase("", "")]
+        [TestCase("", "somepassword")]
+        [TestCase("someusername", "")]
+        public void IsInvalidLogin_Login_ReturnsError(string username, string password)
+        {
+            WeSketchSecurity Sec = new WeSketchSecurity();
+            var ex = Assert.Catch<Exception>(() => Sec.Login(username, password));
+            StringAssert.Contains("Invalid credentials", ex.Message);
+        }
+
+        [Test]
         public void CreateUser_Login_ReturnsUser()
         {
             WeSketchSecurity Sec = new WeSketchSecurity();
@@ -31,22 +42,11 @@ namespace WeSketchAPI.Tests
         [TestCase("someusername", "", "")]
         [TestCase("someusername", "somepassword", "")]
         [TestCase("someusername", "", "someemail")]
-        public void CreateUserIncomplete_Login_ReturnsError(string username, string password, string email)
+        public void CreateUserIncomplete_Login_ReturnsNull(string username, string password, string email)
         {
             WeSketchSecurity Sec = new WeSketchSecurity();
             User usr = Sec.CreateUser(username, password, email);
             Assert.IsNull(usr);
-        }
-
-        [Test]
-        [TestCase("", "")]
-        [TestCase("", "somepassword")]
-        [TestCase("someusername", "")]
-        public void IsInvalidLogin_Login_ReturnsError(string username, string password)
-        {
-            WeSketchSecurity Sec = new WeSketchSecurity();
-            var ex = Assert.Catch<Exception>(() => Sec.Login(username, password));
-            StringAssert.Contains("Invalid credentials", ex.Message);
         }
     }
 }

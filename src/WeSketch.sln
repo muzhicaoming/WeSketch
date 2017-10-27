@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeSketch", "WeSketch\WeSketch.csproj", "{5E4E7CED-2FA8-4F6A-B184-D4761C93409D}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeSketchAPI.Tests", "WeSketchAPI.Tests\WeSketchAPI.Tests.csproj", "{E684E03D-E7AC-4BC0-8ABF-FBA0CE4D7451}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeSketchSharedDataModels", "WeSketchSharedDataModels\WeSketchSharedDataModels.csproj", "{F5E3DF24-3970-4AE4-8C65-67571472E788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeSketch.Tests", "WeSketch.Tests\WeSketch.Tests.csproj", "{DC0DF3B2-E04D-4715-9DCC-E05017A1758B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F5E3DF24-3970-4AE4-8C65-67571472E788}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5E3DF24-3970-4AE4-8C65-67571472E788}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5E3DF24-3970-4AE4-8C65-67571472E788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC0DF3B2-E04D-4715-9DCC-E05017A1758B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC0DF3B2-E04D-4715-9DCC-E05017A1758B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC0DF3B2-E04D-4715-9DCC-E05017A1758B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC0DF3B2-E04D-4715-9DCC-E05017A1758B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
