@@ -25,6 +25,9 @@ namespace WeSketch
         private WeSketchSignalrClient _client = new WeSketchSignalrClient();
         InviteWindow _inviteWindow = new InviteWindow();
 
+        /// <summary>
+        /// Initialize and set WeSketchApp client objects
+        /// </summary>
         public WeSketchApp()
         {
             InitializeComponent();
@@ -33,7 +36,7 @@ namespace WeSketch
             mainInkCanvas.StrokeErasing += Ik_StrokeErasing;
 
             clearButton.Click += clearButton_Click;
-            closeButton.Click += closeButton_Click;
+            leaveButton.Click += leaveButton_Click;
             inviteButton.Click += InviteButton_Click;
 
             _client.UserAuthenticated(WeSketchClientData.Instance.User.UserID);
@@ -47,6 +50,10 @@ namespace WeSketch
             _inviteWindow.UserInvitedEvent += _inviteWindow_UserInvitedEvent;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="user"></param>
         private void _inviteWindow_UserInvitedEvent(string user)
         {
             _rest.InviteUserToBoard(WeSketchClientData.Instance.User.UserName, user, WeSketchClientData.Instance.User.Board.BoardID);
@@ -61,6 +68,9 @@ namespace WeSketch
             _inviteWindow.Show();
         }
 
+        /// <summary>
+        /// Ink canvas has strokes cleared event
+        /// </summary>
         private void _client_StrokeClearEvent()
         {
             this.mainInkCanvas.Strokes.Clear();
@@ -116,7 +126,11 @@ namespace WeSketch
             }
         }
 
-
+        /// <summary>
+        /// Clear button is clicked by user, clears their board on inkcanvas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void clearButton_Click(object sender, RoutedEventArgs e)
         {
             this.mainInkCanvas.Strokes.Clear();
@@ -125,12 +139,12 @@ namespace WeSketch
         }
 
         /// <summary>
-        /// 
+        /// User clicks leave button, leaves the current board session instance.
         /// </summary>
-        private void closeButton_Click(object sender, RoutedEventArgs e)
+        private void leaveButton_Click(object sender, RoutedEventArgs e)
         {
             _client.LeaveBoardGroup(WeSketchClientData.Instance.User.Board.BoardID);
-            MessageBox.Show("WeSketch close button pressed.");
+            MessageBox.Show("WeSketch leave button pressed.");
         }
     }
 }
