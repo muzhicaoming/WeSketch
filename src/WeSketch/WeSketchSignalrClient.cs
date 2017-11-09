@@ -45,7 +45,9 @@ namespace WeSketch
         private Queue<Action> _queuedActions = new Queue<Action>();
 
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public WeSketchSignalrClient()
         {
             _hub = new HubConnection(_url);
@@ -254,7 +256,9 @@ namespace WeSketch
             InvokeHubDependantAction(() => _hubProxy.Invoke("UserAuthenticated", userId));
         }
 
-
+        /// <summary>
+        /// Checks and lets the hub know when strokes cleared event is received.
+        /// </summary>
         public void StrokesClearedReceived()
         {
             StrokeClearEvent?.Invoke();
@@ -262,11 +266,19 @@ namespace WeSketch
             //StrokeRequestReceivedEvent?.Invoke(requestingUser);
         }
 
+        /// <summary>
+        /// Hub will be sent that strokes are cleared.
+        /// </summary>
+        /// <param name="boardId"></param>
         public void StrokesClearedSend(Guid boardId)
         {
             InvokeHubDependantAction(() => _hubProxy.Invoke("RequestClearBoardStrokes", boardId));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="action"></param>
         private void InvokeHubDependantAction(Action action)
         {
             if (_hub.State == ConnectionState.Connected)
@@ -279,6 +291,9 @@ namespace WeSketch
             }
         }
 
+        /// <summary>
+        /// Clean up
+        /// </summary>
         public void Dispose()
         {
             _hub.Dispose();

@@ -10,6 +10,6 @@
         <InkCanvas Height="333" Margin="95,10,92,0" VerticalAlignment="Top" Name= "mainInkCanvas"/>
         <Button Content="Invite" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" Width="75" Name= "inviteButton"/>
         <Button Content="Clear" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="75" Name= "clearButton"/>
-        <Button Content="Close" HorizontalAlignment="Left" Margin="10,303,0,0" VerticalAlignment="Top" Width="75" Name= "closeButton"/>
+        <Button Content="Leave" HorizontalAlignment="Left" Margin="10,303,0,0" VerticalAlignment="Top" Width="75" Name= "leaveButton"/>
     </Grid>
 </Page>
