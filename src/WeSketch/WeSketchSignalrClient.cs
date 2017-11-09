@@ -35,9 +35,9 @@ namespace WeSketch
         public delegate void StrokeClearEventHandler();
         public event StrokeClearEventHandler StrokeClearEvent; //strokeclearevent instance of strokeclearevent handler object
 #if DEBUG
-        private string _url = ConfigurationManager.AppSettings["signalrDebugUrl"];
+        private string _url = "http://localhost/WeSketchAPI/signalr";
 #else
-        private string _url = ConfigurationManager.AppSettings["signalrUrl"];
+        private string _url = ConfigurationManager.AppSettings["url"];
 #endif
         private HubConnection _hub;
         private IHubProxy _hubProxy;

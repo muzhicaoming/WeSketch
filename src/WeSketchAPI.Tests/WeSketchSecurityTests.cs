@@ -17,13 +17,6 @@ namespace WeSketchAPI.Tests
             var ex = Assert.Catch<Exception>(() => Sec.Login(username, password));
             StringAssert.Contains("Invalid credentials", ex.Message);
         }
-        [Test]
-        public void IsValidLogin_Login_ReturnsUser()
-        {
-            WeSketchSecurity Sec = new WeSketchSecurity();
-            User usr = Sec.Login("Vance", "jan72007");
-            Assert.IsNotNull(usr);
-        }
 
         [Test]
         public void CreateUser_Login_ReturnsUser()
