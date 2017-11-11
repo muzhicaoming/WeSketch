@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NUnit.Framework;
-using WeSketchAPI;
 
-namespace WeSketchAPI.Tests
+namespace WeSketch.Tests
 {
+
+    /// <summary>
+    /// Testing login - authenticate user
+    /// </summary>
     [TestFixture]
     class LoginTests
     {
