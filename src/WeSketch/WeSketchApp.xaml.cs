@@ -35,26 +35,26 @@ namespace WeSketch
             mainInkCanvas.StrokeCollected += StrokeCollected;
             mainInkCanvas.StrokeErasing += Ik_StrokeErasing;
 
-            clearButton.Click += clearButton_Click;
-            leaveButton.Click += leaveButton_Click;
+            clearButton.Click += ClearButton_Click;
+            leaveButton.Click += LeaveButton_Click;
             inviteButton.Click += InviteButton_Click;
 
             _client.UserAuthenticated(WeSketchClientData.Instance.User.UserID);
             _client.JoinBoardGroup(WeSketchClientData.Instance.User.Board.BoardID);
             _client.BoardInvitationReceivedEvent += BoardInvitationReceivedEvent;
-            _client.BoardChangedEvent += _client_BoardChangedEvent;
-            _client.StrokesReceivedEvent += _client_StrokesReceivedEvent;
-            _client.StrokeRequestReceivedEvent += _client_StrokeRequestReceivedEvent;
-            _client.StrokeClearEvent += _client_StrokeClearEvent;
+            _client.BoardChangedEvent += BoardChangedEvent;
+            _client.StrokesReceivedEvent += StrokesReceivedEvent;
+            _client.StrokeRequestReceivedEvent += StrokeRequestReceivedEvent;
+            _client.StrokeClearEvent += StrokeClearEvent;
 
-            _inviteWindow.UserInvitedEvent += _inviteWindow_UserInvitedEvent;
+            _inviteWindow.UserInvitedEvent += InviteWindow_UserInvitedEvent;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="user"></param>
-        private void _inviteWindow_UserInvitedEvent(string user)
+        private void InviteWindow_UserInvitedEvent(string user)
         {
             _rest.InviteUserToBoard(WeSketchClientData.Instance.User.UserName, user, WeSketchClientData.Instance.User.Board.BoardID);
         }
@@ -71,7 +71,7 @@ namespace WeSketch
         /// <summary>
         /// Ink canvas has strokes cleared event
         /// </summary>
-        private void _client_StrokeClearEvent()
+        private void StrokeClearEvent()
         {
             this.mainInkCanvas.Strokes.Clear();
         }
@@ -81,7 +81,7 @@ namespace WeSketch
             throw new NotImplementedException();
         }
 
-        private void _client_StrokeRequestReceivedEvent(string requestingUser)
+        private void StrokeRequestReceivedEvent(string requestingUser)
         {
             // TODO: Send the board strokes to the requesting user.
             Dispatcher.Invoke(() =>
@@ -95,7 +95,7 @@ namespace WeSketch
             _client.SendStroke(WeSketchClientData.Instance.User.Board.BoardID, e.Stroke);
         }
 
-        private void _client_StrokesReceivedEvent(System.Windows.Ink.StrokeCollection strokes)
+        private void StrokesReceivedEvent(System.Windows.Ink.StrokeCollection strokes)
         {
             if(strokes.Any())
             {
@@ -106,7 +106,7 @@ namespace WeSketch
             } //maininkcanvas
         }
 
-        private void _client_BoardChangedEvent(Guid boardId)
+        private void BoardChangedEvent(Guid boardId)
         {
             WeSketchClientData.Instance.User.Board.BoardID = boardId;
             Dispatcher.Invoke(() =>
@@ -131,7 +131,7 @@ namespace WeSketch
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void clearButton_Click(object sender, RoutedEventArgs e)
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             this.mainInkCanvas.Strokes.Clear();
             _client.StrokesClearedSend(WeSketchClientData.Instance.User.Board.BoardID);
@@ -141,7 +141,7 @@ namespace WeSketch
         /// <summary>
         /// User clicks leave button, leaves the current board session instance.
         /// </summary>
-        private void leaveButton_Click(object sender, RoutedEventArgs e)
+        private void LeaveButton_Click(object sender, RoutedEventArgs e)
         {
             _client.LeaveBoardGroup(WeSketchClientData.Instance.User.Board.BoardID);
             MessageBox.Show("WeSketch leave button pressed.");

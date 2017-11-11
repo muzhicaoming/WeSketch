@@ -7,6 +7,7 @@ using System.IO;
 using System.Windows.Controls;
 using Newtonsoft.Json;
 using Microsoft.AspNet.SignalR.Client;
+using Microsoft.AspNet.SignalR.Client.Hubs;
 using System.Configuration;
 using WeSketchSharedDataModels;
 
@@ -17,23 +18,116 @@ namespace WeSketch
     /// </summary>
     class WeSketchSignalrClient
     {
+        /// <summary>
+        /// Fires when the users board is changed.
+        /// </summary>
+        /// <param name="boardId">The board identifier.</param>
         public delegate void BoardChangedEventHandler(Guid boardId);
         public event BoardChangedEventHandler BoardChangedEvent;
-
+        
+        /// <summary>
+        /// Fires when an invitation is received to join a board.
+        /// </summary>
+        /// <param name="user">The user.</param>
+        /// <param name="boardId">The board identifier.</param>
         public delegate void BoardInvitationReceivedEventHandler(string user, Guid boardId);
         public event BoardInvitationReceivedEventHandler BoardInvitationReceivedEvent;
 
+        /// <summary>
+        /// Fires when a user requests the connected users.
+        /// </summary>
+        /// <param name="user">The user.</param>
+        public delegate void ConnectedUsersRequestReceivedEventHandler(string user);
+        public event ConnectedUsersRequestReceivedEventHandler ConnectedUsersRequestReceivedEvent;
+
+        /// <summary>
+        /// Fires when a list of connected users has been received.
+        /// </summary>
+        /// <param name="connectedUsers">The connected users.</param>
+        public delegate void ConnectedUsersReceivedEventHandler(List<ConnectedUser> connectedUsers);
+        public event ConnectedUsersReceivedEventHandler ConnectedUsersReceivedEvent;
+
+        /// <summary>
+        /// Fires when the hub state was changed to disconnected.
+        /// </summary>
+        public delegate void HubDisconnectedEventHandler();
+        public event HubDisconnectedEventHandler HubDisconnectedEvent;
+        
+        /// <summary>
+        /// Fires when the hub threw an exception.
+        /// </summary>
+        /// <param name="e">The exception.</param>
+        public delegate void HubErrorEventHandler(Exception e);
+        public event HubErrorEventHandler HubErrorEvent;
+
+        /// <summary>
+        /// Fires when the hub state was changes to reconnecting.
+        /// </summary>
+        public delegate void HubReconnectingEventHandler();
+        public event HubReconnectingEventHandler HubReconnectingEvent;
+
+        /// <summary>
+        /// Fires when the user has been kicked fromt he board.
+        /// </summary>
+        public delegate void KickedFromBoardEventHandler();
+        public event KickedFromBoardEventHandler KickedFromBoardEvent;
+
+        /// <summary>
+        /// Fires when strokes are received.
+        /// </summary>
+        /// <param name="strokes">The strokes.</param>
         public delegate void StrokesReceivedEventHandler(System.Windows.Ink.StrokeCollection strokes);
         public event StrokesReceivedEventHandler StrokesReceivedEvent;
 
+        /// <summary>
+        /// Fires when strokes to erase are received.
+        /// </summary>
+        /// <param name="stroke">The stroke.</param>
         public delegate void StrokeEraseReceivedEventHandler(System.Windows.Ink.Stroke stroke);
         public event StrokeEraseReceivedEventHandler StrokeErasedEvent;
 
+        /// <summary>
+        /// Fires when the given user requests the board strokes.
+        /// </summary>
+        /// <param name="requestingUser">The requesting user.</param>
         public delegate void StrokeRequestReceivedEventHandler(string requestingUser);
         public event StrokeRequestReceivedEventHandler StrokeRequestReceivedEvent;
 
+        /// <summary>
+        /// Fires when the board is cleared.
+        /// </summary>
         public delegate void StrokeClearEventHandler();
-        public event StrokeClearEventHandler StrokeClearEvent; //strokeclearevent instance of strokeclearevent handler object
+        public event StrokeClearEventHandler StrokeClearEvent;
+
+        /// <summary>
+        /// Fires when a user joins the board.
+        /// </summary>
+        /// <param name="user">The user.</param>
+        /// <param name="color">The color.</param>
+        public delegate void UserJoinedBoardEventHandler(ConnectedUser user);
+        public event UserJoinedBoardEventHandler UserJoinedBoardEvent;
+
+        /// <summary>
+        /// Fires when a user leaves the board.
+        /// </summary>
+        /// <param name="user">The user that left the board.</param>
+        public delegate void UserLeftBoardEventHandler(string user);
+        public event UserLeftBoardEventHandler UserLeftBoardEvent;
+
+        /// <summary>
+        /// Fires when a connected user changes their pen color.
+        /// </summary>
+        /// <param name="user">The user.</param>
+        /// <param name="color">The color.</param>
+        public delegate void UserColorChangedEventHandler(string user, string color);
+        public event UserColorChangedEventHandler UserColorChangedEvent;
+
+        /// <summary>
+        /// Fires when the hub state was changed to connected.
+        /// </summary>
+        public delegate void HubConnectedEventHandler();
+        public event HubConnectedEventHandler HubConnectedEvent;
+        
 #if DEBUG
         private string _url = ConfigurationManager.AppSettings["SignalrDebugUrl"];
 #else
@@ -44,77 +138,63 @@ namespace WeSketch
 
         private Queue<Action> _queuedActions = new Queue<Action>();
 
-
         /// <summary>
-        /// 
+        /// This allows messages to be sent to and from the WeSketch SignalR hub.
         /// </summary>
         public WeSketchSignalrClient()
         {
             _hub = new HubConnection(_url);
-            _hub.Reconnected += Hub_Reconnected;
-            _hub.Reconnecting += Hub_Reconnecting;
-            _hub.Closed += Hub_Closed;
-            _hub.ConnectionSlow += Hub_ConnectionSlow;
-            _hub.Error += Hub_Error;
-            _hub.StateChanged += Hub_StateChanged;
+            _hub.Reconnected += HubReconnected;
+            _hub.Error += HubError;
+            _hub.StateChanged += HubStateChanged;
             _hubProxy = _hub.CreateHubProxy("WeSketchSignalRHub");
 
+            _hubProxy.On("KickedFromBoard", boardId => KickedFromBoard(boardId));
+            _hubProxy.On("ReceiveConnectedUsersRequest", user => ReceiveConnectedUsersRequest(user));
             _hubProxy.On<string, Guid>("ReceiveInvitation", (user, boardId) => ReceiveInvitation(user, boardId));
             _hubProxy.On("ReceiveStrokes", strokes => ReceiveStrokes(strokes));
             _hubProxy.On("ReceiveStrokeRequest", user => ReceiveStrokeRequest(user));
             _hubProxy.On("ReceiverStrokeToErase", stroke => ReceiveStrokeToErase(stroke));
-
+            _hubProxy.On<string, string>("UserColorChanged", (user, color) => UserColorChanged(user, color));
+            _hubProxy.On("UserLeftBoard", user => UserLeftBoard(user));
+            _hubProxy.On("UserJoinedBoard", connectedUser => UserJoinedBoard(connectedUser));
             _hub.Start().Wait();
         }
-
-        private void Hub_StateChanged(StateChange obj)
+        
+        public void ChangeUserColor(string userName, string color)
         {
-        }
-
-        private void Hub_Error(Exception obj)
-        {
-        }
-
-        private void Hub_ConnectionSlow()
-        {
-        }
-
-        private void Hub_Closed()
-        {
-        }
-
-        private void Hub_Reconnecting()
-        {
+            _hubProxy.Invoke<Task>("ChangeUserColor", userName, color);
         }
 
         /// <summary>
-        /// After a hub reconnects after a disconnect it will dequeue all enqueued actions that took place while
-        /// the hub state was disconnected.
+        /// Joins the board group.
         /// </summary>
-        private void Hub_Reconnected()
+        /// <param name="boardId">The board identifier.</param>
+        public void JoinBoardGroup(string userName, string color, Guid boardId)
         {
-            lock (_queuedActions)
-            {
-                if (_queuedActions.Any())
-                {
-                    while (_queuedActions.Peek() != null && _hub.State == ConnectionState.Connected)
-                    {
-                        Action act = _queuedActions.Dequeue();
-                        act.Invoke();
-                    }
-                }
-            }
+            _hubProxy.Invoke<Task>("JoinBoardGroup", userName, color, boardId);
+            BoardChangedEvent?.Invoke(boardId);
         }
 
         /// <summary>
-        /// Receives the invitation.
+        /// Kicks the user from board.
         /// </summary>
         /// <param name="user">The user.</param>
         /// <param name="boardId">The board identifier.</param>
-        public void ReceiveInvitation(string user, Guid boardId)
+        public void KickUserFromBoard(string user, Guid boardId)
         {
-            BoardInvitationReceivedEvent?.Invoke(user, boardId);
+            _hubProxy.Invoke<Task>("KickUserFromBoard", user, boardId);
         }
+
+        /// <summary>
+        /// Leaves the board group.
+        /// </summary>
+        /// <param name="boardId">The board identifier.</param>
+        public void LeaveBoardGroup(string user, Guid boardId)
+        {
+            _hubProxy.Invoke<Task>("LeaveBoardGroup", user, boardId);
+        }
+        
         /// <summary>
         /// Receives the strokes and invokes the StrokesReceivedEvent.
         /// </summary>
@@ -137,32 +217,25 @@ namespace WeSketch
                 
             StrokesReceivedEvent?.Invoke(strokes);
         }
-
+        
         /// <summary>
-        /// Receivers the stroke to erase.
+        /// Requests the strokes from the board.
         /// </summary>
-        /// <param name="serializedStroke">The serialized stroke.</param>
-        public void ReceiveStrokeToErase(string serializedStroke)
+        /// <param name="userId">The user identifier requesting the strokes.</param>
+        /// <param name="boardId">The board identifier.</param>
+        public void RequestStrokes(string user, Guid boardId)
         {
-            StrokeErasedEvent?.Invoke(JsonConvert.DeserializeObject<System.Windows.Ink.Stroke>(serializedStroke));
+            InvokeHubDependantAction(() => _hubProxy.Invoke("RequestStrokes", user, boardId));
         }
 
         /// <summary>
-        /// Sends the stroke to erase.
+        /// Sends the connected users to the specified user.
         /// </summary>
-        /// <param name="stroke">The stroke.</param>
-        public void SendStrokeToErase(System.Windows.Ink.Stroke stroke)
+        /// <param name="user">The user.</param>
+        /// <param name="connectedUsers">The connected users.</param>
+        public void SendConnectedUsersToUser(string user, List<ConnectedUser> connectedUsers)
         {
-            InvokeHubDependantAction(() => _hubProxy.Invoke("SendStrokeToErase", JsonConvert.SerializeObject(stroke)));
-        }
-
-        /// <summary>
-        /// Receives the stroke request.
-        /// </summary>
-        /// <param name="requestingUser">The requesting user.</param>
-        public void ReceiveStrokeRequest(string requestingUser)
-        {
-            StrokeRequestReceivedEvent?.Invoke(requestingUser);
+            InvokeHubDependantAction(() => _hubProxy.Invoke("SendConnectedUsersToUser", user, connectedUsers));
         }
 
         /// <summary>
@@ -207,6 +280,15 @@ namespace WeSketch
         }
 
         /// <summary>
+        /// Sends the stroke to erase.
+        /// </summary>
+        /// <param name="stroke">The stroke.</param>
+        public void SendStrokeToErase(System.Windows.Ink.Stroke stroke)
+        {
+            InvokeHubDependantAction(() => _hubProxy.Invoke("SendStrokeToErase", JsonConvert.SerializeObject(stroke)));
+        }
+
+        /// <summary>
         /// Sends the strokes to user.
         /// </summary>
         /// <param name="user">The user identifier.</param>
@@ -215,37 +297,16 @@ namespace WeSketch
         {
             InvokeHubDependantAction(() => _hubProxy.Invoke("SendStrokesToUser", user, JsonConvert.SerializeObject(strokes)));
         }
-
+        
         /// <summary>
-        /// Requests the strokes from the board.
+        /// Hub will be sent that strokes are cleared.
         /// </summary>
-        /// <param name="userId">The user identifier requesting the strokes.</param>
-        /// <param name="boardId">The board identifier.</param>
-        public void RequestStrokes(string user, Guid boardId)
+        /// <param name="boardId"></param>
+        public void StrokesClearedSend(Guid boardId)
         {
-            InvokeHubDependantAction(() => _hubProxy.Invoke("RequestStrokes", user, boardId));
+            InvokeHubDependantAction(() => _hubProxy.Invoke("RequestClearBoardStrokes", boardId));
         }
-
-        /// <summary>
-        /// Joins the board group.
-        /// </summary>
-        /// <param name="boardId">The board identifier.</param>
-        public void JoinBoardGroup(Guid boardId)
-        {
-            _hubProxy.Invoke<Task>("JoinBoardGroup", boardId);
-            BoardChangedEvent?.Invoke(boardId);
-        }
-
-        /// <summary>
-        /// Leaves the board group.
-        /// </summary>
-        /// <param name="boardId">The board identifier.</param>
-        public void LeaveBoardGroup(Guid boardId)
-        {
-            _hubProxy.Invoke<Task>("LeaveBoardGroup", boardId);
-        }
-
-
+        
         /// <summary>
         /// User is authenticated. It lets the hub know and the user is then
         /// placed in their own unique group.
@@ -257,28 +318,59 @@ namespace WeSketch
         }
 
         /// <summary>
-        /// Checks and lets the hub know when strokes cleared event is received.
+        /// Notifies the client of a hub exception.
         /// </summary>
-        public void StrokesClearedReceived()
+        /// <param name="obj">The exception object.</param>
+        private void HubError(Exception obj)
         {
-            StrokeClearEvent?.Invoke();
-
-            //StrokeRequestReceivedEvent?.Invoke(requestingUser);
+            HubErrorEvent?.Invoke(obj);
         }
 
         /// <summary>
-        /// Hub will be sent that strokes are cleared.
+        /// After a hub reconnects after a disconnect it will dequeue all enqueued actions that took place while
+        /// the hub state was disconnected.
         /// </summary>
-        /// <param name="boardId"></param>
-        public void StrokesClearedSend(Guid boardId)
+        private void HubReconnected()
         {
-            InvokeHubDependantAction(() => _hubProxy.Invoke("RequestClearBoardStrokes", boardId));
+            lock (_queuedActions)
+            {
+                if (_queuedActions.Any())
+                {
+                    while (_queuedActions.Peek() != null && _hub.State == ConnectionState.Connected)
+                    {
+                        Action act = _queuedActions.Dequeue();
+                        act.Invoke();
+                    }
+                }
+            }
         }
 
         /// <summary>
-        /// 
+        /// Triggers events when the state changes to notify the client.
         /// </summary>
-        /// <param name="action"></param>
+        /// <param name="obj">The state changed object.</param>
+        private void HubStateChanged(StateChange obj)
+        {
+            switch (obj.NewState)
+            {
+                case ConnectionState.Connected:
+                    HubConnectedEvent?.Invoke();
+                    break;
+
+                case ConnectionState.Disconnected:
+                    HubDisconnectedEvent?.Invoke();
+                    break;
+
+                case ConnectionState.Reconnecting:
+                    HubReconnectingEvent?.Invoke();
+                    break;
+            }
+        }
+        
+        /// <summary>
+        /// This sends a message to the server or queues it if it is not currently connected.
+        /// </summary>
+        /// <param name="action">The action to send or enqueue.</param>
         private void InvokeHubDependantAction(Action action)
         {
             if (_hub.State == ConnectionState.Connected)
@@ -290,7 +382,100 @@ namespace WeSketch
                 _queuedActions.Enqueue(action);
             }
         }
+        
+        /// <summary>
+        /// The client user has been kicked from the board by the board owner.
+        /// </summary>
+        /// <param name="boardId">The board identifier.</param>
+        private void KickedFromBoard(Guid boardId)
+        {
+            LeaveBoardGroup(boardId);
+            KickedFromBoardEvent?.Invoke();
+        }
 
+        /// <summary>
+        /// Receives the connected users.
+        /// </summary>
+        /// <param name="connectedUsers">The connected users.</param>
+        private void ReceiveConnectedUsers(List<ConnectedUser> connectedUsers)
+        {
+            ConnectedUsersReceivedEvent?.Invoke(connectedUsers);
+        }
+
+        /// <summary>
+        /// Receives a request to send all connected users to the specified user.
+        /// </summary>
+        /// <param name="user">The user.</param>
+        private void ReceiveConnectedUsersRequest(string user)
+        {
+            ConnectedUsersRequestReceivedEvent?.Invoke(user);
+        }
+        
+        /// <summary>
+        /// Receives the invitation.
+        /// </summary>
+        /// <param name="user">The user.</param>
+        /// <param name="boardId">The board identifier.</param>
+        private void ReceiveInvitation(string user, Guid boardId)
+        {
+            BoardInvitationReceivedEvent?.Invoke(user, boardId);
+        }
+
+        /// <summary>
+        /// Receives the stroke request.
+        /// </summary>
+        /// <param name="requestingUser">The requesting user.</param>
+        private void ReceiveStrokeRequest(string requestingUser)
+        {
+            StrokeRequestReceivedEvent?.Invoke(requestingUser);
+        }
+
+        /// <summary>
+        /// Receivers the stroke to erase.
+        /// </summary>
+        /// <param name="serializedStroke">The serialized stroke.</param>
+        private void ReceiveStrokeToErase(string serializedStroke)
+        {
+            StrokeErasedEvent?.Invoke(JsonConvert.DeserializeObject<System.Windows.Ink.Stroke>(serializedStroke));
+        }
+        
+        /// <summary>
+        /// Checks and lets the hub know when strokes cleared event is received.
+        /// </summary>
+        private void StrokesClearedReceived()
+        {
+            StrokeClearEvent?.Invoke();
+        }
+
+        /// <summary>
+        /// Informs the client that the specified user changed their color.
+        /// </summary>
+        /// <param name="user">The user.</param>
+        /// <param name="color">The color.</param>
+        private void UserColorChanged(string user, string color)
+        {
+            UserColorChangedEvent?.Invoke(user, color);
+        }
+
+        /// <summary>
+        /// Given user has left the board.
+        /// </summary>
+        /// <param name="user">The user.</param>
+        private void UserLeftBoard(string user)
+        {
+            UserLeftBoardEvent?.Invoke(user);
+        }
+
+        /// <summary>
+        /// User the joined board.
+        /// </summary>
+        /// <param name="user">The user.</param>
+        /// <param name="color">The color.</param>
+        private void UserJoinedBoard(ConnectedUser user)
+        {
+            UserJoinedBoardEvent?.Invoke(user);
+        }
+        
         /// <summary>
         /// Clean up
         /// </summary>

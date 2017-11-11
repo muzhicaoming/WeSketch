@@ -43,6 +43,7 @@
     <Compile Include="Board.cs" />
     <Compile Include="BoardPoint.cs" />
     <Compile Include="BoardPointCollection.cs" />
+    <Compile Include="ConnectedUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="User.cs" />
