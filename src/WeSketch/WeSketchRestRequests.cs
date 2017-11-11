@@ -11,7 +11,7 @@ namespace WeSketch
     /// <summary>
     /// Sends all rest requests to WeSketchAPI.
     /// </summary>
-    class WeSketchRestRequests : IDisposable
+    public class WeSketchRestRequests : IDisposable
     {
 #if DEBUG
         private string _url = ConfigurationManager.AppSettings["debugUrl"];

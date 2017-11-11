@@ -19,7 +19,7 @@ namespace WeSketchAPI.Tests
         }
 
         [Test]
-        public void CreateUser_Login_ReturnsUser()
+        public void CreateValidUser_CreateUser_ReturnsUser()
         {
             WeSketchSecurity Sec = new WeSketchSecurity();
             User usr = Sec.CreateUser("tester", "TestPassword", "tester@test.com");
@@ -27,7 +27,15 @@ namespace WeSketchAPI.Tests
         }
 
         [Test]
-        public void CreateExistingUser_Login_ReturnsError()
+        public void ValidLogin_Login_ReturnsUser()
+        {
+            WeSketchSecurity Sec = new WeSketchSecurity();
+            User usr = Sec.Login("tester", "TestPassword");
+            Assert.IsNotNull(usr);
+        }
+
+        [Test]
+        public void CreateExistingUser_CreateUser_ReturnsError()
         {
             WeSketchSecurity Sec = new WeSketchSecurity();
             var ex = Assert.Catch<Exception>(() => Sec.CreateUser("tester", "TestPassword", "tester@test.com"));

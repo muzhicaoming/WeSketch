@@ -59,6 +59,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WeSketchSharedDataModels\WeSketchSharedDataModels.csproj">
+      <Project>{f5e3df24-3970-4ae4-8c65-67571472e788}</Project>
+      <Name>WeSketchSharedDataModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WeSketch\WeSketch.csproj">
       <Project>{5e4e7ced-2fa8-4f6a-b184-d4761c93409d}</Project>
       <Name>WeSketch</Name>

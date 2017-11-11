@@ -46,10 +46,10 @@ namespace WeSketch
             }
         }
 
-        private async void AuthenticateUser(string username, string pass)
+        public async void AuthenticateUser()
         {
-            username = "";
-            pass = "";
+            string username = "";
+            string pass = "";
             Dispatcher.Invoke(() =>
             {
                 username = userName.Text;
