@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace WeSketchSharedDataModels
 {
-    public class Board
+    public class ConnectedUser
     {
-        public Guid BoardID { set; get; }
+        public string UserName { set; get; }
+        public string Color { set; get; }
         public bool Owner { set; get; }
-        public List<ConnectedUser> ConnectedUsers { set; get; } = new List<ConnectedUser>();
     }
 }

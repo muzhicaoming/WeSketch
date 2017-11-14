@@ -289,3 +289,4 @@ __pycache__/
 Web.config
 Web.Debug.config
 Web.Release.config
+/src/WeSketchAPI/cfg.zip

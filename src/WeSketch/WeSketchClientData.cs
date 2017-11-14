@@ -9,37 +9,20 @@ namespace WeSketch
 {
     public class WeSketchClientData
     {
-        public delegate void BoardChangedEventHandler();
-        public static event BoardChangedEventHandler BoardChangedEvent;
-
-
+        public User User { set; get; }
+        public string Color { set; get; }
         private static Lazy<WeSketchClientData> _instance = new Lazy<WeSketchClientData>(() => new WeSketchClientData());
         public static WeSketchClientData Instance => _instance.Value;
         private WeSketchClientData()
         {
 
         }
-
-        public User User { set; get; }
-
-        public void AddConnectedUser(Guid userId, string userName)
+        public void AddConnectedUser(ConnectedUser user)
         {
-            if (!User.Board.ConnectedUsers.Keys.Any(k => k == userId))
+            if (!User.Board.ConnectedUsers.Any(usr => usr.UserName == user.UserName))
             {
-                User.Board.ConnectedUsers.Add(userId, userName);
+                User.Board.ConnectedUsers.Add(user);
             }
         }
-
-        public void ChangeBoard(Guid boardId, bool owner)
-        {
-            User.Board.BoardID = boardId;
-            User.Board.Owner = owner;
-            BoardChangedEvent?.Invoke();
-        }
-    }
-
-    public class WeSketchEventArgs
-    {
-
     }
 }
