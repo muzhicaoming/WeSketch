@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Ink;
 using WeSketchSharedDataModels;
 
 namespace WeSketch
@@ -33,7 +34,7 @@ namespace WeSketch
             InitializeComponent();
             
             mainInkCanvas.StrokeCollected += StrokeCollected;
-            mainInkCanvas.StrokeErasing += Ik_StrokeErasing;
+            mainInkCanvas.StrokeErasing += StrokeErasing;
 
             clearButton.Click += ClearButton_Click;
             leaveButton.Click += LeaveButton_Click;
@@ -69,6 +70,39 @@ namespace WeSketch
         }
 
         /// <summary>
+        /// Method to change brush color from the combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboColor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (comboColor.Items.Count > 0 && ((ComboBoxItem)comboColor.SelectedItem).Content != null)
+            {
+                /// Set brush color to selected color
+                if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == “Black”)
+                
+                    mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Black;
+                
+                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == “Blue”)
+                
+                    mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Blue;
+                
+                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == “Green”)
+                
+                    mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Green;
+                
+                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == “Red”)
+
+                    mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Red;
+                
+                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == “Yellow”)
+                
+                    mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Yellow;
+                
+            }
+        }
+
+        /// <summary>
         /// Ink canvas has strokes cleared event
         /// </summary>
         private void StrokeClearEvent()
@@ -76,7 +110,7 @@ namespace WeSketch
             this.mainInkCanvas.Strokes.Clear();
         }
 
-        private void Ik_StrokeErasing(object sender, InkCanvasStrokeErasingEventArgs e)
+        private void StrokeErasing(object sender, InkCanvasStrokeErasingEventArgs e)
         {
             throw new NotImplementedException();
         }
