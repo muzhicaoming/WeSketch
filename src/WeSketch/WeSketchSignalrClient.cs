@@ -389,7 +389,7 @@ namespace WeSketch
         /// <param name="boardId">The board identifier.</param>
         private void KickedFromBoard(Guid boardId)
         {
-            LeaveBoardGroup(boardId);
+            LeaveBoardGroup(WeSketchClientData.Instance.User.UserName, boardId);
             KickedFromBoardEvent?.Invoke();
         }
 

@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         WindowStyle="SingleBorderWindow"
         Title="WeSketch" Height="382.812" Width="826.514" Background="White">
+    <Viewbox Stretch="Uniform">
     <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden">
         
     </Frame>
+    </Viewbox>
 </Window>

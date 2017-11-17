@@ -42,7 +42,7 @@ namespace WeSketch
 
 
             _client.UserAuthenticated(WeSketchClientData.Instance.User.UserID);
-            _client.JoinBoardGroup(WeSketchClientData.Instance.User.Board.BoardID);
+            _client.JoinBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.Color, WeSketchClientData.Instance.User.Board.BoardID);
             _client.BoardInvitationReceivedEvent += BoardInvitationReceivedEvent;
             _client.BoardChangedEvent += BoardChangedEvent;
             _client.StrokesReceivedEvent += StrokesReceivedEvent;
@@ -156,8 +156,8 @@ namespace WeSketch
             MessageBoxResult result = MessageBox.Show($"User {user} invited you to their board.  Would you like to join?", "Join board?", MessageBoxButton.YesNo);
             if(result == MessageBoxResult.Yes)
             {
-                _client.LeaveBoardGroup(WeSketchClientData.Instance.User.Board.BoardID);
-                _client.JoinBoardGroup(boardId);
+                _client.LeaveBoardGroup(user, WeSketchClientData.Instance.User.Board.BoardID);
+                _client.JoinBoardGroup(user, WeSketchClientData.Instance.Color, boardId);
             }
         }
 
@@ -178,7 +178,7 @@ namespace WeSketch
         /// </summary>
         private void LeaveButton_Click(object sender, RoutedEventArgs e)
         {
-            _client.LeaveBoardGroup(WeSketchClientData.Instance.User.Board.BoardID);
+            _client.LeaveBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
             MessageBox.Show("WeSketch leave button pressed.");
         }
     }
