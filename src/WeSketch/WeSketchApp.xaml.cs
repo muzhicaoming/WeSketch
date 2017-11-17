@@ -40,6 +40,7 @@ namespace WeSketch
             leaveButton.Click += LeaveButton_Click;
             inviteButton.Click += InviteButton_Click;
 
+
             _client.UserAuthenticated(WeSketchClientData.Instance.User.UserID);
             _client.JoinBoardGroup(WeSketchClientData.Instance.User.Board.BoardID);
             _client.BoardInvitationReceivedEvent += BoardInvitationReceivedEvent;
@@ -79,23 +80,23 @@ namespace WeSketch
             if (comboColor.Items.Count > 0 && ((ComboBoxItem)comboColor.SelectedItem).Content != null)
             {
                 /// Set brush color to selected color
-                if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == “Black”)
+                if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == "Black")
                 
                     mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Black;
                 
-                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == “Blue”)
+                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == "Blue")
                 
                     mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Blue;
                 
-                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == “Green”)
+                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == "Green")
                 
                     mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Green;
                 
-                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == “Red”)
+                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == "Red")
 
                     mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Red;
                 
-                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == “Yellow”)
+                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == "Yellow")
                 
                     mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Yellow;
                 
