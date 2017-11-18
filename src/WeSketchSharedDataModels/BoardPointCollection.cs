@@ -9,5 +9,6 @@ namespace WeSketchSharedDataModels
     public class BoardPointCollection
     {
         public List<BoardPoint> Points { set; get; } = new List<BoardPoint>();
+        public string Color { set; get; }
     }
 }
