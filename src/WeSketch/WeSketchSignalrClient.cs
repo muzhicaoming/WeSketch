@@ -160,7 +160,12 @@ namespace WeSketch
             _hubProxy.On("UserJoinedBoard", connectedUser => UserJoinedBoard(connectedUser));
             _hub.Start().Wait();
         }
-        
+
+        /// <summary>
+        /// Changes the color of the user.
+        /// </summary>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="color">The color.</param>
         public void ChangeUserColor(string userName, string color)
         {
             _hubProxy.Invoke<Task>("ChangeUserColor", userName, color);
@@ -169,6 +174,8 @@ namespace WeSketch
         /// <summary>
         /// Joins the board group.
         /// </summary>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="color">The color.</param>
         /// <param name="boardId">The board identifier.</param>
         public void JoinBoardGroup(string userName, string color, Guid boardId)
         {
@@ -189,6 +196,7 @@ namespace WeSketch
         /// <summary>
         /// Leaves the board group.
         /// </summary>
+        /// <param name="user">The user.</param>
         /// <param name="boardId">The board identifier.</param>
         public void LeaveBoardGroup(string user, Guid boardId)
         {
