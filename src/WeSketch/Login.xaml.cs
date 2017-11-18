@@ -37,7 +37,7 @@ namespace WeSketch
             {
                 try
                 {
-                    Task.Run(() => AuthenticateUser());
+                    Task.Run(() => AuthenticateUser(userName.Text, password.Password));
                 }
                 catch(Exception ex)
                 {
@@ -46,19 +46,11 @@ namespace WeSketch
             }
         }
 
-        public async void AuthenticateUser()
+        public async void AuthenticateUser(string userName, string password)
         {
-            string username = "";
-            string pass = "";
-            Dispatcher.Invoke(() =>
-            {
-                username = userName.Text;
-                pass = password.Password;
-            });
-
             try
             {
-                User user = await _rest.Login(username, pass);
+                User user = await _rest.Login(userName, password);
                 UserLoggedIn(user);
             }
             catch(Exception e)

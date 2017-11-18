@@ -35,7 +35,7 @@ namespace WeSketch
         {
             if(ValidateInput())
             {
-                Task.Run(() => CreateUser());
+                Task.Run(() => CreateUser(userName.Text, email.Text, password.Password));
             }
         }
 
@@ -69,20 +69,17 @@ namespace WeSketch
 
         }
 
-        private async void CreateUser()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        private async void CreateUser(string userName, string email, string password)
         {
             WeSketchRestRequests rest = new WeSketchRestRequests();
-            string username = "";
-            string pass = "";
-            string userEmail = "";
-            Dispatcher.Invoke(() =>
-            {
-                username = userName.Text;
-                pass = password.Password;
-                userEmail = email.Text;
-            });
             
-            User user = await rest.CreateUser(username, pass, userEmail);//.ContinueWith(usr => UserLoggedIn(usr.Result));
+            User user = await rest.CreateUser(userName, password, email);//.ContinueWith(usr => UserLoggedIn(usr.Result));
             UserLoggedIn(user);
         }
 
