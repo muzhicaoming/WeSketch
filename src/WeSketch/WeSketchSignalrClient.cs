@@ -161,6 +161,11 @@ namespace WeSketch
             _hub.Start().Wait();
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="color"></param>
         public void ChangeUserColor(string userName, string color)
         {
             _hubProxy.Invoke<Task>("ChangeUserColor", userName, color);
