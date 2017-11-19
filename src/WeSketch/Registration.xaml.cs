@@ -31,6 +31,11 @@ namespace WeSketch
             InitializeComponent();
         }
 
+        /// <summary>
+        /// New user click event for registering. Sets user input to user name, email, and password.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void regiserNew_Click(object sender, RoutedEventArgs e)
         {
             if(ValidateInput())
@@ -49,6 +54,10 @@ namespace WeSketch
             }
         }
 
+        /// <summary>
+        /// Method that checks and validates if there is no empty or white space for credentials.
+        /// </summary>
+        /// <returns></returns>
         private bool ValidateInput()
         {
             return !string.IsNullOrWhiteSpace(userName.Text) &&

@@ -15,6 +15,12 @@ namespace WeSketch.Tests
     class RegistrationTests
     {
 
+        /// <summary>
+        /// Method with test cases for creating a user name, email, and password
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
         [Test]
         [TestCase("", "", "")]
         [TestCase("", "somepassword", "")]

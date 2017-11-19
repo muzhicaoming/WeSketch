@@ -95,6 +95,11 @@ namespace WeSketch
             _rest.InviteUserToBoard(WeSketchClientData.Instance.User.UserName, user, WeSketchClientData.Instance.User.Board.BoardID);
         }
 
+        /// <summary>
+        /// Method for the button that invites a user
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void InviteButton_Click(object sender, RoutedEventArgs e)
         {
             if(_inviteWindow == null)
@@ -138,6 +143,21 @@ namespace WeSketch
                 }
 
                 _client.ChangeUserColor(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.Color);
+            }
+        }
+
+        /// <summary>
+        /// Method to change the brush stroke size from the combo box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (comboSize.Items.Count > 0 && ((ComboBoxItem)comboSize.SelectedItem).Content != null)
+            {
+                /// Sets the brush size.
+                mainInkCanvas.DefaultDrawingAttributes.Width = Convert.ToDouble(((ComboBoxItem)comboSize.SelectedItem).Content);
+                mainInkCanvas.DefaultDrawingAttributes.Height = Convert.ToDouble(((ComboBoxItem)comboSize.SelectedItem).Content);
             }
         }
 

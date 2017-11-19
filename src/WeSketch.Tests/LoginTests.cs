@@ -15,6 +15,11 @@ namespace WeSketch.Tests
     class LoginTests
     {
 
+        /// <summary>
+        /// Method to test authenticating a valid user with test user name and password.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
         [Test]
         [TestCase("", "")]
         [TestCase("", "somepassword")]

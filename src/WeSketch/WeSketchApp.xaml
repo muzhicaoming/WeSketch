@@ -30,11 +30,23 @@
             <ComboBoxItem Content="Blue"/>
             <ComboBoxItem Content="Yellow"/>
         </ComboBox>
-        <GroupBox BorderBrush="Black" BorderThickness="2" Margin="569,162,10,126" Name="groupBoxMode" Header="Mode">
+        <GroupBox BorderBrush="Black" BorderThickness="2" Margin="569,210,10,78" Name="groupBoxMode" Header="Mode">
             <Grid>
-                <RadioButton Name="rbDraw" GroupName="drawMode" Margin="10,10,54,33" IsChecked="True">Draw</RadioButton>
-                <RadioButton Name="rbErase" GroupName="drawMode" Margin="10,28,54,15">Erase</RadioButton>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="34*"/>
+                    <ColumnDefinition Width="87*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton Name="rbDraw" GroupName="drawMode" Margin="10,10,54,33" IsChecked="True" Grid.ColumnSpan="2">Draw</RadioButton>
+                <RadioButton Name="rbErase" GroupName="drawMode" Margin="10,28,54,15" Grid.ColumnSpan="2">Erase</RadioButton>
             </Grid>
         </GroupBox>
+        <Label Content="Brush Size:" HorizontalAlignment="Left" Margin="569,162,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.006,-0.208" Name="brushSizeLabel"/>
+        <ComboBox HorizontalAlignment="Left" Margin="569,188,0,0" VerticalAlignment="Top" Width="133" Name="comboSize" SelectionChanged="comboSize_SelectionChanged">
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem IsSelected="True" Content="2"/>
+            <ComboBoxItem Content="5"/>
+            <ComboBoxItem Content="8"/>
+            <ComboBoxItem Content="10"/>
+        </ComboBox>
     </Grid>
 </Page>
