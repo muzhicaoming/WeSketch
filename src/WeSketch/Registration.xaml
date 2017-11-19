@@ -13,13 +13,13 @@
             <StackPanel DockPanel.Dock="Top" VerticalAlignment="Center" HorizontalAlignment="Center" >
                 <TextBlock FontWeight="ExtraBold">Register New User</TextBlock>
                 <TextBlock>User Name:</TextBlock>
-                <TextBox Name="userName" TextChanged="userName_TextChanged"></TextBox>
+                <TextBox Name="userName"></TextBox>
                 <TextBlock>Email:</TextBlock>
                 <TextBox Name="email"></TextBox>
                 <TextBlock>Password:</TextBlock>
-                <PasswordBox Name="password" PasswordChanged="password_PasswordChanged"></PasswordBox>
+                <PasswordBox Name="password"></PasswordBox>
                 <TextBlock>Confirm Password:</TextBlock>
-                <PasswordBox Name="passwordConfirm" PasswordChanged="passwordConfirm_PasswordChanged"></PasswordBox>
+                <PasswordBox Name="passwordConfirm"></PasswordBox>
                 <Button Name="regiserNew" Content="Register" Click="regiserNew_Click"></Button>
                 <Popup Name="popup" Width="214" AllowsTransparency="True">
                     <StackPanel VerticalAlignment="Bottom">

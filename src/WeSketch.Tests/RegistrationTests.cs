@@ -15,6 +15,12 @@ namespace WeSketch.Tests
     class RegistrationTests
     {
 
+        /// <summary>
+        /// Method with test cases for creating a user name, email, and password
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
         [Test]
         [TestCase("", "", "")]
         [TestCase("", "somepassword", "")]
@@ -22,10 +28,10 @@ namespace WeSketch.Tests
         [TestCase("someusername", "", "someemail")]
         [TestCase("", "", "someemail")]
         [TestCase("someusername", "somepassword", "someemail")]
-        public void IsInvalidCreate_User(string username, string password, string userEmail)
+        public void IsInvalidCreate_User(string userName, string email, string password)
         {
             Registration reg = new Registration();
-            var ex = Assert.Catch<Exception>(() => reg.CreateUser(username, password, userEmail));
+            var ex = Assert.Catch<Exception>(() => reg.CreateUser(userName, email, password));
             StringAssert.Contains("Error", ex.Message);
         }
     }

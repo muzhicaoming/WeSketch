@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeSketchSharedDataModels
 {
+    [Serializable]
     public class ConnectedUser
     {
         public string UserName { set; get; }

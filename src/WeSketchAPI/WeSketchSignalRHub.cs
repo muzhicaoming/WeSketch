@@ -15,6 +15,12 @@ namespace WeSketchAPI
     /// <seealso cref="Microsoft.AspNet.SignalR.Hub" />
     public class WeSketchSignalRHub : Hub
     {
+        /// <summary>
+        /// Changes the color of the given user user.
+        /// </summary>
+        /// <param name="user">The user.</param>
+        /// <param name="color">The color.</param>
+        /// <param name="boardId">The board identifier.</param>
         public void ChangeUserColor(string user, string color, Guid boardId)
         {
             Clients.Group(boardId.ToString(), Context.ConnectionId).UserColorChanged(user, color);
@@ -31,12 +37,12 @@ namespace WeSketchAPI
             using (var db = new WeSketchDataContext())
             {
                 var user = db.Users.Single(usr => usr.UserName == userName);
-                Clients.Group(boardId.ToString()).UserJoinedBoard(new ConnectedUser()
+                Clients.Group(boardId.ToString()).UserJoinedBoard(JsonConvert.SerializeObject(new ConnectedUser()
                 {
                     UserName = userName,
                     Color = color,
                     Owner = boardId == user.UserBoard.BoardID
-                });
+                }));
             }
         }
 
@@ -66,6 +72,7 @@ namespace WeSketchAPI
             {
                 var user = db.Users.Single(usr => usr.UserName == userName);
                 Groups.Add(Context.ConnectionId, user.UserBoard.BoardID.ToString());
+                Clients.Group(user.UserID.ToString()).UserBoardChanged(user.UserBoard.BoardID, true);
             }
             Clients.Group(boardId.ToString()).UserLeftBoard(userName);
         }
@@ -135,7 +142,7 @@ namespace WeSketchAPI
         /// </summary>
         /// <param name="user">The user to send the users to.</param>
         /// <param name="users">The users.</param>
-        public void SendConnectedUsersToUser(string user, List<ConnectedUser> users)
+        public void SendConnectedUsersToUser(string user, string users)
         {
             using (var db = new WeSketchDataContext())
             {
