@@ -54,6 +54,8 @@ namespace WeSketch
             _client.StrokeClearEvent += StrokeClearEvent;
             _client.StrokeErasedEvent += StrokeErasedEvent;
             _inviteWindow.UserInvitedEvent += InviteWindow_UserInvitedEvent;
+
+            LoadConnectedUsers();
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -146,6 +148,11 @@ namespace WeSketch
             }
         }
 
+        private void LoadConnectedUsers()
+        {
+            lbConnectedUsers.ItemsSource = WeSketchClientData.Instance.User.Board.ConnectedUsers;
+        }
+
         /// <summary>
         /// Method to change the brush stroke size from the combo box
         /// </summary>
@@ -225,6 +232,8 @@ namespace WeSketch
             {
                 _client.LeaveBoardGroup(user, WeSketchClientData.Instance.User.Board.BoardID);
                 _client.JoinBoardGroup(user, WeSketchClientData.Instance.Color, boardId);
+
+                LoadConnectedUsers();
             }
         }
 
@@ -244,5 +253,6 @@ namespace WeSketch
         {
             _client.LeaveBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
         }
+
     }
 }
