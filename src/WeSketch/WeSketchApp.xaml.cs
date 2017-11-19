@@ -32,14 +32,18 @@ namespace WeSketch
         public WeSketchApp()
         {
             InitializeComponent();
-            
+
+            WeSketchClientData.Instance.Color = "Black";
+            userLabel.Content = WeSketchClientData.Instance.User.UserName;
+            rbDraw.Checked += RadioButton_Checked;
+            rbErase.Checked += RadioButton_Checked;
+
             mainInkCanvas.StrokeCollected += StrokeCollected;
             mainInkCanvas.StrokeErasing += StrokeErasing;
 
             clearButton.Click += ClearButton_Click;
             leaveButton.Click += LeaveButton_Click;
             inviteButton.Click += InviteButton_Click;
-
 
             _client.UserAuthenticated(WeSketchClientData.Instance.User.UserID);
             _client.JoinBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.Color, WeSketchClientData.Instance.User.Board.BoardID);
@@ -48,8 +52,38 @@ namespace WeSketch
             _client.StrokesReceivedEvent += StrokesReceivedEvent;
             _client.StrokeRequestReceivedEvent += StrokeRequestReceivedEvent;
             _client.StrokeClearEvent += StrokeClearEvent;
-
+            _client.StrokeErasedEvent += StrokeErasedEvent;
             _inviteWindow.UserInvitedEvent += InviteWindow_UserInvitedEvent;
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                mainInkCanvas.EditingMode = (rbDraw.IsChecked ?? false) ? InkCanvasEditingMode.Ink : InkCanvasEditingMode.EraseByPoint;
+            });
+        }
+
+        /// <summary>
+        /// The given stroke was erased from the board.
+        /// </summary>
+        /// <param name="stroke">The stroke.</param>
+        private void StrokeErasedEvent(Stroke stroke)
+        {
+            stroke.StylusPoints.ToList().ForEach(point =>
+            {
+                mainInkCanvas.Strokes.ToList().ForEach(boardStroke =>
+                {
+                    var points = boardStroke.StylusPoints.Where(pnt => pnt.X == point.X && pnt.Y == point.Y);
+                    if(points.Any())
+                    {
+                        points.ToList().ForEach(pnt =>
+                        {
+                            boardStroke.StylusPoints.Remove(pnt);
+                        });
+                    }
+                });
+            });
         }
 
         /// <summary>
@@ -79,27 +113,31 @@ namespace WeSketch
         {
             if (comboColor.Items.Count > 0 && ((ComboBoxItem)comboColor.SelectedItem).Content != null)
             {
-                /// Set brush color to selected color
-                if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == "Black")
-                
-                    mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Black;
-                
-                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == "Blue")
-                
-                    mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Blue;
-                
-                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == "Green")
-                
-                    mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Green;
-                
-                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == "Red")
+                switch(((ComboBoxItem)comboColor.SelectedItem).Content.ToString())
+                {
+                    case "Black":
+                        mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Black;
+                        WeSketchClientData.Instance.Color = "Black";
+                        break;
+                    case "Blue":
+                        mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Blue;
+                        WeSketchClientData.Instance.Color = "Blue";
+                        break;
+                    case "Green":
+                        mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Green;
+                        WeSketchClientData.Instance.Color = "Green";
+                        break;
+                    case "Red":
+                        mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Red;
+                        WeSketchClientData.Instance.Color = "Red";
+                        break;
+                    case "Yellow":
+                        mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Yellow;
+                        WeSketchClientData.Instance.Color = "Yelow";
+                        break;
+                }
 
-                    mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Red;
-                
-                else if (((ComboBoxItem)comboColor.SelectedItem).Content.ToString() == "Yellow")
-                
-                    mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Yellow;
-                
+                _client.ChangeUserColor(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.Color);
             }
         }
 
@@ -113,7 +151,7 @@ namespace WeSketch
 
         private void StrokeErasing(object sender, InkCanvasStrokeErasingEventArgs e)
         {
-            throw new NotImplementedException();
+            _client.SendStrokeToErase(e.Stroke, WeSketchClientData.Instance.User.Board.BoardID);
         }
 
         private void StrokeRequestReceivedEvent(string requestingUser)
@@ -141,6 +179,10 @@ namespace WeSketch
             } //maininkcanvas
         }
 
+        /// <summary>
+        /// Informs the client that the active board was changed.
+        /// </summary>
+        /// <param name="boardId">The board identifier.</param>
         private void BoardChangedEvent(Guid boardId)
         {
             WeSketchClientData.Instance.User.Board.BoardID = boardId;
@@ -151,6 +193,11 @@ namespace WeSketch
             _client.RequestStrokes(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
         }
 
+        /// <summary>
+        /// Informs the client that an invitation to another board was received.
+        /// </summary>
+        /// <param name="user">The user.</param>
+        /// <param name="boardId">The board identifier.</param>
         private void BoardInvitationReceivedEvent(string user, Guid boardId)
         {
             MessageBoxResult result = MessageBox.Show($"User {user} invited you to their board.  Would you like to join?", "Join board?", MessageBoxButton.YesNo);
@@ -162,15 +209,12 @@ namespace WeSketch
         }
 
         /// <summary>
-        /// Clear button is clicked by user, clears their board on inkcanvas
+        /// Clear button is clicked by user, clears their board on inkcanvas.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             this.mainInkCanvas.Strokes.Clear();
             _client.StrokesClearedSend(WeSketchClientData.Instance.User.Board.BoardID);
-            MessageBox.Show("Clear button pressed.");
         }
 
         /// <summary>
@@ -179,7 +223,6 @@ namespace WeSketch
         private void LeaveButton_Click(object sender, RoutedEventArgs e)
         {
             _client.LeaveBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
-            MessageBox.Show("WeSketch leave button pressed.");
         }
     }
 }

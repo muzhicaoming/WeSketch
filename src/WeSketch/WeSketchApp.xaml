@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeSketch"
         mc:Ignorable="d"
-        Title="WeSketch" Height="420.812" Width="999.514" Background="#FF9E9696">
-    <Grid Margin="19,-1,-11,21" RenderTransformOrigin="0.5,0.5">
+        Title="WeSketch" Height="370.812" Width="711.514" Background="#FF9E9696">
+    <Grid Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
         <Grid.RenderTransform>
             <TransformGroup>
                 <ScaleTransform/>
@@ -15,20 +15,26 @@
                 <TranslateTransform/>
             </TransformGroup>
         </Grid.RenderTransform>
-        <Viewbox Margin="-19,0,148,-13" Stretch="Uniform">
-            <InkCanvas Margin="189,10,149,0" VerticalAlignment="Top" Name= "mainInkCanvas" Width="1816" Height="880" />
+        <Viewbox Margin="0,0,0,0" Stretch="Uniform" HorizontalAlignment="Left">
+            <InkCanvas Margin="0,0,0,0" Name= "mainInkCanvas" Width="380"/>
         </Viewbox>
-        <Button Content="Invite" HorizontalAlignment="Left" Margin="894,10,0,0" VerticalAlignment="Top" Width="75" Name= "inviteButton"/>
-        <Button Content="Clear" HorizontalAlignment="Left" Margin="894,35,0,0" VerticalAlignment="Top" Width="75" Name= "clearButton"/>
-        <Button Content="Leave" HorizontalAlignment="Left" Margin="894,60,0,0" VerticalAlignment="Top" Width="75" Name= "leaveButton"/>
-        <ComboBox HorizontalAlignment="Left" Margin="849,115,0,0" VerticalAlignment="Top" Width="120" Name="comboColor" SelectionChanged="comboColor_SelectionChanged">
+        <Label Name="userLabel" Margin="569,0,10,340">userLabel</Label>
+        <Button Content="Invite" HorizontalAlignment="Left" Margin="569,39,0,0" VerticalAlignment="Top" Width="133" Name= "inviteButton"/>
+        <Button Content="Clear" HorizontalAlignment="Left" Margin="569,64,0,0" VerticalAlignment="Top" Width="133" Name= "clearButton"/>
+        <Button Content="Leave" HorizontalAlignment="Left" Margin="569,89,0,0" VerticalAlignment="Top" Width="133" Name= "leaveButton"/>
+        <Label Content="Color:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="569,109,0,0" Name="colorLabel"/>
+        <ComboBox HorizontalAlignment="Left" Margin="569,135,0,0" VerticalAlignment="Top" Width="133" Name="comboColor" SelectionChanged="comboColor_SelectionChanged">
             <ComboBoxItem IsSelected="True" Content="Black"/>
             <ComboBoxItem Content="Red"/>
             <ComboBoxItem Content="Green"/>
             <ComboBoxItem Content="Blue"/>
             <ComboBoxItem Content="Yellow"/>
         </ComboBox>
-
-        <Label Content="Color:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="849,84,0,0" Name="colorLabel"/>
+        <GroupBox BorderBrush="Black" BorderThickness="2" Margin="569,162,10,126" Name="groupBoxMode" Header="Mode">
+            <Grid>
+                <RadioButton Name="rbDraw" GroupName="drawMode" Margin="10,10,54,33" IsChecked="True">Draw</RadioButton>
+                <RadioButton Name="rbErase" GroupName="drawMode" Margin="10,28,54,15">Erase</RadioButton>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Page>

@@ -37,7 +37,15 @@ namespace WeSketch
             {
                 try
                 {
-                    Task.Run(() => AuthenticateUser(userName.Text, password.Password));
+                    string user = "";
+                    string pass = "";
+                    Dispatcher.Invoke(() =>
+                    {
+                        user = userName.Text;
+                        pass = password.Password;
+                    });
+
+                    Task.Run(() => AuthenticateUser(user, pass));
                 }
                 catch(Exception ex)
                 {

@@ -10,6 +10,7 @@ using Microsoft.AspNet.SignalR.Client;
 using Microsoft.AspNet.SignalR.Client.Hubs;
 using System.Configuration;
 using WeSketchSharedDataModels;
+using System.Windows.Media;
 
 namespace WeSketch
 {
@@ -151,21 +152,24 @@ namespace WeSketch
 
             _hubProxy.On("KickedFromBoard", boardId => KickedFromBoard(boardId));
             _hubProxy.On("ReceiveConnectedUsersRequest", user => ReceiveConnectedUsersRequest(user));
+            _hubProxy.On("ReceiveConnectedUsers", users => ReceiveConnectedUsers(JsonConvert.DeserializeObject<List<ConnectedUser>>(users)));
             _hubProxy.On<string, Guid>("ReceiveInvitation", (user, boardId) => ReceiveInvitation(user, boardId));
             _hubProxy.On("ReceiveStrokes", strokes => ReceiveStrokes(strokes));
             _hubProxy.On("ReceiveStrokeRequest", user => ReceiveStrokeRequest(user));
             _hubProxy.On("ReceiverStrokeToErase", stroke => ReceiveStrokeToErase(stroke));
+            _hubProxy.On("StrokesClearedReceived", () => StrokesClearedReceived());
             _hubProxy.On<string, string>("UserColorChanged", (user, color) => UserColorChanged(user, color));
+            _hubProxy.On<Guid, bool>("UserBoardSetToDefault", (boardId, clearStrokes) => UserBoardChanged(boardId, clearStrokes));
             _hubProxy.On("UserLeftBoard", user => UserLeftBoard(user));
-            _hubProxy.On("UserJoinedBoard", connectedUser => UserJoinedBoard(connectedUser));
+            _hubProxy.On("UserJoinedBoard", connectedUser => UserJoinedBoard(JsonConvert.DeserializeObject<ConnectedUser>(connectedUser)));
             _hub.Start().Wait();
         }
-        
+
         /// <summary>
-        /// 
+        /// Changes the color of the user.
         /// </summary>
-        /// <param name="userName"></param>
-        /// <param name="color"></param>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="color">The color.</param>
         public void ChangeUserColor(string userName, string color)
         {
             _hubProxy.Invoke<Task>("ChangeUserColor", userName, color);
@@ -174,6 +178,8 @@ namespace WeSketch
         /// <summary>
         /// Joins the board group.
         /// </summary>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="color">The color.</param>
         /// <param name="boardId">The board identifier.</param>
         public void JoinBoardGroup(string userName, string color, Guid boardId)
         {
@@ -194,7 +200,8 @@ namespace WeSketch
         /// <summary>
         /// Leaves the board group.
         /// </summary>
-        /// <param name="boardId">The board identifier.</param>
+        /// <param name="user">The user leaving the board.</param>
+        /// <param name="boardId">The board that the user is leaving.</param>
         public void LeaveBoardGroup(string user, Guid boardId)
         {
             _hubProxy.Invoke<Task>("LeaveBoardGroup", user, boardId);
@@ -216,8 +223,7 @@ namespace WeSketch
                 {
                     spc.Add(new System.Windows.Input.StylusPoint(point.X, point.Y, point.PressureFactor));
                 });
-
-                strokes.Add(new System.Windows.Ink.Stroke(spc));
+                strokes.Add(new System.Windows.Ink.Stroke(spc, new System.Windows.Ink.DrawingAttributes() { Color = (Color)ColorConverter.ConvertFromString(collection.Color)}));
             });
                 
             StrokesReceivedEvent?.Invoke(strokes);
@@ -267,9 +273,12 @@ namespace WeSketch
             if (strokes.Any())
             {
                 List<BoardPointCollection> points = new List<BoardPointCollection>();
+
                 strokes.ToList().ForEach(stroke =>
                 {
-                    points.Add(new BoardPointCollection());
+                    var bpc = new BoardPointCollection();
+                    bpc.Color = stroke.DrawingAttributes.Color.ToString();
+                    points.Add(bpc);
                     stroke.StylusPoints.ToList().ForEach(point =>
                     {
                         points.Last().Points.Add(new BoardPoint()
@@ -288,9 +297,9 @@ namespace WeSketch
         /// Sends the stroke to erase.
         /// </summary>
         /// <param name="stroke">The stroke.</param>
-        public void SendStrokeToErase(System.Windows.Ink.Stroke stroke)
+        public void SendStrokeToErase(System.Windows.Ink.Stroke stroke, Guid boardId)
         {
-            InvokeHubDependantAction(() => _hubProxy.Invoke("SendStrokeToErase", JsonConvert.SerializeObject(stroke)));
+            InvokeHubDependantAction(() => _hubProxy.Invoke("SendStrokeToErase", JsonConvert.SerializeObject(stroke), boardId));
         }
 
         /// <summary>
@@ -339,13 +348,10 @@ namespace WeSketch
         {
             lock (_queuedActions)
             {
-                if (_queuedActions.Any())
+                while (_queuedActions.Any() && _hub.State == ConnectionState.Connected)
                 {
-                    while (_queuedActions.Peek() != null && _hub.State == ConnectionState.Connected)
-                    {
-                        Action act = _queuedActions.Dequeue();
-                        act.Invoke();
-                    }
+                    Action act = _queuedActions.Dequeue();
+                    act.Invoke();
                 }
             }
         }
@@ -450,6 +456,20 @@ namespace WeSketch
         private void StrokesClearedReceived()
         {
             StrokeClearEvent?.Invoke();
+        }
+
+        /// <summary>
+        /// The users board changed on the server.  This notifies the user that their board changed.
+        /// </summary>
+        /// <param name="boardId">The board identifier.</param>
+        private void UserBoardChanged(Guid boardId, bool clearStrokes)
+        {
+            BoardChangedEvent?.Invoke(boardId);
+
+            if (clearStrokes)
+            {
+                StrokeClearEvent?.Invoke();
+            }
         }
 
         /// <summary>

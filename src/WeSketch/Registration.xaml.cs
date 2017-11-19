@@ -35,7 +35,17 @@ namespace WeSketch
         {
             if(ValidateInput())
             {
-                Task.Run(() => CreateUser(userName.Text, email.Text, password.Password));
+                string user = "";
+                string eml = "";
+                string pass = "";
+                Dispatcher.Invoke(() =>
+                {
+                    user = userName.Text;
+                    eml = email.Text;
+                    pass = password.Password;
+                });
+
+                Task.Run(() => CreateUser(user, eml, pass));
             }
         }
 
@@ -49,33 +59,13 @@ namespace WeSketch
 
         }
 
-        private void popup_Closed(object sender, EventArgs e)
-        {
-
-        }
-
-        private void userName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void password_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void passwordConfirm_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         /// <summary>
         /// Method creates and sets user name, email, and password.
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="email"></param>
         /// <param name="password"></param>
-        private async void CreateUser(string userName, string email, string password)
+        public async void CreateUser(string userName, string email, string password)
         {
             WeSketchRestRequests rest = new WeSketchRestRequests();
             
