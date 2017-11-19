@@ -22,10 +22,10 @@ namespace WeSketch.Tests
         [TestCase("someusername", "", "someemail")]
         [TestCase("", "", "someemail")]
         [TestCase("someusername", "somepassword", "someemail")]
-        public void IsInvalidCreate_User(string username, string password, string userEmail)
+        public void IsInvalidCreate_User(string userName, string email, string password)
         {
             Registration reg = new Registration();
-            var ex = Assert.Catch<Exception>(() => reg.CreateUser(username, password, userEmail));
+            var ex = Assert.Catch<Exception>(() => reg.CreateUser(userName, email, password));
             StringAssert.Contains("Error", ex.Message);
         }
     }

@@ -70,7 +70,7 @@ namespace WeSketch
         }
 
         /// <summary>
-        /// 
+        /// Method creates and sets user name, email, and password.
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="email"></param>
