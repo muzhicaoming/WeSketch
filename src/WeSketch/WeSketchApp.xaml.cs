@@ -50,6 +50,8 @@ namespace WeSketch
             _client.StrokeClearEvent += StrokeClearEvent;
 
             _inviteWindow.UserInvitedEvent += InviteWindow_UserInvitedEvent;
+            
+            LoadBoardUsers();
         }
 
         /// <summary>
@@ -59,6 +61,18 @@ namespace WeSketch
         private void InviteWindow_UserInvitedEvent(string user)
         {
             _rest.InviteUserToBoard(WeSketchClientData.Instance.User.UserName, user, WeSketchClientData.Instance.User.Board.BoardID);
+        }
+
+        private void LoadBoardUsers()
+        {
+            try
+            {
+                listBoardUsers.ItemsSource = WeSketchClientData.Instance.User.Board.ConnectedUsers;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
 
         private void InviteButton_Click(object sender, RoutedEventArgs e)
@@ -158,6 +172,7 @@ namespace WeSketch
             {
                 _client.LeaveBoardGroup(user, WeSketchClientData.Instance.User.Board.BoardID);
                 _client.JoinBoardGroup(user, WeSketchClientData.Instance.Color, boardId);
+                LoadBoardUsers();
             }
         }
 

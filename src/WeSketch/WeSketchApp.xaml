@@ -30,5 +30,15 @@
         </ComboBox>
 
         <Label Content="Color:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="525,83,0,0" Name="colorLabel"/>
+        <Label x:Name="boardUsersLabel" Content="Board Users&#xD;&#xA;" HorizontalAlignment="Left" Margin="525,136,0,0" VerticalAlignment="Top" Height="27"/>
+        <ListBox x:Name="listBoardUsers" HorizontalAlignment="Left" Height="100" Margin="525,168,0,0" VerticalAlignment="Top" Width="120">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2">
+                        <TextBlock Text="{Binding UserName}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>
