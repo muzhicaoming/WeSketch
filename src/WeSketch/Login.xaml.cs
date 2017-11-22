@@ -30,6 +30,11 @@ namespace WeSketch
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Event for pressing the login button, checks for blank or empty space, runs authentication
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(userName.Text) &&
@@ -54,6 +59,11 @@ namespace WeSketch
             }
         }
 
+        /// <summary>
+        /// Authenticate user method, checks username and password
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
         public async void AuthenticateUser(string userName, string password)
         {
             try
@@ -67,6 +77,10 @@ namespace WeSketch
             }
         }
 
+        /// <summary>
+        /// User logged in event, creates instance of user
+        /// </summary>
+        /// <param name="user"></param>
         private void UserLoggedIn(User user)
         {
             WeSketchClientData.Instance.User = user;

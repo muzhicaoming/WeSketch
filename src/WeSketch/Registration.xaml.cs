@@ -22,6 +22,10 @@ namespace WeSketch
     /// </summary>
     public partial class Registration : Page
     {
+
+        /// <summary>
+        /// User logged in event handler fired
+        /// </summary>
         public delegate void UserLoggedInEventHandler();
         public event UserLoggedInEventHandler UserLoggedInEvent;
 
@@ -31,6 +35,11 @@ namespace WeSketch
             InitializeComponent();
         }
 
+        /// <summary>
+        /// New user click event for registering. Sets user input to user name, email, and password.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void regiserNew_Click(object sender, RoutedEventArgs e)
         {
             if(ValidateInput())
@@ -49,6 +58,10 @@ namespace WeSketch
             }
         }
 
+        /// <summary>
+        /// Method that checks and validates if there is no empty or white space for credentials.
+        /// </summary>
+        /// <returns></returns>
         private bool ValidateInput()
         {
             return !string.IsNullOrWhiteSpace(userName.Text) &&
@@ -60,7 +73,7 @@ namespace WeSketch
         }
 
         /// <summary>
-        /// 
+        /// Method creates and sets user name, email, and password.
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="email"></param>
@@ -73,6 +86,10 @@ namespace WeSketch
             UserLoggedIn(user);
         }
 
+        /// <summary>
+        /// User logged in event invoked
+        /// </summary>
+        /// <param name="user"></param>
         private void UserLoggedIn(User user)
         {
             WeSketchClientData.Instance.User = user;

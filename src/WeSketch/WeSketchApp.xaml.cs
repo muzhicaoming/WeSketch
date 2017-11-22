@@ -53,6 +53,8 @@ namespace WeSketch
             _client.StrokeClearEvent += StrokeClearEvent;
             _client.StrokeErasedEvent += StrokeErasedEvent;
             _inviteWindow.UserInvitedEvent += InviteWindow_UserInvitedEvent;
+
+            LoadConnectedUsers();
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -97,6 +99,11 @@ namespace WeSketch
             _rest.InviteUserToBoard(WeSketchClientData.Instance.User.UserName, user, WeSketchClientData.Instance.User.Board.BoardID);
         }
 
+        /// <summary>
+        /// Method for the button that invites a user
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void InviteButton_Click(object sender, RoutedEventArgs e)
         {
             if(_inviteWindow == null)
@@ -140,6 +147,26 @@ namespace WeSketch
                 }
 
                 _client.ChangeUserColor(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.Color);
+            }
+        }
+
+        private void LoadConnectedUsers()
+        {
+            lbConnectedUsers.ItemsSource = WeSketchClientData.Instance.User.Board.ConnectedUsers;
+        }
+
+        /// <summary>
+        /// Method to change the brush stroke size from the combo box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (comboSize.Items.Count > 0 && ((ComboBoxItem)comboSize.SelectedItem).Content != null)
+            {
+                /// Sets the brush size.
+                mainInkCanvas.DefaultDrawingAttributes.Width = Convert.ToDouble(((ComboBoxItem)comboSize.SelectedItem).Content);
+                mainInkCanvas.DefaultDrawingAttributes.Height = Convert.ToDouble(((ComboBoxItem)comboSize.SelectedItem).Content);
             }
         }
 
@@ -210,6 +237,8 @@ namespace WeSketch
             {
                 _client.LeaveBoardGroup(user, WeSketchClientData.Instance.User.Board.BoardID);
                 _client.JoinBoardGroup(user, WeSketchClientData.Instance.Color, boardId);
+
+                LoadConnectedUsers();
             }
         }
 
@@ -229,5 +258,6 @@ namespace WeSketch
         {
             _client.LeaveBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
         }
+
     }
 }

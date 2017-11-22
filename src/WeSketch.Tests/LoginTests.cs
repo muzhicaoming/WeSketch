@@ -15,14 +15,19 @@ namespace WeSketch.Tests
     class LoginTests
     {
 
+        /// <summary>
+        /// Method to test authenticating a valid user with test user name and password.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
         [Test]
         [TestCase("", "")]
         [TestCase("", "somepassword")]
         [TestCase("someusername", "")]
-        public void IsInvalidAuthenticate_User(string username, string password)
+        public void IsInvalidAuthenticate_User(string userName, string password)
         {
             Login lg = new Login();
-            var ex = Assert.Catch<Exception>(() => lg.AuthenticateUser(username, password));
+            var ex = Assert.Catch<Exception>(() => lg.AuthenticateUser(userName, password));
             StringAssert.Contains("Error", ex.Message);
         }
     }
