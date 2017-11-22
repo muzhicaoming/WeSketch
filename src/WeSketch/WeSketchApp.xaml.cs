@@ -40,7 +40,6 @@ namespace WeSketch
 
             mainInkCanvas.StrokeCollected += StrokeCollected;
             mainInkCanvas.StrokeErasing += StrokeErasing;
-
             clearButton.Click += ClearButton_Click;
             leaveButton.Click += LeaveButton_Click;
             inviteButton.Click += InviteButton_Click;
@@ -60,7 +59,7 @@ namespace WeSketch
         {
             Dispatcher.Invoke(() =>
             {
-                mainInkCanvas.EditingMode = (rbDraw.IsChecked ?? false) ? InkCanvasEditingMode.Ink : InkCanvasEditingMode.EraseByPoint;
+                mainInkCanvas.EditingMode = (rbDraw.IsChecked ?? false) ? InkCanvasEditingMode.Ink : InkCanvasEditingMode.EraseByStroke;
             });
         }
 
@@ -70,18 +69,21 @@ namespace WeSketch
         /// <param name="stroke">The stroke.</param>
         private void StrokeErasedEvent(Stroke stroke)
         {
-            stroke.StylusPoints.ToList().ForEach(point =>
+            Dispatcher.Invoke(() =>
             {
-                mainInkCanvas.Strokes.ToList().ForEach(boardStroke =>
+                stroke.StylusPoints.ToList().ForEach(point =>
                 {
-                    var points = boardStroke.StylusPoints.Where(pnt => pnt.X == point.X && pnt.Y == point.Y);
-                    if(points.Any())
+                    mainInkCanvas.Strokes.ToList().ForEach(boardStroke =>
                     {
-                        points.ToList().ForEach(pnt =>
+                        var points = boardStroke.StylusPoints.Where(pnt => pnt.X == point.X && pnt.Y == point.Y);
+                        if (points.Any())
                         {
-                            boardStroke.StylusPoints.Remove(pnt);
-                        });
-                    }
+                            points.ToList().ForEach(pnt =>
+                            {
+                                boardStroke.StylusPoints.Remove(pnt);
+                            });
+                        }
+                    });
                 });
             });
         }
@@ -146,7 +148,10 @@ namespace WeSketch
         /// </summary>
         private void StrokeClearEvent()
         {
-            this.mainInkCanvas.Strokes.Clear();
+            Dispatcher.Invoke(() =>
+            {
+                this.mainInkCanvas.Strokes.Clear();
+            });
         }
 
         private void StrokeErasing(object sender, InkCanvasStrokeErasingEventArgs e)
@@ -185,12 +190,12 @@ namespace WeSketch
         /// <param name="boardId">The board identifier.</param>
         private void BoardChangedEvent(Guid boardId)
         {
-            WeSketchClientData.Instance.User.Board.BoardID = boardId;
             Dispatcher.Invoke(() =>
             {
+                WeSketchClientData.Instance.User.Board.BoardID = boardId;
                 mainInkCanvas.Strokes.Clear();
+                _client.RequestStrokes(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
             });
-            _client.RequestStrokes(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
         }
 
         /// <summary>

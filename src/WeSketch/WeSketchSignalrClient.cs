@@ -156,7 +156,7 @@ namespace WeSketch
             _hubProxy.On<string, Guid>("ReceiveInvitation", (user, boardId) => ReceiveInvitation(user, boardId));
             _hubProxy.On("ReceiveStrokes", strokes => ReceiveStrokes(strokes));
             _hubProxy.On("ReceiveStrokeRequest", user => ReceiveStrokeRequest(user));
-            _hubProxy.On("ReceiverStrokeToErase", stroke => ReceiveStrokeToErase(stroke));
+            _hubProxy.On("ReceiveStrokeToErase", stroke => ReceiveStrokeToErase(stroke));
             _hubProxy.On("StrokesClearedReceived", () => StrokesClearedReceived());
             _hubProxy.On<string, string>("UserColorChanged", (user, color) => UserColorChanged(user, color));
             _hubProxy.On<Guid, bool>("UserBoardSetToDefault", (boardId, clearStrokes) => UserBoardChanged(boardId, clearStrokes));
@@ -213,20 +213,7 @@ namespace WeSketch
         /// <param name="strokes">The strokes.</param>
         public void ReceiveStrokes(string serIalizedtrokes)
         {
-            var strokes = new System.Windows.Ink.StrokeCollection();
-            List<BoardPointCollection> bpc = JsonConvert.DeserializeObject<List<BoardPointCollection>>(serIalizedtrokes);
-
-            bpc.ForEach(collection =>
-            {
-                System.Windows.Input.StylusPointCollection spc = new System.Windows.Input.StylusPointCollection();
-                collection.Points.ForEach(point =>
-                {
-                    spc.Add(new System.Windows.Input.StylusPoint(point.X, point.Y, point.PressureFactor));
-                });
-                strokes.Add(new System.Windows.Ink.Stroke(spc, new System.Windows.Ink.DrawingAttributes() { Color = (Color)ColorConverter.ConvertFromString(collection.Color)}));
-            });
-                
-            StrokesReceivedEvent?.Invoke(strokes);
+            StrokesReceivedEvent?.Invoke(GetStrokeCollection(JsonConvert.DeserializeObject<List<BoardPointCollection>>(serIalizedtrokes)));
         }
         
         /// <summary>
@@ -272,24 +259,7 @@ namespace WeSketch
         {
             if (strokes.Any())
             {
-                List<BoardPointCollection> points = new List<BoardPointCollection>();
-
-                strokes.ToList().ForEach(stroke =>
-                {
-                    var bpc = new BoardPointCollection();
-                    bpc.Color = stroke.DrawingAttributes.Color.ToString();
-                    points.Add(bpc);
-                    stroke.StylusPoints.ToList().ForEach(point =>
-                    {
-                        points.Last().Points.Add(new BoardPoint()
-                        {
-                            X = point.X,
-                            Y = point.Y,
-                            PressureFactor = point.PressureFactor
-                        });
-                    });
-                });
-                InvokeHubDependantAction(() => _hubProxy.Invoke("SendStrokesToGroup", boardId, JsonConvert.SerializeObject(points)));
+                InvokeHubDependantAction(() => _hubProxy.Invoke("SendStrokesToGroup", boardId, JsonConvert.SerializeObject(GetBoardPointCollectionList(strokes))));
             }
         }
 
@@ -299,7 +269,7 @@ namespace WeSketch
         /// <param name="stroke">The stroke.</param>
         public void SendStrokeToErase(System.Windows.Ink.Stroke stroke, Guid boardId)
         {
-            InvokeHubDependantAction(() => _hubProxy.Invoke("SendStrokeToErase", JsonConvert.SerializeObject(stroke), boardId));
+            InvokeHubDependantAction(() => _hubProxy.Invoke("SendStrokeToErase", JsonConvert.SerializeObject(GetBoardPointCollection(stroke)), boardId));
         }
 
         /// <summary>
@@ -309,7 +279,7 @@ namespace WeSketch
         /// <param name="strokes">The strokes.</param>
         public void SendStrokesToUser(string user, System.Windows.Ink.StrokeCollection strokes)
         {
-            InvokeHubDependantAction(() => _hubProxy.Invoke("SendStrokesToUser", user, JsonConvert.SerializeObject(strokes)));
+            InvokeHubDependantAction(() => _hubProxy.Invoke("SendStrokesToUser", user, JsonConvert.SerializeObject(GetBoardPointCollectionList(strokes))));
         }
         
         /// <summary>
@@ -329,6 +299,54 @@ namespace WeSketch
         public void UserAuthenticated(Guid userId)
         {
             InvokeHubDependantAction(() => _hubProxy.Invoke("UserAuthenticated", userId));
+        }
+
+        private List<BoardPointCollection> GetBoardPointCollectionList(System.Windows.Ink.StrokeCollection strokes)
+        {
+            List<BoardPointCollection> bpcList = new List<BoardPointCollection>();
+
+            strokes.ToList().ForEach(stroke =>
+            {
+                bpcList.Add(GetBoardPointCollection(stroke));
+            });
+
+            return bpcList;
+        }
+
+        private BoardPointCollection GetBoardPointCollection(System.Windows.Ink.Stroke stroke)
+        {
+            var bpc = new BoardPointCollection();
+            bpc.Color = stroke.DrawingAttributes.Color.ToString();
+            stroke.StylusPoints.ToList().ForEach(point =>
+            {
+                bpc.Points.Add(new BoardPoint()
+                {
+                    X = point.X,
+                    Y = point.Y,
+                    PressureFactor = point.PressureFactor
+                });
+            });
+            return bpc;
+        }
+
+        private System.Windows.Ink.StrokeCollection GetStrokeCollection(List<BoardPointCollection> bpcList)
+        {
+            var strokes = new System.Windows.Ink.StrokeCollection();
+            bpcList.ForEach(bpc =>
+            {
+                strokes.Add(GetStroke(bpc));
+            });
+            return strokes;
+        }
+
+        private System.Windows.Ink.Stroke GetStroke(BoardPointCollection bpc)
+        {
+            System.Windows.Input.StylusPointCollection spc = new System.Windows.Input.StylusPointCollection();
+            bpc.Points.ForEach(point =>
+            {
+                spc.Add(new System.Windows.Input.StylusPoint(point.X, point.Y, point.PressureFactor));
+            });
+            return new System.Windows.Ink.Stroke(spc, new System.Windows.Ink.DrawingAttributes() { Color = (Color)ColorConverter.ConvertFromString(bpc.Color) });
         }
 
         /// <summary>
@@ -447,7 +465,8 @@ namespace WeSketch
         /// <param name="serializedStroke">The serialized stroke.</param>
         private void ReceiveStrokeToErase(string serializedStroke)
         {
-            StrokeErasedEvent?.Invoke(JsonConvert.DeserializeObject<System.Windows.Ink.Stroke>(serializedStroke));
+            BoardPointCollection bpc = JsonConvert.DeserializeObject<BoardPointCollection>(serializedStroke);
+            StrokeErasedEvent?.Invoke(GetStroke(bpc));
         }
         
         /// <summary>

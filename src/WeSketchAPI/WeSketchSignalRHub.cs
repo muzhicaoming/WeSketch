@@ -132,8 +132,8 @@ namespace WeSketchAPI
             using (var db = new WeSketchDataContext())
             {
                 var board = db.UserBoards.Single(brd => brd.BoardID == boardId && brd.BoardOwner);
-                var receiver = db.Users.Single(usr => usr.UserName == user);
-                Clients.Group(receiver.UserID.ToString()).ReceiveStrokeRequest(user);
+                //var receiver = db.Users.Single(usr => usr.UserName == user);
+                Clients.Group(board.UserID.ToString()).ReceiveStrokeRequest(user);
             }
         }
 
