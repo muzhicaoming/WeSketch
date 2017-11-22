@@ -20,9 +20,16 @@ namespace WeSketch
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// 
+        /// </summary>
         Login _loginPage;
         Registration _registrationPage;
         WeSketchApp _weSketchAppPage;
+
+        /// <summary>
+        /// Initialize window components of login and registration pages
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();

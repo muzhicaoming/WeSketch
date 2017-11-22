@@ -28,6 +28,8 @@ namespace WeSketch.Tests
         [TestCase("someusername", "", "someemail")]
         [TestCase("", "", "someemail")]
         [TestCase("someusername", "somepassword", "someemail")]
+        [TestCase("someusername", "somepassword", "")]
+        [TestCase("", "somepassword", "someemail")]
         public void IsInvalidCreate_User(string userName, string email, string password)
         {
             Registration reg = new Registration();

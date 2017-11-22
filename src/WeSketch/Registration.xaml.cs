@@ -22,6 +22,10 @@ namespace WeSketch
     /// </summary>
     public partial class Registration : Page
     {
+
+        /// <summary>
+        /// User logged in event handler fired
+        /// </summary>
         public delegate void UserLoggedInEventHandler();
         public event UserLoggedInEventHandler UserLoggedInEvent;
 
@@ -82,6 +86,10 @@ namespace WeSketch
             UserLoggedIn(user);
         }
 
+        /// <summary>
+        /// User logged in event invoked
+        /// </summary>
+        /// <param name="user"></param>
         private void UserLoggedIn(User user)
         {
             WeSketchClientData.Instance.User = user;
