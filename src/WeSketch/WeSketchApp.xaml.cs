@@ -53,8 +53,48 @@ namespace WeSketch
             _client.StrokeClearEvent += StrokeClearEvent;
             _client.StrokeErasedEvent += StrokeErasedEvent;
             _inviteWindow.UserInvitedEvent += InviteWindow_UserInvitedEvent;
-
+            _client.ConnectedUsersReceivedEvent += ConnectedUsersReceivedEvent;
+            _client.ConnectedUsersRequestReceivedEvent += ConnectedUsersRequestReceivedEvent;
+            _client.UserJoinedBoardEvent += UserJoinedBoardEvent;
+            _client.UserLeftBoardEvent += UserLeftBoardEvent;
             LoadConnectedUsers();
+        }
+
+        private void UserLeftBoardEvent(string user)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                var connectedUser = WeSketchClientData.Instance.User.Board.ConnectedUsers.Where(usr => usr.UserName == user);
+                if (connectedUser.Any())
+                {
+                    connectedUser.ToList().ForEach(usr =>
+                    WeSketchClientData.Instance.User.Board.ConnectedUsers.Remove(usr));
+                    lbConnectedUsers.UpdateLayout();
+                }
+            });
+        }
+
+        private void UserJoinedBoardEvent(ConnectedUser user)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                WeSketchClientData.Instance.User.Board.ConnectedUsers.Add(user);
+                lbConnectedUsers.UpdateLayout();
+            });
+        }
+
+        private void ConnectedUsersRequestReceivedEvent(string user)
+        {
+            _client.SendConnectedUsersToUser(user, WeSketchClientData.Instance.User.Board.ConnectedUsers);
+        }
+
+        private void ConnectedUsersReceivedEvent(List<ConnectedUser> connectedUsers)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                WeSketchClientData.Instance.User.Board.ConnectedUsers = connectedUsers;
+                lbConnectedUsers.UpdateLayout();
+            });
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -69,24 +109,19 @@ namespace WeSketch
         /// The given stroke was erased from the board.
         /// </summary>
         /// <param name="stroke">The stroke.</param>
-        private void StrokeErasedEvent(Stroke stroke)
+        private void StrokeErasedEvent(Guid id)
         {
             Dispatcher.Invoke(() =>
             {
-                stroke.StylusPoints.ToList().ForEach(point =>
+                try
                 {
-                    mainInkCanvas.Strokes.ToList().ForEach(boardStroke =>
+                    var stroke = mainInkCanvas.Strokes.SingleOrDefault(strk => strk.ContainsPropertyData(id));
+                    if (stroke != null)
                     {
-                        var points = boardStroke.StylusPoints.Where(pnt => pnt.X == point.X && pnt.Y == point.Y);
-                        if (points.Any())
-                        {
-                            points.ToList().ForEach(pnt =>
-                            {
-                                boardStroke.StylusPoints.Remove(pnt);
-                            });
-                        }
-                    });
-                });
+                        mainInkCanvas.Strokes.Remove(stroke);
+                    }
+                }
+                catch { }
             });
         }
 
@@ -152,7 +187,10 @@ namespace WeSketch
 
         private void LoadConnectedUsers()
         {
-            lbConnectedUsers.ItemsSource = WeSketchClientData.Instance.User.Board.ConnectedUsers;
+            Dispatcher.Invoke(() =>
+            {
+                lbConnectedUsers.ItemsSource = WeSketchClientData.Instance.User.Board.ConnectedUsers;
+            });
         }
 
         /// <summary>
@@ -197,6 +235,8 @@ namespace WeSketch
 
         private void StrokeCollected(object sender, InkCanvasStrokeCollectedEventArgs e)
         {
+            Guid id = Guid.NewGuid();
+            e.Stroke.AddPropertyData(id, WeSketchClientData.Instance.User.UserName);
             _client.SendStroke(WeSketchClientData.Instance.User.Board.BoardID, e.Stroke);
         }
 

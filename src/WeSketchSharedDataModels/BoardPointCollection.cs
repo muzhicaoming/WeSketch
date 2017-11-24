@@ -8,7 +8,9 @@ namespace WeSketchSharedDataModels
 {
     public class BoardPointCollection
     {
-        public List<BoardPoint> Points { set; get; } = new List<BoardPoint>();
+        public Guid ID { set; get; }
+        public string User { set; get; }
         public string Color { set; get; }
+        public List<BoardPoint> Points { set; get; } = new List<BoardPoint>();
     }
 }

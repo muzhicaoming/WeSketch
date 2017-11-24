@@ -72,7 +72,7 @@ namespace WeSketchAPI
             {
                 var user = db.Users.Single(usr => usr.UserName == userName);
                 Groups.Add(Context.ConnectionId, user.UserBoard.BoardID.ToString());
-                Clients.Group(user.UserID.ToString()).UserBoardChanged(user.UserBoard.BoardID, true);
+                Clients.Group(user.UserID.ToString()).UserBoardSetToDefault(user.UserBoard.BoardID, true);
             }
             Clients.Group(boardId.ToString()).UserLeftBoard(userName);
         }

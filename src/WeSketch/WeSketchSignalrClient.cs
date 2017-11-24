@@ -83,8 +83,8 @@ namespace WeSketch
         /// <summary>
         /// Fires when strokes to erase are received.
         /// </summary>
-        /// <param name="stroke">The stroke.</param>
-        public delegate void StrokeEraseReceivedEventHandler(System.Windows.Ink.Stroke stroke);
+        /// <param name="id">The stroke id to erase.</param>
+        public delegate void StrokeEraseReceivedEventHandler(Guid id);
         public event StrokeEraseReceivedEventHandler StrokeErasedEvent;
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace WeSketch
             _hubProxy.On("ReceiveStrokeToErase", stroke => ReceiveStrokeToErase(stroke));
             _hubProxy.On("StrokesClearedReceived", () => StrokesClearedReceived());
             _hubProxy.On<string, string>("UserColorChanged", (user, color) => UserColorChanged(user, color));
-            _hubProxy.On<Guid, bool>("UserBoardSetToDefault", (boardId, clearStrokes) => UserBoardChanged(boardId, clearStrokes));
+            _hubProxy.On<Guid, bool>("UserBoardSetToDefault", (boardId, clearStrokes) => UserBoardSetToDefault(boardId, clearStrokes));
             _hubProxy.On("UserLeftBoard", user => UserLeftBoard(user));
             _hubProxy.On("UserJoinedBoard", connectedUser => UserJoinedBoard(JsonConvert.DeserializeObject<ConnectedUser>(connectedUser)));
             _hub.Start().Wait();
@@ -317,6 +317,9 @@ namespace WeSketch
         {
             var bpc = new BoardPointCollection();
             bpc.Color = stroke.DrawingAttributes.Color.ToString();
+            var customProperties = stroke.GetPropertyDataIds();
+            bpc.ID = customProperties.First();
+            bpc.User = stroke.GetPropertyData(customProperties.First()).ToString();
             stroke.StylusPoints.ToList().ForEach(point =>
             {
                 bpc.Points.Add(new BoardPoint()
@@ -342,11 +345,14 @@ namespace WeSketch
         private System.Windows.Ink.Stroke GetStroke(BoardPointCollection bpc)
         {
             System.Windows.Input.StylusPointCollection spc = new System.Windows.Input.StylusPointCollection();
+            
             bpc.Points.ForEach(point =>
             {
                 spc.Add(new System.Windows.Input.StylusPoint(point.X, point.Y, point.PressureFactor));
             });
-            return new System.Windows.Ink.Stroke(spc, new System.Windows.Ink.DrawingAttributes() { Color = (Color)ColorConverter.ConvertFromString(bpc.Color) });
+            var stroke = new System.Windows.Ink.Stroke(spc, new System.Windows.Ink.DrawingAttributes() { Color = (Color)ColorConverter.ConvertFromString(bpc.Color) });
+            stroke.AddPropertyData(bpc.ID, bpc.User);
+            return stroke;
         }
 
         /// <summary>
@@ -466,7 +472,7 @@ namespace WeSketch
         private void ReceiveStrokeToErase(string serializedStroke)
         {
             BoardPointCollection bpc = JsonConvert.DeserializeObject<BoardPointCollection>(serializedStroke);
-            StrokeErasedEvent?.Invoke(GetStroke(bpc));
+            StrokeErasedEvent?.Invoke(bpc.ID);
         }
         
         /// <summary>
@@ -481,7 +487,7 @@ namespace WeSketch
         /// The users board changed on the server.  This notifies the user that their board changed.
         /// </summary>
         /// <param name="boardId">The board identifier.</param>
-        private void UserBoardChanged(Guid boardId, bool clearStrokes)
+        private void UserBoardSetToDefault(Guid boardId, bool clearStrokes)
         {
             BoardChangedEvent?.Invoke(boardId);
 
