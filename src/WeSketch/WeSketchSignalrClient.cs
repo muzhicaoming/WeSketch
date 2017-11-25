@@ -35,6 +35,13 @@ namespace WeSketch
         public event BoardInvitationReceivedEventHandler BoardInvitationReceivedEvent;
 
         /// <summary>
+        /// Fires when the users board has changed and they are no longer the owner of the board.
+        /// </summary>
+        /// <param name="owner">if set to <c>true</c> [owner].</param>
+        public delegate void BoardOwnerChanged(bool owner);
+        public event BoardOwnerChanged BoardOwnerChangedEvent;
+
+        /// <summary>
         /// Fires when a user requests the connected users.
         /// </summary>
         /// <param name="user">The user.</param>
@@ -188,6 +195,7 @@ namespace WeSketch
             {
                 _hubProxy.Invoke<Task>("JoinBoardGroup", userName, color, boardId);
                 BoardChangedEvent?.Invoke(boardId);
+                BoardOwnerChangedEvent?.Invoke(false);
             });
         }
 
@@ -336,10 +344,12 @@ namespace WeSketch
             var customProperties = stroke.GetPropertyDataIds();
             bpc.ID = customProperties.First();
             bpc.User = stroke.GetPropertyData(customProperties.First()).ToString();
+            bpc.BrushWidth = stroke.DrawingAttributes.Width;
+            bpc.BrushHeight = stroke.DrawingAttributes.Height;
             stroke.StylusPoints.ToList().ForEach(point =>
             {
                 bpc.Points.Add(new BoardPoint()
-                {
+                {  
                     X = point.X,
                     Y = point.Y,
                     PressureFactor = point.PressureFactor
@@ -378,6 +388,8 @@ namespace WeSketch
             });
             var stroke = new System.Windows.Ink.Stroke(spc, new System.Windows.Ink.DrawingAttributes() { Color = (Color)ColorConverter.ConvertFromString(bpc.Color) });
             stroke.AddPropertyData(bpc.ID, bpc.User);
+            stroke.DrawingAttributes.Height = bpc.BrushHeight;
+            stroke.DrawingAttributes.Width = bpc.BrushWidth;
             return stroke;
         }
 
@@ -516,7 +528,7 @@ namespace WeSketch
         private void UserBoardSetToDefault(Guid boardId, bool clearStrokes)
         {
             BoardChangedEvent?.Invoke(boardId);
-
+            BoardOwnerChangedEvent?.Invoke(true);
             if (clearStrokes)
             {
                 StrokeClearEvent?.Invoke();

@@ -30,6 +30,12 @@ namespace WeSketch
             InitializeComponent();
         }
 
+        public void Closing()
+        {
+            _rest.Dispose();
+            _rest = null;
+        }
+
         /// <summary>
         /// Event for pressing the login button, checks for blank or empty space, runs authentication
         /// </summary>

@@ -22,7 +22,6 @@ namespace WeSketch
     /// </summary>
     public partial class Registration : Page
     {
-
         /// <summary>
         /// User logged in event handler fired
         /// </summary>
@@ -33,6 +32,12 @@ namespace WeSketch
         public Registration()
         {
             InitializeComponent();
+        }
+
+        public void Closing()
+        {
+            _rest.Dispose();
+            _rest = null;
         }
 
         /// <summary>

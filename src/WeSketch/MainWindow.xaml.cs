@@ -33,7 +33,7 @@ namespace WeSketch
         public MainWindow()
         {
             InitializeComponent();
-
+            this.Closing += MainWindow_Closing;
             _loginPage = new Login();
             _loginPage.UserLoggedInEvent += UserLoggedInEvent;
             _loginPage.buttonRegister.Click += ButtonRegister_Click;
@@ -42,6 +42,29 @@ namespace WeSketch
             _registrationPage.UserLoggedInEvent += UserLoggedInEvent;
             
             mainFrame.NavigationService.Navigate(_loginPage);
+        }
+
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if(_loginPage != null)
+            {
+                _loginPage.Closing();
+                _loginPage = null;
+            }
+
+            if(_registrationPage != null)
+            {
+                _registrationPage.Closing();
+                _registrationPage = null;
+            }
+
+            if(_weSketchAppPage != null)
+            {
+                _weSketchAppPage.Closing();
+                _weSketchAppPage = null;
+            }
+
+            Application.Current.Shutdown();
         }
 
         /// <summary>

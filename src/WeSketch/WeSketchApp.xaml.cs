@@ -35,19 +35,20 @@ namespace WeSketch
 
             WeSketchClientData.Instance.Color = "Black";
             userLabel.Content = WeSketchClientData.Instance.User.UserName;
+            leaveButton.IsEnabled = false;
             rbDraw.Checked += RadioButton_Checked;
             rbErase.Checked += RadioButton_Checked;
-
             mainInkCanvas.StrokeCollected += StrokeCollected;
             mainInkCanvas.StrokeErasing += StrokeErasing;
             clearButton.Click += ClearButton_Click;
             leaveButton.Click += LeaveButton_Click;
             inviteButton.Click += InviteButton_Click;
-
+            mainInkCanvas.MouseMove += MainInkCanvas_MouseMove;
             _client.UserAuthenticated(WeSketchClientData.Instance.User.UserID);
             _client.JoinBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.Color, WeSketchClientData.Instance.User.Board.BoardID);
             _client.BoardInvitationReceivedEvent += BoardInvitationReceivedEvent;
             _client.BoardChangedEvent += BoardChangedEvent;
+            _client.BoardOwnerChangedEvent += BoardOwnerChangedEvent;
             _client.StrokesReceivedEvent += StrokesReceivedEvent;
             _client.StrokeRequestReceivedEvent += StrokeRequestReceivedEvent;
             _client.StrokeClearEvent += StrokeClearEvent;
@@ -58,6 +59,52 @@ namespace WeSketch
             _client.UserJoinedBoardEvent += UserJoinedBoardEvent;
             _client.UserLeftBoardEvent += UserLeftBoardEvent;
             LoadConnectedUsers();
+        }
+
+        public void Closing()
+        {
+            _client.Dispose();
+            _client = null;
+            _rest.Dispose();
+            _rest = null;
+            _inviteWindow = null;
+        }
+
+        /// <summary>
+        /// Handles the MouseMove event of the MainInkCanvas control.  Used whe erasing to show which strokes will be erased when in erase mode.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        private void MainInkCanvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                Point point = Mouse.GetPosition(mainInkCanvas);
+                mainInkCanvas.Strokes.ToList().ForEach(strk => strk.DrawingAttributes.IsHighlighter = false);
+                if (mainInkCanvas.EditingMode == InkCanvasEditingMode.EraseByStroke)
+                {
+                    var strokesHit = mainInkCanvas.Strokes.HitTest(point);
+                    if (strokesHit.Any())
+                    {
+                        foreach (var stroke in strokesHit)
+                        {
+                            stroke.DrawingAttributes.IsHighlighter = true;
+                        }
+                    }
+                }
+            });
+        }
+
+        /// <summary>
+        /// Called when the owner status of the board has changed.
+        /// </summary>
+        /// <param name="owner">if set to <c>true</c> [owner].</param>
+        private void BoardOwnerChangedEvent(bool owner)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                leaveButton.IsEnabled = !owner;
+            });
         }
 
         /// <summary>
