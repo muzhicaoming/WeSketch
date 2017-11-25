@@ -14,7 +14,6 @@ namespace WeSketch.Tests
     [TestFixture]
     class LoginTests
     {
-
         /// <summary>
         /// Method to test authenticating a valid user with test user name and password.
         /// </summary>
@@ -27,8 +26,11 @@ namespace WeSketch.Tests
         public void IsInvalidAuthenticate_User(string userName, string password)
         {
             Login lg = new Login();
-            var ex = Assert.Catch<Exception>(() => lg.AuthenticateUser(userName, password));
-            StringAssert.Contains("Error", ex.Message);
+            lg.Dispatcher.Invoke(() =>
+            {
+                var ex = Assert.Catch<Exception>(() => lg.AuthenticateUser(userName, password));
+                StringAssert.Contains("Error", ex.Message);
+            });
         }
     }
 }

@@ -72,7 +72,10 @@ namespace WeSketchAPI
             {
                 var user = db.Users.Single(usr => usr.UserName == userName);
                 Groups.Add(Context.ConnectionId, user.UserBoard.BoardID.ToString());
-                Clients.Group(user.UserID.ToString()).UserBoardSetToDefault(user.UserBoard.BoardID, true);
+                if (boardId != user.UserBoard.BoardID)
+                {
+                    Clients.Group(user.UserID.ToString()).UserBoardSetToDefault(user.UserBoard.BoardID, true);
+                }
             }
             Clients.Group(boardId.ToString()).UserLeftBoard(userName);
         }
@@ -132,7 +135,6 @@ namespace WeSketchAPI
             using (var db = new WeSketchDataContext())
             {
                 var board = db.UserBoards.Single(brd => brd.BoardID == boardId && brd.BoardOwner);
-                //var receiver = db.Users.Single(usr => usr.UserName == user);
                 Clients.Group(board.UserID.ToString()).ReceiveStrokeRequest(user);
             }
         }

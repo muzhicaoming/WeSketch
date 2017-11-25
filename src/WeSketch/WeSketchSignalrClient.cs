@@ -172,7 +172,8 @@ namespace WeSketch
         /// <param name="color">The color.</param>
         public void ChangeUserColor(string userName, string color)
         {
-            _hubProxy.Invoke<Task>("ChangeUserColor", userName, color);
+            InvokeHubDependantAction(() =>
+            _hubProxy.Invoke<Task>("ChangeUserColor", userName, color));
         }
 
         /// <summary>
@@ -183,8 +184,11 @@ namespace WeSketch
         /// <param name="boardId">The board identifier.</param>
         public void JoinBoardGroup(string userName, string color, Guid boardId)
         {
-            _hubProxy.Invoke<Task>("JoinBoardGroup", userName, color, boardId);
-            BoardChangedEvent?.Invoke(boardId);
+            InvokeHubDependantAction(() =>
+            {
+                _hubProxy.Invoke<Task>("JoinBoardGroup", userName, color, boardId);
+                BoardChangedEvent?.Invoke(boardId);
+            });
         }
 
         /// <summary>
@@ -194,7 +198,8 @@ namespace WeSketch
         /// <param name="boardId">The board identifier.</param>
         public void KickUserFromBoard(string user, Guid boardId)
         {
-            _hubProxy.Invoke<Task>("KickUserFromBoard", user, boardId);
+            InvokeHubDependantAction(() =>
+            _hubProxy.Invoke<Task>("KickUserFromBoard", user, boardId));
         }
 
         /// <summary>
@@ -204,7 +209,8 @@ namespace WeSketch
         /// <param name="boardId">The board that the user is leaving.</param>
         public void LeaveBoardGroup(string user, Guid boardId)
         {
-            _hubProxy.Invoke<Task>("LeaveBoardGroup", user, boardId);
+            InvokeHubDependantAction(() =>
+            _hubProxy.Invoke<Task>("LeaveBoardGroup", user, boardId));
         }
         
         /// <summary>
@@ -301,6 +307,11 @@ namespace WeSketch
             InvokeHubDependantAction(() => _hubProxy.Invoke("UserAuthenticated", userId));
         }
 
+        /// <summary>
+        /// Gets the board point collection list.
+        /// </summary>
+        /// <param name="strokes">The strokes.</param>
+        /// <returns>A list of board point collections.</returns>
         private List<BoardPointCollection> GetBoardPointCollectionList(System.Windows.Ink.StrokeCollection strokes)
         {
             List<BoardPointCollection> bpcList = new List<BoardPointCollection>();
@@ -313,6 +324,11 @@ namespace WeSketch
             return bpcList;
         }
 
+        /// <summary>
+        /// Gets the board point collection.  This allows serializable messages to be sent to the server.
+        /// </summary>
+        /// <param name="stroke">The stroke.</param>
+        /// <returns>A new board point collection.</returns>
         private BoardPointCollection GetBoardPointCollection(System.Windows.Ink.Stroke stroke)
         {
             var bpc = new BoardPointCollection();
@@ -332,6 +348,11 @@ namespace WeSketch
             return bpc;
         }
 
+        /// <summary>
+        /// Converts a Llist of board point collections into a stroke collection.
+        /// </summary>
+        /// <param name="bpcList">The BPC list.</param>
+        /// <returns></returns>
         private System.Windows.Ink.StrokeCollection GetStrokeCollection(List<BoardPointCollection> bpcList)
         {
             var strokes = new System.Windows.Ink.StrokeCollection();
@@ -342,6 +363,11 @@ namespace WeSketch
             return strokes;
         }
 
+        /// <summary>
+        /// Converts a board point collection into a stroke.
+        /// </summary>
+        /// <param name="bpc">The BPC.</param>
+        /// <returns>A stroke created from the given board point collection.</returns>
         private System.Windows.Ink.Stroke GetStroke(BoardPointCollection bpc)
         {
             System.Windows.Input.StylusPointCollection spc = new System.Windows.Input.StylusPointCollection();

@@ -60,6 +60,10 @@ namespace WeSketch
             LoadConnectedUsers();
         }
 
+        /// <summary>
+        /// Notifies the client that a user left the board.
+        /// </summary>
+        /// <param name="user">The user.</param>
         private void UserLeftBoardEvent(string user)
         {
             Dispatcher.Invoke(() =>
@@ -74,6 +78,10 @@ namespace WeSketch
             });
         }
 
+        /// <summary>
+        /// Notifies the client that a user connected to the board.
+        /// </summary>
+        /// <param name="user">The user.</param>
         private void UserJoinedBoardEvent(ConnectedUser user)
         {
             Dispatcher.Invoke(() =>
@@ -83,11 +91,19 @@ namespace WeSketch
             });
         }
 
+        /// <summary>
+        /// Notifies the client that a user requested that they be sent all of the connected users.
+        /// </summary>
+        /// <param name="user">The user.</param>
         private void ConnectedUsersRequestReceivedEvent(string user)
         {
             _client.SendConnectedUsersToUser(user, WeSketchClientData.Instance.User.Board.ConnectedUsers);
         }
 
+        /// <summary>
+        /// Notifies the client that they received all of the connected users from the board owner.
+        /// </summary>
+        /// <param name="connectedUsers">The connected users.</param>
         private void ConnectedUsersReceivedEvent(List<ConnectedUser> connectedUsers)
         {
             Dispatcher.Invoke(() =>
@@ -97,6 +113,11 @@ namespace WeSketch
             });
         }
 
+        /// <summary>
+        /// Handles the Checked event of the RadioButton control used for switching between drawing modes. 
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             Dispatcher.Invoke(() =>
@@ -219,20 +240,33 @@ namespace WeSketch
             });
         }
 
+        /// <summary>
+        /// Occurrs when a stroke is being erased.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="InkCanvasStrokeErasingEventArgs"/> instance containing the event data.</param>
         private void StrokeErasing(object sender, InkCanvasStrokeErasingEventArgs e)
         {
             _client.SendStrokeToErase(e.Stroke, WeSketchClientData.Instance.User.Board.BoardID);
         }
 
+        /// <summary>
+        /// Notifies the client that someone requested the boards strokes.
+        /// </summary>
+        /// <param name="requestingUser">The requesting user.</param>
         private void StrokeRequestReceivedEvent(string requestingUser)
         {
-            // TODO: Send the board strokes to the requesting user.
             Dispatcher.Invoke(() =>
             {
                 _client.SendStrokesToUser(requestingUser, mainInkCanvas.Strokes);
             });
         }
 
+        /// <summary>
+        /// Notifies the client that strokes were collected from client user input.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="InkCanvasStrokeCollectedEventArgs"/> instance containing the event data.</param>
         private void StrokeCollected(object sender, InkCanvasStrokeCollectedEventArgs e)
         {
             Guid id = Guid.NewGuid();
@@ -240,6 +274,10 @@ namespace WeSketch
             _client.SendStroke(WeSketchClientData.Instance.User.Board.BoardID, e.Stroke);
         }
 
+        /// <summary>
+        /// Notifies the client that strokes were received from the signalr client.
+        /// </summary>
+        /// <param name="strokes">The strokes.</param>
         private void StrokesReceivedEvent(System.Windows.Ink.StrokeCollection strokes)
         {
             if(strokes.Any())
@@ -248,7 +286,7 @@ namespace WeSketch
                 {
                     mainInkCanvas.Strokes.Add(strokes);
                 });
-            } //maininkcanvas
+            }
         }
 
         /// <summary>
@@ -268,15 +306,15 @@ namespace WeSketch
         /// <summary>
         /// Informs the client that an invitation to another board was received.
         /// </summary>
-        /// <param name="user">The user.</param>
-        /// <param name="boardId">The board identifier.</param>
+        /// <param name="user">The user that invited you to their board.</param>
+        /// <param name="boardId">The board identifier that you are invited to join.</param>
         private void BoardInvitationReceivedEvent(string user, Guid boardId)
         {
             MessageBoxResult result = MessageBox.Show($"User {user} invited you to their board.  Would you like to join?", "Join board?", MessageBoxButton.YesNo);
             if(result == MessageBoxResult.Yes)
             {
-                _client.LeaveBoardGroup(user, WeSketchClientData.Instance.User.Board.BoardID);
-                _client.JoinBoardGroup(user, WeSketchClientData.Instance.Color, boardId);
+                _client.LeaveBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
+                _client.JoinBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.Color, boardId);
 
                 LoadConnectedUsers();
             }
@@ -298,6 +336,5 @@ namespace WeSketch
         {
             _client.LeaveBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
         }
-
     }
 }
