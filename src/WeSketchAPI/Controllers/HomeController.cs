@@ -146,8 +146,15 @@ namespace WeSketchAPI.Controllers
                 using (var db = new WeSketchDataContext())
                 {
                     var context = GlobalHost.ConnectionManager.GetHubContext<WeSketchSignalRHub>();
-                    var invitee = db.Users.Single(usr => usr.UserName == toUser);
-                    context.Clients.Group(invitee.UserID.ToString()).ReceiveInvitation(fromUser, boardId);
+                    var invitee = db.Users.SingleOrDefault(usr => usr.UserName == toUser);
+                    if (invitee != null)
+                    {
+                        context.Clients.Group(invitee.UserID.ToString()).ReceiveInvitation(fromUser, boardId);
+                    }
+                    else
+                    {
+                        throw new Exception($"User {toUser} does not exist.  Please check spelling and try again.");
+                    }
                 }
             }
             catch (Exception e)

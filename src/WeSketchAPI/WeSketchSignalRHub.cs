@@ -26,13 +26,14 @@ namespace WeSketchAPI
             Clients.Group(boardId.ToString(), Context.ConnectionId).UserColorChanged(user, color);
         }
 
-        /// <summary>
+        /// <summary>RequestConnectedUsers
         /// Joins the user to the board group.  This allows the userto receive strokes sent to the group.
         /// </summary>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="color">The color currently assigned to the user.</param>
         /// <param name="boardId">The board identifier.</param>
-        /// <returns></returns>
         public void JoinBoardGroup(string userName, string color, Guid boardId)
-        {   
+        {
             Groups.Add(Context.ConnectionId, boardId.ToString());
             using (var db = new WeSketchDataContext())
             {
@@ -49,8 +50,8 @@ namespace WeSketchAPI
         /// <summary>
         /// Notifies the specified user that they have been kicked from the board.
         /// </summary>
-        /// <param name="userName">User name of the user.</param>
-        /// <param name="boardId">The board identifier.</param>
+        /// <param name="userName">User name of the user to kick from the board.</param>
+        /// <param name="boardId">The board identifier that the user is being kicked from.</param>
         public void KickUserFromBoard(string userName, Guid boardId)
         {
             using (var db = new WeSketchDataContext())
@@ -65,7 +66,7 @@ namespace WeSketchAPI
         /// </summary>
         /// <param name="userName">Name of the user.</param>
         /// <param name="boardId">The board identifier.</param>
-        public void LeaveBoardGroup(string userName, Guid boardId)
+        public void LeaveBoardGroup(string userName, Guid boardId, string color)
         {
             Groups.Remove(Context.ConnectionId, boardId.ToString());
             using (var db = new WeSketchDataContext())
@@ -76,6 +77,12 @@ namespace WeSketchAPI
                 {
                     Clients.Group(user.UserID.ToString()).UserBoardSetToDefault(user.UserBoard.BoardID, true);
                 }
+                Clients.Group(user.UserBoard.BoardID.ToString()).UserJoinedBoard(JsonConvert.SerializeObject(new ConnectedUser()
+                {
+                    UserName = userName,
+                    Color = color,
+                    Owner = true
+                }));
             }
             Clients.Group(boardId.ToString()).UserLeftBoard(userName);
         }
@@ -121,7 +128,7 @@ namespace WeSketchAPI
             {
                 var board = db.UserBoards.Single(brd => brd.BoardID == boardId && brd.BoardOwner);
                 var receiver = db.Users.Single(usr => usr.UserName == user);
-                Clients.Group(receiver.UserID.ToString()).ReceiveConnectedUsersRequest(user);
+                Clients.Group(board.UserID.ToString()).ReceiveConnectedUsersRequest(user);
             }
         }
 
@@ -184,6 +191,16 @@ namespace WeSketchAPI
         public void UserAuthenticated(Guid userId)
         {
             Groups.Add(Context.ConnectionId, userId.ToString());
+        }
+
+        public void RemoveFromGroups(string userName, Guid boardId)
+        {
+            using (var db = new WeSketchDataContext())
+            {
+                var user = db.Users.Single(usr => usr.UserName == userName);
+                Groups.Remove(Context.ConnectionId, user.UserID.ToString());
+            }
+            Groups.Remove(Context.ConnectionId, boardId.ToString());
         }
     }
 }

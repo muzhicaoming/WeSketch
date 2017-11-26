@@ -86,9 +86,16 @@ namespace WeSketch
         public async void CreateUser(string userName, string email, string password)
         {
             WeSketchRestRequests rest = new WeSketchRestRequests();
-            
-            User user = await rest.CreateUser(userName, password, email);//.ContinueWith(usr => UserLoggedIn(usr.Result));
-            UserLoggedIn(user);
+
+            try
+            {
+                User user = await rest.CreateUser(userName, password, email);//.ContinueWith(usr => UserLoggedIn(usr.Result));
+                UserLoggedIn(user);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message, "Error");
+            }
         }
 
         /// <summary>

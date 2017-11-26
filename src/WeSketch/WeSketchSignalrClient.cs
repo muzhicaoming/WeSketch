@@ -157,7 +157,7 @@ namespace WeSketch
             _hub.StateChanged += HubStateChanged;
             _hubProxy = _hub.CreateHubProxy("WeSketchSignalRHub");
 
-            _hubProxy.On("KickedFromBoard", boardId => KickedFromBoard(boardId));
+            _hubProxy.On<Guid>("KickedFromBoard", boardId => KickedFromBoard(boardId));
             _hubProxy.On("ReceiveConnectedUsersRequest", user => ReceiveConnectedUsersRequest(user));
             _hubProxy.On("ReceiveConnectedUsers", users => ReceiveConnectedUsers(JsonConvert.DeserializeObject<List<ConnectedUser>>(users)));
             _hubProxy.On<string, Guid>("ReceiveInvitation", (user, boardId) => ReceiveInvitation(user, boardId));
@@ -215,10 +215,10 @@ namespace WeSketch
         /// </summary>
         /// <param name="user">The user leaving the board.</param>
         /// <param name="boardId">The board that the user is leaving.</param>
-        public void LeaveBoardGroup(string user, Guid boardId)
+        public void LeaveBoardGroup(string user, Guid boardId, string color)
         {
             InvokeHubDependantAction(() =>
-            _hubProxy.Invoke<Task>("LeaveBoardGroup", user, boardId));
+            _hubProxy.Invoke<Task>("LeaveBoardGroup", user, boardId, color));
         }
         
         /// <summary>
@@ -229,7 +229,17 @@ namespace WeSketch
         {
             StrokesReceivedEvent?.Invoke(GetStrokeCollection(JsonConvert.DeserializeObject<List<BoardPointCollection>>(serIalizedtrokes)));
         }
-        
+
+        /// <summary>
+        /// Requests the users connected to the board.
+        /// </summary>
+        /// <param name="user">The user making the request.</param>
+        /// <param name="boardId">The board identifier.</param>
+        public void RequestConnectedUsers(string user, Guid boardId)
+        {
+            InvokeHubDependantAction(() => _hubProxy.Invoke("RequestConnectedUsers", user, boardId));
+        }
+
         /// <summary>
         /// Requests the strokes from the board.
         /// </summary>
@@ -239,7 +249,7 @@ namespace WeSketch
         {
             InvokeHubDependantAction(() => _hubProxy.Invoke("RequestStrokes", user, boardId));
         }
-
+        
         /// <summary>
         /// Sends the connected users to the specified user.
         /// </summary>
@@ -247,7 +257,7 @@ namespace WeSketch
         /// <param name="connectedUsers">The connected users.</param>
         public void SendConnectedUsersToUser(string user, List<ConnectedUser> connectedUsers)
         {
-            InvokeHubDependantAction(() => _hubProxy.Invoke("SendConnectedUsersToUser", user, connectedUsers));
+            InvokeHubDependantAction(() => _hubProxy.Invoke("SendConnectedUsersToUser", user, JsonConvert.SerializeObject(connectedUsers)));
         }
 
         /// <summary>
@@ -462,7 +472,7 @@ namespace WeSketch
         /// <param name="boardId">The board identifier.</param>
         private void KickedFromBoard(Guid boardId)
         {
-            LeaveBoardGroup(WeSketchClientData.Instance.User.UserName, boardId);
+            LeaveBoardGroup(WeSketchClientData.Instance.User.UserName, boardId, WeSketchClientData.Instance.Color);
             KickedFromBoardEvent?.Invoke();
         }
 
@@ -569,6 +579,11 @@ namespace WeSketch
         /// </summary>
         public void Dispose()
         {
+            if(_hub.State == ConnectionState.Connected)
+            {
+                LeaveBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID, WeSketchClientData.Instance.Color);
+                _hubProxy.Invoke("RemoveFromGroups", WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
+            }
             _hub.Dispose();
             _hub = null;
         }

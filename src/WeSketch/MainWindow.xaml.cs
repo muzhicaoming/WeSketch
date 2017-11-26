@@ -20,9 +20,6 @@ namespace WeSketch
     /// </summary>
     public partial class MainWindow : Window
     {
-        /// <summary>
-        /// 
-        /// </summary>
         Login _loginPage;
         Registration _registrationPage;
         WeSketchApp _weSketchAppPage;
@@ -44,6 +41,11 @@ namespace WeSketch
             mainFrame.NavigationService.Navigate(_loginPage);
         }
 
+        /// <summary>
+        /// Handles the Closing event of the MainWindow control.  Cleans up any instanciated objects.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if(_loginPage != null)

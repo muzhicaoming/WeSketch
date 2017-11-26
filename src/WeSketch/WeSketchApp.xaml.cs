@@ -43,7 +43,9 @@ namespace WeSketch
             clearButton.Click += ClearButton_Click;
             leaveButton.Click += LeaveButton_Click;
             inviteButton.Click += InviteButton_Click;
+            buttonKickUser.Click += ButtonKickUser_Click;
             mainInkCanvas.MouseMove += MainInkCanvas_MouseMove;
+            _client.KickedFromBoardEvent += KickedFromBoardEvent;
             _client.UserAuthenticated(WeSketchClientData.Instance.User.UserID);
             _client.JoinBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.Color, WeSketchClientData.Instance.User.Board.BoardID);
             _client.BoardInvitationReceivedEvent += BoardInvitationReceivedEvent;
@@ -59,6 +61,26 @@ namespace WeSketch
             _client.UserJoinedBoardEvent += UserJoinedBoardEvent;
             _client.UserLeftBoardEvent += UserLeftBoardEvent;
             LoadConnectedUsers();
+        }
+
+        private void KickedFromBoardEvent()
+        {
+            Dispatcher.Invoke(() =>
+            {
+                WeSketchClientData.Instance.User.Board.ConnectedUsers.Clear();
+                lbConnectedUsers.Items.Refresh();
+                lbConnectedUsers.UpdateLayout();
+                MessageBox.Show("You have been kicked from the board by the board owner.", "Kicked form board!");
+            });
+        }
+
+        private void ButtonKickUser_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedUser = (ConnectedUser)lbConnectedUsers.SelectedItem;
+            if(selectedUser != null && selectedUser?.UserName != WeSketchClientData.Instance.User.UserName)
+            {
+                _client.KickUserFromBoard(selectedUser.UserName, WeSketchClientData.Instance.User.Board.BoardID);
+            }
         }
 
         public void Closing()
@@ -104,6 +126,8 @@ namespace WeSketch
             Dispatcher.Invoke(() =>
             {
                 leaveButton.IsEnabled = !owner;
+                buttonKickUser.IsEnabled = owner;
+                WeSketchClientData.Instance.User.Board.Owner = owner;
             });
         }
 
@@ -120,6 +144,7 @@ namespace WeSketch
                 {
                     connectedUser.ToList().ForEach(usr =>
                     WeSketchClientData.Instance.User.Board.ConnectedUsers.Remove(usr));
+                    lbConnectedUsers.Items.Refresh();
                     lbConnectedUsers.UpdateLayout();
                 }
             });
@@ -133,8 +158,12 @@ namespace WeSketch
         {
             Dispatcher.Invoke(() =>
             {
-                WeSketchClientData.Instance.User.Board.ConnectedUsers.Add(user);
-                lbConnectedUsers.UpdateLayout();
+                if (!WeSketchClientData.Instance.User.Board.ConnectedUsers.Exists(p => p.UserName == user.UserName))
+                {
+                    WeSketchClientData.Instance.User.Board.ConnectedUsers.Add(user);
+                    lbConnectedUsers.Items.Refresh();
+                    lbConnectedUsers.UpdateLayout();
+                }
             });
         }
 
@@ -155,7 +184,8 @@ namespace WeSketch
         {
             Dispatcher.Invoke(() =>
             {
-                WeSketchClientData.Instance.User.Board.ConnectedUsers = connectedUsers;
+                lbConnectedUsers.ItemsSource = WeSketchClientData.Instance.User.Board.ConnectedUsers = connectedUsers;
+                lbConnectedUsers.Items.Refresh();
                 lbConnectedUsers.UpdateLayout();
             });
         }
@@ -194,12 +224,19 @@ namespace WeSketch
         }
 
         /// <summary>
-        /// 
+        /// A user was invited to the board.
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="user">The user being invited.</param>
         private void InviteWindow_UserInvitedEvent(string user)
         {
-            _rest.InviteUserToBoard(WeSketchClientData.Instance.User.UserName, user, WeSketchClientData.Instance.User.Board.BoardID);
+            try
+            {
+                _rest.InviteUserToBoard(WeSketchClientData.Instance.User.UserName, user, WeSketchClientData.Instance.User.Board.BoardID);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message, "Error");
+            }
         }
 
         /// <summary>
@@ -258,6 +295,8 @@ namespace WeSketch
             Dispatcher.Invoke(() =>
             {
                 lbConnectedUsers.ItemsSource = WeSketchClientData.Instance.User.Board.ConnectedUsers;
+                lbConnectedUsers.Items.Refresh();
+                lbConnectedUsers.UpdateLayout();
             });
         }
 
@@ -347,6 +386,7 @@ namespace WeSketch
                 WeSketchClientData.Instance.User.Board.BoardID = boardId;
                 mainInkCanvas.Strokes.Clear();
                 _client.RequestStrokes(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
+                _client.RequestConnectedUsers(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
             });
         }
 
@@ -360,10 +400,8 @@ namespace WeSketch
             MessageBoxResult result = MessageBox.Show($"User {user} invited you to their board.  Would you like to join?", "Join board?", MessageBoxButton.YesNo);
             if(result == MessageBoxResult.Yes)
             {
-                _client.LeaveBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
+                _client.LeaveBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID, WeSketchClientData.Instance.Color);
                 _client.JoinBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.Color, boardId);
-
-                LoadConnectedUsers();
             }
         }
 
@@ -381,7 +419,10 @@ namespace WeSketch
         /// </summary>
         private void LeaveButton_Click(object sender, RoutedEventArgs e)
         {
-            _client.LeaveBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID);
+            _client.LeaveBoardGroup(WeSketchClientData.Instance.User.UserName, WeSketchClientData.Instance.User.Board.BoardID, WeSketchClientData.Instance.Color);
+            WeSketchClientData.Instance.User.Board.ConnectedUsers.Clear();
+            lbConnectedUsers.Items.Refresh();
+            lbConnectedUsers.UpdateLayout();
         }
     }
 }

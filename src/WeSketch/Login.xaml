@@ -6,6 +6,8 @@
       xmlns:local="clr-namespace:WeSketch"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
+      MaxHeight="300"
+      MaxWidth="300"
       Title="Login">
     <Grid>
         <DockPanel LastChildFill="False" Background="White">

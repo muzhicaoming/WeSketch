@@ -17,12 +17,5 @@ namespace WeSketch
         {
 
         }
-        public void AddConnectedUser(ConnectedUser user)
-        {
-            if (!User.Board.ConnectedUsers.Any(usr => usr.UserName == user.UserName))
-            {
-                User.Board.ConnectedUsers.Add(user);
-            }
-        }
     }
 }

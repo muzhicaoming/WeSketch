@@ -6,10 +6,8 @@
         xmlns:local="clr-namespace:WeSketch"
         mc:Ignorable="d"
         WindowStyle="SingleBorderWindow"
-        Title="WeSketch" Height="382.812" Width="826.514" Background="White">
-    <Viewbox Stretch="Uniform">
+        Title="WeSketch" Height="800" Width="1000" Background="White">
     <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden">
-        
-    </Frame>
-    </Viewbox>
+
+        </Frame>
 </Window>
