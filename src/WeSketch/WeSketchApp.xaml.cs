@@ -63,6 +63,9 @@ namespace WeSketch
             LoadConnectedUsers();
         }
 
+        /// <summary>
+        /// Called when user is kicked out from the board and displays kicked message
+        /// </summary>
         private void KickedFromBoardEvent()
         {
             Dispatcher.Invoke(() =>
@@ -279,6 +282,22 @@ namespace WeSketch
                     case "Red":
                         mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Red;
                         WeSketchClientData.Instance.Color = "Red";
+                        break;
+                    case "Pink":
+                        mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Pink;
+                        WeSketchClientData.Instance.Color = "Pink";
+                        break;
+                    case "Purple":
+                        mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Purple;
+                        WeSketchClientData.Instance.Color = "Purple";
+                        break;
+                    case "Orange":
+                        mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Orange;
+                        WeSketchClientData.Instance.Color = "Orange";
+                        break;
+                    case "Gray":
+                        mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Gray;
+                        WeSketchClientData.Instance.Color = "Gray";
                         break;
                     case "Yellow":
                         mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Yellow;

@@ -33,8 +33,11 @@ namespace WeSketch.Tests
         public void IsInvalidCreate_User(string userName, string email, string password)
         {
             Registration reg = new Registration();
-            var ex = Assert.Catch<Exception>(() => reg.CreateUser(userName, email, password));
-            StringAssert.Contains("Error", ex.Message);
+            reg.Dispatcher.Invoke(() =>
+            {
+                var ex = Assert.Catch<Exception>(() => reg.CreateUser(userName, email, password));
+                StringAssert.Contains("Error", ex.Message);
+            });
         }
     }
 }

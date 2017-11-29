@@ -27,6 +27,10 @@
                 <ComboBoxItem Content="Red"/>
                 <ComboBoxItem Content="Green"/>
                 <ComboBoxItem Content="Blue"/>
+                <ComboBoxItem Content="Pink"/>
+                <ComboBoxItem Content="Purple"/>
+                <ComboBoxItem Content="Orange"/>
+                <ComboBoxItem Content="Gray"/>
                 <ComboBoxItem Content="Yellow"/>
             </ComboBox>
             <GroupBox BorderBrush="Black" BorderThickness="2" Margin="857,256,10,453" Name="groupBoxMode" Header="Mode">
