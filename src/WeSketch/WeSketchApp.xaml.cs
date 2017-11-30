@@ -77,6 +77,11 @@ namespace WeSketch
             });
         }
 
+        /// <summary>
+        /// Event when kick user button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonKickUser_Click(object sender, RoutedEventArgs e)
         {
             var selectedUser = (ConnectedUser)lbConnectedUsers.SelectedItem;
@@ -86,6 +91,9 @@ namespace WeSketch
             }
         }
 
+        /// <summary>
+        /// Close and dispose components and client when exiting program
+        /// </summary>
         public void Closing()
         {
             _client.Dispose();
@@ -299,6 +307,22 @@ namespace WeSketch
                         mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Gray;
                         WeSketchClientData.Instance.Color = "Gray";
                         break;
+                    case "Light Blue":
+                        mainInkCanvas.DefaultDrawingAttributes.Color = Colors.LightBlue;
+                        WeSketchClientData.Instance.Color = "Light Blue";
+                        break;
+                    case "Light Green":
+                        mainInkCanvas.DefaultDrawingAttributes.Color = Colors.LightGreen;
+                        WeSketchClientData.Instance.Color = "Light Green";
+                        break;
+                    case "Maroon":
+                        mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Maroon;
+                        WeSketchClientData.Instance.Color = "Maroon";
+                        break;
+                    case "Brown":
+                        mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Brown;
+                        WeSketchClientData.Instance.Color = "Brown";
+                        break;
                     case "Yellow":
                         mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Yellow;
                         WeSketchClientData.Instance.Color = "Yelow";
@@ -309,6 +333,9 @@ namespace WeSketch
             }
         }
 
+        /// <summary>
+        /// Method to load in connected users to instance of the board.
+        /// </summary>
         private void LoadConnectedUsers()
         {
             Dispatcher.Invoke(() =>
