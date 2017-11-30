@@ -325,7 +325,7 @@ namespace WeSketch
                         break;
                     case "Yellow":
                         mainInkCanvas.DefaultDrawingAttributes.Color = Colors.Yellow;
-                        WeSketchClientData.Instance.Color = "Yelow";
+                        WeSketchClientData.Instance.Color = "Yellow";
                         break;
                 }
 

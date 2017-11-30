@@ -193,6 +193,11 @@ namespace WeSketchAPI
             Groups.Add(Context.ConnectionId, userId.ToString());
         }
 
+        /// <summary>
+        /// Remove user from board group
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="boardId"></param>
         public void RemoveFromGroups(string userName, Guid boardId)
         {
             using (var db = new WeSketchDataContext())
