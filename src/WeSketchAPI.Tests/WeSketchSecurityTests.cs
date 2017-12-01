@@ -11,6 +11,7 @@ namespace WeSketchAPI.Tests
         [TestCase("", "")]
         [TestCase("", "somepassword")]
         [TestCase("someusername", "")]
+        [TestCase("someusername", "somepassword")]
         public void IsInvalidLogin_Login_ReturnsError(string username, string password)
         {
             WeSketchSecurity Sec = new WeSketchSecurity();
@@ -22,7 +23,7 @@ namespace WeSketchAPI.Tests
         public void CreateValidUser_CreateUser_ReturnsUser()
         {
             WeSketchSecurity Sec = new WeSketchSecurity();
-            User usr = Sec.CreateUser("tester", "TestPassword", "tester@test.com");
+            User usr = Sec.CreateUser("testerSec", "TestPasswordSec", "testerSec@test.com");
             Assert.IsNotNull(usr);
         }
 
@@ -30,31 +31,23 @@ namespace WeSketchAPI.Tests
         public void ValidLogin_Login_ReturnsUser()
         {
             WeSketchSecurity Sec = new WeSketchSecurity();
-            User usr = Sec.Login("tester", "TestPassword");
+            User usr = Sec.Login("testerSec", "TestPasswordSec");
             Assert.IsNotNull(usr);
         }
 
         [Test]
-        public void CreateExistingUser_CreateUser_ReturnsError()
+        public void CreateExistingUser_CreateUser_ReturnsAlreadyExistsError()
         {
             WeSketchSecurity Sec = new WeSketchSecurity();
-            var ex = Assert.Catch<Exception>(() => Sec.CreateUser("tester", "TestPassword", "tester@test.com"));
+            var ex = Assert.Catch<Exception>(() => Sec.CreateUser("testerSec", "TestPasswordSec", "testerSec@test.com"));
             StringAssert.Contains("already exists.", ex.Message);
         }
 
-        [Test]
-        [TestCase("", "", "")]
-        [TestCase("", "somepassword", "someemail")]
-        [TestCase("", "", "someemail")]
-        [TestCase("", "somepassword", "")]
-        [TestCase("someusername", "", "")]
-        [TestCase("someusername", "somepassword", "")]
-        [TestCase("someusername", "", "someemail")]
-        public void CreateUserIncomplete_Login_ReturnsNull(string username, string password, string email)
+        public void CreateUserIncomplete_Login_ReturnsOutOfRange()
         {
             WeSketchSecurity Sec = new WeSketchSecurity();
-            User usr = Sec.CreateUser(username, password, email);
-            Assert.IsNull(usr);
+            var ex = Assert.Catch<ArgumentOutOfRangeException>(() => Sec.CreateUser("", "", ""));
+            StringAssert.Contains("System.ArgumentOutOfRangeException", ex.Message);
         }
     }
 }

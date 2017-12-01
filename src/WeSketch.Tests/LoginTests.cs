@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using System.Threading;
 
 namespace WeSketch.Tests
 {
@@ -12,6 +13,7 @@ namespace WeSketch.Tests
     /// Testing login - authenticate user
     /// </summary>
     [TestFixture]
+    [Apartment(ApartmentState.STA)]
     class LoginTests
     {
         /// <summary>

@@ -28,6 +28,14 @@ namespace WeSketch
         /// <param name="password">The password.</param>
         public async Task<User> Login(string user, string password)
         {
+            if (user == string.Empty)
+            {
+                throw new Exception(message: $"Error: A username is required.");
+            }
+            if (password == string.Empty)
+            {
+                throw new Exception(message: $"Error: A password is required.");
+            }
             var data = new Dictionary<string, string>
             {
                 { "user", user },
@@ -61,6 +69,18 @@ namespace WeSketch
         /// <param name="password">The password.</param>
         public async Task<User> CreateUser(string user, string password, string email)
         {
+            if (user == string.Empty)
+            {
+                throw new Exception(message: $"Error: A username is required.");
+            }
+            if (password == string.Empty)
+            {
+                throw new Exception(message: $"Error: A password is required.");
+            }
+            if (email == string.Empty)
+            {
+                throw new Exception(message: $"Error: An email address is required.");
+            }
             // TODO: Add code to send post request to create user.
             var data = new Dictionary<string, string>
             {

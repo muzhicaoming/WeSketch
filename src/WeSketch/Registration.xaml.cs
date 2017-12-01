@@ -61,6 +61,10 @@ namespace WeSketch
 
                 Task.Run(() => CreateUser(user, eml, pass));
             }
+            else
+            {
+                throw new Exception(message: $"Error: You must enter a username, email address and password.");
+            }
         }
 
         /// <summary>

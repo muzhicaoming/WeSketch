@@ -69,15 +69,19 @@ namespace WeSketchAPI
             {
                 db.DeferredLoadingEnabled = false;
                 var existingUser = db.Users.SingleOrDefault(eUser => eUser.UserName == user);
-                existingUser.LastLoginAttempt = DateTime.Now;
+                
                 if (existingUser == null)
                 {
                     db.SubmitChanges();
                     throw new Exception(errorMessage);
                 }
-                
-                HashAlgorithm algorithm = new SHA256Managed();
+                existingUser.LastLoginAttempt = DateTime.Now;
 
+                HashAlgorithm algorithm = new SHA256Managed();
+                if (password == string.Empty)
+                {
+                    throw new Exception(errorMessage);
+                }
                 byte[] attemptBytes = GetSeasonedPasswordBytes(password, 
                     Convert.FromBase64String(existingUser.SeaSalt), 
                     Encoding.UTF8.GetBytes(ConfigurationManager.AppSettings["pepper"]));
