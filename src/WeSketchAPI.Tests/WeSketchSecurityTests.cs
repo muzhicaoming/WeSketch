@@ -7,6 +7,7 @@ namespace WeSketchAPI.Tests
     [TestFixture]
     public class WeSketchSecurityTests
     {
+
         [Test]
         [TestCase("", "")]
         [TestCase("", "somepassword")]
@@ -39,7 +40,7 @@ namespace WeSketchAPI.Tests
         public void CreateExistingUser_CreateUser_ReturnsAlreadyExistsError()
         {
             WeSketchSecurity Sec = new WeSketchSecurity();
-            var ex = Assert.Catch<Exception>(() => Sec.CreateUser("testerSec", "TestPasswordSec", "testerSec@test.com"));
+            var ex = Assert.Catch<Exception>(() => Sec.CreateUser("testerExists", "TestPasswordExists", "testerExists@test.com"));
             StringAssert.Contains("already exists.", ex.Message);
         }
 

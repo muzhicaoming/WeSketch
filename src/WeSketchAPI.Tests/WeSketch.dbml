@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="WeSketch" Class="WeSketchDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=173.19.248.67;Initial Catalog=WeSketch;Persist Security Info=True;User ID=t8user" SettingsObjectName="WeSketchAPI.Tests.Properties.Settings" SettingsPropertyName="WeSketchConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.CleanTestingObjects" Method="CleanTestingObjects">
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
