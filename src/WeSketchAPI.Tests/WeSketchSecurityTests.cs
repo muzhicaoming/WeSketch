@@ -7,7 +7,11 @@ namespace WeSketchAPI.Tests
     [TestFixture]
     public class WeSketchSecurityTests
     {
-
+        /// <summary>
+        /// Method to test authenticating an invalid user with test user name and password.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
         [Test]
         [TestCase("", "")]
         [TestCase("", "somepassword")]
@@ -20,6 +24,9 @@ namespace WeSketchAPI.Tests
             StringAssert.Contains("Invalid credentials", ex.Message);
         }
 
+        /// <summary>
+        /// Method to test registering a valid user with test user name and password.
+        /// </summary>
         [Test]
         public void CreateValidUser_CreateUser_ReturnsUser()
         {
@@ -28,6 +35,9 @@ namespace WeSketchAPI.Tests
             Assert.IsNotNull(usr);
         }
 
+        /// <summary>
+        /// Method to test authenticating a valid user with test user name and password.
+        /// </summary>
         [Test]
         public void ValidLogin_Login_ReturnsUser()
         {
@@ -36,6 +46,9 @@ namespace WeSketchAPI.Tests
             Assert.IsNotNull(usr);
         }
 
+        /// <summary>
+        /// Method to test registering an invalid user with test user name, email and password.
+        /// </summary>
         [Test]
         public void CreateExistingUser_CreateUser_ReturnsAlreadyExistsError()
         {
@@ -44,6 +57,9 @@ namespace WeSketchAPI.Tests
             StringAssert.Contains("already exists.", ex.Message);
         }
 
+        /// <summary>
+        /// Method to test registering an invalid user with empty strings.
+        /// </summary>
         public void CreateUserIncomplete_Login_ReturnsOutOfRange()
         {
             WeSketchSecurity Sec = new WeSketchSecurity();
