@@ -242,6 +242,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="WeSketchDownload\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
