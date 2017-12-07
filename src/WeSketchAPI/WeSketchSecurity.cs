@@ -11,6 +11,9 @@ using WeSketchSharedDataModels;
 
 namespace WeSketchAPI
 {
+    /// <summary>
+    /// Manages user authentication and registration.
+    /// </summary>
     public class WeSketchSecurity
     {
         /// <summary>

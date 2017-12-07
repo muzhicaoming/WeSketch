@@ -1,0 +1,1309 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<title>WeSketch - Table of Content</title>
+<link rel="stylesheet" href="TOC.css">
+<link rel="shortcut icon" href="favicon.ico"/>
+<script type="text/javascript" src="TOC.js"></script>
+</head>
+
+<body onload="javascript: Initialize('.aspx');" onresize="javascript: ResizeTree();">
+<form id="IndexForm" runat="server">
+
+<div id="TOCDiv" class="TOCDiv">
+
+<div id="divSearchOpts" class="SearchOpts" style="height: 90px; display: none;">
+	<img class="TOCLink" onclick="javascript: ShowHideSearch(false);"
+		src="Close.png" height="24" width="24" alt="Hide Search" title="Hide Search" style="float: right;"/>
+	<span class="Title">Keyword(s) to search:</span>
+	<input id="txtSearchText" type="text" style="width: 100%;" 
+		onkeypress="javascript: return OnSearchTextKeyPress(event);" /><br />
+	<input id="chkSortByTitle" type="checkbox" /><label for="chkSortByTitle">&nbsp;Sort results by title</label>
+	<input type="button" value="Search" onclick="javascript: return PerformSearch();" style="float: right;" />
+</div>
+
+<div id="divIndexOpts" class="IndexOpts" style="height: 28px; display: none;">
+	<img class="TOCLink" onclick="javascript: ShowHideIndex(false);"
+		src="Close.png" height="24" width="24" alt="Hide Keyword Index" title="Hide Keyword Index" style="float: right;"/>
+	<span class="Title">Keyword Index</span>
+</div>
+
+<div id="divNavOpts" class="NavOpts" style="height: 28px;">
+    <img class="TOCLink" onclick="javascript: SyncTOC();" src="SyncTOC.png"
+        height="24" width="24" alt="Sync to TOC" title="Sync to TOC" />
+    <img class="TOCLink" onclick="javascript: ExpandOrCollapseAll(true);"
+        src="ExpandAll.png" height="24" width="24" alt="Expand all" title="Expand all" />
+    <img class="TOCLink" onclick="javascript: ExpandOrCollapseAll(false);"
+        src="CollapseAll.png" height="24" width="24" alt="Collapse all" title="Collapse all" />
+    <img class="TOCLink" onclick="javascript: ShowDirectLink();"
+        src="Link.png" height="24" width="24" alt="Get direct link to the displayed topic" title="Get direct link to the displayed topic" />
+    <a href="#" onclick="javascript: TopicContent.history.go(-1); return false;">
+		<img class="TOCLink" style="float: right;" 
+        src="Back.png" height="24" width="24" alt="Previous page" title="Previous page" /></a>
+</div>
+
+<div class="Tree" id="divSearchResults" style="display: none;"
+    onselectstart="javascript: return false;">
+</div>
+
+<div class="Tree" id="divIndexResults" style="display: none;"
+    onselectstart="javascript: return false;">
+</div>
+
+<div class="Tree" id="divTree" onselectstart="javascript: return false;">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/N-WeSketch.htm" target="TopicContent">WeSketch Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketch.App.htm" target="TopicContent">App Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Methods.T-WeSketch.App.htm" target="TopicContent">App Methods</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-WeSketch.App.htm" target="TopicContent">App Properties</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Events.T-WeSketch.App.htm" target="TopicContent">App Events</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketch.InviteWindow.htm" target="TopicContent">InviteWindow Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketch.InviteWindow.htm" target="TopicContent">InviteWindow Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.InviteWindow.-ctor.htm" target="TopicContent">InviteWindow Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketch.InviteWindow.htm" target="TopicContent">InviteWindow Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.InviteWindow.ButtonCancel_Click.htm" target="TopicContent">ButtonCancel_Click Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.InviteWindow.ButtonInvite_Click.htm" target="TopicContent">ButtonInvite_Click Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-WeSketch.InviteWindow.htm" target="TopicContent">InviteWindow Properties</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Events.T-WeSketch.InviteWindow.htm" target="TopicContent">InviteWindow Events</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/E-WeSketch.InviteWindow.UserInvitedEvent.htm" target="TopicContent">UserInvitedEvent Event</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/T-WeSketch.InviteWindow.UserInvitedEventHandler.htm" target="TopicContent">InviteWindow.UserInvitedEventHandler Delegate</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketch.Login.htm" target="TopicContent">Login Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketch.Login.htm" target="TopicContent">Login Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Login.-ctor.htm" target="TopicContent">Login Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Fields.T-WeSketch.Login.htm" target="TopicContent">Login Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketch.Login._rest.htm" target="TopicContent">_rest Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketch.Login.htm" target="TopicContent">Login Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Login.AuthenticateUser.htm" target="TopicContent">AuthenticateUser Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Login.buttonLogin_Click.htm" target="TopicContent">buttonLogin_Click Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Login.Closing.htm" target="TopicContent">Closing Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Login.UserLoggedIn.htm" target="TopicContent">UserLoggedIn Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-WeSketch.Login.htm" target="TopicContent">Login Properties</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Events.T-WeSketch.Login.htm" target="TopicContent">Login Events</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/E-WeSketch.Login.UserLoggedInEvent.htm" target="TopicContent">UserLoggedInEvent Event</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/T-WeSketch.Login.UserLoggedInEventHandler.htm" target="TopicContent">Login.UserLoggedInEventHandler Delegate</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketch.MainWindow.htm" target="TopicContent">MainWindow Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketch.MainWindow.htm" target="TopicContent">MainWindow Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.MainWindow.-ctor.htm" target="TopicContent">MainWindow Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Fields.T-WeSketch.MainWindow.htm" target="TopicContent">MainWindow Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketch.MainWindow._loginPage.htm" target="TopicContent">_loginPage Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketch.MainWindow._registrationPage.htm" target="TopicContent">_registrationPage Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketch.MainWindow._weSketchAppPage.htm" target="TopicContent">_weSketchAppPage Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketch.MainWindow.htm" target="TopicContent">MainWindow Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.MainWindow.ButtonRegister_Click.htm" target="TopicContent">ButtonRegister_Click Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.MainWindow.MainWindow_Closing.htm" target="TopicContent">MainWindow_Closing Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.MainWindow.UserLoggedInEvent.htm" target="TopicContent">UserLoggedInEvent Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-WeSketch.MainWindow.htm" target="TopicContent">MainWindow Properties</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Events.T-WeSketch.MainWindow.htm" target="TopicContent">MainWindow Events</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketch.Registration.htm" target="TopicContent">Registration Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketch.Registration.htm" target="TopicContent">Registration Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Registration.-ctor.htm" target="TopicContent">Registration Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Fields.T-WeSketch.Registration.htm" target="TopicContent">Registration Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketch.Registration._rest.htm" target="TopicContent">_rest Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketch.Registration.htm" target="TopicContent">Registration Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Registration.Closing.htm" target="TopicContent">Closing Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Registration.CreateUser.htm" target="TopicContent">CreateUser Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Registration.regiserNew_Click.htm" target="TopicContent">regiserNew_Click Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Registration.UserLoggedIn.htm" target="TopicContent">UserLoggedIn Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Registration.ValidateInput.htm" target="TopicContent">ValidateInput Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-WeSketch.Registration.htm" target="TopicContent">Registration Properties</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Events.T-WeSketch.Registration.htm" target="TopicContent">Registration Events</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/E-WeSketch.Registration.UserLoggedInEvent.htm" target="TopicContent">UserLoggedInEvent Event</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/T-WeSketch.Registration.UserLoggedInEventHandler.htm" target="TopicContent">Registration.UserLoggedInEventHandler Delegate</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketch.WeSketchApp.htm" target="TopicContent">WeSketchApp Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketch.WeSketchApp.htm" target="TopicContent">WeSketchApp Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.-ctor.htm" target="TopicContent">WeSketchApp Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Fields.T-WeSketch.WeSketchApp.htm" target="TopicContent">WeSketchApp Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketch.WeSketchApp._client.htm" target="TopicContent">_client Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketch.WeSketchApp._inviteWindow.htm" target="TopicContent">_inviteWindow Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketch.WeSketchApp._rest.htm" target="TopicContent">_rest Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketch.WeSketchApp.htm" target="TopicContent">WeSketchApp Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.BoardChangedEvent.htm" target="TopicContent">BoardChangedEvent Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.BoardInvitationReceivedEvent.htm" target="TopicContent">BoardInvitationReceivedEvent Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.BoardOwnerChangedEvent.htm" target="TopicContent">BoardOwnerChangedEvent Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.ButtonKickUser_Click.htm" target="TopicContent">ButtonKickUser_Click Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.ClearButton_Click.htm" target="TopicContent">ClearButton_Click Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.Closing.htm" target="TopicContent">Closing Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.comboColor_SelectionChanged.htm" target="TopicContent">comboColor_SelectionChanged Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.comboSize_SelectionChanged.htm" target="TopicContent">comboSize_SelectionChanged Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.ConnectedUsersReceivedEvent.htm" target="TopicContent">ConnectedUsersReceivedEvent Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.ConnectedUsersRequestReceivedEvent.htm" target="TopicContent">ConnectedUsersRequestReceivedEvent Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.InviteButton_Click.htm" target="TopicContent">InviteButton_Click Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.InviteWindow_UserInvitedEvent.htm" target="TopicContent">InviteWindow_UserInvitedEvent Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.KickedFromBoardEvent.htm" target="TopicContent">KickedFromBoardEvent Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.LeaveButton_Click.htm" target="TopicContent">LeaveButton_Click Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.LoadConnectedUsers.htm" target="TopicContent">LoadConnectedUsers Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.MainInkCanvas_MouseMove.htm" target="TopicContent">MainInkCanvas_MouseMove Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.RadioButton_Checked.htm" target="TopicContent">RadioButton_Checked Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.StrokeClearEvent.htm" target="TopicContent">StrokeClearEvent Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.StrokeCollected.htm" target="TopicContent">StrokeCollected Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.StrokeErasedEvent.htm" target="TopicContent">StrokeErasedEvent Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.StrokeErasing.htm" target="TopicContent">StrokeErasing Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.StrokeRequestReceivedEvent.htm" target="TopicContent">StrokeRequestReceivedEvent Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.StrokesReceivedEvent.htm" target="TopicContent">StrokesReceivedEvent Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.UserJoinedBoardEvent.htm" target="TopicContent">UserJoinedBoardEvent Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchApp.UserLeftBoardEvent.htm" target="TopicContent">UserLeftBoardEvent Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-WeSketch.WeSketchApp.htm" target="TopicContent">WeSketchApp Properties</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Events.T-WeSketch.WeSketchApp.htm" target="TopicContent">WeSketchApp Events</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketch.WeSketchClientData.htm" target="TopicContent">WeSketchClientData Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketch.WeSketchClientData.htm" target="TopicContent">WeSketchClientData Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchClientData.-ctor.htm" target="TopicContent">WeSketchClientData Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Fields.T-WeSketch.WeSketchClientData.htm" target="TopicContent">WeSketchClientData Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketch.WeSketchClientData._instance.htm" target="TopicContent">_instance Field</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Methods.T-WeSketch.WeSketchClientData.htm" target="TopicContent">WeSketchClientData Methods</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Properties.T-WeSketch.WeSketchClientData.htm" target="TopicContent">WeSketchClientData Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketch.WeSketchClientData.Color.htm" target="TopicContent">Color Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketch.WeSketchClientData.Instance.htm" target="TopicContent">Instance Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketch.WeSketchClientData.User.htm" target="TopicContent">User Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketch.WeSketchRestRequests.htm" target="TopicContent">WeSketchRestRequests Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketch.WeSketchRestRequests.htm" target="TopicContent">WeSketchRestRequests Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Fields.T-WeSketch.WeSketchRestRequests.htm" target="TopicContent">WeSketchRestRequests Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketch.WeSketchRestRequests._httpClient.htm" target="TopicContent">_httpClient Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketch.WeSketchRestRequests._url.htm" target="TopicContent">_url Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketch.WeSketchRestRequests.htm" target="TopicContent">WeSketchRestRequests Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchRestRequests.CreateUser.htm" target="TopicContent">CreateUser Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchRestRequests.Dispose.htm" target="TopicContent">Dispose Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchRestRequests.InviteUserToBoard.htm" target="TopicContent">InviteUserToBoard Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchRestRequests.JoinBoard.htm" target="TopicContent">JoinBoard Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.WeSketchRestRequests.Login.htm" target="TopicContent">Login Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/N-WeSketch.Tests.htm" target="TopicContent">WeSketch.Tests Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketch.Tests.StartupTests.htm" target="TopicContent">StartupTests Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketch.Tests.StartupTests.htm" target="TopicContent">StartupTests Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketch.Tests.StartupTests.htm" target="TopicContent">StartupTests Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Tests.StartupTests.RunAfterAnyTests.htm" target="TopicContent">RunAfterAnyTests Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Tests.StartupTests.RunBeforeAnyTests.htm" target="TopicContent">RunBeforeAnyTests Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketch.Tests.WeSketchDataContext.htm" target="TopicContent">WeSketchDataContext Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketch.Tests.WeSketchDataContext.htm" target="TopicContent">WeSketchDataContext Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Overload-WeSketch.Tests.WeSketchDataContext.-ctor.htm" target="TopicContent">WeSketchDataContext Constructor </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Tests.WeSketchDataContext.-ctor.htm" target="TopicContent">WeSketchDataContext Constructor </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Tests.WeSketchDataContext.-ctor_1.htm" target="TopicContent">WeSketchDataContext Constructor (String)</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Tests.WeSketchDataContext.-ctor_2.htm" target="TopicContent">WeSketchDataContext Constructor (IDbConnection)</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Tests.WeSketchDataContext.-ctor_3.htm" target="TopicContent">WeSketchDataContext Constructor (String, MappingSource)</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Tests.WeSketchDataContext.-ctor_4.htm" target="TopicContent">WeSketchDataContext Constructor (IDbConnection, MappingSource)</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Fields.T-WeSketch.Tests.WeSketchDataContext.htm" target="TopicContent">WeSketchDataContext Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketch.Tests.WeSketchDataContext.mappingSource.htm" target="TopicContent">mappingSource Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketch.Tests.WeSketchDataContext.htm" target="TopicContent">WeSketchDataContext Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Tests.WeSketchDataContext.CleanTestingObjects.htm" target="TopicContent">CleanTestingObjects Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-WeSketch.Tests.WeSketchDataContext.htm" target="TopicContent">WeSketchDataContext Properties</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketch.Tests.WeSketchRestRequestsTests.htm" target="TopicContent">WeSketchRestRequestsTests Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketch.Tests.WeSketchRestRequestsTests.htm" target="TopicContent">WeSketchRestRequestsTests Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketch.Tests.WeSketchRestRequestsTests.htm" target="TopicContent">WeSketchRestRequestsTests Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Tests.WeSketchRestRequestsTests.CreateUser_RestCreateUser_ReturnsUser.htm" target="TopicContent">CreateUser_RestCreateUser_ReturnsUser Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Tests.WeSketchRestRequestsTests.CreateUserIncomplete_RestCreateUser_ReturnsError.htm" target="TopicContent">CreateUserIncomplete_RestCreateUser_ReturnsError Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Tests.WeSketchRestRequestsTests.InviteUserIncompleteData_RestInviteUserToBoard_ReturnsError.htm" target="TopicContent">InviteUserIncompleteData_RestInviteUserToBoard_ReturnsError Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Tests.WeSketchRestRequestsTests.IsInvalidLogin_RestLogin_ReturnsError.htm" target="TopicContent">IsInvalidLogin_RestLogin_ReturnsError Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketch.Tests.WeSketchRestRequestsTests.IsValidLogin_RestLogin_ReturnsUser.htm" target="TopicContent">IsValidLogin_RestLogin_ReturnsUser Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/N-WeSketchAPI.htm" target="TopicContent">WeSketchAPI Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.BundleConfig.htm" target="TopicContent">BundleConfig Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.BundleConfig.htm" target="TopicContent">BundleConfig Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketchAPI.BundleConfig.htm" target="TopicContent">BundleConfig Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.BundleConfig.RegisterBundles.htm" target="TopicContent">RegisterBundles Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.FilterConfig.htm" target="TopicContent">FilterConfig Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.FilterConfig.htm" target="TopicContent">FilterConfig Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketchAPI.FilterConfig.htm" target="TopicContent">FilterConfig Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.FilterConfig.RegisterGlobalFilters.htm" target="TopicContent">RegisterGlobalFilters Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.RouteConfig.htm" target="TopicContent">RouteConfig Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.RouteConfig.htm" target="TopicContent">RouteConfig Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketchAPI.RouteConfig.htm" target="TopicContent">RouteConfig Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.RouteConfig.RegisterRoutes.htm" target="TopicContent">RegisterRoutes Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.Startup.htm" target="TopicContent">Startup Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.Startup.htm" target="TopicContent">Startup Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketchAPI.Startup.htm" target="TopicContent">Startup Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Startup.Configuration.htm" target="TopicContent">Configuration Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.User.htm" target="TopicContent">User Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.User.htm" target="TopicContent">User Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.User.-ctor.htm" target="TopicContent">User Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Fields.T-WeSketchAPI.User.htm" target="TopicContent">User Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.User._Disabled.htm" target="TopicContent">_Disabled Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.User._Email.htm" target="TopicContent">_Email Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.User._LastLogin.htm" target="TopicContent">_LastLogin Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.User._LastLoginAttempt.htm" target="TopicContent">_LastLoginAttempt Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.User._Password.htm" target="TopicContent">_Password Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.User._SeaSalt.htm" target="TopicContent">_SeaSalt Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.User._UserBoard.htm" target="TopicContent">_UserBoard Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.User._UserID.htm" target="TopicContent">_UserID Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.User._UserName.htm" target="TopicContent">_UserName Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.User.emptyChangingEventArgs.htm" target="TopicContent">emptyChangingEventArgs Field</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Methods.T-WeSketchAPI.User.htm" target="TopicContent">User Methods</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Properties.T-WeSketchAPI.User.htm" target="TopicContent">User Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.User.Disabled.htm" target="TopicContent">Disabled Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.User.Email.htm" target="TopicContent">Email Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.User.LastLogin.htm" target="TopicContent">LastLogin Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.User.LastLoginAttempt.htm" target="TopicContent">LastLoginAttempt Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.User.Password.htm" target="TopicContent">Password Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.User.SeaSalt.htm" target="TopicContent">SeaSalt Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.User.UserBoard.htm" target="TopicContent">UserBoard Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.User.UserID.htm" target="TopicContent">UserID Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.User.UserName.htm" target="TopicContent">UserName Property </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Events.T-WeSketchAPI.User.htm" target="TopicContent">User Events</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/E-WeSketchAPI.User.PropertyChanged.htm" target="TopicContent">PropertyChanged Event</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/E-WeSketchAPI.User.PropertyChanging.htm" target="TopicContent">PropertyChanging Event</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.UserBoard.htm" target="TopicContent">UserBoard Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.UserBoard.htm" target="TopicContent">UserBoard Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.UserBoard.-ctor.htm" target="TopicContent">UserBoard Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Fields.T-WeSketchAPI.UserBoard.htm" target="TopicContent">UserBoard Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.UserBoard._BoardID.htm" target="TopicContent">_BoardID Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.UserBoard._BoardOwner.htm" target="TopicContent">_BoardOwner Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.UserBoard._CanSketch.htm" target="TopicContent">_CanSketch Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.UserBoard._User.htm" target="TopicContent">_User Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.UserBoard._UserID.htm" target="TopicContent">_UserID Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.UserBoard.emptyChangingEventArgs.htm" target="TopicContent">emptyChangingEventArgs Field</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Methods.T-WeSketchAPI.UserBoard.htm" target="TopicContent">UserBoard Methods</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Properties.T-WeSketchAPI.UserBoard.htm" target="TopicContent">UserBoard Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.UserBoard.BoardID.htm" target="TopicContent">BoardID Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.UserBoard.BoardOwner.htm" target="TopicContent">BoardOwner Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.UserBoard.CanSketch.htm" target="TopicContent">CanSketch Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.UserBoard.User.htm" target="TopicContent">User Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.UserBoard.UserID.htm" target="TopicContent">UserID Property </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Events.T-WeSketchAPI.UserBoard.htm" target="TopicContent">UserBoard Events</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/E-WeSketchAPI.UserBoard.PropertyChanged.htm" target="TopicContent">PropertyChanged Event</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/E-WeSketchAPI.UserBoard.PropertyChanging.htm" target="TopicContent">PropertyChanging Event</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.WebApiApplication.htm" target="TopicContent">WebApiApplication Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.WebApiApplication.htm" target="TopicContent">WebApiApplication Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Methods.T-WeSketchAPI.WebApiApplication.htm" target="TopicContent">WebApiApplication Methods</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-WeSketchAPI.WebApiApplication.htm" target="TopicContent">WebApiApplication Properties</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Events.T-WeSketchAPI.WebApiApplication.htm" target="TopicContent">WebApiApplication Events</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.WebApiConfig.htm" target="TopicContent">WebApiConfig Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.WebApiConfig.htm" target="TopicContent">WebApiConfig Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketchAPI.WebApiConfig.htm" target="TopicContent">WebApiConfig Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WebApiConfig.Register.htm" target="TopicContent">Register Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.WeSketchDataContext.htm" target="TopicContent">WeSketchDataContext Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.WeSketchDataContext.htm" target="TopicContent">WeSketchDataContext Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Overload-WeSketchAPI.WeSketchDataContext.-ctor.htm" target="TopicContent">WeSketchDataContext Constructor </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchDataContext.-ctor.htm" target="TopicContent">WeSketchDataContext Constructor </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchDataContext.-ctor_1.htm" target="TopicContent">WeSketchDataContext Constructor (String)</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchDataContext.-ctor_2.htm" target="TopicContent">WeSketchDataContext Constructor (IDbConnection)</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchDataContext.-ctor_3.htm" target="TopicContent">WeSketchDataContext Constructor (String, MappingSource)</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchDataContext.-ctor_4.htm" target="TopicContent">WeSketchDataContext Constructor (IDbConnection, MappingSource)</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Fields.T-WeSketchAPI.WeSketchDataContext.htm" target="TopicContent">WeSketchDataContext Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.WeSketchDataContext.mappingSource.htm" target="TopicContent">mappingSource Field</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Methods.T-WeSketchAPI.WeSketchDataContext.htm" target="TopicContent">WeSketchDataContext Methods</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Properties.T-WeSketchAPI.WeSketchDataContext.htm" target="TopicContent">WeSketchDataContext Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.WeSketchDataContext.UserBoards.htm" target="TopicContent">UserBoards Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchAPI.WeSketchDataContext.Users.htm" target="TopicContent">Users Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.WeSketchSecurity.htm" target="TopicContent">WeSketchSecurity Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.WeSketchSecurity.htm" target="TopicContent">WeSketchSecurity Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketchAPI.WeSketchSecurity.htm" target="TopicContent">WeSketchSecurity Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSecurity.CreateUser.htm" target="TopicContent">CreateUser Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSecurity.GetComputedHash.htm" target="TopicContent">GetComputedHash Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSecurity.GetSalt.htm" target="TopicContent">GetSalt Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSecurity.GetSeasonedPasswordBytes.htm" target="TopicContent">GetSeasonedPasswordBytes Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSecurity.Login.htm" target="TopicContent">Login Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.WeSketchSignalRHub.htm" target="TopicContent">WeSketchSignalRHub Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.WeSketchSignalRHub.htm" target="TopicContent">WeSketchSignalRHub Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketchAPI.WeSketchSignalRHub.htm" target="TopicContent">WeSketchSignalRHub Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSignalRHub.ChangeUserColor.htm" target="TopicContent">ChangeUserColor Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSignalRHub.JoinBoardGroup.htm" target="TopicContent">JoinBoardGroup Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSignalRHub.KickUserFromBoard.htm" target="TopicContent">KickUserFromBoard Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSignalRHub.LeaveBoardGroup.htm" target="TopicContent">LeaveBoardGroup Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSignalRHub.RemoveFromGroups.htm" target="TopicContent">RemoveFromGroups Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSignalRHub.RequestClearBoardStrokes.htm" target="TopicContent">RequestClearBoardStrokes Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSignalRHub.RequestConnectedUsers.htm" target="TopicContent">RequestConnectedUsers Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSignalRHub.RequestStrokes.htm" target="TopicContent">RequestStrokes Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSignalRHub.SendConnectedUsersToUser.htm" target="TopicContent">SendConnectedUsersToUser Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSignalRHub.SendInvitation.htm" target="TopicContent">SendInvitation Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSignalRHub.SendStrokesToGroup.htm" target="TopicContent">SendStrokesToGroup Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSignalRHub.SendStrokesToUser.htm" target="TopicContent">SendStrokesToUser Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSignalRHub.SendStrokeToErase.htm" target="TopicContent">SendStrokeToErase Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.WeSketchSignalRHub.UserAuthenticated.htm" target="TopicContent">UserAuthenticated Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-WeSketchAPI.WeSketchSignalRHub.htm" target="TopicContent">WeSketchSignalRHub Properties</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/N-WeSketchAPI.Controllers.htm" target="TopicContent">WeSketchAPI.Controllers Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.Controllers.HomeController.htm" target="TopicContent">HomeController Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.Controllers.HomeController.htm" target="TopicContent">HomeController Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketchAPI.Controllers.HomeController.htm" target="TopicContent">HomeController Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Controllers.HomeController.CreateUser.htm" target="TopicContent">CreateUser Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Controllers.HomeController.Index.htm" target="TopicContent">Index Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Controllers.HomeController.InviteUserToBoard.htm" target="TopicContent">InviteUserToBoard Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Controllers.HomeController.JoinBoard.htm" target="TopicContent">JoinBoard Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Controllers.HomeController.Login.htm" target="TopicContent">Login Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-WeSketchAPI.Controllers.HomeController.htm" target="TopicContent">HomeController Properties</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/N-WeSketchAPI.Tests.htm" target="TopicContent">WeSketchAPI.Tests Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.Tests.StartupTests.htm" target="TopicContent">StartupTests Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.Tests.StartupTests.htm" target="TopicContent">StartupTests Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketchAPI.Tests.StartupTests.htm" target="TopicContent">StartupTests Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.StartupTests.RunAfterAnyTests.htm" target="TopicContent">RunAfterAnyTests Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.StartupTests.RunBeforeAnyTests.htm" target="TopicContent">RunBeforeAnyTests Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.Tests.WeSketchDataContext.htm" target="TopicContent">WeSketchDataContext Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.Tests.WeSketchDataContext.htm" target="TopicContent">WeSketchDataContext Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Overload-WeSketchAPI.Tests.WeSketchDataContext.-ctor.htm" target="TopicContent">WeSketchDataContext Constructor </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.WeSketchDataContext.-ctor.htm" target="TopicContent">WeSketchDataContext Constructor </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.WeSketchDataContext.-ctor_1.htm" target="TopicContent">WeSketchDataContext Constructor (String)</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.WeSketchDataContext.-ctor_2.htm" target="TopicContent">WeSketchDataContext Constructor (IDbConnection)</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.WeSketchDataContext.-ctor_3.htm" target="TopicContent">WeSketchDataContext Constructor (String, MappingSource)</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.WeSketchDataContext.-ctor_4.htm" target="TopicContent">WeSketchDataContext Constructor (IDbConnection, MappingSource)</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Fields.T-WeSketchAPI.Tests.WeSketchDataContext.htm" target="TopicContent">WeSketchDataContext Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.Tests.WeSketchDataContext.mappingSource.htm" target="TopicContent">mappingSource Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketchAPI.Tests.WeSketchDataContext.htm" target="TopicContent">WeSketchDataContext Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.WeSketchDataContext.CleanTestingObjects.htm" target="TopicContent">CleanTestingObjects Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-WeSketchAPI.Tests.WeSketchDataContext.htm" target="TopicContent">WeSketchDataContext Properties</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.Tests.WeSketchSecurityTests.htm" target="TopicContent">WeSketchSecurityTests Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.Tests.WeSketchSecurityTests.htm" target="TopicContent">WeSketchSecurityTests Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketchAPI.Tests.WeSketchSecurityTests.htm" target="TopicContent">WeSketchSecurityTests Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.CreateExistingUser_CreateUser_ReturnsAlreadyExistsError.htm" target="TopicContent">CreateExistingUser_CreateUser_ReturnsAlreadyExistsError Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.CreateUserIncomplete_Login_ReturnsOutOfRange.htm" target="TopicContent">CreateUserIncomplete_Login_ReturnsOutOfRange Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.CreateValidUser_CreateUser_ReturnsUser.htm" target="TopicContent">CreateValidUser_CreateUser_ReturnsUser Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.IsInvalidLogin_Login_ReturnsError.htm" target="TopicContent">IsInvalidLogin_Login_ReturnsError Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.ValidLogin_Login_ReturnsUser.htm" target="TopicContent">ValidLogin_Login_ReturnsUser Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm" target="TopicContent">WeSketchSignalRHubTests Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm" target="TopicContent">WeSketchSignalRHubTests Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Fields.T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm" target="TopicContent">WeSketchSignalRHubTests Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-WeSketchAPI.Tests.WeSketchSignalRHubTests._hub.htm" target="TopicContent">_hub Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm" target="TopicContent">WeSketchSignalRHubTests Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.WeSketchSignalRHubTests.HubsAreMockableViaDynamic.htm" target="TopicContent">HubsAreMockableViaDynamic Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.WeSketchSignalRHubTests.SetUpTests.htm" target="TopicContent">SetUpTests Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.WeSketchSignalRHubTests.TestMethod1.htm" target="TopicContent">TestMethod1 Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/N-WeSketchAPI.Tests.Controllers.htm" target="TopicContent">WeSketchAPI.Tests.Controllers Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchAPI.Tests.Controllers.HomeControllerTest.htm" target="TopicContent">HomeControllerTest Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchAPI.Tests.Controllers.HomeControllerTest.htm" target="TopicContent">HomeControllerTest Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-WeSketchAPI.Tests.Controllers.HomeControllerTest.htm" target="TopicContent">HomeControllerTest Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-WeSketchAPI.Tests.Controllers.HomeControllerTest.Index.htm" target="TopicContent">Index Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/N-WeSketchSharedDataModels.htm" target="TopicContent">WeSketchSharedDataModels Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchSharedDataModels.Board.htm" target="TopicContent">Board Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchSharedDataModels.Board.htm" target="TopicContent">Board Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Methods.T-WeSketchSharedDataModels.Board.htm" target="TopicContent">Board Methods</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Properties.T-WeSketchSharedDataModels.Board.htm" target="TopicContent">Board Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.Board.BoardID.htm" target="TopicContent">BoardID Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.Board.ConnectedUsers.htm" target="TopicContent">ConnectedUsers Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.Board.Owner.htm" target="TopicContent">Owner Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchSharedDataModels.BoardPoint.htm" target="TopicContent">BoardPoint Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchSharedDataModels.BoardPoint.htm" target="TopicContent">BoardPoint Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Methods.T-WeSketchSharedDataModels.BoardPoint.htm" target="TopicContent">BoardPoint Methods</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Properties.T-WeSketchSharedDataModels.BoardPoint.htm" target="TopicContent">BoardPoint Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.BoardPoint.PressureFactor.htm" target="TopicContent">PressureFactor Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.BoardPoint.User.htm" target="TopicContent">User Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.BoardPoint.X.htm" target="TopicContent">X Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.BoardPoint.Y.htm" target="TopicContent">Y Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchSharedDataModels.BoardPointCollection.htm" target="TopicContent">BoardPointCollection Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchSharedDataModels.BoardPointCollection.htm" target="TopicContent">BoardPointCollection Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Methods.T-WeSketchSharedDataModels.BoardPointCollection.htm" target="TopicContent">BoardPointCollection Methods</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Properties.T-WeSketchSharedDataModels.BoardPointCollection.htm" target="TopicContent">BoardPointCollection Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.BoardPointCollection.BrushHeight.htm" target="TopicContent">BrushHeight Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.BoardPointCollection.BrushWidth.htm" target="TopicContent">BrushWidth Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.BoardPointCollection.Color.htm" target="TopicContent">Color Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.BoardPointCollection.ID.htm" target="TopicContent">ID Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.BoardPointCollection.Points.htm" target="TopicContent">Points Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.BoardPointCollection.User.htm" target="TopicContent">User Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchSharedDataModels.ConnectedUser.htm" target="TopicContent">ConnectedUser Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchSharedDataModels.ConnectedUser.htm" target="TopicContent">ConnectedUser Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Methods.T-WeSketchSharedDataModels.ConnectedUser.htm" target="TopicContent">ConnectedUser Methods</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Properties.T-WeSketchSharedDataModels.ConnectedUser.htm" target="TopicContent">ConnectedUser Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.ConnectedUser.Color.htm" target="TopicContent">Color Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.ConnectedUser.Owner.htm" target="TopicContent">Owner Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.ConnectedUser.UserName.htm" target="TopicContent">UserName Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchSharedDataModels.Result.htm" target="TopicContent">Result Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchSharedDataModels.Result.htm" target="TopicContent">Result Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Methods.T-WeSketchSharedDataModels.Result.htm" target="TopicContent">Result Methods</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Properties.T-WeSketchSharedDataModels.Result.htm" target="TopicContent">Result Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.Result.Error.htm" target="TopicContent">Error Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.Result.ErrorMessage.htm" target="TopicContent">ErrorMessage Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.Result.ResultJSON.htm" target="TopicContent">ResultJSON Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-WeSketchSharedDataModels.User.htm" target="TopicContent">User Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-WeSketchSharedDataModels.User.htm" target="TopicContent">User Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Methods.T-WeSketchSharedDataModels.User.htm" target="TopicContent">User Methods</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Properties.T-WeSketchSharedDataModels.User.htm" target="TopicContent">User Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.User.Board.htm" target="TopicContent">Board Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.User.UserID.htm" target="TopicContent">UserID Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-WeSketchSharedDataModels.User.UserName.htm" target="TopicContent">UserName Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="TOCSizer" class="TOCSizer" onmousedown="OnMouseDown(event)" onselectstart="javascript: return false;"></div>
+
+<iframe id="TopicContent" name="TopicContent" class="TopicContent" src="html/N-WeSketch.htm">
+This page uses an IFRAME but your browser does not support it.
+</iframe>
+
+</form>
+
+</body>
+
+</html>

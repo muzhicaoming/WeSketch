@@ -70,17 +70,15 @@ namespace WeSketch
         }
 
         /// <summary>
-        /// 
+        /// Navigates to the registration page.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonRegister_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.NavigationService.Navigate(_registrationPage);
         }
 
         /// <summary>
-        /// 
+        /// Triggers when a user logs in.
         /// </summary>
         private void UserLoggedInEvent()
         {

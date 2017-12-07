@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace WeSketchSharedDataModels
 {
+    /// <summary>
+    /// Used to convert a WPF InkCanvas Stroke into a serializable collection of points.
+    /// </summary>
     public class BoardPointCollection
     {
         /// <summary>

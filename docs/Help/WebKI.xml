@@ -1,0 +1,898 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title=".defaultInstance field">
+    <HelpKINode Title="defaultInstance Field" Url="html/F-WeSketch.Properties.Settings.defaultInstance.htm" />
+    <HelpKINode Title="defaultInstance Field" Url="html/F-WeSketch.Tests.Properties.Settings.defaultInstance.htm" />
+    <HelpKINode Title="defaultInstance Field" Url="html/F-WeSketchAPI.Tests.Properties.Settings.defaultInstance.htm" />
+  </HelpKINode>
+  <HelpKINode Title=".GetBoardPointCollection method" Url="html/M-WeSketch.WeSketchSignalrClient.GetBoardPointCollection.htm" />
+  <HelpKINode Title=".GetBoardPointCollectionList method" Url="html/M-WeSketch.WeSketchSignalrClient.GetBoardPointCollectionList.htm" />
+  <HelpKINode Title=".GetStroke method" Url="html/M-WeSketch.WeSketchSignalrClient.GetStroke.htm" />
+  <HelpKINode Title=".GetStrokeCollection method" Url="html/M-WeSketch.WeSketchSignalrClient.GetStrokeCollection.htm" />
+  <HelpKINode Title=".HubError method" Url="html/M-WeSketch.WeSketchSignalrClient.HubError.htm" />
+  <HelpKINode Title=".HubReconnected method" Url="html/M-WeSketch.WeSketchSignalrClient.HubReconnected.htm" />
+  <HelpKINode Title=".HubStateChanged method" Url="html/M-WeSketch.WeSketchSignalrClient.HubStateChanged.htm" />
+  <HelpKINode Title=".InvokeHubDependantAction method" Url="html/M-WeSketch.WeSketchSignalrClient.InvokeHubDependantAction.htm" />
+  <HelpKINode Title=".KickedFromBoard method" Url="html/M-WeSketch.WeSketchSignalrClient.KickedFromBoard.htm" />
+  <HelpKINode Title=".ReceiveConnectedUsers method" Url="html/M-WeSketch.WeSketchSignalrClient.ReceiveConnectedUsers.htm" />
+  <HelpKINode Title=".ReceiveConnectedUsersRequest method" Url="html/M-WeSketch.WeSketchSignalrClient.ReceiveConnectedUsersRequest.htm" />
+  <HelpKINode Title=".ReceiveInvitation method" Url="html/M-WeSketch.WeSketchSignalrClient.ReceiveInvitation.htm" />
+  <HelpKINode Title=".ReceiveStrokeRequest method" Url="html/M-WeSketch.WeSketchSignalrClient.ReceiveStrokeRequest.htm" />
+  <HelpKINode Title=".ReceiveStrokeToErase method" Url="html/M-WeSketch.WeSketchSignalrClient.ReceiveStrokeToErase.htm" />
+  <HelpKINode Title=".StrokesClearedReceived method" Url="html/M-WeSketch.WeSketchSignalrClient.StrokesClearedReceived.htm" />
+  <HelpKINode Title=".UserBoardSetToDefault method" Url="html/M-WeSketch.WeSketchSignalrClient.UserBoardSetToDefault.htm" />
+  <HelpKINode Title=".UserColorChanged method" Url="html/M-WeSketch.WeSketchSignalrClient.UserColorChanged.htm" />
+  <HelpKINode Title=".UserJoinedBoard method" Url="html/M-WeSketch.WeSketchSignalrClient.UserJoinedBoard.htm" />
+  <HelpKINode Title=".UserLeftBoard method" Url="html/M-WeSketch.WeSketchSignalrClient.UserLeftBoard.htm" />
+  <HelpKINode Title="App class">
+    <HelpKINode Title="App Class" Url="html/T-WeSketch.App.htm" />
+    <HelpKINode Title="App Members" Url="html/AllMembers.T-WeSketch.App.htm" />
+    <HelpKINode Title="about App class" Url="html/T-WeSketch.App.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketch.App.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-WeSketch.App.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketch.App.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketch.App.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AuthenticateUser method" Url="html/M-WeSketch.Login.AuthenticateUser.htm" />
+  <HelpKINode Title="Board class">
+    <HelpKINode Title="Board Class" Url="html/T-WeSketchSharedDataModels.Board.htm" />
+    <HelpKINode Title="Board Members" Url="html/AllMembers.T-WeSketchSharedDataModels.Board.htm" />
+    <HelpKINode Title="about Board class" Url="html/T-WeSketchSharedDataModels.Board.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchSharedDataModels.Board.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchSharedDataModels.Board.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketchSharedDataModels.Board.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Board property" Url="html/P-WeSketchSharedDataModels.User.Board.htm" />
+  <HelpKINode Title="Board.BoardID property" Url="html/P-WeSketchSharedDataModels.Board.BoardID.htm" />
+  <HelpKINode Title="Board.ConnectedUsers property" Url="html/P-WeSketchSharedDataModels.Board.ConnectedUsers.htm" />
+  <HelpKINode Title="Board.Owner property" Url="html/P-WeSketchSharedDataModels.Board.Owner.htm" />
+  <HelpKINode Title="BoardChangedEvent method" Url="html/M-WeSketch.WeSketchApp.BoardChangedEvent.htm" />
+  <HelpKINode Title="BoardID property">
+    <HelpKINode Title="BoardID Property " Url="html/P-WeSketchSharedDataModels.Board.BoardID.htm" />
+    <HelpKINode Title="BoardID Property " Url="html/P-WeSketchAPI.UserBoard.BoardID.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BoardInvitationReceivedEvent method" Url="html/M-WeSketch.WeSketchApp.BoardInvitationReceivedEvent.htm" />
+  <HelpKINode Title="BoardOwner property" Url="html/P-WeSketchAPI.UserBoard.BoardOwner.htm" />
+  <HelpKINode Title="BoardOwnerChangedEvent method" Url="html/M-WeSketch.WeSketchApp.BoardOwnerChangedEvent.htm" />
+  <HelpKINode Title="BoardPoint class">
+    <HelpKINode Title="BoardPoint Class" Url="html/T-WeSketchSharedDataModels.BoardPoint.htm" />
+    <HelpKINode Title="BoardPoint Members" Url="html/AllMembers.T-WeSketchSharedDataModels.BoardPoint.htm" />
+    <HelpKINode Title="about BoardPoint class" Url="html/T-WeSketchSharedDataModels.BoardPoint.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchSharedDataModels.BoardPoint.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchSharedDataModels.BoardPoint.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketchSharedDataModels.BoardPoint.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BoardPoint.PressureFactor property" Url="html/P-WeSketchSharedDataModels.BoardPoint.PressureFactor.htm" />
+  <HelpKINode Title="BoardPoint.User property" Url="html/P-WeSketchSharedDataModels.BoardPoint.User.htm" />
+  <HelpKINode Title="BoardPoint.X property" Url="html/P-WeSketchSharedDataModels.BoardPoint.X.htm" />
+  <HelpKINode Title="BoardPoint.Y property" Url="html/P-WeSketchSharedDataModels.BoardPoint.Y.htm" />
+  <HelpKINode Title="BoardPointCollection class">
+    <HelpKINode Title="BoardPointCollection Class" Url="html/T-WeSketchSharedDataModels.BoardPointCollection.htm" />
+    <HelpKINode Title="BoardPointCollection Members" Url="html/AllMembers.T-WeSketchSharedDataModels.BoardPointCollection.htm" />
+    <HelpKINode Title="about BoardPointCollection class" Url="html/T-WeSketchSharedDataModels.BoardPointCollection.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchSharedDataModels.BoardPointCollection.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchSharedDataModels.BoardPointCollection.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketchSharedDataModels.BoardPointCollection.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BoardPointCollection.BrushHeight property" Url="html/P-WeSketchSharedDataModels.BoardPointCollection.BrushHeight.htm" />
+  <HelpKINode Title="BoardPointCollection.BrushWidth property" Url="html/P-WeSketchSharedDataModels.BoardPointCollection.BrushWidth.htm" />
+  <HelpKINode Title="BoardPointCollection.Color property" Url="html/P-WeSketchSharedDataModels.BoardPointCollection.Color.htm" />
+  <HelpKINode Title="BoardPointCollection.ID property" Url="html/P-WeSketchSharedDataModels.BoardPointCollection.ID.htm" />
+  <HelpKINode Title="BoardPointCollection.Points property" Url="html/P-WeSketchSharedDataModels.BoardPointCollection.Points.htm" />
+  <HelpKINode Title="BoardPointCollection.User property" Url="html/P-WeSketchSharedDataModels.BoardPointCollection.User.htm" />
+  <HelpKINode Title="BrushHeight property" Url="html/P-WeSketchSharedDataModels.BoardPointCollection.BrushHeight.htm" />
+  <HelpKINode Title="BrushWidth property" Url="html/P-WeSketchSharedDataModels.BoardPointCollection.BrushWidth.htm" />
+  <HelpKINode Title="BundleConfig class">
+    <HelpKINode Title="BundleConfig Class" Url="html/T-WeSketchAPI.BundleConfig.htm" />
+    <HelpKINode Title="BundleConfig Members" Url="html/AllMembers.T-WeSketchAPI.BundleConfig.htm" />
+    <HelpKINode Title="about BundleConfig class" Url="html/T-WeSketchAPI.BundleConfig.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.BundleConfig.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.BundleConfig.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BundleConfig.RegisterBundles method" Url="html/M-WeSketchAPI.BundleConfig.RegisterBundles.htm" />
+  <HelpKINode Title="ButtonCancel_Click method" Url="html/M-WeSketch.InviteWindow.ButtonCancel_Click.htm" />
+  <HelpKINode Title="ButtonInvite_Click method" Url="html/M-WeSketch.InviteWindow.ButtonInvite_Click.htm" />
+  <HelpKINode Title="ButtonKickUser_Click method" Url="html/M-WeSketch.WeSketchApp.ButtonKickUser_Click.htm" />
+  <HelpKINode Title="buttonLogin_Click method" Url="html/M-WeSketch.Login.buttonLogin_Click.htm" />
+  <HelpKINode Title="ButtonRegister_Click method" Url="html/M-WeSketch.MainWindow.ButtonRegister_Click.htm" />
+  <HelpKINode Title="CanSketch property" Url="html/P-WeSketchAPI.UserBoard.CanSketch.htm" />
+  <HelpKINode Title="ChangeUserColor method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.ChangeUserColor.htm" />
+  <HelpKINode Title="CleanTestingObjects method">
+    <HelpKINode Title="CleanTestingObjects Method " Url="html/M-WeSketch.Tests.WeSketchDataContext.CleanTestingObjects.htm" />
+    <HelpKINode Title="CleanTestingObjects Method " Url="html/M-WeSketchAPI.Tests.WeSketchDataContext.CleanTestingObjects.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ClearButton_Click method" Url="html/M-WeSketch.WeSketchApp.ClearButton_Click.htm" />
+  <HelpKINode Title="Closing method">
+    <HelpKINode Title="Closing Method " Url="html/M-WeSketch.Login.Closing.htm" />
+    <HelpKINode Title="Closing Method " Url="html/M-WeSketch.WeSketchApp.Closing.htm" />
+    <HelpKINode Title="Closing Method " Url="html/M-WeSketch.Registration.Closing.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Color property">
+    <HelpKINode Title="Color Property " Url="html/P-WeSketch.WeSketchClientData.Color.htm" />
+    <HelpKINode Title="Color Property " Url="html/P-WeSketchSharedDataModels.BoardPointCollection.Color.htm" />
+    <HelpKINode Title="Color Property " Url="html/P-WeSketchSharedDataModels.ConnectedUser.Color.htm" />
+  </HelpKINode>
+  <HelpKINode Title="comboColor_SelectionChanged method" Url="html/M-WeSketch.WeSketchApp.comboColor_SelectionChanged.htm" />
+  <HelpKINode Title="comboSize_SelectionChanged method" Url="html/M-WeSketch.WeSketchApp.comboSize_SelectionChanged.htm" />
+  <HelpKINode Title="Configuration method" Url="html/M-WeSketchAPI.Startup.Configuration.htm" />
+  <HelpKINode Title="ConnectedUser class">
+    <HelpKINode Title="ConnectedUser Class" Url="html/T-WeSketchSharedDataModels.ConnectedUser.htm" />
+    <HelpKINode Title="ConnectedUser Members" Url="html/AllMembers.T-WeSketchSharedDataModels.ConnectedUser.htm" />
+    <HelpKINode Title="about ConnectedUser class" Url="html/T-WeSketchSharedDataModels.ConnectedUser.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchSharedDataModels.ConnectedUser.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchSharedDataModels.ConnectedUser.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketchSharedDataModels.ConnectedUser.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ConnectedUser.Color property" Url="html/P-WeSketchSharedDataModels.ConnectedUser.Color.htm" />
+  <HelpKINode Title="ConnectedUser.Owner property" Url="html/P-WeSketchSharedDataModels.ConnectedUser.Owner.htm" />
+  <HelpKINode Title="ConnectedUser.UserName property" Url="html/P-WeSketchSharedDataModels.ConnectedUser.UserName.htm" />
+  <HelpKINode Title="ConnectedUsers property" Url="html/P-WeSketchSharedDataModels.Board.ConnectedUsers.htm" />
+  <HelpKINode Title="ConnectedUsersReceivedEvent method" Url="html/M-WeSketch.WeSketchApp.ConnectedUsersReceivedEvent.htm" />
+  <HelpKINode Title="ConnectedUsersRequestReceivedEvent method" Url="html/M-WeSketch.WeSketchApp.ConnectedUsersRequestReceivedEvent.htm" />
+  <HelpKINode Title="CreateExistingUser_CreateUser_ReturnsAlreadyExistsError method" Url="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.CreateExistingUser_CreateUser_ReturnsAlreadyExistsError.htm" />
+  <HelpKINode Title="CreateUser method">
+    <HelpKINode Title="CreateUser Method " Url="html/M-WeSketch.Registration.CreateUser.htm" />
+    <HelpKINode Title="CreateUser Method " Url="html/M-WeSketch.WeSketchRestRequests.CreateUser.htm" />
+    <HelpKINode Title="CreateUser Method " Url="html/M-WeSketchAPI.Controllers.HomeController.CreateUser.htm" />
+    <HelpKINode Title="CreateUser Method " Url="html/M-WeSketchAPI.WeSketchSecurity.CreateUser.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CreateUserIncomplete_Login_ReturnsOutOfRange method" Url="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.CreateUserIncomplete_Login_ReturnsOutOfRange.htm" />
+  <HelpKINode Title="CreateUserIncomplete_RestCreateUser_ReturnsError method" Url="html/M-WeSketch.Tests.WeSketchRestRequestsTests.CreateUserIncomplete_RestCreateUser_ReturnsError.htm" />
+  <HelpKINode Title="CreateUser_RestCreateUser_ReturnsUser method" Url="html/M-WeSketch.Tests.WeSketchRestRequestsTests.CreateUser_RestCreateUser_ReturnsUser.htm" />
+  <HelpKINode Title="CreateValidUser_CreateUser_ReturnsUser method" Url="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.CreateValidUser_CreateUser_ReturnsUser.htm" />
+  <HelpKINode Title="defaultInstance field">
+    <HelpKINode Title="defaultInstance Field" Url="html/F-WeSketch.Tests.Properties.Settings.defaultInstance.htm" />
+    <HelpKINode Title="defaultInstance Field" Url="html/F-WeSketchAPI.Tests.Properties.Settings.defaultInstance.htm" />
+    <HelpKINode Title="defaultInstance Field" Url="html/F-WeSketch.Properties.Settings.defaultInstance.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Disabled property" Url="html/P-WeSketchAPI.User.Disabled.htm" />
+  <HelpKINode Title="Dispose method" Url="html/M-WeSketch.WeSketchRestRequests.Dispose.htm" />
+  <HelpKINode Title="Email property" Url="html/P-WeSketchAPI.User.Email.htm" />
+  <HelpKINode Title="emptyChangingEventArgs field">
+    <HelpKINode Title="emptyChangingEventArgs Field" Url="html/F-WeSketchAPI.User.emptyChangingEventArgs.htm" />
+    <HelpKINode Title="emptyChangingEventArgs Field" Url="html/F-WeSketchAPI.UserBoard.emptyChangingEventArgs.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Error property" Url="html/P-WeSketchSharedDataModels.Result.Error.htm" />
+  <HelpKINode Title="ErrorMessage property" Url="html/P-WeSketchSharedDataModels.Result.ErrorMessage.htm" />
+  <HelpKINode Title="FilterConfig class">
+    <HelpKINode Title="FilterConfig Class" Url="html/T-WeSketchAPI.FilterConfig.htm" />
+    <HelpKINode Title="FilterConfig Members" Url="html/AllMembers.T-WeSketchAPI.FilterConfig.htm" />
+    <HelpKINode Title="about FilterConfig class" Url="html/T-WeSketchAPI.FilterConfig.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.FilterConfig.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.FilterConfig.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FilterConfig.RegisterGlobalFilters method" Url="html/M-WeSketchAPI.FilterConfig.RegisterGlobalFilters.htm" />
+  <HelpKINode Title="GetBoardPointCollection method" Url="html/M-WeSketch.WeSketchSignalrClient.GetBoardPointCollection.htm" />
+  <HelpKINode Title="GetBoardPointCollectionList method" Url="html/M-WeSketch.WeSketchSignalrClient.GetBoardPointCollectionList.htm" />
+  <HelpKINode Title="GetComputedHash method" Url="html/M-WeSketchAPI.WeSketchSecurity.GetComputedHash.htm" />
+  <HelpKINode Title="GetSalt method" Url="html/M-WeSketchAPI.WeSketchSecurity.GetSalt.htm" />
+  <HelpKINode Title="GetSeasonedPasswordBytes method" Url="html/M-WeSketchAPI.WeSketchSecurity.GetSeasonedPasswordBytes.htm" />
+  <HelpKINode Title="GetStroke method" Url="html/M-WeSketch.WeSketchSignalrClient.GetStroke.htm" />
+  <HelpKINode Title="GetStrokeCollection method" Url="html/M-WeSketch.WeSketchSignalrClient.GetStrokeCollection.htm" />
+  <HelpKINode Title="HomeController class">
+    <HelpKINode Title="HomeController Class" Url="html/T-WeSketchAPI.Controllers.HomeController.htm" />
+    <HelpKINode Title="HomeController Members" Url="html/AllMembers.T-WeSketchAPI.Controllers.HomeController.htm" />
+    <HelpKINode Title="about HomeController class" Url="html/T-WeSketchAPI.Controllers.HomeController.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.Controllers.HomeController.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.Controllers.HomeController.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketchAPI.Controllers.HomeController.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HomeController.CreateUser method" Url="html/M-WeSketchAPI.Controllers.HomeController.CreateUser.htm" />
+  <HelpKINode Title="HomeController.Index method" Url="html/M-WeSketchAPI.Controllers.HomeController.Index.htm" />
+  <HelpKINode Title="HomeController.InviteUserToBoard method" Url="html/M-WeSketchAPI.Controllers.HomeController.InviteUserToBoard.htm" />
+  <HelpKINode Title="HomeController.JoinBoard method" Url="html/M-WeSketchAPI.Controllers.HomeController.JoinBoard.htm" />
+  <HelpKINode Title="HomeController.Login method" Url="html/M-WeSketchAPI.Controllers.HomeController.Login.htm" />
+  <HelpKINode Title="HomeControllerTest class">
+    <HelpKINode Title="HomeControllerTest Class" Url="html/T-WeSketchAPI.Tests.Controllers.HomeControllerTest.htm" />
+    <HelpKINode Title="HomeControllerTest Members" Url="html/AllMembers.T-WeSketchAPI.Tests.Controllers.HomeControllerTest.htm" />
+    <HelpKINode Title="about HomeControllerTest class" Url="html/T-WeSketchAPI.Tests.Controllers.HomeControllerTest.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.Tests.Controllers.HomeControllerTest.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.Tests.Controllers.HomeControllerTest.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HomeControllerTest.Index method" Url="html/M-WeSketchAPI.Tests.Controllers.HomeControllerTest.Index.htm" />
+  <HelpKINode Title="HubError method" Url="html/M-WeSketch.WeSketchSignalrClient.HubError.htm" />
+  <HelpKINode Title="HubReconnected method" Url="html/M-WeSketch.WeSketchSignalrClient.HubReconnected.htm" />
+  <HelpKINode Title="HubsAreMockableViaDynamic method" Url="html/M-WeSketchAPI.Tests.WeSketchSignalRHubTests.HubsAreMockableViaDynamic.htm" />
+  <HelpKINode Title="HubStateChanged method" Url="html/M-WeSketch.WeSketchSignalrClient.HubStateChanged.htm" />
+  <HelpKINode Title="ID property" Url="html/P-WeSketchSharedDataModels.BoardPointCollection.ID.htm" />
+  <HelpKINode Title="Index method">
+    <HelpKINode Title="Index Method " Url="html/M-WeSketchAPI.Tests.Controllers.HomeControllerTest.Index.htm" />
+    <HelpKINode Title="Index Method " Url="html/M-WeSketchAPI.Controllers.HomeController.Index.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Instance property" Url="html/P-WeSketch.WeSketchClientData.Instance.htm" />
+  <HelpKINode Title="InviteButton_Click method" Url="html/M-WeSketch.WeSketchApp.InviteButton_Click.htm" />
+  <HelpKINode Title="InviteUserIncompleteData_RestInviteUserToBoard_ReturnsError method" Url="html/M-WeSketch.Tests.WeSketchRestRequestsTests.InviteUserIncompleteData_RestInviteUserToBoard_ReturnsError.htm" />
+  <HelpKINode Title="InviteUserToBoard method">
+    <HelpKINode Title="InviteUserToBoard Method " Url="html/M-WeSketchAPI.Controllers.HomeController.InviteUserToBoard.htm" />
+    <HelpKINode Title="InviteUserToBoard Method " Url="html/M-WeSketch.WeSketchRestRequests.InviteUserToBoard.htm" />
+  </HelpKINode>
+  <HelpKINode Title="InviteWindow class">
+    <HelpKINode Title="InviteWindow Class" Url="html/T-WeSketch.InviteWindow.htm" />
+    <HelpKINode Title="InviteWindow Members" Url="html/AllMembers.T-WeSketch.InviteWindow.htm" />
+    <HelpKINode Title="about InviteWindow class" Url="html/T-WeSketch.InviteWindow.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketch.InviteWindow.htm" />
+    <HelpKINode Title="constructor" Url="html/M-WeSketch.InviteWindow.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-WeSketch.InviteWindow.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketch.InviteWindow.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketch.InviteWindow.htm" />
+  </HelpKINode>
+  <HelpKINode Title="InviteWindow.ButtonCancel_Click method" Url="html/M-WeSketch.InviteWindow.ButtonCancel_Click.htm" />
+  <HelpKINode Title="InviteWindow.ButtonInvite_Click method" Url="html/M-WeSketch.InviteWindow.ButtonInvite_Click.htm" />
+  <HelpKINode Title="InviteWindow.InviteWindow constructor" Url="html/M-WeSketch.InviteWindow.-ctor.htm" />
+  <HelpKINode Title="InviteWindow.UserInvitedEvent event" Url="html/E-WeSketch.InviteWindow.UserInvitedEvent.htm" />
+  <HelpKINode Title="InviteWindow.UserInvitedEventHandler delegate" Url="html/T-WeSketch.InviteWindow.UserInvitedEventHandler.htm" />
+  <HelpKINode Title="InviteWindow_UserInvitedEvent method" Url="html/M-WeSketch.WeSketchApp.InviteWindow_UserInvitedEvent.htm" />
+  <HelpKINode Title="InvokeHubDependantAction method" Url="html/M-WeSketch.WeSketchSignalrClient.InvokeHubDependantAction.htm" />
+  <HelpKINode Title="IsInvalidLogin_Login_ReturnsError method" Url="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.IsInvalidLogin_Login_ReturnsError.htm" />
+  <HelpKINode Title="IsInvalidLogin_RestLogin_ReturnsError method" Url="html/M-WeSketch.Tests.WeSketchRestRequestsTests.IsInvalidLogin_RestLogin_ReturnsError.htm" />
+  <HelpKINode Title="IsValidLogin_RestLogin_ReturnsUser method" Url="html/M-WeSketch.Tests.WeSketchRestRequestsTests.IsValidLogin_RestLogin_ReturnsUser.htm" />
+  <HelpKINode Title="JoinBoard method">
+    <HelpKINode Title="JoinBoard Method " Url="html/M-WeSketch.WeSketchRestRequests.JoinBoard.htm" />
+    <HelpKINode Title="JoinBoard Method " Url="html/M-WeSketchAPI.Controllers.HomeController.JoinBoard.htm" />
+  </HelpKINode>
+  <HelpKINode Title="JoinBoardGroup method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.JoinBoardGroup.htm" />
+  <HelpKINode Title="KickedFromBoard method" Url="html/M-WeSketch.WeSketchSignalrClient.KickedFromBoard.htm" />
+  <HelpKINode Title="KickedFromBoardEvent method" Url="html/M-WeSketch.WeSketchApp.KickedFromBoardEvent.htm" />
+  <HelpKINode Title="KickUserFromBoard method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.KickUserFromBoard.htm" />
+  <HelpKINode Title="LastLogin property" Url="html/P-WeSketchAPI.User.LastLogin.htm" />
+  <HelpKINode Title="LastLoginAttempt property" Url="html/P-WeSketchAPI.User.LastLoginAttempt.htm" />
+  <HelpKINode Title="LeaveBoardGroup method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.LeaveBoardGroup.htm" />
+  <HelpKINode Title="LeaveButton_Click method" Url="html/M-WeSketch.WeSketchApp.LeaveButton_Click.htm" />
+  <HelpKINode Title="LoadConnectedUsers method" Url="html/M-WeSketch.WeSketchApp.LoadConnectedUsers.htm" />
+  <HelpKINode Title="Login class">
+    <HelpKINode Title="Login Class" Url="html/T-WeSketch.Login.htm" />
+    <HelpKINode Title="Login Members" Url="html/AllMembers.T-WeSketch.Login.htm" />
+    <HelpKINode Title="about Login class" Url="html/T-WeSketch.Login.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketch.Login.htm" />
+    <HelpKINode Title="constructor" Url="html/M-WeSketch.Login.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-WeSketch.Login.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-WeSketch.Login.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketch.Login.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketch.Login.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Login method">
+    <HelpKINode Title="Login Method " Url="html/M-WeSketch.WeSketchRestRequests.Login.htm" />
+    <HelpKINode Title="Login Method " Url="html/M-WeSketchAPI.Controllers.HomeController.Login.htm" />
+    <HelpKINode Title="Login Method " Url="html/M-WeSketchAPI.WeSketchSecurity.Login.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Login.AuthenticateUser method" Url="html/M-WeSketch.Login.AuthenticateUser.htm" />
+  <HelpKINode Title="Login.buttonLogin_Click method" Url="html/M-WeSketch.Login.buttonLogin_Click.htm" />
+  <HelpKINode Title="Login.Closing method" Url="html/M-WeSketch.Login.Closing.htm" />
+  <HelpKINode Title="Login.Login constructor" Url="html/M-WeSketch.Login.-ctor.htm" />
+  <HelpKINode Title="Login.UserLoggedIn method" Url="html/M-WeSketch.Login.UserLoggedIn.htm" />
+  <HelpKINode Title="Login.UserLoggedInEvent event" Url="html/E-WeSketch.Login.UserLoggedInEvent.htm" />
+  <HelpKINode Title="Login.UserLoggedInEventHandler delegate" Url="html/T-WeSketch.Login.UserLoggedInEventHandler.htm" />
+  <HelpKINode Title="Login._rest field" Url="html/F-WeSketch.Login._rest.htm" />
+  <HelpKINode Title="MainInkCanvas_MouseMove method" Url="html/M-WeSketch.WeSketchApp.MainInkCanvas_MouseMove.htm" />
+  <HelpKINode Title="MainWindow class">
+    <HelpKINode Title="MainWindow Class" Url="html/T-WeSketch.MainWindow.htm" />
+    <HelpKINode Title="MainWindow Members" Url="html/AllMembers.T-WeSketch.MainWindow.htm" />
+    <HelpKINode Title="about MainWindow class" Url="html/T-WeSketch.MainWindow.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketch.MainWindow.htm" />
+    <HelpKINode Title="constructor" Url="html/M-WeSketch.MainWindow.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-WeSketch.MainWindow.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-WeSketch.MainWindow.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketch.MainWindow.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketch.MainWindow.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MainWindow.ButtonRegister_Click method" Url="html/M-WeSketch.MainWindow.ButtonRegister_Click.htm" />
+  <HelpKINode Title="MainWindow.MainWindow constructor" Url="html/M-WeSketch.MainWindow.-ctor.htm" />
+  <HelpKINode Title="MainWindow.MainWindow_Closing method" Url="html/M-WeSketch.MainWindow.MainWindow_Closing.htm" />
+  <HelpKINode Title="MainWindow.UserLoggedInEvent method" Url="html/M-WeSketch.MainWindow.UserLoggedInEvent.htm" />
+  <HelpKINode Title="MainWindow._loginPage field" Url="html/F-WeSketch.MainWindow._loginPage.htm" />
+  <HelpKINode Title="MainWindow._registrationPage field" Url="html/F-WeSketch.MainWindow._registrationPage.htm" />
+  <HelpKINode Title="MainWindow._weSketchAppPage field" Url="html/F-WeSketch.MainWindow._weSketchAppPage.htm" />
+  <HelpKINode Title="MainWindow_Closing method" Url="html/M-WeSketch.MainWindow.MainWindow_Closing.htm" />
+  <HelpKINode Title="mappingSource field">
+    <HelpKINode Title="mappingSource Field" Url="html/F-WeSketch.Tests.WeSketchDataContext.mappingSource.htm" />
+    <HelpKINode Title="mappingSource Field" Url="html/F-WeSketchAPI.Tests.WeSketchDataContext.mappingSource.htm" />
+    <HelpKINode Title="mappingSource Field" Url="html/F-WeSketchAPI.WeSketchDataContext.mappingSource.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Owner property">
+    <HelpKINode Title="Owner Property " Url="html/P-WeSketchSharedDataModels.Board.Owner.htm" />
+    <HelpKINode Title="Owner Property " Url="html/P-WeSketchSharedDataModels.ConnectedUser.Owner.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Password property" Url="html/P-WeSketchAPI.User.Password.htm" />
+  <HelpKINode Title="Points property" Url="html/P-WeSketchSharedDataModels.BoardPointCollection.Points.htm" />
+  <HelpKINode Title="PressureFactor property" Url="html/P-WeSketchSharedDataModels.BoardPoint.PressureFactor.htm" />
+  <HelpKINode Title="PropertyChanged event">
+    <HelpKINode Title="PropertyChanged Event" Url="html/E-WeSketchAPI.UserBoard.PropertyChanged.htm" />
+    <HelpKINode Title="PropertyChanged Event" Url="html/E-WeSketchAPI.User.PropertyChanged.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PropertyChanging event">
+    <HelpKINode Title="PropertyChanging Event" Url="html/E-WeSketchAPI.UserBoard.PropertyChanging.htm" />
+    <HelpKINode Title="PropertyChanging Event" Url="html/E-WeSketchAPI.User.PropertyChanging.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RadioButton_Checked method" Url="html/M-WeSketch.WeSketchApp.RadioButton_Checked.htm" />
+  <HelpKINode Title="ReceiveConnectedUsers method" Url="html/M-WeSketch.WeSketchSignalrClient.ReceiveConnectedUsers.htm" />
+  <HelpKINode Title="ReceiveConnectedUsersRequest method" Url="html/M-WeSketch.WeSketchSignalrClient.ReceiveConnectedUsersRequest.htm" />
+  <HelpKINode Title="ReceiveInvitation method" Url="html/M-WeSketch.WeSketchSignalrClient.ReceiveInvitation.htm" />
+  <HelpKINode Title="ReceiveStrokeRequest method" Url="html/M-WeSketch.WeSketchSignalrClient.ReceiveStrokeRequest.htm" />
+  <HelpKINode Title="ReceiveStrokeToErase method" Url="html/M-WeSketch.WeSketchSignalrClient.ReceiveStrokeToErase.htm" />
+  <HelpKINode Title="regiserNew_Click method" Url="html/M-WeSketch.Registration.regiserNew_Click.htm" />
+  <HelpKINode Title="Register method" Url="html/M-WeSketchAPI.WebApiConfig.Register.htm" />
+  <HelpKINode Title="RegisterBundles method" Url="html/M-WeSketchAPI.BundleConfig.RegisterBundles.htm" />
+  <HelpKINode Title="RegisterGlobalFilters method" Url="html/M-WeSketchAPI.FilterConfig.RegisterGlobalFilters.htm" />
+  <HelpKINode Title="RegisterRoutes method" Url="html/M-WeSketchAPI.RouteConfig.RegisterRoutes.htm" />
+  <HelpKINode Title="Registration class">
+    <HelpKINode Title="Registration Class" Url="html/T-WeSketch.Registration.htm" />
+    <HelpKINode Title="Registration Members" Url="html/AllMembers.T-WeSketch.Registration.htm" />
+    <HelpKINode Title="about Registration class" Url="html/T-WeSketch.Registration.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketch.Registration.htm" />
+    <HelpKINode Title="constructor" Url="html/M-WeSketch.Registration.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-WeSketch.Registration.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-WeSketch.Registration.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketch.Registration.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketch.Registration.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Registration.Closing method" Url="html/M-WeSketch.Registration.Closing.htm" />
+  <HelpKINode Title="Registration.CreateUser method" Url="html/M-WeSketch.Registration.CreateUser.htm" />
+  <HelpKINode Title="Registration.regiserNew_Click method" Url="html/M-WeSketch.Registration.regiserNew_Click.htm" />
+  <HelpKINode Title="Registration.Registration constructor" Url="html/M-WeSketch.Registration.-ctor.htm" />
+  <HelpKINode Title="Registration.UserLoggedIn method" Url="html/M-WeSketch.Registration.UserLoggedIn.htm" />
+  <HelpKINode Title="Registration.UserLoggedInEvent event" Url="html/E-WeSketch.Registration.UserLoggedInEvent.htm" />
+  <HelpKINode Title="Registration.UserLoggedInEventHandler delegate" Url="html/T-WeSketch.Registration.UserLoggedInEventHandler.htm" />
+  <HelpKINode Title="Registration.ValidateInput method" Url="html/M-WeSketch.Registration.ValidateInput.htm" />
+  <HelpKINode Title="Registration._rest field" Url="html/F-WeSketch.Registration._rest.htm" />
+  <HelpKINode Title="RemoveFromGroups method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.RemoveFromGroups.htm" />
+  <HelpKINode Title="RequestClearBoardStrokes method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.RequestClearBoardStrokes.htm" />
+  <HelpKINode Title="RequestConnectedUsers method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.RequestConnectedUsers.htm" />
+  <HelpKINode Title="RequestStrokes method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.RequestStrokes.htm" />
+  <HelpKINode Title="Result class">
+    <HelpKINode Title="Result Class" Url="html/T-WeSketchSharedDataModels.Result.htm" />
+    <HelpKINode Title="Result Members" Url="html/AllMembers.T-WeSketchSharedDataModels.Result.htm" />
+    <HelpKINode Title="about Result class" Url="html/T-WeSketchSharedDataModels.Result.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchSharedDataModels.Result.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchSharedDataModels.Result.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketchSharedDataModels.Result.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Result.Error property" Url="html/P-WeSketchSharedDataModels.Result.Error.htm" />
+  <HelpKINode Title="Result.ErrorMessage property" Url="html/P-WeSketchSharedDataModels.Result.ErrorMessage.htm" />
+  <HelpKINode Title="Result.ResultJSON property" Url="html/P-WeSketchSharedDataModels.Result.ResultJSON.htm" />
+  <HelpKINode Title="ResultJSON property" Url="html/P-WeSketchSharedDataModels.Result.ResultJSON.htm" />
+  <HelpKINode Title="RouteConfig class">
+    <HelpKINode Title="RouteConfig Class" Url="html/T-WeSketchAPI.RouteConfig.htm" />
+    <HelpKINode Title="RouteConfig Members" Url="html/AllMembers.T-WeSketchAPI.RouteConfig.htm" />
+    <HelpKINode Title="about RouteConfig class" Url="html/T-WeSketchAPI.RouteConfig.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.RouteConfig.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.RouteConfig.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RouteConfig.RegisterRoutes method" Url="html/M-WeSketchAPI.RouteConfig.RegisterRoutes.htm" />
+  <HelpKINode Title="RunAfterAnyTests method">
+    <HelpKINode Title="RunAfterAnyTests Method " Url="html/M-WeSketch.Tests.StartupTests.RunAfterAnyTests.htm" />
+    <HelpKINode Title="RunAfterAnyTests Method " Url="html/M-WeSketchAPI.Tests.StartupTests.RunAfterAnyTests.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RunBeforeAnyTests method">
+    <HelpKINode Title="RunBeforeAnyTests Method " Url="html/M-WeSketch.Tests.StartupTests.RunBeforeAnyTests.htm" />
+    <HelpKINode Title="RunBeforeAnyTests Method " Url="html/M-WeSketchAPI.Tests.StartupTests.RunBeforeAnyTests.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SeaSalt property" Url="html/P-WeSketchAPI.User.SeaSalt.htm" />
+  <HelpKINode Title="SendConnectedUsersToUser method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.SendConnectedUsersToUser.htm" />
+  <HelpKINode Title="SendInvitation method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.SendInvitation.htm" />
+  <HelpKINode Title="SendStrokesToGroup method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.SendStrokesToGroup.htm" />
+  <HelpKINode Title="SendStrokesToUser method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.SendStrokesToUser.htm" />
+  <HelpKINode Title="SendStrokeToErase method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.SendStrokeToErase.htm" />
+  <HelpKINode Title="SetUpTests method" Url="html/M-WeSketchAPI.Tests.WeSketchSignalRHubTests.SetUpTests.htm" />
+  <HelpKINode Title="Startup class">
+    <HelpKINode Title="Startup Class" Url="html/T-WeSketchAPI.Startup.htm" />
+    <HelpKINode Title="Startup Members" Url="html/AllMembers.T-WeSketchAPI.Startup.htm" />
+    <HelpKINode Title="about Startup class" Url="html/T-WeSketchAPI.Startup.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.Startup.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.Startup.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Startup.Configuration method" Url="html/M-WeSketchAPI.Startup.Configuration.htm" />
+  <HelpKINode Title="StartupTests class">
+    <HelpKINode Title="StartupTests Class" Url="html/T-WeSketchAPI.Tests.StartupTests.htm" />
+    <HelpKINode Title="StartupTests Class" Url="html/T-WeSketch.Tests.StartupTests.htm" />
+    <HelpKINode Title="StartupTests Members" Url="html/AllMembers.T-WeSketchAPI.Tests.StartupTests.htm" />
+    <HelpKINode Title="StartupTests Members" Url="html/AllMembers.T-WeSketch.Tests.StartupTests.htm" />
+    <HelpKINode Title="about StartupTests class" Url="html/T-WeSketchAPI.Tests.StartupTests.htm" />
+    <HelpKINode Title="about StartupTests class" Url="html/T-WeSketch.Tests.StartupTests.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketch.Tests.StartupTests.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.Tests.StartupTests.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.Tests.StartupTests.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketch.Tests.StartupTests.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StartupTests.RunAfterAnyTests method">
+    <HelpKINode Title="RunAfterAnyTests Method " Url="html/M-WeSketchAPI.Tests.StartupTests.RunAfterAnyTests.htm" />
+    <HelpKINode Title="RunAfterAnyTests Method " Url="html/M-WeSketch.Tests.StartupTests.RunAfterAnyTests.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StartupTests.RunBeforeAnyTests method">
+    <HelpKINode Title="RunBeforeAnyTests Method " Url="html/M-WeSketchAPI.Tests.StartupTests.RunBeforeAnyTests.htm" />
+    <HelpKINode Title="RunBeforeAnyTests Method " Url="html/M-WeSketch.Tests.StartupTests.RunBeforeAnyTests.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StrokeClearEvent method" Url="html/M-WeSketch.WeSketchApp.StrokeClearEvent.htm" />
+  <HelpKINode Title="StrokeCollected method" Url="html/M-WeSketch.WeSketchApp.StrokeCollected.htm" />
+  <HelpKINode Title="StrokeErasedEvent method" Url="html/M-WeSketch.WeSketchApp.StrokeErasedEvent.htm" />
+  <HelpKINode Title="StrokeErasing method" Url="html/M-WeSketch.WeSketchApp.StrokeErasing.htm" />
+  <HelpKINode Title="StrokeRequestReceivedEvent method" Url="html/M-WeSketch.WeSketchApp.StrokeRequestReceivedEvent.htm" />
+  <HelpKINode Title="StrokesClearedReceived method" Url="html/M-WeSketch.WeSketchSignalrClient.StrokesClearedReceived.htm" />
+  <HelpKINode Title="StrokesReceivedEvent method" Url="html/M-WeSketch.WeSketchApp.StrokesReceivedEvent.htm" />
+  <HelpKINode Title="TestMethod1 method" Url="html/M-WeSketchAPI.Tests.WeSketchSignalRHubTests.TestMethod1.htm" />
+  <HelpKINode Title="User class">
+    <HelpKINode Title="User Class" Url="html/T-WeSketchAPI.User.htm" />
+    <HelpKINode Title="User Class" Url="html/T-WeSketchSharedDataModels.User.htm" />
+    <HelpKINode Title="User Members" Url="html/AllMembers.T-WeSketchSharedDataModels.User.htm" />
+    <HelpKINode Title="User Members" Url="html/AllMembers.T-WeSketchAPI.User.htm" />
+    <HelpKINode Title="about User class" Url="html/T-WeSketchSharedDataModels.User.htm" />
+    <HelpKINode Title="about User class" Url="html/T-WeSketchAPI.User.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchSharedDataModels.User.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.User.htm" />
+    <HelpKINode Title="constructor" Url="html/M-WeSketchAPI.User.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-WeSketchAPI.User.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-WeSketchAPI.User.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.User.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchSharedDataModels.User.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketchSharedDataModels.User.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketchAPI.User.htm" />
+  </HelpKINode>
+  <HelpKINode Title="User property">
+    <HelpKINode Title="User Property " Url="html/P-WeSketchAPI.UserBoard.User.htm" />
+    <HelpKINode Title="User Property " Url="html/P-WeSketch.WeSketchClientData.User.htm" />
+    <HelpKINode Title="User Property " Url="html/P-WeSketchSharedDataModels.BoardPointCollection.User.htm" />
+    <HelpKINode Title="User Property " Url="html/P-WeSketchSharedDataModels.BoardPoint.User.htm" />
+  </HelpKINode>
+  <HelpKINode Title="User.Board property" Url="html/P-WeSketchSharedDataModels.User.Board.htm" />
+  <HelpKINode Title="User.Disabled property" Url="html/P-WeSketchAPI.User.Disabled.htm" />
+  <HelpKINode Title="User.Email property" Url="html/P-WeSketchAPI.User.Email.htm" />
+  <HelpKINode Title="User.emptyChangingEventArgs field" Url="html/F-WeSketchAPI.User.emptyChangingEventArgs.htm" />
+  <HelpKINode Title="User.LastLogin property" Url="html/P-WeSketchAPI.User.LastLogin.htm" />
+  <HelpKINode Title="User.LastLoginAttempt property" Url="html/P-WeSketchAPI.User.LastLoginAttempt.htm" />
+  <HelpKINode Title="User.Password property" Url="html/P-WeSketchAPI.User.Password.htm" />
+  <HelpKINode Title="User.PropertyChanged event" Url="html/E-WeSketchAPI.User.PropertyChanged.htm" />
+  <HelpKINode Title="User.PropertyChanging event" Url="html/E-WeSketchAPI.User.PropertyChanging.htm" />
+  <HelpKINode Title="User.SeaSalt property" Url="html/P-WeSketchAPI.User.SeaSalt.htm" />
+  <HelpKINode Title="User.User constructor" Url="html/M-WeSketchAPI.User.-ctor.htm" />
+  <HelpKINode Title="User.UserBoard property" Url="html/P-WeSketchAPI.User.UserBoard.htm" />
+  <HelpKINode Title="User.UserID property">
+    <HelpKINode Title="UserID Property " Url="html/P-WeSketchAPI.User.UserID.htm" />
+    <HelpKINode Title="UserID Property " Url="html/P-WeSketchSharedDataModels.User.UserID.htm" />
+  </HelpKINode>
+  <HelpKINode Title="User.UserName property">
+    <HelpKINode Title="UserName Property " Url="html/P-WeSketchAPI.User.UserName.htm" />
+    <HelpKINode Title="UserName Property " Url="html/P-WeSketchSharedDataModels.User.UserName.htm" />
+  </HelpKINode>
+  <HelpKINode Title="User._Disabled field" Url="html/F-WeSketchAPI.User._Disabled.htm" />
+  <HelpKINode Title="User._Email field" Url="html/F-WeSketchAPI.User._Email.htm" />
+  <HelpKINode Title="User._LastLogin field" Url="html/F-WeSketchAPI.User._LastLogin.htm" />
+  <HelpKINode Title="User._LastLoginAttempt field" Url="html/F-WeSketchAPI.User._LastLoginAttempt.htm" />
+  <HelpKINode Title="User._Password field" Url="html/F-WeSketchAPI.User._Password.htm" />
+  <HelpKINode Title="User._SeaSalt field" Url="html/F-WeSketchAPI.User._SeaSalt.htm" />
+  <HelpKINode Title="User._UserBoard field" Url="html/F-WeSketchAPI.User._UserBoard.htm" />
+  <HelpKINode Title="User._UserID field" Url="html/F-WeSketchAPI.User._UserID.htm" />
+  <HelpKINode Title="User._UserName field" Url="html/F-WeSketchAPI.User._UserName.htm" />
+  <HelpKINode Title="UserAuthenticated method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.UserAuthenticated.htm" />
+  <HelpKINode Title="UserBoard class">
+    <HelpKINode Title="UserBoard Class" Url="html/T-WeSketchAPI.UserBoard.htm" />
+    <HelpKINode Title="UserBoard Members" Url="html/AllMembers.T-WeSketchAPI.UserBoard.htm" />
+    <HelpKINode Title="about UserBoard class" Url="html/T-WeSketchAPI.UserBoard.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.UserBoard.htm" />
+    <HelpKINode Title="constructor" Url="html/M-WeSketchAPI.UserBoard.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-WeSketchAPI.UserBoard.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-WeSketchAPI.UserBoard.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.UserBoard.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketchAPI.UserBoard.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UserBoard property" Url="html/P-WeSketchAPI.User.UserBoard.htm" />
+  <HelpKINode Title="UserBoard.BoardID property" Url="html/P-WeSketchAPI.UserBoard.BoardID.htm" />
+  <HelpKINode Title="UserBoard.BoardOwner property" Url="html/P-WeSketchAPI.UserBoard.BoardOwner.htm" />
+  <HelpKINode Title="UserBoard.CanSketch property" Url="html/P-WeSketchAPI.UserBoard.CanSketch.htm" />
+  <HelpKINode Title="UserBoard.emptyChangingEventArgs field" Url="html/F-WeSketchAPI.UserBoard.emptyChangingEventArgs.htm" />
+  <HelpKINode Title="UserBoard.PropertyChanged event" Url="html/E-WeSketchAPI.UserBoard.PropertyChanged.htm" />
+  <HelpKINode Title="UserBoard.PropertyChanging event" Url="html/E-WeSketchAPI.UserBoard.PropertyChanging.htm" />
+  <HelpKINode Title="UserBoard.User property" Url="html/P-WeSketchAPI.UserBoard.User.htm" />
+  <HelpKINode Title="UserBoard.UserBoard constructor" Url="html/M-WeSketchAPI.UserBoard.-ctor.htm" />
+  <HelpKINode Title="UserBoard.UserID property" Url="html/P-WeSketchAPI.UserBoard.UserID.htm" />
+  <HelpKINode Title="UserBoard._BoardID field" Url="html/F-WeSketchAPI.UserBoard._BoardID.htm" />
+  <HelpKINode Title="UserBoard._BoardOwner field" Url="html/F-WeSketchAPI.UserBoard._BoardOwner.htm" />
+  <HelpKINode Title="UserBoard._CanSketch field" Url="html/F-WeSketchAPI.UserBoard._CanSketch.htm" />
+  <HelpKINode Title="UserBoard._User field" Url="html/F-WeSketchAPI.UserBoard._User.htm" />
+  <HelpKINode Title="UserBoard._UserID field" Url="html/F-WeSketchAPI.UserBoard._UserID.htm" />
+  <HelpKINode Title="UserBoards property" Url="html/P-WeSketchAPI.WeSketchDataContext.UserBoards.htm" />
+  <HelpKINode Title="UserBoardSetToDefault method" Url="html/M-WeSketch.WeSketchSignalrClient.UserBoardSetToDefault.htm" />
+  <HelpKINode Title="UserColorChanged method" Url="html/M-WeSketch.WeSketchSignalrClient.UserColorChanged.htm" />
+  <HelpKINode Title="UserID property">
+    <HelpKINode Title="UserID Property " Url="html/P-WeSketchSharedDataModels.User.UserID.htm" />
+    <HelpKINode Title="UserID Property " Url="html/P-WeSketchAPI.User.UserID.htm" />
+    <HelpKINode Title="UserID Property " Url="html/P-WeSketchAPI.UserBoard.UserID.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UserInvitedEvent event" Url="html/E-WeSketch.InviteWindow.UserInvitedEvent.htm" />
+  <HelpKINode Title="UserJoinedBoard method" Url="html/M-WeSketch.WeSketchSignalrClient.UserJoinedBoard.htm" />
+  <HelpKINode Title="UserJoinedBoardEvent method" Url="html/M-WeSketch.WeSketchApp.UserJoinedBoardEvent.htm" />
+  <HelpKINode Title="UserLeftBoard method" Url="html/M-WeSketch.WeSketchSignalrClient.UserLeftBoard.htm" />
+  <HelpKINode Title="UserLeftBoardEvent method" Url="html/M-WeSketch.WeSketchApp.UserLeftBoardEvent.htm" />
+  <HelpKINode Title="UserLoggedIn method">
+    <HelpKINode Title="UserLoggedIn Method " Url="html/M-WeSketch.Registration.UserLoggedIn.htm" />
+    <HelpKINode Title="UserLoggedIn Method " Url="html/M-WeSketch.Login.UserLoggedIn.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UserLoggedInEvent event">
+    <HelpKINode Title="UserLoggedInEvent Event" Url="html/E-WeSketch.Login.UserLoggedInEvent.htm" />
+    <HelpKINode Title="UserLoggedInEvent Event" Url="html/E-WeSketch.Registration.UserLoggedInEvent.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UserLoggedInEvent method" Url="html/M-WeSketch.MainWindow.UserLoggedInEvent.htm" />
+  <HelpKINode Title="UserName property">
+    <HelpKINode Title="UserName Property " Url="html/P-WeSketchSharedDataModels.User.UserName.htm" />
+    <HelpKINode Title="UserName Property " Url="html/P-WeSketchAPI.User.UserName.htm" />
+    <HelpKINode Title="UserName Property " Url="html/P-WeSketchSharedDataModels.ConnectedUser.UserName.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Users property" Url="html/P-WeSketchAPI.WeSketchDataContext.Users.htm" />
+  <HelpKINode Title="ValidateInput method" Url="html/M-WeSketch.Registration.ValidateInput.htm" />
+  <HelpKINode Title="ValidLogin_Login_ReturnsUser method" Url="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.ValidLogin_Login_ReturnsUser.htm" />
+  <HelpKINode Title="WebApiApplication class">
+    <HelpKINode Title="WebApiApplication Class" Url="html/T-WeSketchAPI.WebApiApplication.htm" />
+    <HelpKINode Title="WebApiApplication Members" Url="html/AllMembers.T-WeSketchAPI.WebApiApplication.htm" />
+    <HelpKINode Title="about WebApiApplication class" Url="html/T-WeSketchAPI.WebApiApplication.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.WebApiApplication.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-WeSketchAPI.WebApiApplication.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.WebApiApplication.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketchAPI.WebApiApplication.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WebApiConfig class">
+    <HelpKINode Title="WebApiConfig Class" Url="html/T-WeSketchAPI.WebApiConfig.htm" />
+    <HelpKINode Title="WebApiConfig Members" Url="html/AllMembers.T-WeSketchAPI.WebApiConfig.htm" />
+    <HelpKINode Title="about WebApiConfig class" Url="html/T-WeSketchAPI.WebApiConfig.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.WebApiConfig.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.WebApiConfig.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WebApiConfig.Register method" Url="html/M-WeSketchAPI.WebApiConfig.Register.htm" />
+  <HelpKINode Title="WeSketch namespace" Url="html/N-WeSketch.htm" />
+  <HelpKINode Title="WeSketch.App class">
+    <HelpKINode Title="App Class" Url="html/T-WeSketch.App.htm" />
+    <HelpKINode Title="App Members" Url="html/AllMembers.T-WeSketch.App.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketch.InviteWindow class">
+    <HelpKINode Title="InviteWindow Class" Url="html/T-WeSketch.InviteWindow.htm" />
+    <HelpKINode Title="InviteWindow Members" Url="html/AllMembers.T-WeSketch.InviteWindow.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketch.InviteWindow.UserInvitedEventHandler delegate" Url="html/T-WeSketch.InviteWindow.UserInvitedEventHandler.htm" />
+  <HelpKINode Title="WeSketch.Login class">
+    <HelpKINode Title="Login Class" Url="html/T-WeSketch.Login.htm" />
+    <HelpKINode Title="Login Members" Url="html/AllMembers.T-WeSketch.Login.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketch.Login.UserLoggedInEventHandler delegate" Url="html/T-WeSketch.Login.UserLoggedInEventHandler.htm" />
+  <HelpKINode Title="WeSketch.MainWindow class">
+    <HelpKINode Title="MainWindow Class" Url="html/T-WeSketch.MainWindow.htm" />
+    <HelpKINode Title="MainWindow Members" Url="html/AllMembers.T-WeSketch.MainWindow.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketch.Registration class">
+    <HelpKINode Title="Registration Class" Url="html/T-WeSketch.Registration.htm" />
+    <HelpKINode Title="Registration Members" Url="html/AllMembers.T-WeSketch.Registration.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketch.Registration.UserLoggedInEventHandler delegate" Url="html/T-WeSketch.Registration.UserLoggedInEventHandler.htm" />
+  <HelpKINode Title="WeSketch.Tests namespace" Url="html/N-WeSketch.Tests.htm" />
+  <HelpKINode Title="WeSketch.Tests.StartupTests class">
+    <HelpKINode Title="StartupTests Class" Url="html/T-WeSketch.Tests.StartupTests.htm" />
+    <HelpKINode Title="StartupTests Members" Url="html/AllMembers.T-WeSketch.Tests.StartupTests.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketch.Tests.WeSketchDataContext class">
+    <HelpKINode Title="WeSketchDataContext Class" Url="html/T-WeSketch.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="WeSketchDataContext Members" Url="html/AllMembers.T-WeSketch.Tests.WeSketchDataContext.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketch.Tests.WeSketchRestRequestsTests class">
+    <HelpKINode Title="WeSketchRestRequestsTests Class" Url="html/T-WeSketch.Tests.WeSketchRestRequestsTests.htm" />
+    <HelpKINode Title="WeSketchRestRequestsTests Members" Url="html/AllMembers.T-WeSketch.Tests.WeSketchRestRequestsTests.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketch.WeSketchApp class">
+    <HelpKINode Title="WeSketchApp Class" Url="html/T-WeSketch.WeSketchApp.htm" />
+    <HelpKINode Title="WeSketchApp Members" Url="html/AllMembers.T-WeSketch.WeSketchApp.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketch.WeSketchClientData class">
+    <HelpKINode Title="WeSketchClientData Class" Url="html/T-WeSketch.WeSketchClientData.htm" />
+    <HelpKINode Title="WeSketchClientData Members" Url="html/AllMembers.T-WeSketch.WeSketchClientData.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketch.WeSketchRestRequests class">
+    <HelpKINode Title="WeSketchRestRequests Class" Url="html/T-WeSketch.WeSketchRestRequests.htm" />
+    <HelpKINode Title="WeSketchRestRequests Members" Url="html/AllMembers.T-WeSketch.WeSketchRestRequests.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI namespace" Url="html/N-WeSketchAPI.htm" />
+  <HelpKINode Title="WeSketchAPI.BundleConfig class">
+    <HelpKINode Title="BundleConfig Class" Url="html/T-WeSketchAPI.BundleConfig.htm" />
+    <HelpKINode Title="BundleConfig Members" Url="html/AllMembers.T-WeSketchAPI.BundleConfig.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.Controllers namespace" Url="html/N-WeSketchAPI.Controllers.htm" />
+  <HelpKINode Title="WeSketchAPI.Controllers.HomeController class">
+    <HelpKINode Title="HomeController Class" Url="html/T-WeSketchAPI.Controllers.HomeController.htm" />
+    <HelpKINode Title="HomeController Members" Url="html/AllMembers.T-WeSketchAPI.Controllers.HomeController.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.FilterConfig class">
+    <HelpKINode Title="FilterConfig Class" Url="html/T-WeSketchAPI.FilterConfig.htm" />
+    <HelpKINode Title="FilterConfig Members" Url="html/AllMembers.T-WeSketchAPI.FilterConfig.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.RouteConfig class">
+    <HelpKINode Title="RouteConfig Class" Url="html/T-WeSketchAPI.RouteConfig.htm" />
+    <HelpKINode Title="RouteConfig Members" Url="html/AllMembers.T-WeSketchAPI.RouteConfig.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.Startup class">
+    <HelpKINode Title="Startup Class" Url="html/T-WeSketchAPI.Startup.htm" />
+    <HelpKINode Title="Startup Members" Url="html/AllMembers.T-WeSketchAPI.Startup.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.Tests namespace" Url="html/N-WeSketchAPI.Tests.htm" />
+  <HelpKINode Title="WeSketchAPI.Tests.Controllers namespace" Url="html/N-WeSketchAPI.Tests.Controllers.htm" />
+  <HelpKINode Title="WeSketchAPI.Tests.Controllers.HomeControllerTest class">
+    <HelpKINode Title="HomeControllerTest Class" Url="html/T-WeSketchAPI.Tests.Controllers.HomeControllerTest.htm" />
+    <HelpKINode Title="HomeControllerTest Members" Url="html/AllMembers.T-WeSketchAPI.Tests.Controllers.HomeControllerTest.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.Tests.StartupTests class">
+    <HelpKINode Title="StartupTests Class" Url="html/T-WeSketchAPI.Tests.StartupTests.htm" />
+    <HelpKINode Title="StartupTests Members" Url="html/AllMembers.T-WeSketchAPI.Tests.StartupTests.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.Tests.WeSketchDataContext class">
+    <HelpKINode Title="WeSketchDataContext Class" Url="html/T-WeSketchAPI.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="WeSketchDataContext Members" Url="html/AllMembers.T-WeSketchAPI.Tests.WeSketchDataContext.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.Tests.WeSketchSecurityTests class">
+    <HelpKINode Title="WeSketchSecurityTests Class" Url="html/T-WeSketchAPI.Tests.WeSketchSecurityTests.htm" />
+    <HelpKINode Title="WeSketchSecurityTests Members" Url="html/AllMembers.T-WeSketchAPI.Tests.WeSketchSecurityTests.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.Tests.WeSketchSignalRHubTests class">
+    <HelpKINode Title="WeSketchSignalRHubTests Class" Url="html/T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm" />
+    <HelpKINode Title="WeSketchSignalRHubTests Members" Url="html/AllMembers.T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.User class">
+    <HelpKINode Title="User Class" Url="html/T-WeSketchAPI.User.htm" />
+    <HelpKINode Title="User Members" Url="html/AllMembers.T-WeSketchAPI.User.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.UserBoard class">
+    <HelpKINode Title="UserBoard Class" Url="html/T-WeSketchAPI.UserBoard.htm" />
+    <HelpKINode Title="UserBoard Members" Url="html/AllMembers.T-WeSketchAPI.UserBoard.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.WebApiApplication class">
+    <HelpKINode Title="WebApiApplication Class" Url="html/T-WeSketchAPI.WebApiApplication.htm" />
+    <HelpKINode Title="WebApiApplication Members" Url="html/AllMembers.T-WeSketchAPI.WebApiApplication.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.WebApiConfig class">
+    <HelpKINode Title="WebApiConfig Class" Url="html/T-WeSketchAPI.WebApiConfig.htm" />
+    <HelpKINode Title="WebApiConfig Members" Url="html/AllMembers.T-WeSketchAPI.WebApiConfig.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.WeSketchDataContext class">
+    <HelpKINode Title="WeSketchDataContext Class" Url="html/T-WeSketchAPI.WeSketchDataContext.htm" />
+    <HelpKINode Title="WeSketchDataContext Members" Url="html/AllMembers.T-WeSketchAPI.WeSketchDataContext.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.WeSketchSecurity class">
+    <HelpKINode Title="WeSketchSecurity Class" Url="html/T-WeSketchAPI.WeSketchSecurity.htm" />
+    <HelpKINode Title="WeSketchSecurity Members" Url="html/AllMembers.T-WeSketchAPI.WeSketchSecurity.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchAPI.WeSketchSignalRHub class">
+    <HelpKINode Title="WeSketchSignalRHub Class" Url="html/T-WeSketchAPI.WeSketchSignalRHub.htm" />
+    <HelpKINode Title="WeSketchSignalRHub Members" Url="html/AllMembers.T-WeSketchAPI.WeSketchSignalRHub.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchApp class">
+    <HelpKINode Title="WeSketchApp Class" Url="html/T-WeSketch.WeSketchApp.htm" />
+    <HelpKINode Title="WeSketchApp Members" Url="html/AllMembers.T-WeSketch.WeSketchApp.htm" />
+    <HelpKINode Title="about WeSketchApp class" Url="html/T-WeSketch.WeSketchApp.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketch.WeSketchApp.htm" />
+    <HelpKINode Title="constructor" Url="html/M-WeSketch.WeSketchApp.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-WeSketch.WeSketchApp.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-WeSketch.WeSketchApp.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketch.WeSketchApp.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketch.WeSketchApp.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchApp.BoardChangedEvent method" Url="html/M-WeSketch.WeSketchApp.BoardChangedEvent.htm" />
+  <HelpKINode Title="WeSketchApp.BoardInvitationReceivedEvent method" Url="html/M-WeSketch.WeSketchApp.BoardInvitationReceivedEvent.htm" />
+  <HelpKINode Title="WeSketchApp.BoardOwnerChangedEvent method" Url="html/M-WeSketch.WeSketchApp.BoardOwnerChangedEvent.htm" />
+  <HelpKINode Title="WeSketchApp.ButtonKickUser_Click method" Url="html/M-WeSketch.WeSketchApp.ButtonKickUser_Click.htm" />
+  <HelpKINode Title="WeSketchApp.ClearButton_Click method" Url="html/M-WeSketch.WeSketchApp.ClearButton_Click.htm" />
+  <HelpKINode Title="WeSketchApp.Closing method" Url="html/M-WeSketch.WeSketchApp.Closing.htm" />
+  <HelpKINode Title="WeSketchApp.comboColor_SelectionChanged method" Url="html/M-WeSketch.WeSketchApp.comboColor_SelectionChanged.htm" />
+  <HelpKINode Title="WeSketchApp.comboSize_SelectionChanged method" Url="html/M-WeSketch.WeSketchApp.comboSize_SelectionChanged.htm" />
+  <HelpKINode Title="WeSketchApp.ConnectedUsersReceivedEvent method" Url="html/M-WeSketch.WeSketchApp.ConnectedUsersReceivedEvent.htm" />
+  <HelpKINode Title="WeSketchApp.ConnectedUsersRequestReceivedEvent method" Url="html/M-WeSketch.WeSketchApp.ConnectedUsersRequestReceivedEvent.htm" />
+  <HelpKINode Title="WeSketchApp.InviteButton_Click method" Url="html/M-WeSketch.WeSketchApp.InviteButton_Click.htm" />
+  <HelpKINode Title="WeSketchApp.InviteWindow_UserInvitedEvent method" Url="html/M-WeSketch.WeSketchApp.InviteWindow_UserInvitedEvent.htm" />
+  <HelpKINode Title="WeSketchApp.KickedFromBoardEvent method" Url="html/M-WeSketch.WeSketchApp.KickedFromBoardEvent.htm" />
+  <HelpKINode Title="WeSketchApp.LeaveButton_Click method" Url="html/M-WeSketch.WeSketchApp.LeaveButton_Click.htm" />
+  <HelpKINode Title="WeSketchApp.LoadConnectedUsers method" Url="html/M-WeSketch.WeSketchApp.LoadConnectedUsers.htm" />
+  <HelpKINode Title="WeSketchApp.MainInkCanvas_MouseMove method" Url="html/M-WeSketch.WeSketchApp.MainInkCanvas_MouseMove.htm" />
+  <HelpKINode Title="WeSketchApp.RadioButton_Checked method" Url="html/M-WeSketch.WeSketchApp.RadioButton_Checked.htm" />
+  <HelpKINode Title="WeSketchApp.StrokeClearEvent method" Url="html/M-WeSketch.WeSketchApp.StrokeClearEvent.htm" />
+  <HelpKINode Title="WeSketchApp.StrokeCollected method" Url="html/M-WeSketch.WeSketchApp.StrokeCollected.htm" />
+  <HelpKINode Title="WeSketchApp.StrokeErasedEvent method" Url="html/M-WeSketch.WeSketchApp.StrokeErasedEvent.htm" />
+  <HelpKINode Title="WeSketchApp.StrokeErasing method" Url="html/M-WeSketch.WeSketchApp.StrokeErasing.htm" />
+  <HelpKINode Title="WeSketchApp.StrokeRequestReceivedEvent method" Url="html/M-WeSketch.WeSketchApp.StrokeRequestReceivedEvent.htm" />
+  <HelpKINode Title="WeSketchApp.StrokesReceivedEvent method" Url="html/M-WeSketch.WeSketchApp.StrokesReceivedEvent.htm" />
+  <HelpKINode Title="WeSketchApp.UserJoinedBoardEvent method" Url="html/M-WeSketch.WeSketchApp.UserJoinedBoardEvent.htm" />
+  <HelpKINode Title="WeSketchApp.UserLeftBoardEvent method" Url="html/M-WeSketch.WeSketchApp.UserLeftBoardEvent.htm" />
+  <HelpKINode Title="WeSketchApp.WeSketchApp constructor" Url="html/M-WeSketch.WeSketchApp.-ctor.htm" />
+  <HelpKINode Title="WeSketchApp._client field" Url="html/F-WeSketch.WeSketchApp._client.htm" />
+  <HelpKINode Title="WeSketchApp._inviteWindow field" Url="html/F-WeSketch.WeSketchApp._inviteWindow.htm" />
+  <HelpKINode Title="WeSketchApp._rest field" Url="html/F-WeSketch.WeSketchApp._rest.htm" />
+  <HelpKINode Title="WeSketchClientData class">
+    <HelpKINode Title="WeSketchClientData Class" Url="html/T-WeSketch.WeSketchClientData.htm" />
+    <HelpKINode Title="WeSketchClientData Members" Url="html/AllMembers.T-WeSketch.WeSketchClientData.htm" />
+    <HelpKINode Title="about WeSketchClientData class" Url="html/T-WeSketch.WeSketchClientData.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketch.WeSketchClientData.htm" />
+    <HelpKINode Title="constructor" Url="html/M-WeSketch.WeSketchClientData.-ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-WeSketch.WeSketchClientData.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketch.WeSketchClientData.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketch.WeSketchClientData.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchClientData.Color property" Url="html/P-WeSketch.WeSketchClientData.Color.htm" />
+  <HelpKINode Title="WeSketchClientData.Instance property" Url="html/P-WeSketch.WeSketchClientData.Instance.htm" />
+  <HelpKINode Title="WeSketchClientData.User property" Url="html/P-WeSketch.WeSketchClientData.User.htm" />
+  <HelpKINode Title="WeSketchClientData.WeSketchClientData constructor" Url="html/M-WeSketch.WeSketchClientData.-ctor.htm" />
+  <HelpKINode Title="WeSketchClientData._instance field" Url="html/F-WeSketch.WeSketchClientData._instance.htm" />
+  <HelpKINode Title="WeSketchDataContext class">
+    <HelpKINode Title="WeSketchDataContext Class" Url="html/T-WeSketchAPI.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="WeSketchDataContext Class" Url="html/T-WeSketch.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="WeSketchDataContext Class" Url="html/T-WeSketchAPI.WeSketchDataContext.htm" />
+    <HelpKINode Title="WeSketchDataContext Members" Url="html/AllMembers.T-WeSketchAPI.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="WeSketchDataContext Members" Url="html/AllMembers.T-WeSketchAPI.WeSketchDataContext.htm" />
+    <HelpKINode Title="WeSketchDataContext Members" Url="html/AllMembers.T-WeSketch.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="about WeSketchDataContext class" Url="html/T-WeSketchAPI.WeSketchDataContext.htm" />
+    <HelpKINode Title="about WeSketchDataContext class" Url="html/T-WeSketchAPI.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="about WeSketchDataContext class" Url="html/T-WeSketch.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.WeSketchDataContext.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketch.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload-WeSketch.Tests.WeSketchDataContext.-ctor.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload-WeSketchAPI.Tests.WeSketchDataContext.-ctor.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload-WeSketchAPI.WeSketchDataContext.-ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-WeSketchAPI.WeSketchDataContext.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-WeSketchAPI.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-WeSketch.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketch.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.WeSketchDataContext.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketch.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketchAPI.Tests.WeSketchDataContext.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketchAPI.WeSketchDataContext.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchDataContext.CleanTestingObjects method">
+    <HelpKINode Title="CleanTestingObjects Method " Url="html/M-WeSketch.Tests.WeSketchDataContext.CleanTestingObjects.htm" />
+    <HelpKINode Title="CleanTestingObjects Method " Url="html/M-WeSketchAPI.Tests.WeSketchDataContext.CleanTestingObjects.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchDataContext.mappingSource field">
+    <HelpKINode Title="mappingSource Field" Url="html/F-WeSketch.Tests.WeSketchDataContext.mappingSource.htm" />
+    <HelpKINode Title="mappingSource Field" Url="html/F-WeSketchAPI.Tests.WeSketchDataContext.mappingSource.htm" />
+    <HelpKINode Title="mappingSource Field" Url="html/F-WeSketchAPI.WeSketchDataContext.mappingSource.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchDataContext.UserBoards property" Url="html/P-WeSketchAPI.WeSketchDataContext.UserBoards.htm" />
+  <HelpKINode Title="WeSketchDataContext.Users property" Url="html/P-WeSketchAPI.WeSketchDataContext.Users.htm" />
+  <HelpKINode Title="WeSketchDataContext.WeSketchDataContext constructor">
+    <HelpKINode Title="WeSketchDataContext Constructor " Url="html/Overload-WeSketchAPI.Tests.WeSketchDataContext.-ctor.htm" />
+    <HelpKINode Title="WeSketchDataContext Constructor " Url="html/Overload-WeSketch.Tests.WeSketchDataContext.-ctor.htm" />
+    <HelpKINode Title="WeSketchDataContext Constructor " Url="html/Overload-WeSketchAPI.WeSketchDataContext.-ctor.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchRestRequests class">
+    <HelpKINode Title="WeSketchRestRequests Class" Url="html/T-WeSketch.WeSketchRestRequests.htm" />
+    <HelpKINode Title="WeSketchRestRequests Members" Url="html/AllMembers.T-WeSketch.WeSketchRestRequests.htm" />
+    <HelpKINode Title="about WeSketchRestRequests class" Url="html/T-WeSketch.WeSketchRestRequests.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketch.WeSketchRestRequests.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-WeSketch.WeSketchRestRequests.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketch.WeSketchRestRequests.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchRestRequests.CreateUser method" Url="html/M-WeSketch.WeSketchRestRequests.CreateUser.htm" />
+  <HelpKINode Title="WeSketchRestRequests.Dispose method" Url="html/M-WeSketch.WeSketchRestRequests.Dispose.htm" />
+  <HelpKINode Title="WeSketchRestRequests.InviteUserToBoard method" Url="html/M-WeSketch.WeSketchRestRequests.InviteUserToBoard.htm" />
+  <HelpKINode Title="WeSketchRestRequests.JoinBoard method" Url="html/M-WeSketch.WeSketchRestRequests.JoinBoard.htm" />
+  <HelpKINode Title="WeSketchRestRequests.Login method" Url="html/M-WeSketch.WeSketchRestRequests.Login.htm" />
+  <HelpKINode Title="WeSketchRestRequests._httpClient field" Url="html/F-WeSketch.WeSketchRestRequests._httpClient.htm" />
+  <HelpKINode Title="WeSketchRestRequests._url field" Url="html/F-WeSketch.WeSketchRestRequests._url.htm" />
+  <HelpKINode Title="WeSketchRestRequestsTests class">
+    <HelpKINode Title="WeSketchRestRequestsTests Class" Url="html/T-WeSketch.Tests.WeSketchRestRequestsTests.htm" />
+    <HelpKINode Title="WeSketchRestRequestsTests Members" Url="html/AllMembers.T-WeSketch.Tests.WeSketchRestRequestsTests.htm" />
+    <HelpKINode Title="about WeSketchRestRequestsTests class" Url="html/T-WeSketch.Tests.WeSketchRestRequestsTests.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketch.Tests.WeSketchRestRequestsTests.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketch.Tests.WeSketchRestRequestsTests.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchRestRequestsTests.CreateUserIncomplete_RestCreateUser_ReturnsError method" Url="html/M-WeSketch.Tests.WeSketchRestRequestsTests.CreateUserIncomplete_RestCreateUser_ReturnsError.htm" />
+  <HelpKINode Title="WeSketchRestRequestsTests.CreateUser_RestCreateUser_ReturnsUser method" Url="html/M-WeSketch.Tests.WeSketchRestRequestsTests.CreateUser_RestCreateUser_ReturnsUser.htm" />
+  <HelpKINode Title="WeSketchRestRequestsTests.InviteUserIncompleteData_RestInviteUserToBoard_ReturnsError method" Url="html/M-WeSketch.Tests.WeSketchRestRequestsTests.InviteUserIncompleteData_RestInviteUserToBoard_ReturnsError.htm" />
+  <HelpKINode Title="WeSketchRestRequestsTests.IsInvalidLogin_RestLogin_ReturnsError method" Url="html/M-WeSketch.Tests.WeSketchRestRequestsTests.IsInvalidLogin_RestLogin_ReturnsError.htm" />
+  <HelpKINode Title="WeSketchRestRequestsTests.IsValidLogin_RestLogin_ReturnsUser method" Url="html/M-WeSketch.Tests.WeSketchRestRequestsTests.IsValidLogin_RestLogin_ReturnsUser.htm" />
+  <HelpKINode Title="WeSketchSecurity class">
+    <HelpKINode Title="WeSketchSecurity Class" Url="html/T-WeSketchAPI.WeSketchSecurity.htm" />
+    <HelpKINode Title="WeSketchSecurity Members" Url="html/AllMembers.T-WeSketchAPI.WeSketchSecurity.htm" />
+    <HelpKINode Title="about WeSketchSecurity class" Url="html/T-WeSketchAPI.WeSketchSecurity.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.WeSketchSecurity.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.WeSketchSecurity.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchSecurity.CreateUser method" Url="html/M-WeSketchAPI.WeSketchSecurity.CreateUser.htm" />
+  <HelpKINode Title="WeSketchSecurity.GetComputedHash method" Url="html/M-WeSketchAPI.WeSketchSecurity.GetComputedHash.htm" />
+  <HelpKINode Title="WeSketchSecurity.GetSalt method" Url="html/M-WeSketchAPI.WeSketchSecurity.GetSalt.htm" />
+  <HelpKINode Title="WeSketchSecurity.GetSeasonedPasswordBytes method" Url="html/M-WeSketchAPI.WeSketchSecurity.GetSeasonedPasswordBytes.htm" />
+  <HelpKINode Title="WeSketchSecurity.Login method" Url="html/M-WeSketchAPI.WeSketchSecurity.Login.htm" />
+  <HelpKINode Title="WeSketchSecurityTests class">
+    <HelpKINode Title="WeSketchSecurityTests Class" Url="html/T-WeSketchAPI.Tests.WeSketchSecurityTests.htm" />
+    <HelpKINode Title="WeSketchSecurityTests Members" Url="html/AllMembers.T-WeSketchAPI.Tests.WeSketchSecurityTests.htm" />
+    <HelpKINode Title="about WeSketchSecurityTests class" Url="html/T-WeSketchAPI.Tests.WeSketchSecurityTests.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.Tests.WeSketchSecurityTests.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.Tests.WeSketchSecurityTests.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchSecurityTests.CreateExistingUser_CreateUser_ReturnsAlreadyExistsError method" Url="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.CreateExistingUser_CreateUser_ReturnsAlreadyExistsError.htm" />
+  <HelpKINode Title="WeSketchSecurityTests.CreateUserIncomplete_Login_ReturnsOutOfRange method" Url="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.CreateUserIncomplete_Login_ReturnsOutOfRange.htm" />
+  <HelpKINode Title="WeSketchSecurityTests.CreateValidUser_CreateUser_ReturnsUser method" Url="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.CreateValidUser_CreateUser_ReturnsUser.htm" />
+  <HelpKINode Title="WeSketchSecurityTests.IsInvalidLogin_Login_ReturnsError method" Url="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.IsInvalidLogin_Login_ReturnsError.htm" />
+  <HelpKINode Title="WeSketchSecurityTests.ValidLogin_Login_ReturnsUser method" Url="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.ValidLogin_Login_ReturnsUser.htm" />
+  <HelpKINode Title="WeSketchSharedDataModels namespace" Url="html/N-WeSketchSharedDataModels.htm" />
+  <HelpKINode Title="WeSketchSharedDataModels.Board class">
+    <HelpKINode Title="Board Class" Url="html/T-WeSketchSharedDataModels.Board.htm" />
+    <HelpKINode Title="Board Members" Url="html/AllMembers.T-WeSketchSharedDataModels.Board.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchSharedDataModels.BoardPoint class">
+    <HelpKINode Title="BoardPoint Class" Url="html/T-WeSketchSharedDataModels.BoardPoint.htm" />
+    <HelpKINode Title="BoardPoint Members" Url="html/AllMembers.T-WeSketchSharedDataModels.BoardPoint.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchSharedDataModels.BoardPointCollection class">
+    <HelpKINode Title="BoardPointCollection Class" Url="html/T-WeSketchSharedDataModels.BoardPointCollection.htm" />
+    <HelpKINode Title="BoardPointCollection Members" Url="html/AllMembers.T-WeSketchSharedDataModels.BoardPointCollection.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchSharedDataModels.ConnectedUser class">
+    <HelpKINode Title="ConnectedUser Class" Url="html/T-WeSketchSharedDataModels.ConnectedUser.htm" />
+    <HelpKINode Title="ConnectedUser Members" Url="html/AllMembers.T-WeSketchSharedDataModels.ConnectedUser.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchSharedDataModels.Result class">
+    <HelpKINode Title="Result Class" Url="html/T-WeSketchSharedDataModels.Result.htm" />
+    <HelpKINode Title="Result Members" Url="html/AllMembers.T-WeSketchSharedDataModels.Result.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchSharedDataModels.User class">
+    <HelpKINode Title="User Class" Url="html/T-WeSketchSharedDataModels.User.htm" />
+    <HelpKINode Title="User Members" Url="html/AllMembers.T-WeSketchSharedDataModels.User.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchSignalRHub class">
+    <HelpKINode Title="WeSketchSignalRHub Class" Url="html/T-WeSketchAPI.WeSketchSignalRHub.htm" />
+    <HelpKINode Title="WeSketchSignalRHub Members" Url="html/AllMembers.T-WeSketchAPI.WeSketchSignalRHub.htm" />
+    <HelpKINode Title="about WeSketchSignalRHub class" Url="html/T-WeSketchAPI.WeSketchSignalRHub.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.WeSketchSignalRHub.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.WeSketchSignalRHub.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-WeSketchAPI.WeSketchSignalRHub.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchSignalRHub.ChangeUserColor method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.ChangeUserColor.htm" />
+  <HelpKINode Title="WeSketchSignalRHub.JoinBoardGroup method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.JoinBoardGroup.htm" />
+  <HelpKINode Title="WeSketchSignalRHub.KickUserFromBoard method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.KickUserFromBoard.htm" />
+  <HelpKINode Title="WeSketchSignalRHub.LeaveBoardGroup method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.LeaveBoardGroup.htm" />
+  <HelpKINode Title="WeSketchSignalRHub.RemoveFromGroups method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.RemoveFromGroups.htm" />
+  <HelpKINode Title="WeSketchSignalRHub.RequestClearBoardStrokes method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.RequestClearBoardStrokes.htm" />
+  <HelpKINode Title="WeSketchSignalRHub.RequestConnectedUsers method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.RequestConnectedUsers.htm" />
+  <HelpKINode Title="WeSketchSignalRHub.RequestStrokes method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.RequestStrokes.htm" />
+  <HelpKINode Title="WeSketchSignalRHub.SendConnectedUsersToUser method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.SendConnectedUsersToUser.htm" />
+  <HelpKINode Title="WeSketchSignalRHub.SendInvitation method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.SendInvitation.htm" />
+  <HelpKINode Title="WeSketchSignalRHub.SendStrokesToGroup method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.SendStrokesToGroup.htm" />
+  <HelpKINode Title="WeSketchSignalRHub.SendStrokesToUser method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.SendStrokesToUser.htm" />
+  <HelpKINode Title="WeSketchSignalRHub.SendStrokeToErase method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.SendStrokeToErase.htm" />
+  <HelpKINode Title="WeSketchSignalRHub.UserAuthenticated method" Url="html/M-WeSketchAPI.WeSketchSignalRHub.UserAuthenticated.htm" />
+  <HelpKINode Title="WeSketchSignalRHubTests class">
+    <HelpKINode Title="WeSketchSignalRHubTests Class" Url="html/T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm" />
+    <HelpKINode Title="WeSketchSignalRHubTests Members" Url="html/AllMembers.T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm" />
+    <HelpKINode Title="about WeSketchSignalRHubTests class" Url="html/T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WeSketchSignalRHubTests.HubsAreMockableViaDynamic method" Url="html/M-WeSketchAPI.Tests.WeSketchSignalRHubTests.HubsAreMockableViaDynamic.htm" />
+  <HelpKINode Title="WeSketchSignalRHubTests.SetUpTests method" Url="html/M-WeSketchAPI.Tests.WeSketchSignalRHubTests.SetUpTests.htm" />
+  <HelpKINode Title="WeSketchSignalRHubTests.TestMethod1 method" Url="html/M-WeSketchAPI.Tests.WeSketchSignalRHubTests.TestMethod1.htm" />
+  <HelpKINode Title="WeSketchSignalRHubTests._hub field" Url="html/F-WeSketchAPI.Tests.WeSketchSignalRHubTests._hub.htm" />
+  <HelpKINode Title="X property" Url="html/P-WeSketchSharedDataModels.BoardPoint.X.htm" />
+  <HelpKINode Title="Y property" Url="html/P-WeSketchSharedDataModels.BoardPoint.Y.htm" />
+  <HelpKINode Title="_BoardID field" Url="html/F-WeSketchAPI.UserBoard._BoardID.htm" />
+  <HelpKINode Title="_BoardOwner field" Url="html/F-WeSketchAPI.UserBoard._BoardOwner.htm" />
+  <HelpKINode Title="_CanSketch field" Url="html/F-WeSketchAPI.UserBoard._CanSketch.htm" />
+  <HelpKINode Title="_client field" Url="html/F-WeSketch.WeSketchApp._client.htm" />
+  <HelpKINode Title="_Disabled field" Url="html/F-WeSketchAPI.User._Disabled.htm" />
+  <HelpKINode Title="_Email field" Url="html/F-WeSketchAPI.User._Email.htm" />
+  <HelpKINode Title="_httpClient field" Url="html/F-WeSketch.WeSketchRestRequests._httpClient.htm" />
+  <HelpKINode Title="_hub field" Url="html/F-WeSketchAPI.Tests.WeSketchSignalRHubTests._hub.htm" />
+  <HelpKINode Title="_instance field" Url="html/F-WeSketch.WeSketchClientData._instance.htm" />
+  <HelpKINode Title="_inviteWindow field" Url="html/F-WeSketch.WeSketchApp._inviteWindow.htm" />
+  <HelpKINode Title="_LastLogin field" Url="html/F-WeSketchAPI.User._LastLogin.htm" />
+  <HelpKINode Title="_LastLoginAttempt field" Url="html/F-WeSketchAPI.User._LastLoginAttempt.htm" />
+  <HelpKINode Title="_loginPage field" Url="html/F-WeSketch.MainWindow._loginPage.htm" />
+  <HelpKINode Title="_Password field" Url="html/F-WeSketchAPI.User._Password.htm" />
+  <HelpKINode Title="_registrationPage field" Url="html/F-WeSketch.MainWindow._registrationPage.htm" />
+  <HelpKINode Title="_rest field">
+    <HelpKINode Title="_rest Field" Url="html/F-WeSketch.WeSketchApp._rest.htm" />
+    <HelpKINode Title="_rest Field" Url="html/F-WeSketch.Login._rest.htm" />
+    <HelpKINode Title="_rest Field" Url="html/F-WeSketch.Registration._rest.htm" />
+  </HelpKINode>
+  <HelpKINode Title="_SeaSalt field" Url="html/F-WeSketchAPI.User._SeaSalt.htm" />
+  <HelpKINode Title="_url field" Url="html/F-WeSketch.WeSketchRestRequests._url.htm" />
+  <HelpKINode Title="_User field" Url="html/F-WeSketchAPI.UserBoard._User.htm" />
+  <HelpKINode Title="_UserBoard field" Url="html/F-WeSketchAPI.User._UserBoard.htm" />
+  <HelpKINode Title="_UserID field">
+    <HelpKINode Title="_UserID Field" Url="html/F-WeSketchAPI.User._UserID.htm" />
+    <HelpKINode Title="_UserID Field" Url="html/F-WeSketchAPI.UserBoard._UserID.htm" />
+  </HelpKINode>
+  <HelpKINode Title="_UserName field" Url="html/F-WeSketchAPI.User._UserName.htm" />
+  <HelpKINode Title="_weSketchAppPage field" Url="html/F-WeSketch.MainWindow._weSketchAppPage.htm" />
+</HelpKI>

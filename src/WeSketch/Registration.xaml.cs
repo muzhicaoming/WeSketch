@@ -29,11 +29,18 @@ namespace WeSketch
         public event UserLoggedInEventHandler UserLoggedInEvent;
 
         WeSketchRestRequests _rest = new WeSketchRestRequests();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Registration"/> class.
+        /// </summary>
         public Registration()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Closings this instance.
+        /// </summary>
         public void Closing()
         {
             _rest.Dispose();

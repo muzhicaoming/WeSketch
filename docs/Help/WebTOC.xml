@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="9e2c9872-c39b-4efd-98fb-265fac25318c" Title="WeSketch Namespace" Url="html/N-WeSketch.htm">
+    <HelpTOCNode Id="ef455428-81cc-42b7-a5c4-114401789346" Title="App Class" Url="html/T-WeSketch.App.htm">
+      <HelpTOCNode Title="App Methods" Url="html/Methods.T-WeSketch.App.htm" />
+      <HelpTOCNode Title="App Properties" Url="html/Properties.T-WeSketch.App.htm" />
+      <HelpTOCNode Title="App Events" Url="html/Events.T-WeSketch.App.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="28adb97e-b04b-4b2c-b01a-697783e75e3e" Title="InviteWindow Class" Url="html/T-WeSketch.InviteWindow.htm">
+      <HelpTOCNode Title="InviteWindow Members" Url="html/AllMembers.T-WeSketch.InviteWindow.htm" />
+      <HelpTOCNode Title="InviteWindow Constructor " Url="html/M-WeSketch.InviteWindow.-ctor.htm" />
+      <HelpTOCNode Id="03649035-e90b-4aa9-8f07-9bc3a0f4a051" Title="InviteWindow Methods" Url="html/Methods.T-WeSketch.InviteWindow.htm">
+        <HelpTOCNode Title="ButtonCancel_Click Method " Url="html/M-WeSketch.InviteWindow.ButtonCancel_Click.htm" />
+        <HelpTOCNode Title="ButtonInvite_Click Method " Url="html/M-WeSketch.InviteWindow.ButtonInvite_Click.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="InviteWindow Properties" Url="html/Properties.T-WeSketch.InviteWindow.htm" />
+      <HelpTOCNode Id="7c5846b7-f66c-4a3a-a2b2-c37f3340c5a0" Title="InviteWindow Events" Url="html/Events.T-WeSketch.InviteWindow.htm">
+        <HelpTOCNode Title="UserInvitedEvent Event" Url="html/E-WeSketch.InviteWindow.UserInvitedEvent.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="InviteWindow.UserInvitedEventHandler Delegate" Url="html/T-WeSketch.InviteWindow.UserInvitedEventHandler.htm" />
+    <HelpTOCNode Id="98e6d89f-af90-4c8e-b27d-9a7349f4bbf9" Title="Login Class" Url="html/T-WeSketch.Login.htm">
+      <HelpTOCNode Title="Login Members" Url="html/AllMembers.T-WeSketch.Login.htm" />
+      <HelpTOCNode Title="Login Constructor " Url="html/M-WeSketch.Login.-ctor.htm" />
+      <HelpTOCNode Id="1f565cc5-02f9-4bf7-b4f9-eb5986814a99" Title="Login Fields" Url="html/Fields.T-WeSketch.Login.htm">
+        <HelpTOCNode Title="_rest Field" Url="html/F-WeSketch.Login._rest.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="6316ab45-ff62-4876-8444-d20de09ce410" Title="Login Methods" Url="html/Methods.T-WeSketch.Login.htm">
+        <HelpTOCNode Title="AuthenticateUser Method " Url="html/M-WeSketch.Login.AuthenticateUser.htm" />
+        <HelpTOCNode Title="buttonLogin_Click Method " Url="html/M-WeSketch.Login.buttonLogin_Click.htm" />
+        <HelpTOCNode Title="Closing Method " Url="html/M-WeSketch.Login.Closing.htm" />
+        <HelpTOCNode Title="UserLoggedIn Method " Url="html/M-WeSketch.Login.UserLoggedIn.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Login Properties" Url="html/Properties.T-WeSketch.Login.htm" />
+      <HelpTOCNode Id="c3ae3f3b-0f38-4606-8632-e509d687523b" Title="Login Events" Url="html/Events.T-WeSketch.Login.htm">
+        <HelpTOCNode Title="UserLoggedInEvent Event" Url="html/E-WeSketch.Login.UserLoggedInEvent.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="Login.UserLoggedInEventHandler Delegate" Url="html/T-WeSketch.Login.UserLoggedInEventHandler.htm" />
+    <HelpTOCNode Id="adf80c82-610c-45ba-b9ca-b374ea300071" Title="MainWindow Class" Url="html/T-WeSketch.MainWindow.htm">
+      <HelpTOCNode Title="MainWindow Members" Url="html/AllMembers.T-WeSketch.MainWindow.htm" />
+      <HelpTOCNode Title="MainWindow Constructor " Url="html/M-WeSketch.MainWindow.-ctor.htm" />
+      <HelpTOCNode Id="17721eeb-ce16-45c1-8721-ca25046e6ac5" Title="MainWindow Fields" Url="html/Fields.T-WeSketch.MainWindow.htm">
+        <HelpTOCNode Title="_loginPage Field" Url="html/F-WeSketch.MainWindow._loginPage.htm" />
+        <HelpTOCNode Title="_registrationPage Field" Url="html/F-WeSketch.MainWindow._registrationPage.htm" />
+        <HelpTOCNode Title="_weSketchAppPage Field" Url="html/F-WeSketch.MainWindow._weSketchAppPage.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="57ddf9a0-adce-4596-93f4-bf84b43bccc9" Title="MainWindow Methods" Url="html/Methods.T-WeSketch.MainWindow.htm">
+        <HelpTOCNode Title="ButtonRegister_Click Method " Url="html/M-WeSketch.MainWindow.ButtonRegister_Click.htm" />
+        <HelpTOCNode Title="MainWindow_Closing Method " Url="html/M-WeSketch.MainWindow.MainWindow_Closing.htm" />
+        <HelpTOCNode Title="UserLoggedInEvent Method " Url="html/M-WeSketch.MainWindow.UserLoggedInEvent.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="MainWindow Properties" Url="html/Properties.T-WeSketch.MainWindow.htm" />
+      <HelpTOCNode Title="MainWindow Events" Url="html/Events.T-WeSketch.MainWindow.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="4768331b-69c3-4a07-a611-ad566fbe991c" Title="Registration Class" Url="html/T-WeSketch.Registration.htm">
+      <HelpTOCNode Title="Registration Members" Url="html/AllMembers.T-WeSketch.Registration.htm" />
+      <HelpTOCNode Title="Registration Constructor " Url="html/M-WeSketch.Registration.-ctor.htm" />
+      <HelpTOCNode Id="0e782804-e6eb-4fda-a837-e714aae96f8c" Title="Registration Fields" Url="html/Fields.T-WeSketch.Registration.htm">
+        <HelpTOCNode Title="_rest Field" Url="html/F-WeSketch.Registration._rest.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="7bebe544-dae8-46a2-8201-61903c4c5ea9" Title="Registration Methods" Url="html/Methods.T-WeSketch.Registration.htm">
+        <HelpTOCNode Title="Closing Method " Url="html/M-WeSketch.Registration.Closing.htm" />
+        <HelpTOCNode Title="CreateUser Method " Url="html/M-WeSketch.Registration.CreateUser.htm" />
+        <HelpTOCNode Title="regiserNew_Click Method " Url="html/M-WeSketch.Registration.regiserNew_Click.htm" />
+        <HelpTOCNode Title="UserLoggedIn Method " Url="html/M-WeSketch.Registration.UserLoggedIn.htm" />
+        <HelpTOCNode Title="ValidateInput Method " Url="html/M-WeSketch.Registration.ValidateInput.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Registration Properties" Url="html/Properties.T-WeSketch.Registration.htm" />
+      <HelpTOCNode Id="6a6dc6a8-ff59-4aab-8abf-2fabf2dd3715" Title="Registration Events" Url="html/Events.T-WeSketch.Registration.htm">
+        <HelpTOCNode Title="UserLoggedInEvent Event" Url="html/E-WeSketch.Registration.UserLoggedInEvent.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="Registration.UserLoggedInEventHandler Delegate" Url="html/T-WeSketch.Registration.UserLoggedInEventHandler.htm" />
+    <HelpTOCNode Id="e1add393-81e7-4e42-a64d-25f24db11af0" Title="WeSketchApp Class" Url="html/T-WeSketch.WeSketchApp.htm">
+      <HelpTOCNode Title="WeSketchApp Members" Url="html/AllMembers.T-WeSketch.WeSketchApp.htm" />
+      <HelpTOCNode Title="WeSketchApp Constructor " Url="html/M-WeSketch.WeSketchApp.-ctor.htm" />
+      <HelpTOCNode Id="c83b72f0-f827-4c6f-a51c-468dc3580776" Title="WeSketchApp Fields" Url="html/Fields.T-WeSketch.WeSketchApp.htm">
+        <HelpTOCNode Title="_client Field" Url="html/F-WeSketch.WeSketchApp._client.htm" />
+        <HelpTOCNode Title="_inviteWindow Field" Url="html/F-WeSketch.WeSketchApp._inviteWindow.htm" />
+        <HelpTOCNode Title="_rest Field" Url="html/F-WeSketch.WeSketchApp._rest.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="a3d83498-0abe-454d-a82b-0ef7ab0ed50c" Title="WeSketchApp Methods" Url="html/Methods.T-WeSketch.WeSketchApp.htm">
+        <HelpTOCNode Title="BoardChangedEvent Method " Url="html/M-WeSketch.WeSketchApp.BoardChangedEvent.htm" />
+        <HelpTOCNode Title="BoardInvitationReceivedEvent Method " Url="html/M-WeSketch.WeSketchApp.BoardInvitationReceivedEvent.htm" />
+        <HelpTOCNode Title="BoardOwnerChangedEvent Method " Url="html/M-WeSketch.WeSketchApp.BoardOwnerChangedEvent.htm" />
+        <HelpTOCNode Title="ButtonKickUser_Click Method " Url="html/M-WeSketch.WeSketchApp.ButtonKickUser_Click.htm" />
+        <HelpTOCNode Title="ClearButton_Click Method " Url="html/M-WeSketch.WeSketchApp.ClearButton_Click.htm" />
+        <HelpTOCNode Title="Closing Method " Url="html/M-WeSketch.WeSketchApp.Closing.htm" />
+        <HelpTOCNode Title="comboColor_SelectionChanged Method " Url="html/M-WeSketch.WeSketchApp.comboColor_SelectionChanged.htm" />
+        <HelpTOCNode Title="comboSize_SelectionChanged Method " Url="html/M-WeSketch.WeSketchApp.comboSize_SelectionChanged.htm" />
+        <HelpTOCNode Title="ConnectedUsersReceivedEvent Method " Url="html/M-WeSketch.WeSketchApp.ConnectedUsersReceivedEvent.htm" />
+        <HelpTOCNode Title="ConnectedUsersRequestReceivedEvent Method " Url="html/M-WeSketch.WeSketchApp.ConnectedUsersRequestReceivedEvent.htm" />
+        <HelpTOCNode Title="InviteButton_Click Method " Url="html/M-WeSketch.WeSketchApp.InviteButton_Click.htm" />
+        <HelpTOCNode Title="InviteWindow_UserInvitedEvent Method " Url="html/M-WeSketch.WeSketchApp.InviteWindow_UserInvitedEvent.htm" />
+        <HelpTOCNode Title="KickedFromBoardEvent Method " Url="html/M-WeSketch.WeSketchApp.KickedFromBoardEvent.htm" />
+        <HelpTOCNode Title="LeaveButton_Click Method " Url="html/M-WeSketch.WeSketchApp.LeaveButton_Click.htm" />
+        <HelpTOCNode Title="LoadConnectedUsers Method " Url="html/M-WeSketch.WeSketchApp.LoadConnectedUsers.htm" />
+        <HelpTOCNode Title="MainInkCanvas_MouseMove Method " Url="html/M-WeSketch.WeSketchApp.MainInkCanvas_MouseMove.htm" />
+        <HelpTOCNode Title="RadioButton_Checked Method " Url="html/M-WeSketch.WeSketchApp.RadioButton_Checked.htm" />
+        <HelpTOCNode Title="StrokeClearEvent Method " Url="html/M-WeSketch.WeSketchApp.StrokeClearEvent.htm" />
+        <HelpTOCNode Title="StrokeCollected Method " Url="html/M-WeSketch.WeSketchApp.StrokeCollected.htm" />
+        <HelpTOCNode Title="StrokeErasedEvent Method " Url="html/M-WeSketch.WeSketchApp.StrokeErasedEvent.htm" />
+        <HelpTOCNode Title="StrokeErasing Method " Url="html/M-WeSketch.WeSketchApp.StrokeErasing.htm" />
+        <HelpTOCNode Title="StrokeRequestReceivedEvent Method " Url="html/M-WeSketch.WeSketchApp.StrokeRequestReceivedEvent.htm" />
+        <HelpTOCNode Title="StrokesReceivedEvent Method " Url="html/M-WeSketch.WeSketchApp.StrokesReceivedEvent.htm" />
+        <HelpTOCNode Title="UserJoinedBoardEvent Method " Url="html/M-WeSketch.WeSketchApp.UserJoinedBoardEvent.htm" />
+        <HelpTOCNode Title="UserLeftBoardEvent Method " Url="html/M-WeSketch.WeSketchApp.UserLeftBoardEvent.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="WeSketchApp Properties" Url="html/Properties.T-WeSketch.WeSketchApp.htm" />
+      <HelpTOCNode Title="WeSketchApp Events" Url="html/Events.T-WeSketch.WeSketchApp.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="7edf9f38-1143-434d-8036-3bf92b8477d0" Title="WeSketchClientData Class" Url="html/T-WeSketch.WeSketchClientData.htm">
+      <HelpTOCNode Title="WeSketchClientData Members" Url="html/AllMembers.T-WeSketch.WeSketchClientData.htm" />
+      <HelpTOCNode Title="WeSketchClientData Constructor " Url="html/M-WeSketch.WeSketchClientData.-ctor.htm" />
+      <HelpTOCNode Id="0cc70bdd-f239-4548-8477-70327824f98a" Title="WeSketchClientData Fields" Url="html/Fields.T-WeSketch.WeSketchClientData.htm">
+        <HelpTOCNode Title="_instance Field" Url="html/F-WeSketch.WeSketchClientData._instance.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="WeSketchClientData Methods" Url="html/Methods.T-WeSketch.WeSketchClientData.htm" />
+      <HelpTOCNode Id="69d401e4-6d19-452c-94f9-0d4695996013" Title="WeSketchClientData Properties" Url="html/Properties.T-WeSketch.WeSketchClientData.htm">
+        <HelpTOCNode Title="Color Property " Url="html/P-WeSketch.WeSketchClientData.Color.htm" />
+        <HelpTOCNode Title="Instance Property " Url="html/P-WeSketch.WeSketchClientData.Instance.htm" />
+        <HelpTOCNode Title="User Property " Url="html/P-WeSketch.WeSketchClientData.User.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="afdbb3b4-7317-4487-b903-25deade20b1c" Title="WeSketchRestRequests Class" Url="html/T-WeSketch.WeSketchRestRequests.htm">
+      <HelpTOCNode Title="WeSketchRestRequests Members" Url="html/AllMembers.T-WeSketch.WeSketchRestRequests.htm" />
+      <HelpTOCNode Id="8f590e6f-85a1-426d-9973-3dad98bd302b" Title="WeSketchRestRequests Fields" Url="html/Fields.T-WeSketch.WeSketchRestRequests.htm">
+        <HelpTOCNode Title="_httpClient Field" Url="html/F-WeSketch.WeSketchRestRequests._httpClient.htm" />
+        <HelpTOCNode Title="_url Field" Url="html/F-WeSketch.WeSketchRestRequests._url.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="354b061a-f349-45f1-86be-ba87d72ef1c4" Title="WeSketchRestRequests Methods" Url="html/Methods.T-WeSketch.WeSketchRestRequests.htm">
+        <HelpTOCNode Title="CreateUser Method " Url="html/M-WeSketch.WeSketchRestRequests.CreateUser.htm" />
+        <HelpTOCNode Title="Dispose Method " Url="html/M-WeSketch.WeSketchRestRequests.Dispose.htm" />
+        <HelpTOCNode Title="InviteUserToBoard Method " Url="html/M-WeSketch.WeSketchRestRequests.InviteUserToBoard.htm" />
+        <HelpTOCNode Title="JoinBoard Method " Url="html/M-WeSketch.WeSketchRestRequests.JoinBoard.htm" />
+        <HelpTOCNode Title="Login Method " Url="html/M-WeSketch.WeSketchRestRequests.Login.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="33f69990-64d8-458d-9337-ee5273d564c7" Title="WeSketch.Tests Namespace" Url="html/N-WeSketch.Tests.htm">
+    <HelpTOCNode Id="a1b7c407-ba36-4d47-b8ac-0316cf758af5" Title="StartupTests Class" Url="html/T-WeSketch.Tests.StartupTests.htm">
+      <HelpTOCNode Title="StartupTests Members" Url="html/AllMembers.T-WeSketch.Tests.StartupTests.htm" />
+      <HelpTOCNode Id="4167a47b-4d73-448e-b1f1-5d37263cdc22" Title="StartupTests Methods" Url="html/Methods.T-WeSketch.Tests.StartupTests.htm">
+        <HelpTOCNode Title="RunAfterAnyTests Method " Url="html/M-WeSketch.Tests.StartupTests.RunAfterAnyTests.htm" />
+        <HelpTOCNode Title="RunBeforeAnyTests Method " Url="html/M-WeSketch.Tests.StartupTests.RunBeforeAnyTests.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="406ba723-7cde-415a-ba3f-5f324b88fe39" Title="WeSketchDataContext Class" Url="html/T-WeSketch.Tests.WeSketchDataContext.htm">
+      <HelpTOCNode Title="WeSketchDataContext Members" Url="html/AllMembers.T-WeSketch.Tests.WeSketchDataContext.htm" />
+      <HelpTOCNode Id="eec0034e-d56d-45f5-abcd-bebf6d0d7432" Title="WeSketchDataContext Constructor " Url="html/Overload-WeSketch.Tests.WeSketchDataContext.-ctor.htm">
+        <HelpTOCNode Title="WeSketchDataContext Constructor " Url="html/M-WeSketch.Tests.WeSketchDataContext.-ctor.htm" />
+        <HelpTOCNode Title="WeSketchDataContext Constructor (String)" Url="html/M-WeSketch.Tests.WeSketchDataContext.-ctor_1.htm" />
+        <HelpTOCNode Title="WeSketchDataContext Constructor (IDbConnection)" Url="html/M-WeSketch.Tests.WeSketchDataContext.-ctor_2.htm" />
+        <HelpTOCNode Title="WeSketchDataContext Constructor (String, MappingSource)" Url="html/M-WeSketch.Tests.WeSketchDataContext.-ctor_3.htm" />
+        <HelpTOCNode Title="WeSketchDataContext Constructor (IDbConnection, MappingSource)" Url="html/M-WeSketch.Tests.WeSketchDataContext.-ctor_4.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="e6f83395-ffbb-494b-ba83-e16f3be42463" Title="WeSketchDataContext Fields" Url="html/Fields.T-WeSketch.Tests.WeSketchDataContext.htm">
+        <HelpTOCNode Title="mappingSource Field" Url="html/F-WeSketch.Tests.WeSketchDataContext.mappingSource.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="23c25c9e-f972-496d-a668-5e04f1ca5084" Title="WeSketchDataContext Methods" Url="html/Methods.T-WeSketch.Tests.WeSketchDataContext.htm">
+        <HelpTOCNode Title="CleanTestingObjects Method " Url="html/M-WeSketch.Tests.WeSketchDataContext.CleanTestingObjects.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="WeSketchDataContext Properties" Url="html/Properties.T-WeSketch.Tests.WeSketchDataContext.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="526ff410-061b-4d34-802f-d49d3082701b" Title="WeSketchRestRequestsTests Class" Url="html/T-WeSketch.Tests.WeSketchRestRequestsTests.htm">
+      <HelpTOCNode Title="WeSketchRestRequestsTests Members" Url="html/AllMembers.T-WeSketch.Tests.WeSketchRestRequestsTests.htm" />
+      <HelpTOCNode Id="19610f10-6022-4907-bf74-932dcae5c9a8" Title="WeSketchRestRequestsTests Methods" Url="html/Methods.T-WeSketch.Tests.WeSketchRestRequestsTests.htm">
+        <HelpTOCNode Title="CreateUser_RestCreateUser_ReturnsUser Method " Url="html/M-WeSketch.Tests.WeSketchRestRequestsTests.CreateUser_RestCreateUser_ReturnsUser.htm" />
+        <HelpTOCNode Title="CreateUserIncomplete_RestCreateUser_ReturnsError Method " Url="html/M-WeSketch.Tests.WeSketchRestRequestsTests.CreateUserIncomplete_RestCreateUser_ReturnsError.htm" />
+        <HelpTOCNode Title="InviteUserIncompleteData_RestInviteUserToBoard_ReturnsError Method " Url="html/M-WeSketch.Tests.WeSketchRestRequestsTests.InviteUserIncompleteData_RestInviteUserToBoard_ReturnsError.htm" />
+        <HelpTOCNode Title="IsInvalidLogin_RestLogin_ReturnsError Method " Url="html/M-WeSketch.Tests.WeSketchRestRequestsTests.IsInvalidLogin_RestLogin_ReturnsError.htm" />
+        <HelpTOCNode Title="IsValidLogin_RestLogin_ReturnsUser Method " Url="html/M-WeSketch.Tests.WeSketchRestRequestsTests.IsValidLogin_RestLogin_ReturnsUser.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="129aea1a-d076-44ba-b241-bd8b1ef1bda6" Title="WeSketchAPI Namespace" Url="html/N-WeSketchAPI.htm">
+    <HelpTOCNode Id="b46b3ad1-fd9e-40ab-89af-65a659a6e8e6" Title="BundleConfig Class" Url="html/T-WeSketchAPI.BundleConfig.htm">
+      <HelpTOCNode Title="BundleConfig Members" Url="html/AllMembers.T-WeSketchAPI.BundleConfig.htm" />
+      <HelpTOCNode Id="8058e9e5-68fe-4548-afed-9874e9c06fae" Title="BundleConfig Methods" Url="html/Methods.T-WeSketchAPI.BundleConfig.htm">
+        <HelpTOCNode Title="RegisterBundles Method " Url="html/M-WeSketchAPI.BundleConfig.RegisterBundles.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="8ad61805-476c-461a-8d52-134d3d5bccec" Title="FilterConfig Class" Url="html/T-WeSketchAPI.FilterConfig.htm">
+      <HelpTOCNode Title="FilterConfig Members" Url="html/AllMembers.T-WeSketchAPI.FilterConfig.htm" />
+      <HelpTOCNode Id="b343ed6a-2b3c-49a2-86ee-0180db39fd89" Title="FilterConfig Methods" Url="html/Methods.T-WeSketchAPI.FilterConfig.htm">
+        <HelpTOCNode Title="RegisterGlobalFilters Method " Url="html/M-WeSketchAPI.FilterConfig.RegisterGlobalFilters.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="df6ac87b-f0cc-4c87-a0a9-87c3452547ab" Title="RouteConfig Class" Url="html/T-WeSketchAPI.RouteConfig.htm">
+      <HelpTOCNode Title="RouteConfig Members" Url="html/AllMembers.T-WeSketchAPI.RouteConfig.htm" />
+      <HelpTOCNode Id="0c3db6c4-f2e5-43b7-9a1e-2196832584de" Title="RouteConfig Methods" Url="html/Methods.T-WeSketchAPI.RouteConfig.htm">
+        <HelpTOCNode Title="RegisterRoutes Method " Url="html/M-WeSketchAPI.RouteConfig.RegisterRoutes.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="82d86dc0-0f2f-44fe-b25d-35a90889ff4b" Title="Startup Class" Url="html/T-WeSketchAPI.Startup.htm">
+      <HelpTOCNode Title="Startup Members" Url="html/AllMembers.T-WeSketchAPI.Startup.htm" />
+      <HelpTOCNode Id="a43285b4-fc63-47d2-b028-26c4a0c2b2b2" Title="Startup Methods" Url="html/Methods.T-WeSketchAPI.Startup.htm">
+        <HelpTOCNode Title="Configuration Method " Url="html/M-WeSketchAPI.Startup.Configuration.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="2ec76b66-028a-42c1-9573-f8688d4aa94d" Title="User Class" Url="html/T-WeSketchAPI.User.htm">
+      <HelpTOCNode Title="User Members" Url="html/AllMembers.T-WeSketchAPI.User.htm" />
+      <HelpTOCNode Title="User Constructor " Url="html/M-WeSketchAPI.User.-ctor.htm" />
+      <HelpTOCNode Id="c4f4acd3-5109-46da-b1dd-bf1d592f1ad1" Title="User Fields" Url="html/Fields.T-WeSketchAPI.User.htm">
+        <HelpTOCNode Title="_Disabled Field" Url="html/F-WeSketchAPI.User._Disabled.htm" />
+        <HelpTOCNode Title="_Email Field" Url="html/F-WeSketchAPI.User._Email.htm" />
+        <HelpTOCNode Title="_LastLogin Field" Url="html/F-WeSketchAPI.User._LastLogin.htm" />
+        <HelpTOCNode Title="_LastLoginAttempt Field" Url="html/F-WeSketchAPI.User._LastLoginAttempt.htm" />
+        <HelpTOCNode Title="_Password Field" Url="html/F-WeSketchAPI.User._Password.htm" />
+        <HelpTOCNode Title="_SeaSalt Field" Url="html/F-WeSketchAPI.User._SeaSalt.htm" />
+        <HelpTOCNode Title="_UserBoard Field" Url="html/F-WeSketchAPI.User._UserBoard.htm" />
+        <HelpTOCNode Title="_UserID Field" Url="html/F-WeSketchAPI.User._UserID.htm" />
+        <HelpTOCNode Title="_UserName Field" Url="html/F-WeSketchAPI.User._UserName.htm" />
+        <HelpTOCNode Title="emptyChangingEventArgs Field" Url="html/F-WeSketchAPI.User.emptyChangingEventArgs.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="User Methods" Url="html/Methods.T-WeSketchAPI.User.htm" />
+      <HelpTOCNode Id="904be539-a3be-46f5-953a-bb0e39a8cf89" Title="User Properties" Url="html/Properties.T-WeSketchAPI.User.htm">
+        <HelpTOCNode Title="Disabled Property " Url="html/P-WeSketchAPI.User.Disabled.htm" />
+        <HelpTOCNode Title="Email Property " Url="html/P-WeSketchAPI.User.Email.htm" />
+        <HelpTOCNode Title="LastLogin Property " Url="html/P-WeSketchAPI.User.LastLogin.htm" />
+        <HelpTOCNode Title="LastLoginAttempt Property " Url="html/P-WeSketchAPI.User.LastLoginAttempt.htm" />
+        <HelpTOCNode Title="Password Property " Url="html/P-WeSketchAPI.User.Password.htm" />
+        <HelpTOCNode Title="SeaSalt Property " Url="html/P-WeSketchAPI.User.SeaSalt.htm" />
+        <HelpTOCNode Title="UserBoard Property " Url="html/P-WeSketchAPI.User.UserBoard.htm" />
+        <HelpTOCNode Title="UserID Property " Url="html/P-WeSketchAPI.User.UserID.htm" />
+        <HelpTOCNode Title="UserName Property " Url="html/P-WeSketchAPI.User.UserName.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="b61bb70e-8df1-4c55-af9f-7d71ff79554b" Title="User Events" Url="html/Events.T-WeSketchAPI.User.htm">
+        <HelpTOCNode Title="PropertyChanged Event" Url="html/E-WeSketchAPI.User.PropertyChanged.htm" />
+        <HelpTOCNode Title="PropertyChanging Event" Url="html/E-WeSketchAPI.User.PropertyChanging.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="3c39a763-2b6b-4dc4-ac19-61584067911e" Title="UserBoard Class" Url="html/T-WeSketchAPI.UserBoard.htm">
+      <HelpTOCNode Title="UserBoard Members" Url="html/AllMembers.T-WeSketchAPI.UserBoard.htm" />
+      <HelpTOCNode Title="UserBoard Constructor " Url="html/M-WeSketchAPI.UserBoard.-ctor.htm" />
+      <HelpTOCNode Id="4b8c2e50-0a4b-4e5a-bb65-0d0ad76a537c" Title="UserBoard Fields" Url="html/Fields.T-WeSketchAPI.UserBoard.htm">
+        <HelpTOCNode Title="_BoardID Field" Url="html/F-WeSketchAPI.UserBoard._BoardID.htm" />
+        <HelpTOCNode Title="_BoardOwner Field" Url="html/F-WeSketchAPI.UserBoard._BoardOwner.htm" />
+        <HelpTOCNode Title="_CanSketch Field" Url="html/F-WeSketchAPI.UserBoard._CanSketch.htm" />
+        <HelpTOCNode Title="_User Field" Url="html/F-WeSketchAPI.UserBoard._User.htm" />
+        <HelpTOCNode Title="_UserID Field" Url="html/F-WeSketchAPI.UserBoard._UserID.htm" />
+        <HelpTOCNode Title="emptyChangingEventArgs Field" Url="html/F-WeSketchAPI.UserBoard.emptyChangingEventArgs.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="UserBoard Methods" Url="html/Methods.T-WeSketchAPI.UserBoard.htm" />
+      <HelpTOCNode Id="1d2a6668-5558-4bf7-80d5-4b578834dec5" Title="UserBoard Properties" Url="html/Properties.T-WeSketchAPI.UserBoard.htm">
+        <HelpTOCNode Title="BoardID Property " Url="html/P-WeSketchAPI.UserBoard.BoardID.htm" />
+        <HelpTOCNode Title="BoardOwner Property " Url="html/P-WeSketchAPI.UserBoard.BoardOwner.htm" />
+        <HelpTOCNode Title="CanSketch Property " Url="html/P-WeSketchAPI.UserBoard.CanSketch.htm" />
+        <HelpTOCNode Title="User Property " Url="html/P-WeSketchAPI.UserBoard.User.htm" />
+        <HelpTOCNode Title="UserID Property " Url="html/P-WeSketchAPI.UserBoard.UserID.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="12ca072d-2810-4688-9a3c-6382cb6bba96" Title="UserBoard Events" Url="html/Events.T-WeSketchAPI.UserBoard.htm">
+        <HelpTOCNode Title="PropertyChanged Event" Url="html/E-WeSketchAPI.UserBoard.PropertyChanged.htm" />
+        <HelpTOCNode Title="PropertyChanging Event" Url="html/E-WeSketchAPI.UserBoard.PropertyChanging.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0fe9820e-736c-4698-b819-113a0a236632" Title="WebApiApplication Class" Url="html/T-WeSketchAPI.WebApiApplication.htm">
+      <HelpTOCNode Title="WebApiApplication Members" Url="html/AllMembers.T-WeSketchAPI.WebApiApplication.htm" />
+      <HelpTOCNode Title="WebApiApplication Methods" Url="html/Methods.T-WeSketchAPI.WebApiApplication.htm" />
+      <HelpTOCNode Title="WebApiApplication Properties" Url="html/Properties.T-WeSketchAPI.WebApiApplication.htm" />
+      <HelpTOCNode Title="WebApiApplication Events" Url="html/Events.T-WeSketchAPI.WebApiApplication.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="1e4a5cab-d67a-4c65-a71a-13511eec2bd7" Title="WebApiConfig Class" Url="html/T-WeSketchAPI.WebApiConfig.htm">
+      <HelpTOCNode Title="WebApiConfig Members" Url="html/AllMembers.T-WeSketchAPI.WebApiConfig.htm" />
+      <HelpTOCNode Id="e5fd2a21-afcf-4c02-8e0f-aba348cc57d6" Title="WebApiConfig Methods" Url="html/Methods.T-WeSketchAPI.WebApiConfig.htm">
+        <HelpTOCNode Title="Register Method " Url="html/M-WeSketchAPI.WebApiConfig.Register.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="ba71428c-ce5f-4f35-aa12-934cdc09bb96" Title="WeSketchDataContext Class" Url="html/T-WeSketchAPI.WeSketchDataContext.htm">
+      <HelpTOCNode Title="WeSketchDataContext Members" Url="html/AllMembers.T-WeSketchAPI.WeSketchDataContext.htm" />
+      <HelpTOCNode Id="ac4b9942-94a5-4710-8e15-6d8b3398144d" Title="WeSketchDataContext Constructor " Url="html/Overload-WeSketchAPI.WeSketchDataContext.-ctor.htm">
+        <HelpTOCNode Title="WeSketchDataContext Constructor " Url="html/M-WeSketchAPI.WeSketchDataContext.-ctor.htm" />
+        <HelpTOCNode Title="WeSketchDataContext Constructor (String)" Url="html/M-WeSketchAPI.WeSketchDataContext.-ctor_1.htm" />
+        <HelpTOCNode Title="WeSketchDataContext Constructor (IDbConnection)" Url="html/M-WeSketchAPI.WeSketchDataContext.-ctor_2.htm" />
+        <HelpTOCNode Title="WeSketchDataContext Constructor (String, MappingSource)" Url="html/M-WeSketchAPI.WeSketchDataContext.-ctor_3.htm" />
+        <HelpTOCNode Title="WeSketchDataContext Constructor (IDbConnection, MappingSource)" Url="html/M-WeSketchAPI.WeSketchDataContext.-ctor_4.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="1a942ee3-afd3-4033-b73e-5cec3af0c0c7" Title="WeSketchDataContext Fields" Url="html/Fields.T-WeSketchAPI.WeSketchDataContext.htm">
+        <HelpTOCNode Title="mappingSource Field" Url="html/F-WeSketchAPI.WeSketchDataContext.mappingSource.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="WeSketchDataContext Methods" Url="html/Methods.T-WeSketchAPI.WeSketchDataContext.htm" />
+      <HelpTOCNode Id="94b54f7d-7eec-422d-82de-12e7ccb05715" Title="WeSketchDataContext Properties" Url="html/Properties.T-WeSketchAPI.WeSketchDataContext.htm">
+        <HelpTOCNode Title="UserBoards Property " Url="html/P-WeSketchAPI.WeSketchDataContext.UserBoards.htm" />
+        <HelpTOCNode Title="Users Property " Url="html/P-WeSketchAPI.WeSketchDataContext.Users.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="292958d2-943b-4dc1-b838-f7ee4392785c" Title="WeSketchSecurity Class" Url="html/T-WeSketchAPI.WeSketchSecurity.htm">
+      <HelpTOCNode Title="WeSketchSecurity Members" Url="html/AllMembers.T-WeSketchAPI.WeSketchSecurity.htm" />
+      <HelpTOCNode Id="71cb0880-1554-456d-9998-ed21e7d47f5f" Title="WeSketchSecurity Methods" Url="html/Methods.T-WeSketchAPI.WeSketchSecurity.htm">
+        <HelpTOCNode Title="CreateUser Method " Url="html/M-WeSketchAPI.WeSketchSecurity.CreateUser.htm" />
+        <HelpTOCNode Title="GetComputedHash Method " Url="html/M-WeSketchAPI.WeSketchSecurity.GetComputedHash.htm" />
+        <HelpTOCNode Title="GetSalt Method " Url="html/M-WeSketchAPI.WeSketchSecurity.GetSalt.htm" />
+        <HelpTOCNode Title="GetSeasonedPasswordBytes Method " Url="html/M-WeSketchAPI.WeSketchSecurity.GetSeasonedPasswordBytes.htm" />
+        <HelpTOCNode Title="Login Method " Url="html/M-WeSketchAPI.WeSketchSecurity.Login.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="af7a2370-db7e-4dff-839d-0714c5a87f70" Title="WeSketchSignalRHub Class" Url="html/T-WeSketchAPI.WeSketchSignalRHub.htm">
+      <HelpTOCNode Title="WeSketchSignalRHub Members" Url="html/AllMembers.T-WeSketchAPI.WeSketchSignalRHub.htm" />
+      <HelpTOCNode Id="736431af-b76b-447f-a2e1-31f447a4713a" Title="WeSketchSignalRHub Methods" Url="html/Methods.T-WeSketchAPI.WeSketchSignalRHub.htm">
+        <HelpTOCNode Title="ChangeUserColor Method " Url="html/M-WeSketchAPI.WeSketchSignalRHub.ChangeUserColor.htm" />
+        <HelpTOCNode Title="JoinBoardGroup Method " Url="html/M-WeSketchAPI.WeSketchSignalRHub.JoinBoardGroup.htm" />
+        <HelpTOCNode Title="KickUserFromBoard Method " Url="html/M-WeSketchAPI.WeSketchSignalRHub.KickUserFromBoard.htm" />
+        <HelpTOCNode Title="LeaveBoardGroup Method " Url="html/M-WeSketchAPI.WeSketchSignalRHub.LeaveBoardGroup.htm" />
+        <HelpTOCNode Title="RemoveFromGroups Method " Url="html/M-WeSketchAPI.WeSketchSignalRHub.RemoveFromGroups.htm" />
+        <HelpTOCNode Title="RequestClearBoardStrokes Method " Url="html/M-WeSketchAPI.WeSketchSignalRHub.RequestClearBoardStrokes.htm" />
+        <HelpTOCNode Title="RequestConnectedUsers Method " Url="html/M-WeSketchAPI.WeSketchSignalRHub.RequestConnectedUsers.htm" />
+        <HelpTOCNode Title="RequestStrokes Method " Url="html/M-WeSketchAPI.WeSketchSignalRHub.RequestStrokes.htm" />
+        <HelpTOCNode Title="SendConnectedUsersToUser Method " Url="html/M-WeSketchAPI.WeSketchSignalRHub.SendConnectedUsersToUser.htm" />
+        <HelpTOCNode Title="SendInvitation Method " Url="html/M-WeSketchAPI.WeSketchSignalRHub.SendInvitation.htm" />
+        <HelpTOCNode Title="SendStrokesToGroup Method " Url="html/M-WeSketchAPI.WeSketchSignalRHub.SendStrokesToGroup.htm" />
+        <HelpTOCNode Title="SendStrokesToUser Method " Url="html/M-WeSketchAPI.WeSketchSignalRHub.SendStrokesToUser.htm" />
+        <HelpTOCNode Title="SendStrokeToErase Method " Url="html/M-WeSketchAPI.WeSketchSignalRHub.SendStrokeToErase.htm" />
+        <HelpTOCNode Title="UserAuthenticated Method " Url="html/M-WeSketchAPI.WeSketchSignalRHub.UserAuthenticated.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="WeSketchSignalRHub Properties" Url="html/Properties.T-WeSketchAPI.WeSketchSignalRHub.htm" />
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="4b4c3f50-f043-4b19-9510-14745b05f99d" Title="WeSketchAPI.Controllers Namespace" Url="html/N-WeSketchAPI.Controllers.htm">
+    <HelpTOCNode Id="c68c9102-95b4-42dc-9bc9-0467159da2f8" Title="HomeController Class" Url="html/T-WeSketchAPI.Controllers.HomeController.htm">
+      <HelpTOCNode Title="HomeController Members" Url="html/AllMembers.T-WeSketchAPI.Controllers.HomeController.htm" />
+      <HelpTOCNode Id="cdbe454f-ae72-4e3c-82c3-d82e2caab641" Title="HomeController Methods" Url="html/Methods.T-WeSketchAPI.Controllers.HomeController.htm">
+        <HelpTOCNode Title="CreateUser Method " Url="html/M-WeSketchAPI.Controllers.HomeController.CreateUser.htm" />
+        <HelpTOCNode Title="Index Method " Url="html/M-WeSketchAPI.Controllers.HomeController.Index.htm" />
+        <HelpTOCNode Title="InviteUserToBoard Method " Url="html/M-WeSketchAPI.Controllers.HomeController.InviteUserToBoard.htm" />
+        <HelpTOCNode Title="JoinBoard Method " Url="html/M-WeSketchAPI.Controllers.HomeController.JoinBoard.htm" />
+        <HelpTOCNode Title="Login Method " Url="html/M-WeSketchAPI.Controllers.HomeController.Login.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="HomeController Properties" Url="html/Properties.T-WeSketchAPI.Controllers.HomeController.htm" />
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="0e8f6879-4cac-4d6c-a613-d6127d3228c3" Title="WeSketchAPI.Tests Namespace" Url="html/N-WeSketchAPI.Tests.htm">
+    <HelpTOCNode Id="7d3ac4e8-aae7-40f4-bd3f-793fa6a4ca7f" Title="StartupTests Class" Url="html/T-WeSketchAPI.Tests.StartupTests.htm">
+      <HelpTOCNode Title="StartupTests Members" Url="html/AllMembers.T-WeSketchAPI.Tests.StartupTests.htm" />
+      <HelpTOCNode Id="3c1738ab-5389-4b15-a507-01d6d95cde6c" Title="StartupTests Methods" Url="html/Methods.T-WeSketchAPI.Tests.StartupTests.htm">
+        <HelpTOCNode Title="RunAfterAnyTests Method " Url="html/M-WeSketchAPI.Tests.StartupTests.RunAfterAnyTests.htm" />
+        <HelpTOCNode Title="RunBeforeAnyTests Method " Url="html/M-WeSketchAPI.Tests.StartupTests.RunBeforeAnyTests.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="e48eadb9-effb-4da2-b011-151f3dc9fba4" Title="WeSketchDataContext Class" Url="html/T-WeSketchAPI.Tests.WeSketchDataContext.htm">
+      <HelpTOCNode Title="WeSketchDataContext Members" Url="html/AllMembers.T-WeSketchAPI.Tests.WeSketchDataContext.htm" />
+      <HelpTOCNode Id="8c06df59-6213-4cd1-98cf-f4e18d187183" Title="WeSketchDataContext Constructor " Url="html/Overload-WeSketchAPI.Tests.WeSketchDataContext.-ctor.htm">
+        <HelpTOCNode Title="WeSketchDataContext Constructor " Url="html/M-WeSketchAPI.Tests.WeSketchDataContext.-ctor.htm" />
+        <HelpTOCNode Title="WeSketchDataContext Constructor (String)" Url="html/M-WeSketchAPI.Tests.WeSketchDataContext.-ctor_1.htm" />
+        <HelpTOCNode Title="WeSketchDataContext Constructor (IDbConnection)" Url="html/M-WeSketchAPI.Tests.WeSketchDataContext.-ctor_2.htm" />
+        <HelpTOCNode Title="WeSketchDataContext Constructor (String, MappingSource)" Url="html/M-WeSketchAPI.Tests.WeSketchDataContext.-ctor_3.htm" />
+        <HelpTOCNode Title="WeSketchDataContext Constructor (IDbConnection, MappingSource)" Url="html/M-WeSketchAPI.Tests.WeSketchDataContext.-ctor_4.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="fdc0ea48-4c9c-4b5a-bf0d-f1886ae84e27" Title="WeSketchDataContext Fields" Url="html/Fields.T-WeSketchAPI.Tests.WeSketchDataContext.htm">
+        <HelpTOCNode Title="mappingSource Field" Url="html/F-WeSketchAPI.Tests.WeSketchDataContext.mappingSource.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="9c69cb09-382f-4a04-bb20-ed46207239f0" Title="WeSketchDataContext Methods" Url="html/Methods.T-WeSketchAPI.Tests.WeSketchDataContext.htm">
+        <HelpTOCNode Title="CleanTestingObjects Method " Url="html/M-WeSketchAPI.Tests.WeSketchDataContext.CleanTestingObjects.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="WeSketchDataContext Properties" Url="html/Properties.T-WeSketchAPI.Tests.WeSketchDataContext.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="8e96a0b7-7c3d-40e8-b451-6758c2b7d007" Title="WeSketchSecurityTests Class" Url="html/T-WeSketchAPI.Tests.WeSketchSecurityTests.htm">
+      <HelpTOCNode Title="WeSketchSecurityTests Members" Url="html/AllMembers.T-WeSketchAPI.Tests.WeSketchSecurityTests.htm" />
+      <HelpTOCNode Id="51b3ce93-c2ae-42c1-893b-b627ab9c4d48" Title="WeSketchSecurityTests Methods" Url="html/Methods.T-WeSketchAPI.Tests.WeSketchSecurityTests.htm">
+        <HelpTOCNode Title="CreateExistingUser_CreateUser_ReturnsAlreadyExistsError Method " Url="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.CreateExistingUser_CreateUser_ReturnsAlreadyExistsError.htm" />
+        <HelpTOCNode Title="CreateUserIncomplete_Login_ReturnsOutOfRange Method " Url="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.CreateUserIncomplete_Login_ReturnsOutOfRange.htm" />
+        <HelpTOCNode Title="CreateValidUser_CreateUser_ReturnsUser Method " Url="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.CreateValidUser_CreateUser_ReturnsUser.htm" />
+        <HelpTOCNode Title="IsInvalidLogin_Login_ReturnsError Method " Url="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.IsInvalidLogin_Login_ReturnsError.htm" />
+        <HelpTOCNode Title="ValidLogin_Login_ReturnsUser Method " Url="html/M-WeSketchAPI.Tests.WeSketchSecurityTests.ValidLogin_Login_ReturnsUser.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="98a4d9af-40f0-437e-8aa3-1503e4218068" Title="WeSketchSignalRHubTests Class" Url="html/T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm">
+      <HelpTOCNode Title="WeSketchSignalRHubTests Members" Url="html/AllMembers.T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm" />
+      <HelpTOCNode Id="fe648925-3576-4e04-9695-e7b7520c3cf6" Title="WeSketchSignalRHubTests Fields" Url="html/Fields.T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm">
+        <HelpTOCNode Title="_hub Field" Url="html/F-WeSketchAPI.Tests.WeSketchSignalRHubTests._hub.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="bf15da8b-5de6-4c06-8c92-9a8ea36f1e6a" Title="WeSketchSignalRHubTests Methods" Url="html/Methods.T-WeSketchAPI.Tests.WeSketchSignalRHubTests.htm">
+        <HelpTOCNode Title="HubsAreMockableViaDynamic Method " Url="html/M-WeSketchAPI.Tests.WeSketchSignalRHubTests.HubsAreMockableViaDynamic.htm" />
+        <HelpTOCNode Title="SetUpTests Method " Url="html/M-WeSketchAPI.Tests.WeSketchSignalRHubTests.SetUpTests.htm" />
+        <HelpTOCNode Title="TestMethod1 Method " Url="html/M-WeSketchAPI.Tests.WeSketchSignalRHubTests.TestMethod1.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="595d6bce-21d5-4b4d-a61f-b59802cc377e" Title="WeSketchAPI.Tests.Controllers Namespace" Url="html/N-WeSketchAPI.Tests.Controllers.htm">
+    <HelpTOCNode Id="1f639cec-fc97-4df5-9491-deeaed9a2990" Title="HomeControllerTest Class" Url="html/T-WeSketchAPI.Tests.Controllers.HomeControllerTest.htm">
+      <HelpTOCNode Title="HomeControllerTest Members" Url="html/AllMembers.T-WeSketchAPI.Tests.Controllers.HomeControllerTest.htm" />
+      <HelpTOCNode Id="89ecabc7-6aa3-405b-a4ea-bddc427760fc" Title="HomeControllerTest Methods" Url="html/Methods.T-WeSketchAPI.Tests.Controllers.HomeControllerTest.htm">
+        <HelpTOCNode Title="Index Method " Url="html/M-WeSketchAPI.Tests.Controllers.HomeControllerTest.Index.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="b387c146-45b1-49f8-aa18-f32474c4328c" Title="WeSketchSharedDataModels Namespace" Url="html/N-WeSketchSharedDataModels.htm">
+    <HelpTOCNode Id="8e0b1553-1fc3-45d4-83e2-93f793ee87ba" Title="Board Class" Url="html/T-WeSketchSharedDataModels.Board.htm">
+      <HelpTOCNode Title="Board Members" Url="html/AllMembers.T-WeSketchSharedDataModels.Board.htm" />
+      <HelpTOCNode Title="Board Methods" Url="html/Methods.T-WeSketchSharedDataModels.Board.htm" />
+      <HelpTOCNode Id="44bc7267-1556-49e1-a979-e1bc8b176b47" Title="Board Properties" Url="html/Properties.T-WeSketchSharedDataModels.Board.htm">
+        <HelpTOCNode Title="BoardID Property " Url="html/P-WeSketchSharedDataModels.Board.BoardID.htm" />
+        <HelpTOCNode Title="ConnectedUsers Property " Url="html/P-WeSketchSharedDataModels.Board.ConnectedUsers.htm" />
+        <HelpTOCNode Title="Owner Property " Url="html/P-WeSketchSharedDataModels.Board.Owner.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="94270c32-53e4-4401-8044-cb8e13027b9d" Title="BoardPoint Class" Url="html/T-WeSketchSharedDataModels.BoardPoint.htm">
+      <HelpTOCNode Title="BoardPoint Members" Url="html/AllMembers.T-WeSketchSharedDataModels.BoardPoint.htm" />
+      <HelpTOCNode Title="BoardPoint Methods" Url="html/Methods.T-WeSketchSharedDataModels.BoardPoint.htm" />
+      <HelpTOCNode Id="17cd55af-ca99-4510-88a9-c2ff23bfb538" Title="BoardPoint Properties" Url="html/Properties.T-WeSketchSharedDataModels.BoardPoint.htm">
+        <HelpTOCNode Title="PressureFactor Property " Url="html/P-WeSketchSharedDataModels.BoardPoint.PressureFactor.htm" />
+        <HelpTOCNode Title="User Property " Url="html/P-WeSketchSharedDataModels.BoardPoint.User.htm" />
+        <HelpTOCNode Title="X Property " Url="html/P-WeSketchSharedDataModels.BoardPoint.X.htm" />
+        <HelpTOCNode Title="Y Property " Url="html/P-WeSketchSharedDataModels.BoardPoint.Y.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="d802638c-374b-4c3d-b232-6008a20771c5" Title="BoardPointCollection Class" Url="html/T-WeSketchSharedDataModels.BoardPointCollection.htm">
+      <HelpTOCNode Title="BoardPointCollection Members" Url="html/AllMembers.T-WeSketchSharedDataModels.BoardPointCollection.htm" />
+      <HelpTOCNode Title="BoardPointCollection Methods" Url="html/Methods.T-WeSketchSharedDataModels.BoardPointCollection.htm" />
+      <HelpTOCNode Id="a99036d8-068c-43cf-b518-a9c9db9aad05" Title="BoardPointCollection Properties" Url="html/Properties.T-WeSketchSharedDataModels.BoardPointCollection.htm">
+        <HelpTOCNode Title="BrushHeight Property " Url="html/P-WeSketchSharedDataModels.BoardPointCollection.BrushHeight.htm" />
+        <HelpTOCNode Title="BrushWidth Property " Url="html/P-WeSketchSharedDataModels.BoardPointCollection.BrushWidth.htm" />
+        <HelpTOCNode Title="Color Property " Url="html/P-WeSketchSharedDataModels.BoardPointCollection.Color.htm" />
+        <HelpTOCNode Title="ID Property " Url="html/P-WeSketchSharedDataModels.BoardPointCollection.ID.htm" />
+        <HelpTOCNode Title="Points Property " Url="html/P-WeSketchSharedDataModels.BoardPointCollection.Points.htm" />
+        <HelpTOCNode Title="User Property " Url="html/P-WeSketchSharedDataModels.BoardPointCollection.User.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="eedcc4d2-3b7d-4672-aaff-417f789715cd" Title="ConnectedUser Class" Url="html/T-WeSketchSharedDataModels.ConnectedUser.htm">
+      <HelpTOCNode Title="ConnectedUser Members" Url="html/AllMembers.T-WeSketchSharedDataModels.ConnectedUser.htm" />
+      <HelpTOCNode Title="ConnectedUser Methods" Url="html/Methods.T-WeSketchSharedDataModels.ConnectedUser.htm" />
+      <HelpTOCNode Id="f8e710f8-104b-4608-b663-15a63bd61ffa" Title="ConnectedUser Properties" Url="html/Properties.T-WeSketchSharedDataModels.ConnectedUser.htm">
+        <HelpTOCNode Title="Color Property " Url="html/P-WeSketchSharedDataModels.ConnectedUser.Color.htm" />
+        <HelpTOCNode Title="Owner Property " Url="html/P-WeSketchSharedDataModels.ConnectedUser.Owner.htm" />
+        <HelpTOCNode Title="UserName Property " Url="html/P-WeSketchSharedDataModels.ConnectedUser.UserName.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="5def80a4-88ad-4fd6-ba0c-5806c67bbb8b" Title="Result Class" Url="html/T-WeSketchSharedDataModels.Result.htm">
+      <HelpTOCNode Title="Result Members" Url="html/AllMembers.T-WeSketchSharedDataModels.Result.htm" />
+      <HelpTOCNode Title="Result Methods" Url="html/Methods.T-WeSketchSharedDataModels.Result.htm" />
+      <HelpTOCNode Id="e11a31dd-15b8-4aca-811d-0b93f46b82c0" Title="Result Properties" Url="html/Properties.T-WeSketchSharedDataModels.Result.htm">
+        <HelpTOCNode Title="Error Property " Url="html/P-WeSketchSharedDataModels.Result.Error.htm" />
+        <HelpTOCNode Title="ErrorMessage Property " Url="html/P-WeSketchSharedDataModels.Result.ErrorMessage.htm" />
+        <HelpTOCNode Title="ResultJSON Property " Url="html/P-WeSketchSharedDataModels.Result.ResultJSON.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="f55b3289-6ff2-492f-9de1-de1f72988561" Title="User Class" Url="html/T-WeSketchSharedDataModels.User.htm">
+      <HelpTOCNode Title="User Members" Url="html/AllMembers.T-WeSketchSharedDataModels.User.htm" />
+      <HelpTOCNode Title="User Methods" Url="html/Methods.T-WeSketchSharedDataModels.User.htm" />
+      <HelpTOCNode Id="927c9e61-87d7-448b-9ef3-3e156c2f9df2" Title="User Properties" Url="html/Properties.T-WeSketchSharedDataModels.User.htm">
+        <HelpTOCNode Title="Board Property " Url="html/P-WeSketchSharedDataModels.User.Board.htm" />
+        <HelpTOCNode Title="UserID Property " Url="html/P-WeSketchSharedDataModels.User.UserID.htm" />
+        <HelpTOCNode Title="UserName Property " Url="html/P-WeSketchSharedDataModels.User.UserName.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>

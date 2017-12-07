@@ -21,15 +21,25 @@ namespace WeSketch
     /// </summary>
     public partial class Login : Page
     {
+        /// <summary>
+        /// Triggers when a user is successfuly logged in to WeSketch.
+        /// </summary>
         public delegate void UserLoggedInEventHandler();
         public event UserLoggedInEventHandler UserLoggedInEvent;
 
         WeSketchRestRequests _rest = new WeSketchRestRequests();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Login"/> class.
+        /// </summary>
         public Login()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Disposes of the _rest object.
+        /// </summary>
         public void Closing()
         {
             _rest.Dispose();
@@ -37,7 +47,7 @@ namespace WeSketch
         }
 
         /// <summary>
-        /// Event for pressing the login button, checks for blank or empty space, runs authentication
+        /// Event for pressing the login button, checks for blank or empty space, runs authentication.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

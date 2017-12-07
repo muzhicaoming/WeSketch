@@ -9,8 +9,16 @@ using Microsoft.AspNet.SignalR;
 
 namespace WeSketchAPI.Controllers
 {
+    /// <summary>
+    /// WeSketch REST API calls.
+    /// </summary>
+    /// <seealso cref="System.Web.Mvc.Controller" />
     public class HomeController : Controller
     {
+        /// <summary>
+        /// Indexes this instance.
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";

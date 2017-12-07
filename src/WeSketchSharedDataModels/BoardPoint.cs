@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace WeSketchSharedDataModels
 {
+    /// <summary>
+    /// Used to convert a WPF InkCanvas Stylus to a serializable object.
+    /// </summary>
     public class BoardPoint
     {
         /// <summary>
@@ -15,6 +18,7 @@ namespace WeSketchSharedDataModels
         /// The user.
         /// </value>
         public string User { set; get; }
+
         /// <summary>
         /// Gets or sets the pressure factor.
         /// </summary>
@@ -22,6 +26,7 @@ namespace WeSketchSharedDataModels
         /// The pressure factor.
         /// </value>
         public float PressureFactor { set; get; }
+
         /// <summary>
         /// Gets or sets the x location for the point.
         /// </summary>
@@ -29,6 +34,7 @@ namespace WeSketchSharedDataModels
         /// The x.
         /// </value>
         public double X { set; get; }
+
         /// <summary>
         /// Gets or sets the y location for the point.
         /// </summary>
