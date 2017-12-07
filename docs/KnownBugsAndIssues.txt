@@ -1,0 +1,2 @@
+-Can not navigate back from registration page to login page once you 
+click on the register user button on the login page.
