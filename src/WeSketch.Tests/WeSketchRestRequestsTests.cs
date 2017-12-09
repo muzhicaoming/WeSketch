@@ -67,6 +67,9 @@ namespace WeSketch.Tests
             Assert.That(async () => await _rest.CreateUser(username, password, email), Throws.Exception.TypeOf<Exception>().And.Message.Contains("Error"));
         }
 
+        /// <summary>
+        /// Method to test invite an invalid user
+        /// </summary>
         [Test]
         public void InviteUserIncompleteData_RestInviteUserToBoard_ReturnsError()
         {

@@ -40,6 +40,7 @@ namespace WeSketch.Tests
                 var ex = Assert.Catch<Exception>(() => reg.CreateUser(userName, email, password));
                 StringAssert.Contains("Error", ex.Message);
             });
+
         }
     }
 }

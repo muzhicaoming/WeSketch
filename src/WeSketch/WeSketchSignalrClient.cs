@@ -17,7 +17,7 @@ namespace WeSketch
     /// <summary>
     /// Communication portal for the client to send and receive messages from the hub running on WeSketchAPI.
     /// </summary>
-    class WeSketchSignalrClient
+    public class WeSketchSignalrClient
     {
         /// <summary>
         /// Fires when the users board is changed.
