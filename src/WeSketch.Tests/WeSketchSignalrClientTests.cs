@@ -42,7 +42,10 @@ namespace WeSketch.Tests
         /// <param name="color"></param>
         /// <param name="boardId"></param>
         [Test]
-        [TestCase("", "", "")]
+        [TestCase("", "", null)]
+        [TestCase("someuser", "", null)]
+        [TestCase("", "somecolor", null)]
+        [TestCase("someuser", "somecolor", null)]
         public void IsInvalidJoinBoardGroup(string username, string color, Guid boardId) {
 
             WeSketchSignalrClient _signalr = new WeSketchSignalrClient();
@@ -57,7 +60,8 @@ namespace WeSketch.Tests
         /// <param name="user"></param>
         /// <param name="boardId"></param>
         [Test]
-        [TestCase("", "")]
+        [TestCase("", null)]
+        [TestCase("someuser", null)]
         public void IsInvalidKickUserFromBoard(string user, Guid boardId)
         {
 
@@ -74,7 +78,10 @@ namespace WeSketch.Tests
         /// <param name="boardId"></param>
         /// <param name="color"></param>
         [Test]
-        [TestCase("", "", "")]
+        [TestCase("", null, "")]
+        [TestCase("someuser", null, "")]
+        [TestCase("someuser", null, "somecolor")]
+        [TestCase("", null, "somecolor")]
         public void IsInvalidLeaveBoardGroup(string user, Guid boardId, string color)
         {
 
