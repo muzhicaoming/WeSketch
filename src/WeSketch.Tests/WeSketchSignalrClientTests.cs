@@ -27,12 +27,11 @@ namespace WeSketch.Tests
         [TestCase("", "")]
         [TestCase("", "somecolor")]
         [TestCase("someusername", "")]
-        public void IsInvalidChangeUserColor(string username, string color) {
-
-            WeSketchSignalrClient _signalr = new WeSketchSignalrClient();
-            var ex = Assert.Catch<Exception>(() => _signalr.ChangeUserColor(username, color));
+        public void IsInvalidChangeUserColor(string username, string color)
+        {
+            WeSketchSignalrClient signalr = new WeSketchSignalrClient();
+            var ex = Assert.Catch<Exception>(() => signalr.ChangeUserColor(username, color));
             StringAssert.Contains("Error", ex.Message);
-
         }
 
         /// <summary>
@@ -46,12 +45,11 @@ namespace WeSketch.Tests
         [TestCase("someuser", "", null)]
         [TestCase("", "somecolor", null)]
         [TestCase("someuser", "somecolor", null)]
-        public void IsInvalidJoinBoardGroup(string username, string color, Guid boardId) {
-
-            WeSketchSignalrClient _signalr = new WeSketchSignalrClient();
-            var ex = Assert.Catch<Exception>(() => _signalr.JoinBoardGroup(username, color, boardId));
+        public void IsInvalidJoinBoardGroup(string username, string color, Guid boardId)
+        {
+            WeSketchSignalrClient signalr = new WeSketchSignalrClient();
+            var ex = Assert.Catch<Exception>(() => signalr.JoinBoardGroup(username, color, boardId));
             StringAssert.Contains("Error", ex.Message);
-
         }
 
         /// <summary>
@@ -64,11 +62,9 @@ namespace WeSketch.Tests
         [TestCase("someuser", null)]
         public void IsInvalidKickUserFromBoard(string user, Guid boardId)
         {
-
-            WeSketchSignalrClient _signalr = new WeSketchSignalrClient();
-            var ex = Assert.Catch<Exception>(() => _signalr.KickUserFromBoard(user, boardId));
+            WeSketchSignalrClient signalr = new WeSketchSignalrClient();
+            var ex = Assert.Catch<Exception>(() => signalr.KickUserFromBoard(user, boardId));
             StringAssert.Contains("Error", ex.Message);
-
         }
 
         /// <summary>
@@ -84,11 +80,9 @@ namespace WeSketch.Tests
         [TestCase("", null, "somecolor")]
         public void IsInvalidLeaveBoardGroup(string user, Guid boardId, string color)
         {
-
-            WeSketchSignalrClient _signalr = new WeSketchSignalrClient();
-            var ex = Assert.Catch<Exception>(() => _signalr.LeaveBoardGroup(user, boardId, color));
+            WeSketchSignalrClient signalr = new WeSketchSignalrClient();
+            var ex = Assert.Catch<Exception>(() => signalr.LeaveBoardGroup(user, boardId, color));
             StringAssert.Contains("Error", ex.Message);
-
         }
 
         /// <summary>
@@ -99,10 +93,10 @@ namespace WeSketch.Tests
         [Test]
         [TestCase("", null)]
         [TestCase("someuser", null)]
-        public void IsInvalidRequestConnectedUsers(string user, Guid boardId) {
-
-            WeSketchSignalrClient _signalr = new WeSketchSignalrClient();
-            var ex = Assert.Catch<Exception>(() => _signalr.RequestConnectedUsers(user, boardId));
+        public void IsInvalidRequestConnectedUsers(string user, Guid boardId)
+        {
+            WeSketchSignalrClient signalr = new WeSketchSignalrClient();
+            var ex = Assert.Catch<Exception>(() => signalr.RequestConnectedUsers(user, boardId));
             StringAssert.Contains("Error", ex.Message);
         }
 
@@ -112,10 +106,10 @@ namespace WeSketch.Tests
         /// <param name="userId"></param>
         [Test]
         [TestCase(null)]
-        public void IsInvalidUserAuthenticated(Guid userId) {
-
-            WeSketchSignalrClient _signalr = new WeSketchSignalrClient();
-            var ex = Assert.Catch<Exception>(() => _signalr.UserAuthenticated(userId));
+        public void IsInvalidUserAuthenticated(Guid userId)
+        {
+            WeSketchSignalrClient signalr = new WeSketchSignalrClient();
+            var ex = Assert.Catch<Exception>(() => signalr.UserAuthenticated(userId));
             StringAssert.Contains("Error", ex.Message);
         }
     }

@@ -21,8 +21,8 @@ namespace WeSketch.Tests
         [TestCase("someusername", "")]
         public void IsInvalidLogin_RestLogin_ReturnsError(string username, string password)
         {
-            WeSketchRestRequests _rest = new WeSketchRestRequests();
-            Assert.That(async () => await _rest.Login(username, password), Throws.Exception.TypeOf<Exception>().And.Message.Contains("Error"));
+            WeSketchRestRequests rest = new WeSketchRestRequests();
+            Assert.That(async () => await rest.Login(username, password), Throws.Exception.TypeOf<Exception>().And.Message.Contains("Error"));
         }
 
         /// <summary>
@@ -31,8 +31,8 @@ namespace WeSketch.Tests
         [Test]
         public async Task CreateUser_RestCreateUser_ReturnsUser()
         {
-            WeSketchRestRequests _rest = new WeSketchRestRequests();
-            User usr = await _rest.CreateUser("tester", "TestPassword", "tester@test.com");
+            WeSketchRestRequests rest = new WeSketchRestRequests();
+            User usr = await rest.CreateUser("tester", "TestPassword", "tester@test.com");
             Assert.IsNotNull(usr);
         }
 
@@ -42,8 +42,8 @@ namespace WeSketch.Tests
         [Test]
         public async Task IsValidLogin_RestLogin_ReturnsUser()
         {
-            WeSketchRestRequests _rest = new WeSketchRestRequests();
-            User usr = await _rest.Login("tester", "TestPassword");
+            WeSketchRestRequests rest = new WeSketchRestRequests();
+            User usr = await rest.Login("tester", "TestPassword");
             Assert.IsNotNull(usr);
         }
 
@@ -63,8 +63,8 @@ namespace WeSketch.Tests
         [TestCase("someusername", "", "someemail")]
         public void CreateUserIncomplete_RestCreateUser_ReturnsError(string username, string password, string email)
         {
-            WeSketchRestRequests _rest = new WeSketchRestRequests();
-            Assert.That(async () => await _rest.CreateUser(username, password, email), Throws.Exception.TypeOf<Exception>().And.Message.Contains("Error"));
+            WeSketchRestRequests rest = new WeSketchRestRequests();
+            Assert.That(async () => await rest.CreateUser(username, password, email), Throws.Exception.TypeOf<Exception>().And.Message.Contains("Error"));
         }
 
         /// <summary>
@@ -74,8 +74,8 @@ namespace WeSketch.Tests
         public void InviteUserIncompleteData_RestInviteUserToBoard_ReturnsError()
         {
             Guid boardGuid = Guid.NewGuid();
-            WeSketchRestRequests _rest = new WeSketchRestRequests();
-            var ex = Assert.Catch<Exception>(() => _rest.InviteUserToBoard("", "", boardGuid));
+            WeSketchRestRequests rest = new WeSketchRestRequests();
+            var ex = Assert.Catch<Exception>(() => rest.InviteUserToBoard("", "", boardGuid));
             StringAssert.Contains("Error", ex.Message);
         }
     }
