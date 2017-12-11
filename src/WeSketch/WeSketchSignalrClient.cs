@@ -179,6 +179,15 @@ namespace WeSketch
         /// <param name="color">The color.</param>
         public void ChangeUserColor(string userName, string color)
         {
+
+            if (userName == string.Empty)
+            {
+                throw new Exception(message: $"Error: A username is required.");
+            }
+            if (color == string.Empty)
+            {
+                throw new Exception(message: $"Error: A color is required.");
+            }
             InvokeHubDependantAction(() =>
             _hubProxy.Invoke<Task>("ChangeUserColor", userName, color));
         }
@@ -191,6 +200,18 @@ namespace WeSketch
         /// <param name="boardId">The board identifier.</param>
         public void JoinBoardGroup(string userName, string color, Guid boardId)
         {
+            if (userName == string.Empty)
+            {
+                throw new Exception(message: $"Error: A username is required.");
+            }
+            if (color == string.Empty)
+            {
+                throw new Exception(message: $"Error: A color is required.");
+            }
+            if (boardId == null)
+            {
+                throw new Exception(message: $"Error: ID required.");
+            }
             InvokeHubDependantAction(() =>
             {
                 _hubProxy.Invoke<Task>("JoinBoardGroup", userName, color, boardId);
@@ -206,6 +227,14 @@ namespace WeSketch
         /// <param name="boardId">The board identifier.</param>
         public void KickUserFromBoard(string user, Guid boardId)
         {
+            if (user == string.Empty)
+            {
+                throw new Exception(message: $"Error: A user is required.");
+            }
+            if (boardId == null)
+            {
+                throw new Exception(message: $"Error: ID required.");
+            }
             InvokeHubDependantAction(() =>
             _hubProxy.Invoke<Task>("KickUserFromBoard", user, boardId));
         }
@@ -217,6 +246,18 @@ namespace WeSketch
         /// <param name="boardId">The board that the user is leaving.</param>
         public void LeaveBoardGroup(string user, Guid boardId, string color)
         {
+            if (user == string.Empty)
+            {
+                throw new Exception(message: $"Error: A user is required.");
+            }
+            if (boardId == null)
+            {
+                throw new Exception(message: $"Error: ID required.");
+            }
+            if (color == string.Empty)
+            {
+                throw new Exception(message: $"Error: A color is required.");
+            }
             InvokeHubDependantAction(() =>
             _hubProxy.Invoke<Task>("LeaveBoardGroup", user, boardId, color));
         }
@@ -237,6 +278,14 @@ namespace WeSketch
         /// <param name="boardId">The board identifier.</param>
         public void RequestConnectedUsers(string user, Guid boardId)
         {
+            if (user == string.Empty)
+            {
+                throw new Exception(message: $"Error: A user is required.");
+            }
+            if (boardId == null)
+            {
+                throw new Exception(message: $"Error: ID required.");
+            }
             InvokeHubDependantAction(() => _hubProxy.Invoke("RequestConnectedUsers", user, boardId));
         }
 
@@ -322,6 +371,10 @@ namespace WeSketch
         /// <param name="userId">The user identifier.</param>
         public void UserAuthenticated(Guid userId)
         {
+            if (userId == null)
+            {
+                throw new Exception(message: $"Error: User ID required.");
+            }
             InvokeHubDependantAction(() => _hubProxy.Invoke("UserAuthenticated", userId));
         }
 

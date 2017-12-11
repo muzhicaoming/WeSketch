@@ -90,5 +90,33 @@ namespace WeSketch.Tests
             StringAssert.Contains("Error", ex.Message);
 
         }
+
+        /// <summary>
+        /// Method to test valid requesting connected users
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="boardId"></param>
+        [Test]
+        [TestCase("", null)]
+        [TestCase("someuser", null)]
+        public void IsInvalidRequestConnectedUsers(string user, Guid boardId) {
+
+            WeSketchSignalrClient _signalr = new WeSketchSignalrClient();
+            var ex = Assert.Catch<Exception>(() => _signalr.RequestConnectedUsers(user, boardId));
+            StringAssert.Contains("Error", ex.Message);
+        }
+
+        /// <summary>
+        /// Method to test valid authentication of user
+        /// </summary>
+        /// <param name="userId"></param>
+        [Test]
+        [TestCase(null)]
+        public void IsInvalidUserAuthenticated(Guid userId) {
+
+            WeSketchSignalrClient _signalr = new WeSketchSignalrClient();
+            var ex = Assert.Catch<Exception>(() => _signalr.UserAuthenticated(userId));
+            StringAssert.Contains("Error", ex.Message);
+        }
     }
 }
