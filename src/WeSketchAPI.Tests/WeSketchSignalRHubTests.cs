@@ -1,6 +1,8 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using WeSketchAPI;
+using Microsoft.AspNet.SignalR.Hubs;
 using Moq;
+using System.Dynamic;
 using NUnit.Framework;
 
 namespace WeSketchAPI.Tests
@@ -10,30 +12,26 @@ namespace WeSketchAPI.Tests
     {
         private WeSketchSignalRHub _hub;
 
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
-
         [SetUp]
         public void SetUpTests()
         {
             _hub = new WeSketchSignalRHub();
         }
 
-        [Fact]
+        [Test]
         public void HubsAreMockableViaDynamic()
         {
+            Guid boardGuid = new Guid("f990354c-f904-420c-a297-2cbb96d25a17");
             bool sendCalled = false;
             var hub = new WeSketchSignalRHub();
-            var mockClients = new Mock<I<dynamic>>();
+            var mockClients = new Mock<IHubCallerConnectionContext<dynamic>>();
             hub.Clients = mockClients.Object;
             dynamic all = new ExpandoObject();
             all.broadcastMessage = new Action<string, string>((name, message) => {
                 sendCalled = true;
             });
             mockClients.Setup(m => m.All).Returns((ExpandoObject)all);
-            hub.Send("TestUser", "TestMessage");
+            hub.SendInvitation("TesterExists", boardGuid);
             Assert.True(sendCalled);
         }
     }
