@@ -1,2 +1,6 @@
--Can not navigate back from registration page to login page once you 
-click on the register user button on the login page.
+-No way to get back to login page once you click on register button.
+-When a board owner leaves a board other users can potentially be 
+left in the board. When a board owner rejoins their own board they 
+do not currently see anyone who is connected. They may receive 
+updates from users that they don’t know are connected.
+-Drawing outside of the bounds of the board will grow the board.

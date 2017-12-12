@@ -16,7 +16,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <InkCanvas Margin="0,-2,148,0" Name= "mainInkCanvas"/>
+            <InkCanvas Margin="0,-2,148,0" Name= "mainInkCanvas" ResizeEnabled="False"/>
             <Label Name="userLabel" Margin="857,-2,10,764" FontSize="16">userLabel</Label>
             <Button Content="Invite" HorizontalAlignment="Left" Margin="857,36,0,0" VerticalAlignment="Top" Width="133" Name= "inviteButton"/>
             <Button Content="Clear" HorizontalAlignment="Left" Margin="857,66,0,0" VerticalAlignment="Top" Width="133" Name= "clearButton"/>
